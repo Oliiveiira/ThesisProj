@@ -12,6 +12,7 @@ public class Products : MonoBehaviour
     private GameObject listPaper;
     System.Random random = new();
     public string difficulty = "Easy";
+    public int arraySize = 3;
 
     private void Awake()
     {
@@ -33,27 +34,43 @@ public class Products : MonoBehaviour
         }
     }
 
-    void Difficulty()
-    {
-        if(difficulty == "Easy")
-        {
-            productsToGet.Length.Equals(3);
-        }
-    }
-
     void ShowList()
     {
-        Difficulty();
         listPaper.SetActive(true);
         // int randomIndex = Random.Range(0, allObjects.Length);
         allObjects = allObjects.OrderBy(x => random.Next()).ToArray(); //Randomize Array
-        Debug.Log(allObjects);
-        for (int i = 0; i < productsToGet.Length; i++)
+
+        //Debug.Log(allObjects);
+        if(difficulty == "Easy")
         {
+            arraySize = 3;
+            for (int i = 0; i < arraySize; i++)
+            {
 
-            productsToGet[i].text = allObjects[i].objectName;
+                productsToGet[i].text = allObjects[i].objectName;
 
+            }
+        }else if (difficulty == "Medium")
+        {
+            arraySize = 4;
+            for (int i = 0; i < arraySize; i++)
+            {
+
+                productsToGet[i].text = allObjects[i].objectName;
+
+            }
         }
+        else if (difficulty == "High")
+        {
+            arraySize = 5;
+            for (int i = 0; i < arraySize; i++)
+            {
+
+                productsToGet[i].text = allObjects[i].objectName;
+
+            }
+        }
+
     }
 
 

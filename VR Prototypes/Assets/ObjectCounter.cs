@@ -14,7 +14,12 @@ public class ObjectCounter : MonoBehaviour
 
     private void Update()
     {
-        if(successCounter == products.productsToGet.Length)
+        Win();
+    }
+
+    void Win()
+    {
+        if (successCounter == products.arraySize)
         {
             Debug.Log("Ganhou");
         }
@@ -27,7 +32,7 @@ public class ObjectCounter : MonoBehaviour
         {
             //ObjectSO products = other.gameObject.GetComponent<ObjectSO>();
 
-            for(int i = 0; i< products.productsToGet.Length; i++)
+            for(int i = 0; i< products.arraySize; i++)
             {
                 //Debug.Log(other.name);
                 if (other.name.Equals(products.productsToGet[i].text))
