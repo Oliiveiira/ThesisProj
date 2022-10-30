@@ -3223,6 +3223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   products: {fileID: 217771421}
+  isInFlag: 0
 --- !u!65 &1135440407
 BoxCollider:
   m_ObjectHideFlags: 0

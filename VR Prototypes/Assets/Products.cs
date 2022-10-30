@@ -41,35 +41,65 @@ public class Products : MonoBehaviour
         allObjects = allObjects.OrderBy(x => random.Next()).ToArray(); //Randomize Array
 
         //Debug.Log(allObjects);
-        if(difficulty == "Easy")
+        switch (difficulty)
         {
-            arraySize = 3;
-            for (int i = 0; i < arraySize; i++)
-            {
+            case "Easy":
+                arraySize = 3;
+                for (int i = 0; i < arraySize; i++)
+                {
 
-                productsToGet[i].text = allObjects[i].objectName;
+                    productsToGet[i].text = allObjects[i].objectName;
 
-            }
-        }else if (difficulty == "Medium")
-        {
-            arraySize = 4;
-            for (int i = 0; i < arraySize; i++)
-            {
+                }
+                break;
+            case "Medium":
+                arraySize = 4;
+                for (int i = 0; i < arraySize; i++)
+                {
 
-                productsToGet[i].text = allObjects[i].objectName;
+                    productsToGet[i].text = allObjects[i].objectName;
 
-            }
+                }
+                break;
+            case "High":
+                arraySize = 5;
+                for (int i = 0; i < arraySize; i++)
+                {
+
+                    productsToGet[i].text = allObjects[i].objectName;
+
+                }
+                break;
         }
-        else if (difficulty == "High")
-        {
-            arraySize = 5;
-            for (int i = 0; i < arraySize; i++)
-            {
+        //if(difficulty == "Easy")
+        //{
+        //    arraySize = 3;
+        //    for (int i = 0; i < arraySize; i++)
+        //    {
 
-                productsToGet[i].text = allObjects[i].objectName;
+        //        productsToGet[i].text = allObjects[i].objectName;
 
-            }
-        }
+        //    }
+        //}else if (difficulty == "Medium")
+        //{
+        //    arraySize = 4;
+        //    for (int i = 0; i < arraySize; i++)
+        //    {
+
+        //        productsToGet[i].text = allObjects[i].objectName;
+
+        //    }
+        //}
+        //else if (difficulty == "High")
+        //{
+        //    arraySize = 5;
+        //    for (int i = 0; i < arraySize; i++)
+        //    {
+
+        //        productsToGet[i].text = allObjects[i].objectName;
+
+        //    }
+        //}
 
     }
 
