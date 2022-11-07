@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu] 
+[CreateAssetMenu(menuName ="Products/New Product")] 
 public class ObjectSO : ScriptableObject
 {
     //ScriptableObject to keep float data from objects(ex:Hp)
     [SerializeField]
-    public string objectName;
-
-    //public string Name
-    //{
-    //    get { return _name; }
-    //    set { _name = value; }
-    //}
-
+    public string productName;
+    public int productCost;
 }

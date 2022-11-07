@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c027190d5ba95489905a0d1a2fa59a, type: 3}
   m_Name: Kiwi
   m_EditorClassIdentifier: 
-  objectName: Kiwi
+  productName: Kiwi
+  productCost: 0

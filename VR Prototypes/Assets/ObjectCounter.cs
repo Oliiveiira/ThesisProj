@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RoboRyanTron.Unite2017.Events;
 
 public class ObjectCounter : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class ObjectCounter : MonoBehaviour
     private int successCounter;
     [SerializeField]
     private  bool isInFlag;
+    [SerializeField]
+    private GameEvent scoreUI;
+
 
     private void Update()
     {
@@ -38,6 +42,7 @@ public class ObjectCounter : MonoBehaviour
             {
                 if (other.name.Equals(products.productsToGet[i].text))
                 {
+                    scoreUI.Raise(); //Evento para adicionar 1 ponto no score
                     products.productsToGet[i].SetText("Boa");
                     Debug.Log("yes");
                     successCounter++;
@@ -55,6 +60,4 @@ public class ObjectCounter : MonoBehaviour
 
         }
     }
-
- 
 }

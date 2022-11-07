@@ -13,7 +13,7 @@ public class ObjectGrabbable : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        name = objects.objectName;
+        name = objects.productName;
     }
 
     // Update is called once per frame

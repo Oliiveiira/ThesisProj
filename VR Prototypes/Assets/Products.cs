@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Linq;
+using RoboRyanTron.Unite2017.Events;
 
 public class Products : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class Products : MonoBehaviour
     System.Random random = new();
     public string difficulty = "Easy";
     public int arraySize = 3;
+    public GameEvent startTimer;
+
+    [SerializeField]
+    private FloatSO level;
 
     private void Awake()
     {
@@ -28,7 +33,7 @@ public class Products : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.L))
         {
             ShowList();
         }
@@ -36,70 +41,74 @@ public class Products : MonoBehaviour
 
     void ShowList()
     {
+        startTimer.Raise();
         listPaper.SetActive(true);
         // int randomIndex = Random.Range(0, allObjects.Length);
         allObjects = allObjects.OrderBy(x => random.Next()).ToArray(); //Randomize Array
 
-        //Debug.Log(allObjects);
-        switch (difficulty)
+        if (level.Value < 10)
         {
-            case "Easy":
-                arraySize = 3;
-                for (int i = 0; i < arraySize; i++)
-                {
+            arraySize = 3;
+            for (int i = 0; i < arraySize; i++)
+            {
 
-                    productsToGet[i].text = allObjects[i].objectName;
+                productsToGet[i].text = allObjects[i].productName;
 
-                }
-                break;
-            case "Medium":
-                arraySize = 4;
-                for (int i = 0; i < arraySize; i++)
-                {
+            }
 
-                    productsToGet[i].text = allObjects[i].objectName;
-
-                }
-                break;
-            case "High":
-                arraySize = 5;
-                for (int i = 0; i < arraySize; i++)
-                {
-
-                    productsToGet[i].text = allObjects[i].objectName;
-
-                }
-                break;
         }
-        //if(difficulty == "Easy")
+        else if (level.Value >= 10 && level.Value < 25)
+        {
+            arraySize = 4;
+            for (int i = 0; i < arraySize; i++)
+            {
+
+                productsToGet[i].text = allObjects[i].productName;
+
+            }
+        }
+        else if (level.Value >= 25 && level.Value < 50)
+        {
+            arraySize = 5;
+            for (int i = 0; i < arraySize; i++)
+            {
+
+                productsToGet[i].text = allObjects[i].productName;
+
+            }
+        }
+        //Debug.Log(allObjects);
+        //switch (difficulty)
         //{
-        //    arraySize = 3;
-        //    for (int i = 0; i < arraySize; i++)
-        //    {
+        //    case "Easy":
+        //        arraySize = 3;
+        //        for (int i = 0; i < arraySize; i++)
+        //        {
 
-        //        productsToGet[i].text = allObjects[i].objectName;
+        //            productsToGet[i].text = allObjects[i].productName;
 
-        //    }
-        //}else if (difficulty == "Medium")
-        //{
-        //    arraySize = 4;
-        //    for (int i = 0; i < arraySize; i++)
-        //    {
+        //        }
+        //        break;
+        //    case "Medium":
+        //        arraySize = 4;
+        //        for (int i = 0; i < arraySize; i++)
+        //        {
 
-        //        productsToGet[i].text = allObjects[i].objectName;
+        //            productsToGet[i].text = allObjects[i].productName;
 
-        //    }
+        //        }
+        //        break;
+        //    case "High":
+        //        arraySize = 5;
+        //        for (int i = 0; i < arraySize; i++)
+        //        {
+
+        //            productsToGet[i].text = allObjects[i].productName;
+
+        //        }
+        //        break;
         //}
-        //else if (difficulty == "High")
-        //{
-        //    arraySize = 5;
-        //    for (int i = 0; i < arraySize; i++)
-        //    {
 
-        //        productsToGet[i].text = allObjects[i].objectName;
-
-        //    }
-        //}
 
     }
 
