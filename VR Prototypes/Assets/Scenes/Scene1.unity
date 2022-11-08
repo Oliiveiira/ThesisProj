@@ -1121,6 +1121,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8247994413960396516, guid: 92a7d6b6e513ef449b3da5870e85d40c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cd50383f6da566c49bcf656dec3f447d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92a7d6b6e513ef449b3da5870e85d40c, type: 3}
 --- !u!1 &433627523 stripped
@@ -6393,6 +6397,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8956690998484749554, guid: f34f1f076b7c1cb45ad9fb230591e9a0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 16e2b6ee43a02c54d9199ed6ebc51763, type: 2}
+    - target: {fileID: -8904442129504745861, guid: f34f1f076b7c1cb45ad9fb230591e9a0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a9c71d15324d4d045a4ca5063a837a87, type: 2}
     - target: {fileID: -8679921383154817045, guid: f34f1f076b7c1cb45ad9fb230591e9a0, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -6453,10 +6465,42 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6629760478573124483, guid: f34f1f076b7c1cb45ad9fb230591e9a0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a9c71d15324d4d045a4ca5063a837a87, type: 2}
+    - target: {fileID: -5605676732137019010, guid: f34f1f076b7c1cb45ad9fb230591e9a0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 16e2b6ee43a02c54d9199ed6ebc51763, type: 2}
+    - target: {fileID: -4305688831111386168, guid: f34f1f076b7c1cb45ad9fb230591e9a0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a9c71d15324d4d045a4ca5063a837a87, type: 2}
+    - target: {fileID: -4225056444611660287, guid: f34f1f076b7c1cb45ad9fb230591e9a0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cd50383f6da566c49bcf656dec3f447d, type: 2}
+    - target: {fileID: -2862405557082063616, guid: f34f1f076b7c1cb45ad9fb230591e9a0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 16e2b6ee43a02c54d9199ed6ebc51763, type: 2}
     - target: {fileID: 919132149155446097, guid: f34f1f076b7c1cb45ad9fb230591e9a0, type: 3}
       propertyPath: m_Name
       value: ShoppingCart
       objectReference: {fileID: 0}
+    - target: {fileID: 3966114546418556472, guid: f34f1f076b7c1cb45ad9fb230591e9a0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a9c71d15324d4d045a4ca5063a837a87, type: 2}
+    - target: {fileID: 4494609156935415603, guid: f34f1f076b7c1cb45ad9fb230591e9a0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a9c71d15324d4d045a4ca5063a837a87, type: 2}
+    - target: {fileID: 5662081813253740457, guid: f34f1f076b7c1cb45ad9fb230591e9a0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 16e2b6ee43a02c54d9199ed6ebc51763, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f34f1f076b7c1cb45ad9fb230591e9a0, type: 3}
 --- !u!1 &1221972318 stripped
@@ -7700,6 +7744,8 @@ MonoBehaviour:
   listPaper: {fileID: 1454294372}
   difficulty: Easy
   arraySize: 3
+  startTimer: {fileID: 0}
+  level: {fileID: 0}
 --- !u!4 &1587359684
 Transform:
   m_ObjectHideFlags: 0
@@ -11037,6 +11083,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   products: {fileID: 1587359683}
   isInFlag: 0
+  scoreUI: {fileID: 0}
 --- !u!1 &2114101212 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4933645287692842813, guid: 92a7d6b6e513ef449b3da5870e85d40c, type: 3}
