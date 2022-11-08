@@ -16,8 +16,13 @@ public class ObjectCounter : MonoBehaviour
     private  bool isInFlag;
     [SerializeField]
     private GameEvent scoreUI;
+    [SerializeField]
+    private GameEvent setWinPanel;
 
+    private void Start()
+    {
 
+    }
     private void Update()
     {
         //Win();
@@ -27,6 +32,7 @@ public class ObjectCounter : MonoBehaviour
     {
         if (successCounter == products.arraySize)
         {
+            setWinPanel.Raise();
             Debug.Log("Ganhou");
         }
     }

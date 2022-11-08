@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f25a790e77d739743b5205541c750f1a, type: 3}
-  m_Name: Level
+  m_Script: {fileID: 11500000, guid: c94aa33f6f3c27649a34106bdb10fc3f, type: 3}
+  m_Name: ResetScene
   m_EditorClassIdentifier: 
-  _value: 1

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using RoboRyanTron.Unite2017.Events;
+using UnityEngine.SceneManagement;
 
 public class CountdownTimer : MonoBehaviour
 {
@@ -11,11 +13,17 @@ public class CountdownTimer : MonoBehaviour
     [SerializeField]
     private GameObject losePanel;
     [SerializeField]
+    private GameObject winPanel;
+    [SerializeField]
+    private GameObject transitionPanel;
+    [SerializeField]
     private bool startTimer = false;
     [SerializeField]
     private FloatSO level;
     [SerializeField]
     private TMP_Text countdown;
+    [SerializeField]
+    private GameEvent resetScene;
 
     void Start()
     {
@@ -70,5 +78,36 @@ public class CountdownTimer : MonoBehaviour
     public void EnableTimer() //Event to Enable Timer
     {
         startTimer = true;
+    }
+
+    public void EnableWinPanel()
+    {
+        winPanel.SetActive(true);
+        startTimer = false;
+
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    void ResetTimer()
+    {
+        startTimer = false;
+        currentTime = 0;
+    }
+
+    public void NextLevel()
+    {
+        //ResetTimer();
+        //winPanel.SetActive(false);
+        level.Value++;
+        StartCoroutine(TransitionPanel());
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //resetScene.Raise();
+    }
+
+    private IEnumerator TransitionPanel()
+    {
+        transitionPanel.SetActive(true);
+        yield return new WaitForSeconds(1);
+        transitionPanel.SetActive(false);
     }
 }

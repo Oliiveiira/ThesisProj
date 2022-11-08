@@ -14,13 +14,18 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         score.Value = 0;
-        scoreText.text = score.Value.ToString() + "Points";
+        scoreText.text = score.Value.ToString() + " Points";
     }
 
     public void AddPoint()
     {
         score.Value += 1;
-        scoreText.text = score.Value.ToString() + "Points";
+        scoreText.text = score.Value.ToString() + " Points";
+    }
+
+    public void ResetScore()
+    {
+        score.Value = 0;
     }
 
     // Update is called once per frame

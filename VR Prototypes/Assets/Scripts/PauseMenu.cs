@@ -2,16 +2,13 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using RoboRyanTron.Unite2017.Events;
+
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool isGamePaused = false;
     public CanvasGroup cvPauseMenu;
     public Canvas canvas;
-
-    public GameEvent playerFreeze;
-    public GameEvent playerUnfreeze;
   //  public GameObject crosshair;
 
     private void Awake()
@@ -49,7 +46,6 @@ public class PauseMenu : MonoBehaviour
         // pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isGamePaused = false;
-        playerFreeze.Raise();
        // crosshair.SetActive(true);
     }
 
@@ -60,7 +56,6 @@ public class PauseMenu : MonoBehaviour
         // pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         isGamePaused = true;
-        playerUnfreeze.Raise();
        // crosshair.SetActive(false);
     }
 }
