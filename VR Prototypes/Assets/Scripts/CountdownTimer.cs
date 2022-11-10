@@ -46,8 +46,9 @@ public class CountdownTimer : MonoBehaviour
 
         if (currentTime <= 0)
         {
-            currentTime = 0;
-            losePanel.SetActive(true);
+            EnableLosePanel();
+            //currentTime = 0;
+            //losePanel.SetActive(true);
         }
     }
 
@@ -88,10 +89,24 @@ public class CountdownTimer : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
     }
 
+    public void EnableLosePanel()
+    {
+        losePanel.SetActive(true);
+        startTimer = false;
+
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     void ResetTimer()
     {
         startTimer = false;
         currentTime = 0;
+    }
+
+    public void ResetLevel()
+    {
+        StartCoroutine(TransitionPanel());
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void NextLevel()

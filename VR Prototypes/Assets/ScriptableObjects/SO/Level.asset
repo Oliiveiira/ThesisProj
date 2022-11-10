@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f25a790e77d739743b5205541c750f1a, type: 3}
   m_Name: Level
   m_EditorClassIdentifier: 
-  _value: 11
+  _value: 8
