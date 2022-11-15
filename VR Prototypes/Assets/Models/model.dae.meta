@@ -1,0 +1,251 @@
+fileFormatVersion: 2
+guid: ff2306bbe1c7f3c4484f893ccdbd8d72
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BananaShdr
+    second: {fileID: 2100000, guid: 10ccf891427a5d942b9151258a0edff5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CerealShdr
+    second: {fileID: 2100000, guid: fe23c51880d2c844e81c1c832f673c1c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DcolaBottleShdr
+    second: {fileID: 2100000, guid: da361b3046ec56f4e96ea8158837939f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DcolaLiquidShdr
+    second: {fileID: 2100000, guid: 974e9adc64209f74fab655b45a99aed2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DcolaiLiquidShdr
+    second: {fileID: 2100000, guid: d88156f8b38a07042b801b694f11ba61, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DetergentShdr
+    second: {fileID: 2100000, guid: e194a4f933cf5e4488276c99389a0f3d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: EggCoverShdr
+    second: {fileID: 2100000, guid: f216d705f9bccb049be24508def75ecb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LetuceBagShdr
+    second: {fileID: 2100000, guid: 01051eb6b48a92547a19f240e7e727bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LetuceShdr
+    second: {fileID: 2100000, guid: 4d0bc40d5ad5c2e428b9cc6b4b1aead3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PearShdr
+    second: {fileID: 2100000, guid: 47c7046b6f854b34790a3b81f0dd7660, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ToliletBagShdr
+    second: {fileID: 2100000, guid: e790b632bfef9f44eb677b18dd6a3d03, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: beerBottleSdhr
+    second: {fileID: 2100000, guid: 35bc98d0c92c0314e9dc80e826b639a1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: beerLiquidNcapShdr
+    second: {fileID: 2100000, guid: d09cff5d3aeebce4c8bb54c338d396fb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: beerPackShdr
+    second: {fileID: 2100000, guid: 2037d9dabaa961b4db59bb3aae009721, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: beerShdr
+    second: {fileID: 2100000, guid: f5f06683b36cc6046a4992d3b057e20f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: breadBagShdr
+    second: {fileID: 2100000, guid: 23be7d4100238074488fc6da50697af0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: breadShdr
+    second: {fileID: 2100000, guid: 738af15f0c48c4143bb2b407a3b5fbb1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: butterShdr
+    second: {fileID: 2100000, guid: 2eaf82736ffcd0b468bbddf502c9c3b4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: carrotShdr
+    second: {fileID: 2100000, guid: c60ce1afbec490f4a9d1929b99424d10, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: catchupShdr
+    second: {fileID: 2100000, guid: d9e3e09f0fd4481408a6aa728695e6d5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eggShdr
+    second: {fileID: 2100000, guid: f9915807c8609d740ad37ec1aaa1d76e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: jellyGlassShdr
+    second: {fileID: 2100000, guid: 18ae4aa45d52ba344b0f365ad11e3e5c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: jellyShdr
+    second: {fileID: 2100000, guid: 895574d7823394e4abfc5dd957d3bde4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mostardShadr
+    second: {fileID: 2100000, guid: 958d4dbdfe6647741995d0ceee7c844f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: onionShdr
+    second: {fileID: 2100000, guid: 0e0636623cd5a0648b82c5137170bce6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: potatoChipShdr
+    second: {fileID: 2100000, guid: 12e21edef5af7164da288707a40da0f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sodaShdr
+    second: {fileID: 2100000, guid: 034073b33dab37a4ca1658b9e4c7dd0f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: toiletPaperShdr
+    second: {fileID: 2100000, guid: 611330ae1d254ed4bb2d7bf20a824a95, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tomatoShdr
+    second: {fileID: 2100000, guid: c96c700badd703949b4600ee8b01d74e, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
