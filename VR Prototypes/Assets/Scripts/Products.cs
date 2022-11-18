@@ -15,7 +15,7 @@ public class Products : MonoBehaviour
     public string difficulty = "Easy";
     public int arraySize = 3;
     public GameEvent startTimer;
-
+    private bool alreadyShowed;
     [SerializeField]
     private FloatSO level;
 
@@ -33,14 +33,18 @@ public class Products : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
+        if (!alreadyShowed)
         {
-            ShowList();
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                ShowList();
+            }
         }
     }
 
     void ShowList()
     {
+        alreadyShowed = true;
         startTimer.Raise();
         listPaper.SetActive(true);
         // int randomIndex = Random.Range(0, allObjects.Length);
@@ -109,7 +113,13 @@ public class Products : MonoBehaviour
         //        break;
         //}
 
+        StartCoroutine(HideList());
+    }
 
+    private IEnumerator HideList()
+    {
+        yield return new WaitForSeconds(5);
+        listPaper.SetActive(false);
     }
 
 
