@@ -7,8 +7,10 @@ public class ObjectCounter : MonoBehaviour
 {
     //[SerializeField]
     //private ProductListManager productList;
+    //[SerializeField]
+    //private Products products; //Para utilizar em 3D
     [SerializeField]
-    private Products products;
+    private GameManager products;
     //[SerializeField]
     //private ObjectSO objectSO;
     private int successCounter;

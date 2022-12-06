@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d105a52275d69b547bdcc0c1af4aede7
+guid: c68b31d5867920f4897f1988720a75a4
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -22,16 +22,6 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Light
-    second: {fileID: 2100000, guid: 4ca65cbce5f8e1a4e9c10d2ef8a9965e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: 2febbd461140cc4438ef72ca45f164e1, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: Metallic Dark Grey
     second: {fileID: 2100000, guid: 9e971f6d3e567ac44abcdecf1c670747, type: 2}
   - first:
@@ -39,11 +29,6 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Stucco
     second: {fileID: 2100000, guid: cc0270b64a66b7046bda3952cecd2f8f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wall
-    second: {fileID: 2100000, guid: c7a10c16f012ef848b884eab1b8db745, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
