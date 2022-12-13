@@ -22,6 +22,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: LED BLUE
+    second: {fileID: 2100000, guid: b00b006850790a64b88477963a19664a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 2febbd461140cc4438ef72ca45f164e1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Metallic Dark Grey
     second: {fileID: 2100000, guid: 9e971f6d3e567ac44abcdecf1c670747, type: 2}
   - first:

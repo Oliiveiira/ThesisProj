@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CinemachineTarget
   - Objects
+  - Money
   layers:
   - Default
   - TransparentFX

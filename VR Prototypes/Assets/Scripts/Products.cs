@@ -18,8 +18,8 @@ public class Products : MonoBehaviour
     private bool alreadyShowed;
     [SerializeField]
     private FloatSO level;
-    [SerializeField]
-    private GameObject startButton;
+    //[SerializeField]
+    //private GameObject startButton;
 
     private void Awake()
     {
@@ -46,7 +46,7 @@ public class Products : MonoBehaviour
 
     public void ShowList()
     {
-        startButton.SetActive(false);
+        //startButton.SetActive(false);
         alreadyShowed = true;
         startTimer.Raise();
         listPaper.SetActive(true);

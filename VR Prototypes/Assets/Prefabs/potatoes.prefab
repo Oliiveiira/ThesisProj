@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 202622505456467862}
   - component: {fileID: 1383089349659300945}
   - component: {fileID: 1024543393177644766}
+  - component: {fileID: -6791081287267896336}
   m_Layer: 7
   m_Name: potatoes
   m_TagString: Objects
@@ -135,7 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b3638a3b9d41e74f943fdfb6aad0ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects: {fileID: 11400000, guid: 8b5669a7614a7ac43bd99a0737b3b663, type: 2}
 --- !u!114 &6569668532997891163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,3 +310,17 @@ MonoBehaviour:
   _whenCancel:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-6791081287267896336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6783941517973444769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b248e38b800cd004eb65c47dc6bebc96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects: {fileID: 11400000, guid: 8b5669a7614a7ac43bd99a0737b3b663, type: 2}
+  productCost: 0

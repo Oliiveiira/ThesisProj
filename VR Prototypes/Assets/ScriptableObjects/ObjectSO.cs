@@ -8,5 +8,5 @@ public class ObjectSO : ScriptableObject
     //ScriptableObject to keep float data from objects(ex:Hp)
     [SerializeField]
     public string productName;
-    public int productCost;
+    public float productCost;
 }

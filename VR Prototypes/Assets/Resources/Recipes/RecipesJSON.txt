@@ -1,0 +1,18 @@
+{
+	"recipe": [
+		{
+			"budget": 10,
+			"budgetPrefab": "Money/10euros",
+			"recipeName": "Cake",
+			"spriteURL": "Recipes/Cake.jpg",
+			"ingredients":["Butter", "Sugar", "Eggs", "Flour", "Baking Powder"]
+		},
+		{
+			"budget": 20,
+			"budgetPrefab": "Money/20euros",
+			"recipeName": "Mousse",
+			"spriteURL": "Recipes/mousse.jpg",
+			"ingredients":["Butter", "Sugar", "Eggs", "Flour", "Baking Powder"]
+		}
+	]
+}

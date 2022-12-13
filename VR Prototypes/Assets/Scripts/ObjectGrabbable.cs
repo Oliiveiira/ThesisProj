@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ObjectGrabbable : MonoBehaviour
 {
-    [SerializeField]
-    private ObjectSO objects; //ScriptableObject with the health data
     private Rigidbody rb;
     private Transform objectGrabPointTransform;
     
@@ -13,7 +11,6 @@ public class ObjectGrabbable : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        name = objects.productName;
     }
 
     // Update is called once per frame
