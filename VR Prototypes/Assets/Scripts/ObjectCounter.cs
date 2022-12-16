@@ -32,7 +32,7 @@ public class ObjectCounter : MonoBehaviour
 
     void Win()
     {
-        if (successCounter == products.arraySize)
+        if (successCounter == products.myRecipeList.recipe[products.randomIndex].ingredients.Length)
         {
             setWinPanel.Raise();
             Debug.Log("Ganhou");
@@ -46,7 +46,7 @@ public class ObjectCounter : MonoBehaviour
         {
             //ObjectSO products = other.gameObject.GetComponent<ObjectSO>();
             isInFlag = false;
-            for(int i = 0; i< products.arraySize; i++)
+            for (int i = 0; i < products.myRecipeList.recipe[products.randomIndex].ingredients.Length; i++)
             {
                 if (other.name.Equals(products.productsToGet[i].text))
                 {
@@ -68,4 +68,43 @@ public class ObjectCounter : MonoBehaviour
 
         }
     }
+
+    //void Win()
+    //{
+    //    if (successCounter == products.arraySize)
+    //    {
+    //        setWinPanel.Raise();
+    //        Debug.Log("Ganhou");
+    //    }
+    //}
+
+    ////private ObjectGrabbable grabbedObject;
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Objects"))
+    //    {
+    //        //ObjectSO products = other.gameObject.GetComponent<ObjectSO>();
+    //        isInFlag = false;
+    //        for(int i = 0; i< products.arraySize; i++)
+    //        {
+    //            if (other.name.Equals(products.productsToGet[i].text))
+    //            {
+    //                scoreUI.Raise(); //Evento para adicionar 1 ponto no score
+    //                products.productsToGet[i].SetText("Boa");
+    //                Debug.Log("yes");
+    //                successCounter++;
+    //                isInFlag = true;
+    //            }
+    //        }
+
+    //        if (!isInFlag)
+    //        {
+    //            Debug.Log("tente outra vez");
+    //            isInFlag = false;
+    //        }
+
+    //        Win();
+
+    //    }
+    //}
 }

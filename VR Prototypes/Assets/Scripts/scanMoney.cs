@@ -1,3 +1,4 @@
+using Oculus.Interaction;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,6 +19,12 @@ public class scanMoney : MonoBehaviour
     private FloatSO total;
 
     [SerializeField]
+    private float totalpositive;//to give change
+
+    [SerializeField]
+    private GrabInteractor grabInteractor;//to give change
+
+    [SerializeField]
     private bool moveMoney;
     [SerializeField]
     private Transform moneyPosition;
@@ -36,12 +43,13 @@ public class scanMoney : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(total.Value < 0)
+        if(total.Value <= 0)
         {
-            total.Value *= -1;
-            change.SetText("Troco: " + total.Value.ToString());
-            total.Value = 0;
-            totalCost.SetText("Total: " + total.Value.ToString());
+            totalpositive = total.Value * -1;
+            change.SetText("Troco: " + totalpositive.ToString());
+            totalCost.SetText("Total: 0");
+            //total.Value = 0;
+            //totalCost.SetText("Total: " + total.Value.ToString());
         }
     }
 
@@ -55,6 +63,7 @@ public class scanMoney : MonoBehaviour
             if(moneyPosition.position == b)
             {
                 moveMoney = false;
+                speed = (float) 0.2;
             }
         }
     }
@@ -64,12 +73,11 @@ public class scanMoney : MonoBehaviour
         if (other.CompareTag("Money"))
         {
             moveMoney = true;
-            //Animator anim = other.GetComponent<Animator>();
-            //anim.gameObject.SetActive(true);
-            //anim.Play("MoneyAnim");
 
             ObjectGrabbable objectGrabbable = other.GetComponent<ObjectGrabbable>();
             objectGrabbable.Drop();
+
+            grabInteractor.ForceRelease();
 
             Money money = other.GetComponent<Money>();
             total.Value -= money.value;
@@ -78,33 +86,8 @@ public class scanMoney : MonoBehaviour
             b = moneyTransform.position;
 
             moneyPosition = other.transform;
-            //other.transform.position = Vector3.Lerp(a, b, speed);
-            //other.transform.position = moneyTransform.position;
 
             totalCost.SetText("Total: " + total.Value.ToString());
-            
-            //isInFlag = false;
-            //for (int i = 0; i < ingredients.myRecipeList.recipe[ingredients.randomIndex].ingredients.Length; i++)
-            //{
-            //    if (other.name.Equals(ingredients.productsToGet[i].text))
-            //    {
-            //        Product product = other.GetComponent<Product>();
-
-            //        total += product.productCost;
-
-            //        totalCost.SetText("Total: " + total.ToString());
-
-            //        other.transform.position = basketTransform.position;
-            //        isInFlag = true;
-            //    }
-            //}
-
-            //if (!isInFlag)
-            //{
-            //    Debug.Log("Produto errado..");
-            //    isInFlag = false;
-            //}
-
         }
     }
 }

@@ -15,7 +15,8 @@ public class ScanProduct : MonoBehaviour
     [SerializeField]
     private Transform basketTransform;
     [SerializeField]
-    private RecipeReader ingredients; //Para utilizar em 3D
+    // private RecipeReader ingredients; //Para utilizar em 3D
+    private GameManager ingredients;
 
     private bool isInFlag;
 
@@ -43,8 +44,8 @@ public class ScanProduct : MonoBehaviour
             {
                 if (other.name.Equals(ingredients.productsToGet[i].text))
                 {
-                    ObjectGrabbable objectGrabbable = other.GetComponent<ObjectGrabbable>();
-                    objectGrabbable.Drop(); //just for 3d purpose
+                    //ObjectGrabbable objectGrabbable = other.GetComponent<ObjectGrabbable>();
+                    //objectGrabbable.Drop(); //just for 3d purpose
 
                     Product product = other.GetComponent<Product>();
 

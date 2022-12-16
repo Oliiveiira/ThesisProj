@@ -3,7 +3,62 @@ guid: 318b4a2780c489e438708016960d26b2
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlackMatte
+    second: {fileID: 2100000, guid: 8e187083f0a631c42912b8f85ff40a36, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Blackmatte
+    second: {fileID: 2100000, guid: 8e187083f0a631c42912b8f85ff40a36, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: e20010b7d8a279c49b53c9faf576fa46, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LED
+    second: {fileID: 2100000, guid: b00b006850790a64b88477963a19664a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LED BLUE
+    second: {fileID: 2100000, guid: 80a9b98bdf8515d448cc9633d4ea421d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 2febbd461140cc4438ef72ca45f164e1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metallic Dark Grey
+    second: {fileID: 2100000, guid: 9e971f6d3e567ac44abcdecf1c670747, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RedLED
+    second: {fileID: 2100000, guid: 38083d7b0b6bda6408e8743de226efe1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stucco
+    second: {fileID: 2100000, guid: cc0270b64a66b7046bda3952cecd2f8f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: brushedMetal
+    second: {fileID: 2100000, guid: 3c86906dfeb595848bf6f05414a0f874, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: darkerbrushedmetal
+    second: {fileID: 2100000, guid: e3f2c83afda3cfe43bfa04665d939183, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
