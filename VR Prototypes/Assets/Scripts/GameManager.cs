@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using RoboRyanTron.Unite2017.Events;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class GameManager : JSONReader
 {
@@ -28,6 +29,10 @@ public class GameManager : JSONReader
 
     [SerializeField]
     private GameObject startButton;
+    [SerializeField]
+    private GameObject leftButton;
+    [SerializeField]
+    private GameObject rightButton;
 
     // Start is called before the first frame update
     void Awake()
@@ -45,7 +50,9 @@ public class GameManager : JSONReader
     public void ShowRecipe()
     {
         startButton.SetActive(false);
-       // alreadyShowed = true;
+        leftButton.SetActive(false);
+        rightButton.SetActive(false);
+        // alreadyShowed = true;
         //startTimer.Raise();
         listPaper.SetActive(true);
 
@@ -68,6 +75,11 @@ public class GameManager : JSONReader
         {
             productsToGet[i].text = myRecipeList.recipe[randomIndex].ingredients[i];
         }
+    }
+
+    public void ResetScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     //public ObjectSO[] allObjects;

@@ -18,6 +18,52 @@
  * limitations under the License.
  */
 
+//if (OVRManager.loadedXRDevice == OVRManager.XRDevice.OpenVR)
+//{
+//	Vector3 leftPos = Vector3.zero;
+//	Vector3 rightPos = Vector3.zero;
+//	Quaternion leftQuat = Quaternion.identity;
+//	Quaternion rightQuat = Quaternion.identity;
+
+//	if (OVRNodeStateProperties.GetNodeStatePropertyVector3(Node.LeftHand, NodeStatePropertyType.Position, OVRPlugin.Node.HandRight, OVRPlugin.Step.Render, out leftPos))
+//		leftHandAnchor.localPosition = leftPos;
+//	if (OVRNodeStateProperties.GetNodeStatePropertyVector3(Node.RightHand, NodeStatePropertyType.Position, OVRPlugin.Node.HandLeft, OVRPlugin.Step.Render, out rightPos))
+//		rightHandAnchor.localPosition = rightPos;
+//	if (OVRNodeStateProperties.GetNodeStatePropertyQuaternion(Node.LeftHand, NodeStatePropertyType.Orientation, OVRPlugin.Node.HandRight, OVRPlugin.Step.Render, out leftQuat))
+//		leftHandAnchor.localRotation = leftQuat;
+//	if (OVRNodeStateProperties.GetNodeStatePropertyQuaternion(Node.RightHand, NodeStatePropertyType.Orientation, OVRPlugin.Node.HandLeft, OVRPlugin.Step.Render, out rightQuat))
+//		rightHandAnchor.localRotation = rightQuat;
+
+//}
+//else
+//{
+//	leftHandAnchor.localPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch);
+//	rightHandAnchor.localPosition = OVRInput.GetLocalControllerPosition(OVRInput.Controller.LTouch);
+//	leftHandAnchor.localRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch);
+//	rightHandAnchor.localRotation = OVRInput.GetLocalControllerRotation(OVRInput.Controller.LTouch);
+//}
+
+
+//trackerAnchor.localPosition = tracker.position;
+
+//OVRPose leftOffsetPose = OVRPose.identity;
+//OVRPose rightOffsetPose = OVRPose.identity;
+//if (OVRManager.loadedXRDevice == OVRManager.XRDevice.OpenVR)
+//{
+//	leftOffsetPose = OVRManager.GetOpenVRControllerOffset(Node.RightHand);
+//	rightOffsetPose = OVRManager.GetOpenVRControllerOffset(Node.LeftHand);
+
+//	//Sets poses of left and right nodes, local to the tracking space.
+//	OVRManager.SetOpenVRLocalPose(trackingSpace.InverseTransformPoint(leftControllerAnchor.position),
+//		trackingSpace.InverseTransformPoint(rightControllerAnchor.position),
+//		Quaternion.Inverse(trackingSpace.rotation) * leftControllerAnchor.rotation,
+//		Quaternion.Inverse(trackingSpace.rotation) * rightControllerAnchor.rotation);
+//}
+//rightControllerAnchor.localPosition = leftOffsetPose.position;
+//rightControllerAnchor.localRotation = leftOffsetPose.orientation;
+//leftControllerAnchor.localPosition = rightOffsetPose.position;
+//leftControllerAnchor.localRotation = rightOffsetPose.orientation;
+
 #if USING_XR_MANAGEMENT && (USING_XR_SDK_OCULUS || USING_XR_SDK_OPENXR)
 #define USING_XR_SDK
 #endif

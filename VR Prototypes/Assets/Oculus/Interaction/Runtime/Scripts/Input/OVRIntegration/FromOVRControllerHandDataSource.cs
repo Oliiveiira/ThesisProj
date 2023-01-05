@@ -56,6 +56,16 @@ namespace Oculus.Interaction.Input
         private MonoBehaviour _hmdData;
         private IDataSource<HmdDataAsset> HmdData;
 
+        //mirrorleft
+        public GameObject handRight;
+        public GameObject handRightInteractors;
+
+        [SerializeField]
+        private AnimatedHandOVR animator;
+        //mirrorleft
+        public GameObject handLeft;
+        public GameObject handLeftInteractors;
+
         public bool ProcessLateUpdates
         {
             get
@@ -317,6 +327,38 @@ namespace Oculus.Interaction.Input
         public void InjectRootAngleOffset(Vector3 rootAngleOffset)
         {
             _rootAngleOffset = rootAngleOffset;
+        }
+
+        public void MirrorLeft()
+        {
+            if (_handedness == Handedness.Left)
+            {
+                Assert.IsNotNull(CameraRigRef.LeftHand);
+                _ovrControllerAnchor = CameraRigRef.RightController;
+                _ovrController = OVRInput.Controller.RTouch;
+                handRight.SetActive(false);
+                handRightInteractors.SetActive(false);
+                handLeft.SetActive(true);
+                handLeftInteractors.SetActive(true);
+                animator._controller = OVRInput.Controller.RTouch;
+            }
+
+        }
+
+        public void MirrorRight()
+        {
+            if (_handedness == Handedness.Right)
+            {
+                Assert.IsNotNull(CameraRigRef.RightHand);
+                _ovrControllerAnchor = CameraRigRef.LeftController;
+                _ovrController = OVRInput.Controller.LTouch;
+                handLeft.SetActive(false);
+                handLeftInteractors.SetActive(false);
+                handRight.SetActive(true);
+                handRightInteractors.SetActive(true);
+                animator._controller = OVRInput.Controller.LTouch;
+            }
+
         }
 
         #endregion

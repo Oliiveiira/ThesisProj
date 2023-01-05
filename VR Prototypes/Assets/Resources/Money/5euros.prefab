@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: -6572579432054846104}
   m_Layer: 7
   m_Name: 5euros
-  m_TagString: Money
+  m_TagString: Bills
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,7 +67,7 @@ Transform:
   m_GameObject: {fileID: 8234202828652206610}
   m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: -9.83, y: 0.8990002, z: -5.258}
-  m_LocalScale: {x: 0.01, y: 11.999999, z: 6.2}
+  m_LocalScale: {x: 0.009, y: 10.799999, z: 5.5799994}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7154003331444646988}

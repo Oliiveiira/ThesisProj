@@ -36,8 +36,8 @@ namespace Oculus.Interaction.Input
 
         public const float INPUT_RATE_CHANGE = 20.0f;
 
-        [SerializeField]
-        private OVRInput.Controller _controller = OVRInput.Controller.None;
+        //[SerializeField]
+        public OVRInput.Controller _controller = OVRInput.Controller.None;
         [SerializeField]
         private Animator _animator = null;
         [SerializeField]

@@ -21,6 +21,11 @@ public class ObjectCounter : MonoBehaviour
     [SerializeField]
     private GameEvent setWinPanel;
 
+    [SerializeField]
+    private AudioSource correctSound;
+    [SerializeField]
+    private AudioSource wrongSound;
+
     private void Start()
     {
 
@@ -51,10 +56,11 @@ public class ObjectCounter : MonoBehaviour
                 if (other.name.Equals(products.productsToGet[i].text))
                 {
                     scoreUI.Raise(); //Evento para adicionar 1 ponto no score
-                    products.productsToGet[i].SetText("Boa");
+                    //products.productsToGet[i].SetText("Boa");
                     Debug.Log("yes");
                     successCounter++;
                     isInFlag = true;
+                    correctSound.Play();
                 }
             }
 
@@ -62,6 +68,7 @@ public class ObjectCounter : MonoBehaviour
             {
                 Debug.Log("tente outra vez");
                 isInFlag = false;
+                wrongSound.Play();
             }
 
             Win();
