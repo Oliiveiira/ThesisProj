@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Bread
   m_EditorClassIdentifier: 
   productName: Bread
-  productCost: 0
+  productCost: 2

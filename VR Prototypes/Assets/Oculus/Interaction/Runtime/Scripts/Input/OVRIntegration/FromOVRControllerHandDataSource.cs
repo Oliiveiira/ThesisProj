@@ -361,6 +361,35 @@ namespace Oculus.Interaction.Input
 
         }
 
+        public void MirrorNone()
+        {
+            if (_handedness == Handedness.Right)
+            {
+                Assert.IsNotNull(CameraRigRef.RightHand);
+                _ovrControllerAnchor = CameraRigRef.RightController;
+                _ovrController = OVRInput.Controller.RTouch;
+                animator._controller = OVRInput.Controller.RTouch;
+
+                handLeft.SetActive(true);
+                handLeftInteractors.SetActive(true);
+                handRight.SetActive(true);
+                handRightInteractors.SetActive(true);
+            }
+            else if(_handedness == Handedness.Left)
+            {
+                Assert.IsNotNull(CameraRigRef.LeftHand);
+                _ovrControllerAnchor = CameraRigRef.LeftController;
+                _ovrController = OVRInput.Controller.LTouch;
+                animator._controller = OVRInput.Controller.LTouch;
+
+                handLeft.SetActive(true);
+                handLeftInteractors.SetActive(true);
+                handRight.SetActive(true);
+                handRightInteractors.SetActive(true);
+            }
+
+        }
+
         #endregion
     }
 }

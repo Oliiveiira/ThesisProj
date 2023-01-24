@@ -28,6 +28,7 @@ public class ScanBill : scanMoney
             {
                 moveMoney = false;
                 speed = (float)0.2;
+                speed = 0;
             }
         }
     }
@@ -35,11 +36,12 @@ public class ScanBill : scanMoney
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Bills"))
+        if (other.CompareTag("Bills") /*&& products.paymentAvailable*/)
         {
             billSound.Play();
             moveMoney = true;
-            other.attachedRigidbody.isKinematic = true;
+            //other.attachedRigidbody.isKinematic = true;
+            //other.attachedRigidbody.useGravity = false;
             //ObjectGrabbable objectGrabbable = other.GetComponent<ObjectGrabbable>();
             //objectGrabbable.Drop();
 

@@ -15,8 +15,8 @@ public class scanMoney : MonoBehaviour
     public TMP_Text totalCost;
     [SerializeField]
     private TMP_Text change;
-    [SerializeField]
-    private ScanProduct products; //to get the products total
+   // [SerializeField]
+    public ScanProduct products; //to get the products total
 
     public FloatSO total;
 

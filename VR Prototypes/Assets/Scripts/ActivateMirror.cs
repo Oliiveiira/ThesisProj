@@ -14,29 +14,40 @@ public class ActivateMirror : MonoBehaviour
     [SerializeField]
     private GameEvent mirrorRight;
 
-    private void Awake()
-    {
-        if(mirror.Value == 1)
-        {
-            mirrorLeft.Raise();
-        }
-        else if(mirror.Value == 2)
-        {
-            mirrorRight.Raise();
-        }
-    }
+    [SerializeField]
+    private GameEvent mirrorNone;
+
+    //private void Awake()
+    //{
+    //    if(mirror.Value == 1)
+    //    {
+    //        mirrorLeft.Raise();
+    //    }
+    //    else if(mirror.Value == 2)
+    //    {
+    //        mirrorRight.Raise();
+    //    }
+    //}
 
     public void MirrorLeft()
     {
-        mirror.Value = 1;
+       // mirror.Value = 1;
         mirrorLeft.Raise();
     }
 
     public void MirrorRight()
     {
-        mirror.Value = 2;  
+       // mirror.Value = 2;  
         mirrorRight.Raise();
     }
+
+    public void MirrorNone()
+    {
+        // mirror.Value = 2;  
+        mirrorNone.Raise();
+    }
+
+
 
     public void NextScene()
     {

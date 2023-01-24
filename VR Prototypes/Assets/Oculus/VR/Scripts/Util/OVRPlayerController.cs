@@ -515,6 +515,8 @@ public class OVRPlayerController : MonoBehaviour
 	{
 		Transform root = CameraRig.trackingSpace;
 		Transform centerEye = CameraRig.centerEyeAnchor;
+		Transform leftHandAnchor = CameraRig.leftHandAnchor;
+		Transform rightHandAnchor = CameraRig.rightHandAnchor;
 
 		if (HmdRotatesY && !Teleported)
 		{
@@ -523,14 +525,16 @@ public class OVRPlayerController : MonoBehaviour
 
 			transform.rotation = Quaternion.Euler(0.0f, centerEye.rotation.eulerAngles.y, 0.0f);
 
-			root.position = prevPos;
-			root.rotation = prevRot;
+            root.position = prevPos;
+            root.rotation = prevRot;
 		}
 
 		UpdateController();
 		if (TransformUpdated != null)
 		{
 			TransformUpdated(root);
+			TransformUpdated(leftHandAnchor);
+			TransformUpdated(rightHandAnchor);
 		}
 	}
 

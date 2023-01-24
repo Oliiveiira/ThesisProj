@@ -21,6 +21,8 @@ public class ObjectCounter : MonoBehaviour
     [SerializeField]
     private GameEvent setWinPanel;
 
+    public bool scanAvaiable; //to ensure that all products are in the cart
+
     [SerializeField]
     private AudioSource correctSound;
     [SerializeField]
@@ -32,6 +34,7 @@ public class ObjectCounter : MonoBehaviour
     }
     private void Update()
     {
+       // PlayAudio();
         //Win();
     }
 
@@ -39,7 +42,8 @@ public class ObjectCounter : MonoBehaviour
     {
         if (successCounter == products.myRecipeList.recipe[products.randomIndex].ingredients.Length)
         {
-            setWinPanel.Raise();
+            scanAvaiable = true;
+            //setWinPanel.Raise();
             Debug.Log("Ganhou");
         }
     }
@@ -55,6 +59,7 @@ public class ObjectCounter : MonoBehaviour
             {
                 if (other.name.Equals(products.productsToGet[i].text))
                 {
+                    other.transform.SetParent(this.transform);
                     scoreUI.Raise(); //Evento para adicionar 1 ponto no score
                     //products.productsToGet[i].SetText("Boa");
                     Debug.Log("yes");
@@ -75,6 +80,24 @@ public class ObjectCounter : MonoBehaviour
 
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Objects"))
+        {
+            for (int i = 0; i < products.myRecipeList.recipe[products.randomIndex].ingredients.Length; i++)
+            {
+                if (other.name.Equals(products.productsToGet[i].text))
+                {
+                    other.transform.parent = null;
+                    successCounter--;
+                }
+            }
+        }   
+    }
+    
+
+
 
     //void Win()
     //{

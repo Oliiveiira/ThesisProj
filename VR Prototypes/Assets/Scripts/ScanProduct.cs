@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using RoboRyanTron.Unite2017.Events;
 
 public class ScanProduct : MonoBehaviour
 {
@@ -21,7 +22,14 @@ public class ScanProduct : MonoBehaviour
     [SerializeField]
     private AudioSource scanSound;//trigger the sound
 
+    private int successCounter;
+
     private bool isInFlag;
+ 
+    public bool paymentAvailable;
+    
+    [SerializeField]
+    private GameEvent setWinPanel;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +46,16 @@ public class ScanProduct : MonoBehaviour
         //}
     }
 
+    void AllProductsScan()
+    {
+        if (successCounter == ingredients.myRecipeList.recipe[ingredients.randomIndex].ingredients.Length)
+        {
+            paymentAvailable = true;
+            setWinPanel.Raise();
+        }
+    }
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Objects"))
@@ -48,7 +66,7 @@ public class ScanProduct : MonoBehaviour
                 if (other.name.Equals(ingredients.productsToGet[i].text))
                 {
                     scanSound.Play();
-
+                    successCounter++;
                     //ObjectGrabbable objectGrabbable = other.GetComponent<ObjectGrabbable>();
                     //objectGrabbable.Drop(); //just for 3d purpose
 
@@ -60,6 +78,7 @@ public class ScanProduct : MonoBehaviour
 
                     other.transform.position = basketTransform.position;
                     isInFlag = true;
+                    ingredients.productsToGet[i].SetText("Boa!");
                 }
             }
 
@@ -69,6 +88,7 @@ public class ScanProduct : MonoBehaviour
                 isInFlag = false;
             }
 
+            AllProductsScan();
         }
     }
 }

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Water
   m_EditorClassIdentifier: 
   productName: Water
-  productCost: 0
+  productCost: 0.74
