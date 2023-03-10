@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b248e38b800cd004eb65c47dc6bebc96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects: {fileID: 0}
+  objects: {fileID: 11400000, guid: 40619998b96eefe4988d62f78ec1e0b3, type: 2}
   productCost: 0
   costText: {fileID: 6048283339926782484}
 --- !u!65 &-3578681563973990997

@@ -49,6 +49,18 @@ namespace Oculus.Interaction.Input
         private MonoBehaviour _hmdData;
         private IDataSource<HmdDataAsset> HmdData;
 
+        //mirrorleft
+        [SerializeField]
+        private GameObject handRight;
+        [SerializeField]
+        private GameObject handRightInteractors;
+
+        //mirrorleft
+        [SerializeField]
+        private GameObject handLeft;
+        [SerializeField]
+        private GameObject handLeftInteractors;
+
         public bool ProcessLateUpdates
         {
             get
@@ -267,42 +279,96 @@ namespace Oculus.Interaction.Input
             _handDataAsset.Joints[0] = WristFixupRotation;
         }
 
-        #region Inject
+        public void MirrorLeft()
+        {
+            if (_handedness == Handedness.Left)
+            {
+                Assert.IsNotNull(CameraRigRef.LeftHand);
+                _ovrHand = CameraRigRef.RightHand;
+                _ovrController = OVRInput.Controller.RHand;
+                handRight.SetActive(false);
+                handRightInteractors.SetActive(false);
+                handLeft.SetActive(true);
+                handLeftInteractors.SetActive(true);
+            }
 
-        public void InjectAllFromOVRHandDataSource(UpdateModeFlags updateMode, IDataSource updateAfter,
+        }
+
+        public void MirrorRight()
+        {
+            if (_handedness == Handedness.Right)
+            {
+                Assert.IsNotNull(CameraRigRef.RightHand);
+                _ovrHand = CameraRigRef.LeftHand;
+                _ovrController = OVRInput.Controller.LHand;
+                handLeft.SetActive(false);
+                handLeftInteractors.SetActive(false);
+                handRight.SetActive(true);
+                handRightInteractors.SetActive(true);
+            }
+
+        }
+
+        public void MirrorNone()
+        {
+            if (_handedness == Handedness.Right)
+            {
+                Assert.IsNotNull(CameraRigRef.RightHand);
+                _ovrHand = CameraRigRef.RightHand;
+                _ovrController = OVRInput.Controller.RHand;
+
+                handLeft.SetActive(true);
+                handLeftInteractors.SetActive(true);
+                handRight.SetActive(true);
+                handRightInteractors.SetActive(true);
+            }
+            else if (_handedness == Handedness.Left)
+            {
+                Assert.IsNotNull(CameraRigRef.LeftHand);
+                _ovrHand = CameraRigRef.LeftHand;
+                _ovrController = OVRInput.Controller.LHand;
+
+                handLeft.SetActive(true);
+                handLeftInteractors.SetActive(true);
+                handRight.SetActive(true);
+                handRightInteractors.SetActive(true);
+            }
+        }
+            #region Inject
+
+            public void InjectAllFromOVRHandDataSource(UpdateModeFlags updateMode, IDataSource updateAfter,
             Handedness handedness, ITrackingToWorldTransformer trackingToWorldTransformer,
             IHandSkeletonProvider handSkeletonProvider, IDataSource<HmdDataAsset> hmdData)
-        {
-            base.InjectAllDataSource(updateMode, updateAfter);
-            InjectHandedness(handedness);
-            InjectTrackingToWorldTransformer(trackingToWorldTransformer);
-            InjectHandSkeletonProvider(handSkeletonProvider);
-            InjectHmdData(hmdData);
-        }
+            {
+                base.InjectAllDataSource(updateMode, updateAfter);
+                InjectHandedness(handedness);
+                InjectTrackingToWorldTransformer(trackingToWorldTransformer);
+                InjectHandSkeletonProvider(handSkeletonProvider);
+                InjectHmdData(hmdData);
+            }
 
-        public void InjectHandedness(Handedness handedness)
-        {
-            _handedness = handedness;
-        }
+            public void InjectHandedness(Handedness handedness)
+            {
+                _handedness = handedness;
+            }
 
-        public void InjectTrackingToWorldTransformer(ITrackingToWorldTransformer trackingToWorldTransformer)
-        {
-            _trackingToWorldTransformer = trackingToWorldTransformer as MonoBehaviour;
-            TrackingToWorldTransformer = trackingToWorldTransformer;
-        }
+            public void InjectTrackingToWorldTransformer(ITrackingToWorldTransformer trackingToWorldTransformer)
+            {
+                _trackingToWorldTransformer = trackingToWorldTransformer as MonoBehaviour;
+                TrackingToWorldTransformer = trackingToWorldTransformer;
+            }
 
-        public void InjectHandSkeletonProvider(IHandSkeletonProvider handSkeletonProvider)
-        {
-            _handSkeletonProvider = handSkeletonProvider as MonoBehaviour;
-            HandSkeletonProvider = handSkeletonProvider;
-        }
+            public void InjectHandSkeletonProvider(IHandSkeletonProvider handSkeletonProvider)
+            {
+                _handSkeletonProvider = handSkeletonProvider as MonoBehaviour;
+                HandSkeletonProvider = handSkeletonProvider;
+            }
 
-        public void InjectHmdData(IDataSource<HmdDataAsset> hmdData)
-        {
-            _hmdData = hmdData as MonoBehaviour;
-            HmdData = hmdData;
+            public void InjectHmdData(IDataSource<HmdDataAsset> hmdData)
+            {
+                _hmdData = hmdData as MonoBehaviour;
+                HmdData = hmdData;
+            }
+            #endregion
         }
-
-        #endregion
     }
-}

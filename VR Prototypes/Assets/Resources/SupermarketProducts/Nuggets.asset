@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Nuggets
   m_EditorClassIdentifier: 
   productName: Nuggets
-  productCost: 0
+  productCost: 5

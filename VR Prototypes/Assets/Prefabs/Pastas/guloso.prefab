@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b248e38b800cd004eb65c47dc6bebc96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects: {fileID: 0}
+  objects: {fileID: 11400000, guid: 0a86fa1914a42704e932602722833a8b, type: 2}
   productCost: 0
   costText: {fileID: 8765838216801091532}
 --- !u!65 &-7668198836434198465

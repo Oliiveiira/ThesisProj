@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b248e38b800cd004eb65c47dc6bebc96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects: {fileID: 0}
+  objects: {fileID: 11400000, guid: 163cffcac23b4274987a96aca9f9f9ad, type: 2}
   productCost: 0
   costText: {fileID: 5572079055779159149}
 --- !u!65 &-8871329745635229273
@@ -240,7 +240,7 @@ MonoBehaviour:
   _maxInteractors: -1
   _maxSelectingInteractors: -1
   _pointableElement: {fileID: 3035770645747801032}
-  _rigidbody: {fileID: 0}
+  _rigidbody: {fileID: 1005687772018323406}
   _grabSource: {fileID: 4617916375505138550}
   _useClosestPointAsGrabSource: 0
   _releaseDistance: 0

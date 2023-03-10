@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c027190d5ba95489905a0d1a2fa59a, type: 3}
   m_Name: Water
   m_EditorClassIdentifier: 
-  productName: Water
-  productCost: 0.74
+  productName: "\xC1gua"
+  productCost: 1.05

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Eggs
   m_EditorClassIdentifier: 
   productName: Eggs
-  productCost: 2
+  productCost: 1.5

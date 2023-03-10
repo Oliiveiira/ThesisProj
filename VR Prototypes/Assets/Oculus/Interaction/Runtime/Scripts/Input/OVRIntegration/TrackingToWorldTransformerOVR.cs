@@ -29,6 +29,8 @@ namespace Oculus.Interaction.Input
         [SerializeField, Interface(typeof(IOVRCameraRigRef))]
         private MonoBehaviour _cameraRigRef;
         public IOVRCameraRigRef CameraRigRef { get; private set; }
+        public bool mirrorHands = false; //To mirror hands
+        public bool teleported = false;
 
         public Transform Transform => CameraRigRef.CameraRig.transform;
 
@@ -39,9 +41,18 @@ namespace Oculus.Interaction.Input
         {
             Transform trackingToWorldSpace = Transform;
 
-            pose.position = trackingToWorldSpace.TransformPoint(pose.position);
-            pose.rotation = trackingToWorldSpace.rotation * pose.rotation;
-            return pose;
+            if (!mirrorHands)
+            {
+                pose.position = trackingToWorldSpace.TransformPoint(pose.position);
+                pose.rotation = trackingToWorldSpace.rotation * pose.rotation;
+                return pose;
+            }
+            else
+            {
+                pose.position = trackingToWorldSpace.TransformPoint(pose.position);
+                pose.rotation = trackingToWorldSpace.rotation * pose.rotation * Quaternion.Euler(180, 180, 0);
+                return pose;
+            }
         }
 
         /// <summary>
@@ -69,6 +80,15 @@ namespace Oculus.Interaction.Input
             Assert.IsNotNull(CameraRigRef);
         }
 
+        public void MirrorHands()
+        {
+            mirrorHands = true;
+        }
+
+        public void NormalHands()
+        {
+            mirrorHands = false;
+        }
         #region Inject
 
         public void InjectAllTrackingToWorldTransformerOVR(IOVRCameraRigRef cameraRigRef)
