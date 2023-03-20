@@ -1,4 +1,5 @@
 using Oculus.Interaction;
+using RoboRyanTron.Unite2017.Events;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,6 +35,18 @@ public class WaypointController : MonoBehaviour
     private Vector3[] positions;
 
     public NavMeshAgent navMeshAgent;
+    
+    [SerializeField]
+    private GameEvent ActivateTpPoint;
+
+    [SerializeField]
+    private GameObject shoppingCart;
+
+
+
+    // public Transform player;
+    // public float targetRotation;
+    // public float rotationLerpSpeed = 4f;
 
     void Start()
     {
@@ -73,7 +86,6 @@ public class WaypointController : MonoBehaviour
                     teleportPos = new Vector3(hit.point.x, playerPosition.transform.position.y, hit.point.z);
                     lastTp = Time.time;
                     canWalk = true;
-
                 }
             }
             else
@@ -83,15 +95,18 @@ public class WaypointController : MonoBehaviour
             }
             if (canWalk)
             {
+                shoppingCart.SetActive(false);
                 //playerPosition.transform.position = Vector3.MoveTowards(playerPosition.transform.position, teleportPos, speed * Time.deltaTime);
                 navMeshAgent.destination = teleportPos;
                 //ovrCameraRig.transform.position = playerPosition.transform.position;
-               // ovrCameraRig.transform.position = navMeshAgent.transform.position;
+                ovrCameraRig.transform.position = navMeshAgent.transform.position;
+                ActivateTpPoint.Raise();
+                canWalk = false;
 
-                if(playerPosition.transform.position == teleportPos)
-                {
-                    canWalk = false;
-                }
+                //if (playerPosition.transform.position == teleportPos)
+                //{
+                //    canWalk = false;
+                //}
             }
 
         }
@@ -141,14 +156,24 @@ public class WaypointController : MonoBehaviour
         return positions;
     }
 
-    void GetDirection()
-    {
+    //private IEnumerator RotatePlayer(float duration, Quaternion targetRotation)
+    //{
+    //    float timeElapsed = 0f;
+    //    Quaternion initialRotation = player.rotation;
 
-    }
+    //    while (timeElapsed < duration)
+    //    {
+    //        player.rotation = Quaternion.Slerp(initialRotation, targetRotation, timeElapsed / duration);
+    //        timeElapsed += Time.deltaTime;
+    //        yield return null;
+    //    }
 
-    private void StartMovement(Vector3 direction)
-    {
-        playerPosition.transform.position = Vector3.MoveTowards(playerPosition.transform.position, new Vector3(direction.x, playerPosition.transform.position.y, direction.z), speed * Time.deltaTime);
-        ovrCameraRig.transform.position = playerPosition.transform.position;
-    }
+    //    player.rotation = targetRotation;
+    //}
+
+    //private void StartMovement(Vector3 direction)
+    //{
+    //    playerPosition.transform.position = Vector3.MoveTowards(playerPosition.transform.position, new Vector3(direction.x, playerPosition.transform.position.y, direction.z), speed * Time.deltaTime);
+    //    ovrCameraRig.transform.position = playerPosition.transform.position;
+    //}
 }

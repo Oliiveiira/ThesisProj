@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 4476769232875466864}
   m_Layer: 0
   m_Name: orangespray
-  m_TagString: Untagged
+  m_TagString: Objects
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

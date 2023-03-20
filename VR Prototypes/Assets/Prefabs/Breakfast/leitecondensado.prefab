@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: -919280052440250679}
   m_Layer: 0
   m_Name: leitecondensado
-  m_TagString: Untagged
+  m_TagString: Objects
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b248e38b800cd004eb65c47dc6bebc96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects: {fileID: 0}
+  objects: {fileID: 11400000, guid: f7df50323d478724e8fb34d2428e9499, type: 2}
   productCost: 0
   costText: {fileID: 8018047474732146585}
 --- !u!114 &-4819751660681366148

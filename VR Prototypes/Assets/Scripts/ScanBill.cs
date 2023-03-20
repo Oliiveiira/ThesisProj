@@ -1,3 +1,4 @@
+using Oculus.Interaction.HandGrab;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -38,26 +39,29 @@ public class ScanBill : scanMoney
     {
         if (other.CompareTag("Bills") /*&& products.paymentAvailable*/)
         {
-            billSound.Play();
-            moveMoney = true;
-            //other.attachedRigidbody.isKinematic = true;
-            //other.attachedRigidbody.useGravity = false;
-            //ObjectGrabbable objectGrabbable = other.GetComponent<ObjectGrabbable>();
-            //objectGrabbable.Drop();
+            if (products.paymentAvailable)
+            {
+                billSound.Play();
+                moveMoney = true;
 
-            grabInteractor.ForceRelease();
-            handgrabInteractorR.ForceRelease();
-            handgrabInteractorL.ForceRelease();
+                HandGrabInteractable billHandGrab = other.GetComponent<HandGrabInteractable>();
+                billHandGrab.enabled = false;
 
-            Money money = other.GetComponent<Money>();
-            total.Value -= money.value;
+                Money money = other.GetComponent<Money>();
+                total.Value -= money.value;
 
-            a = other.transform.position;
-            b = billTransform.position;
+                a = other.transform.position;
+                b = billTransform.position;
 
-            billPosition = other.transform;
+                billPosition = other.transform;
 
-            totalCost.SetText("Total: " + total.Value.ToString());
+                totalCost.SetText("Total: " + total.Value.ToString());
+            }
+            else
+            {
+                warning.gameObject.SetActive(true);
+            }
+
         }
     }
 }

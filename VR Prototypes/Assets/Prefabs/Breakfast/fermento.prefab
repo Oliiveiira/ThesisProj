@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: -6593761784198271066}
   m_Layer: 0
   m_Name: fermento
-  m_TagString: Untagged
+  m_TagString: Objects
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b248e38b800cd004eb65c47dc6bebc96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects: {fileID: 0}
+  objects: {fileID: 11400000, guid: 5df5ae4cb2efef842baaa9f193a3c07b, type: 2}
   productCost: 0
   costText: {fileID: 3792009025380666860}
 --- !u!114 &-2008662592666652300

@@ -56,8 +56,8 @@ public class RecipeReader : JSONReader
 
         budget = myRecipeList.recipe[randomIndex].budget;
 
-        money = (GameObject)Instantiate(Resources.Load(myRecipeList.recipe[randomIndex].budgetPrefab)); //instantiate the money prefab
-        money.transform.position = moneyTransform.position;
+        money = (GameObject)Instantiate(Resources.Load(myRecipeList.recipe[randomIndex].budgetPrefab), moneyTransform.position, Quaternion.Euler(-90,-90,-90)); //instantiate the money prefab
+       // money.transform.position = moneyTransform.position;
         //byte[] bytes = File.ReadAllBytes(myRecipeList.recipe[randomIndex].spriteURL);
         //Texture2D loadTexture = new(1, 1); //mock size 1x1
         //loadTexture.LoadImage(bytes);

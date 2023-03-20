@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: -3954693330419713458}
   m_Layer: 0
   m_Name: knorrtomate
-  m_TagString: Untagged
+  m_TagString: Objects
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b248e38b800cd004eb65c47dc6bebc96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects: {fileID: 0}
+  objects: {fileID: 11400000, guid: 8420e405ae87a074d9674e47bee421c4, type: 2}
   productCost: 0
   costText: {fileID: 2695508800058205542}
 --- !u!54 &4993047302638445689

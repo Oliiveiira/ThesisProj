@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 225018527178609505}
   - component: {fileID: 225018527184031167}
   - component: {fileID: 225018527178609506}
+  - component: {fileID: 7871542362370303248}
   m_Layer: 4
   m_Name: TeleportPoint
   m_TagString: TeleportDestination
@@ -180,7 +181,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.17
+  m_Radius: 0.25
   m_Height: 2.52
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -238,3 +239,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb070567ca5aa545ae17be2c153a1d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  targetRotation: 0
+--- !u!114 &7871542362370303248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225018527181877927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e5af2adb5ffa1c489d516d6591775a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: db2d7a0973919cc49be389738d0fc3f6, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 225018527178609506}
+        m_TargetAssemblyTypeName: TpDestination, Assembly-CSharp
+        m_MethodName: ActivateTPPoint
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

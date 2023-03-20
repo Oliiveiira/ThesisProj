@@ -34,6 +34,21 @@ public class GameManager : JSONReader
     [SerializeField]
     private GameObject rightButton;
 
+    //To control the Data Watch
+    public TextMeshProUGUI budgettoWatchR;
+    public TextMeshProUGUI[] productsToGettoWatchR;
+    [SerializeField]
+    private GameObject watchR;
+
+    public TextMeshProUGUI budgettoWatchL;
+    public TextMeshProUGUI[] productsToGettoWatchL;
+    [SerializeField]
+    private GameObject watchL;
+
+    public bool mirrorLeft;
+    public bool mirrorRight;
+
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -55,7 +70,14 @@ public class GameManager : JSONReader
         // alreadyShowed = true;
         //startTimer.Raise();
         listPaper.SetActive(true);
-
+        if(mirrorLeft)
+        watchR.SetActive(true);
+        if(mirrorRight)
+        watchL.SetActive(true);
+        if(!mirrorRight && !mirrorLeft)
+        {
+            watchL.SetActive(true);
+        }
         //its choosing the recepie randomly now, but then its going to be sequentially, based on the difficulty level
         randomIndex = Random.Range(0, myRecipeList.recipe.Length);
 
@@ -68,12 +90,17 @@ public class GameManager : JSONReader
 
         Debug.Log(myRecipeList.recipe[randomIndex].spriteURL);
 
+        budgettoWatchR.SetText("Money: " + myRecipeList.recipe[randomIndex].budget.ToString()); //to Watch
+        budgettoWatchL.SetText("Money: " + myRecipeList.recipe[randomIndex].budget.ToString()); //to Watch
+
         budgetText.SetText("Money: " + myRecipeList.recipe[randomIndex].budget.ToString());
         recipeName.SetText(myRecipeList.recipe[randomIndex].recipeName);
 
         for (int i = 0; i < myRecipeList.recipe[randomIndex].ingredients.Length; i++)
         {
             productsToGet[i].text = myRecipeList.recipe[randomIndex].ingredients[i];
+            productsToGettoWatchR[i].text = myRecipeList.recipe[randomIndex].ingredients[i]; //to Watch
+            productsToGettoWatchL[i].text = myRecipeList.recipe[randomIndex].ingredients[i]; //to Watch
         }
     }
 

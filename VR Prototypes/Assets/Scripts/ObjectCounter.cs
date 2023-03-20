@@ -65,7 +65,7 @@ public class ObjectCounter : MonoBehaviour
                     Debug.Log("yes");
                     successCounter++;
                     isInFlag = true;
-                    correctSound.Play();
+                   // correctSound.Play();
                 }
             }
 
@@ -73,7 +73,7 @@ public class ObjectCounter : MonoBehaviour
             {
                 Debug.Log("tente outra vez");
                 isInFlag = false;
-                wrongSound.Play();
+              //  wrongSound.Play();
             }
 
             Win();

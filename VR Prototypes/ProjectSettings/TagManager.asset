@@ -11,6 +11,8 @@ TagManager:
   - Coins
   - Cart
   - TeleportDestination
+  - TeleportDestinationR
+  - Wallet
   layers:
   - Default
   - TransparentFX

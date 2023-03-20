@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 4959024596325147538}
   m_Layer: 0
   m_Name: pizzabarbecue
-  m_TagString: Untagged
+  m_TagString: Objects
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b248e38b800cd004eb65c47dc6bebc96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects: {fileID: 0}
+  objects: {fileID: 11400000, guid: 2d5796d1d4c17b84a9f2f6562fa96e3a, type: 2}
   productCost: 0
   costText: {fileID: 4146529615956670685}
 --- !u!65 &5678246783495316455

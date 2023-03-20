@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 3460944219994092118}
   m_Layer: 0
   m_Name: danacol
-  m_TagString: Untagged
+  m_TagString: Objects
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b248e38b800cd004eb65c47dc6bebc96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects: {fileID: 0}
+  objects: {fileID: 11400000, guid: 117f4edc09c712146a77121775256d82, type: 2}
   productCost: 0
   costText: {fileID: 7800569060627711066}
 --- !u!65 &-3876490194802100310

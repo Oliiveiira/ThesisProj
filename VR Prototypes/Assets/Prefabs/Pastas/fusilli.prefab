@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: -2548134263696223365}
   m_Layer: 0
   m_Name: fusilli
-  m_TagString: Untagged
+  m_TagString: Objects
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,15 +35,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2305407353799401347}
-  m_LocalRotation: {x: -0.49991274, y: 0.50008726, z: 0.49991274, w: 0.50008726}
+  m_LocalRotation: {x: -0.49991274, y: -0.50008726, z: -0.49991274, w: 0.50008726}
   m_LocalPosition: {x: 8.522495, y: 1.085, z: 4.51}
-  m_LocalScale: {x: 10, y: 5.3445463, z: 15.880335}
+  m_LocalScale: {x: 10, y: 5.344546, z: 15.880335}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5326165971708898689}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -89.98, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: -90, z: 0}
 --- !u!33 &3564515110072027353
 MeshFilter:
   m_ObjectHideFlags: 0

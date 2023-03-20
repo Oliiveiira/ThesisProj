@@ -50,6 +50,7 @@ public class ScanProduct : MonoBehaviour
     {
         if (successCounter == ingredients.myRecipeList.recipe[ingredients.randomIndex].ingredients.Length)
         {
+            warning.gameObject.SetActive(false);
             paymentAvailable = true;
             setWinPanel.Raise();
         }
@@ -79,6 +80,8 @@ public class ScanProduct : MonoBehaviour
                     other.transform.position = basketTransform.position;
                     isInFlag = true;
                     ingredients.productsToGet[i].SetText("Boa!");
+                    ingredients.productsToGettoWatchL[i].SetText("Boa!");
+                    ingredients.productsToGettoWatchR[i].SetText("Boa!");
                 }
             }
 

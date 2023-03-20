@@ -51,10 +51,10 @@ namespace Oculus.Interaction
         public Pose SnapPose => _snapPoseTransform.GetPose();
 
         [SerializeField, Optional]
-        private SnapInteractable _defaultInteractable = null;
+        public SnapInteractable _defaultInteractable = null;
 
         [SerializeField, Optional]
-        private SnapInteractable _timeOutInteractable = null;
+        public SnapInteractable _timeOutInteractable = null;
 
         [SerializeField, Optional]
         private float _timeOut = 0f;

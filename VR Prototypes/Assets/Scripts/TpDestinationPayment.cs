@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TpDestination : MonoBehaviour
+public class TpDestinationPayment: MonoBehaviour
 {
+    public Transform player;
+    private MeshRenderer mesh;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        mesh = GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
@@ -20,15 +23,13 @@ public class TpDestination : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            this.gameObject.SetActive(false);
+            mesh.enabled = false;
+            player.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
-    
-    private void OnTriggerExit(Collider other)
+
+    public void ActivateTPPoint()
     {
-        if (other.CompareTag("Player"))
-        {
-            this.gameObject.SetActive(true);
-        }
+        mesh.enabled = true;
     }
 }

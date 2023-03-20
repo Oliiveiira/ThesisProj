@@ -2,6 +2,7 @@ using Oculus.Interaction;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RoboRyanTron.Unite2017.Events;
 
 public class Teleporter : MonoBehaviour
 {
@@ -29,6 +30,9 @@ public class Teleporter : MonoBehaviour
     public GameObject ovrCameraRig;
 
     private Vector3[] positions;
+
+    [SerializeField]
+    private GameEvent ActivateTpPoint;
 
     void Start()
     {
@@ -66,6 +70,7 @@ public class Teleporter : MonoBehaviour
                     ovrCameraRig.SetActive(false);
                     playerPosition.transform.position = new Vector3(hit.point.x, 1.414f, hit.point.z);
                     ovrCameraRig.SetActive(true);
+                    ActivateTpPoint.Raise();
                     lastTp = Time.time;
                 }
             }
