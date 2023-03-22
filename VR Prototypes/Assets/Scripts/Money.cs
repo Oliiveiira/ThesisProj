@@ -19,4 +19,12 @@ public class Money : MonoBehaviour
     {
         // Debug.Log(objects.objectName);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Wallet"))
+        {
+            transform.SetParent(other.transform);
+        }
+    }
 }

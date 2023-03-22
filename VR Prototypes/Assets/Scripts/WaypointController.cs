@@ -37,12 +37,18 @@ public class WaypointController : MonoBehaviour
     public NavMeshAgent navMeshAgent;
     
     [SerializeField]
+    private GameEvent ActivateTpPointMesh;
+    [SerializeField]
     private GameEvent ActivateTpPoint;
+    [SerializeField]
+    private GameEvent DeactivateTpPoint;
 
     [SerializeField]
     private GameObject shoppingCart;
+    [SerializeField]
+    private GameObject wallet;
 
-
+    private TpDestination tpDestination;
 
     // public Transform player;
     // public float targetRotation;
@@ -83,6 +89,10 @@ public class WaypointController : MonoBehaviour
                 {
                     //playerPosition.transform.position = Vector3.MoveTowards(playerPosition.transform.position, new Vector3(hit.point.x, playerPosition.transform.position.y, hit.point.z), speed * Time.deltaTime);
                     //ovrCameraRig.transform.position = playerPosition.transform.position;
+                    //if (hit.transform.TryGetComponent(out tpDestination))
+                    //{
+                    //    tpDestination.StartCoroutine(tpDestination.RotatePlayer(5, Quaternion.Euler(0, tpDestination.targetRotation, 0)));
+                    //}
                     teleportPos = new Vector3(hit.point.x, playerPosition.transform.position.y, hit.point.z);
                     lastTp = Time.time;
                     canWalk = true;
@@ -95,18 +105,25 @@ public class WaypointController : MonoBehaviour
             }
             if (canWalk)
             {
+                ActivateTpPointMesh.Raise();
+                DeactivateTpPoint.Raise();
                 shoppingCart.SetActive(false);
+                wallet.SetActive(false);
                 //playerPosition.transform.position = Vector3.MoveTowards(playerPosition.transform.position, teleportPos, speed * Time.deltaTime);
                 navMeshAgent.destination = teleportPos;
                 //ovrCameraRig.transform.position = playerPosition.transform.position;
                 ovrCameraRig.transform.position = navMeshAgent.transform.position;
-                ActivateTpPoint.Raise();
                 canWalk = false;
 
                 //if (playerPosition.transform.position == teleportPos)
                 //{
                 //    canWalk = false;
                 //}
+            }
+
+            if (Vector3.Distance(navMeshAgent.transform.position, teleportPos) < 1)
+        {
+                ActivateTpPoint.Raise();
             }
 
         }
