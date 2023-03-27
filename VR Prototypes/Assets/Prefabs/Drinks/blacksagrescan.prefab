@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -996274718337520179}
   - component: {fileID: -2997080252757722089}
   - component: {fileID: -8931757249758262434}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: blacksagrescan
   m_TagString: Objects
   m_Icon: {fileID: 0}

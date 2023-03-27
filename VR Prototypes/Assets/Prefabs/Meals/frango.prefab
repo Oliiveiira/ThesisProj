@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 7535747848491006534}
   - component: {fileID: -1876237621988241033}
   - component: {fileID: -5558325177308337251}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: frango
   m_TagString: Objects
   m_Icon: {fileID: 0}

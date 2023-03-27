@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -370882215300813031}
   - component: {fileID: 1659724000692148426}
   - component: {fileID: -2582714753819243985}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: cheerios
   m_TagString: Objects
   m_Icon: {fileID: 0}

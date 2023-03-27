@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 3927057030504246093}
   - component: {fileID: 3757192303443715509}
   - component: {fileID: 5415211483032363561}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: queijolimiano
   m_TagString: Objects
   m_Icon: {fileID: 0}

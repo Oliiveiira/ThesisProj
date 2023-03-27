@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 6854516528136944084}
   - component: {fileID: -1056313428403279441}
   - component: {fileID: -6657827424493575224}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pan
   m_TagString: Objects
   m_Icon: {fileID: 0}

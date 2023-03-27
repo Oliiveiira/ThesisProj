@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 683827104962193169}
   - component: {fileID: 4982867812241361335}
   - component: {fileID: -7933888960242549021}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Alho
   m_TagString: Objects
   m_Icon: {fileID: 0}

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -4050495750555912376}
   - component: {fileID: -8221004758738380649}
   - component: {fileID: -4397158882922843665}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bacon
   m_TagString: Objects
   m_Icon: {fileID: 0}

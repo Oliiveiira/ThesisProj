@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -8191434526150128408}
   - component: {fileID: 5697767077967809159}
   - component: {fileID: 8879124144699917679}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: fula
   m_TagString: Objects
   m_Icon: {fileID: 0}

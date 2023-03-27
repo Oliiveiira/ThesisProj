@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 341316875433957959}
   - component: {fileID: -5934011421327731284}
   - component: {fileID: -684795251160528878}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: hsroxo
   m_TagString: Objects
   m_Icon: {fileID: 0}

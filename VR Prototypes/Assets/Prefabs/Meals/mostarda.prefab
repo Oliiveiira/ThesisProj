@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 5253252818780354707}
   - component: {fileID: -2609931795992601971}
   - component: {fileID: -1945635036090554346}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: mostarda
   m_TagString: Objects
   m_Icon: {fileID: 0}

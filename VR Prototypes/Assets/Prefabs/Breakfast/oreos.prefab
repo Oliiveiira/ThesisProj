@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -864310320210292134}
   - component: {fileID: 3706087166699503191}
   - component: {fileID: 3516663911193131962}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: oreos
   m_TagString: Objects
   m_Icon: {fileID: 0}

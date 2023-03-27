@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 6925455599000162264}
   - component: {fileID: -347881667443402953}
   - component: {fileID: 5975230583081256291}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: renova6rolos
   m_TagString: Objects
   m_Icon: {fileID: 0}

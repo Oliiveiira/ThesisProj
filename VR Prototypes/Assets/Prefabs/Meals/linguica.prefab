@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -932270112418785399}
   - component: {fileID: 8389761709896900495}
   - component: {fileID: -6237402276086969829}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: linguica
   m_TagString: Objects
   m_Icon: {fileID: 0}

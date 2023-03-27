@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -3946483469540880132}
   - component: {fileID: 6491123517614368061}
   - component: {fileID: 1063447439623833470}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: mortadelaperu
   m_TagString: Objects
   m_Icon: {fileID: 0}

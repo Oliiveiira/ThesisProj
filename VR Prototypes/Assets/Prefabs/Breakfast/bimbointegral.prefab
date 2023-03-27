@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -7007855153591766800}
   - component: {fileID: 1892756574878611260}
   - component: {fileID: 3341377904481947392}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bimbointegral
   m_TagString: Objects
   m_Icon: {fileID: 0}
@@ -510,7 +510,7 @@ GameObject:
   - component: {fileID: 54583818893454452}
   - component: {fileID: 8376445661805406934}
   - component: {fileID: 8330203769353833045}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}

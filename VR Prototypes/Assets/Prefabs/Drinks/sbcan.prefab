@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -3872802911377206187}
   - component: {fileID: -1907597631913864404}
   - component: {fileID: -773654727435074294}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: sbcan
   m_TagString: Objects
   m_Icon: {fileID: 0}

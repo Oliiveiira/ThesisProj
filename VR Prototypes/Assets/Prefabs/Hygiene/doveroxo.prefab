@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4229667622738806800}
   - component: {fileID: 2654132657873905279}
   - component: {fileID: -1351597602846463436}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: doveroxo
   m_TagString: Objects
   m_Icon: {fileID: 0}

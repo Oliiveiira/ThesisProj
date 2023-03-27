@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -4783307457713536972}
   - component: {fileID: -1082168953009190013}
   - component: {fileID: 7447691493988013809}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: brancadeneve
   m_TagString: Objects
   m_Icon: {fileID: 0}

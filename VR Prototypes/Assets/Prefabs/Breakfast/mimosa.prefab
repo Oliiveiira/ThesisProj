@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -7278632470504108822}
   - component: {fileID: 2167715894781683740}
   - component: {fileID: -6305896775161849001}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: mimosa
   m_TagString: Objects
   m_Icon: {fileID: 0}
@@ -511,7 +511,7 @@ GameObject:
   - component: {fileID: 3869939718591690245}
   - component: {fileID: 1834899271996770849}
   - component: {fileID: 1583607156217873586}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: coverbutter.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -7875940862529054641}
   - component: {fileID: 7314560364201020527}
   - component: {fileID: -2424941275110943080}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: heinz
   m_TagString: Objects
   m_Icon: {fileID: 0}

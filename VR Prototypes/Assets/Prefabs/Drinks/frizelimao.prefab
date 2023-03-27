@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 7950502294781884509}
   - component: {fileID: 5846342771229331721}
   - component: {fileID: 2617876502554706431}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: frizelimao
   m_TagString: Objects
   m_Icon: {fileID: 0}

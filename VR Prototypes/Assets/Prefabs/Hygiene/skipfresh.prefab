@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -7839852697387523419}
   - component: {fileID: -1498731845688151865}
   - component: {fileID: 8540578482388272747}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: skipfresh
   m_TagString: Objects
   m_Icon: {fileID: 0}

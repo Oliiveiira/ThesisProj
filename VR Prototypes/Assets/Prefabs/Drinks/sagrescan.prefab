@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 517998252166815788}
   - component: {fileID: 3754267592040292447}
   - component: {fileID: 6228550696225061801}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: sagrescan
   m_TagString: Objects
   m_Icon: {fileID: 0}

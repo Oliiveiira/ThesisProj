@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4755927530523792649}
   - component: {fileID: 2807455818644550265}
   - component: {fileID: 266429200260075598}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: serraestrela
   m_TagString: Objects
   m_Icon: {fileID: 0}

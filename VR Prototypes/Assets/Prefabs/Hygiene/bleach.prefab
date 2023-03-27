@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -8432208573672388677}
   - component: {fileID: -5296875496441644390}
   - component: {fileID: -5257155520425707749}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bleach
   m_TagString: Objects
   m_Icon: {fileID: 0}

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -7906536718578758876}
   - component: {fileID: 2185673665889098251}
   - component: {fileID: -3848395971665154491}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: coke
   m_TagString: Objects
   m_Icon: {fileID: 0}

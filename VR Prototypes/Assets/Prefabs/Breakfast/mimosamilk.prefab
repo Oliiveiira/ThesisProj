@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 6790226312501374745}
   - component: {fileID: -450448216219428877}
   - component: {fileID: 5811999853578958214}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: mimosamilk
   m_TagString: Objects
   m_Icon: {fileID: 0}
@@ -511,7 +511,7 @@ GameObject:
   - component: {fileID: 2038093583043573848}
   - component: {fileID: 3651312605205890393}
   - component: {fileID: 7289589924061142969}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}

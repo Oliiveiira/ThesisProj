@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -3810197079309981690}
   - component: {fileID: -384088944597122171}
   - component: {fileID: 8940887518923501545}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: gourmet
   m_TagString: Objects
   m_Icon: {fileID: 0}

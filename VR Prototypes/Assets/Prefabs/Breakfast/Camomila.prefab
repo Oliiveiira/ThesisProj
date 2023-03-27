@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -8360762767896227996}
   - component: {fileID: 4167200742022916729}
   - component: {fileID: 3780936208015653459}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Camomila
   m_TagString: Objects
   m_Icon: {fileID: 0}

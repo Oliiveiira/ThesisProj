@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -4506093576344083797}
   - component: {fileID: -4736159020325372540}
   - component: {fileID: -5638160989171638933}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pinkspray
   m_TagString: Objects
   m_Icon: {fileID: 0}

@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -8544502796870324355}
   - component: {fileID: 2800962470974964733}
   - component: {fileID: -232260065628908153}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: OliveiraSerra
   m_TagString: Objects
   m_Icon: {fileID: 0}

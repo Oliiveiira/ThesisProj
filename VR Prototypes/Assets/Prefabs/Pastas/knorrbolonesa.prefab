@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 5694430745676312341}
   - component: {fileID: 2167336225168444455}
   - component: {fileID: 2615894332350416217}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: knorrbolonesa
   m_TagString: Objects
   m_Icon: {fileID: 0}

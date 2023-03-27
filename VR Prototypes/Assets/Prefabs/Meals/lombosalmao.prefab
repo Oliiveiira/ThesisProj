@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -4050518755714988058}
   - component: {fileID: -251351601075011837}
   - component: {fileID: 3294099715893110675}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: lombosalmao
   m_TagString: Objects
   m_Icon: {fileID: 0}

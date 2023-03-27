@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -5786494174456654178}
   - component: {fileID: 3465124612986150137}
   - component: {fileID: -3553806535786238217}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: niveablue
   m_TagString: Objects
   m_Icon: {fileID: 0}

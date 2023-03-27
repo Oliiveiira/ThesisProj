@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -1908074889391405491}
   - component: {fileID: 4026247288095203184}
   - component: {fileID: 7936330326454628012}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Paprika
   m_TagString: Objects
   m_Icon: {fileID: 0}

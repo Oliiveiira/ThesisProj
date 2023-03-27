@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 6649353454773678349}
   - component: {fileID: 6611172433024187071}
   - component: {fileID: 8567699993928230448}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: agulha
   m_TagString: Objects
   m_Icon: {fileID: 0}

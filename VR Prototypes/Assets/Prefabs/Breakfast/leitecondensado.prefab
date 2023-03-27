@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -836999491018176627}
   - component: {fileID: 1845842988022351958}
   - component: {fileID: -919280052440250679}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: leitecondensado
   m_TagString: Objects
   m_Icon: {fileID: 0}

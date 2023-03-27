@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 3614586311643362400}
   - component: {fileID: 4949104984645716309}
   - component: {fileID: 3185000625239917372}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: scottex
   m_TagString: Objects
   m_Icon: {fileID: 0}

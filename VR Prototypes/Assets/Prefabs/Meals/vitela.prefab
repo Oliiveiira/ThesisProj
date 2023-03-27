@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 5783439059013865294}
   - component: {fileID: 4458042193850291791}
   - component: {fileID: -3844611535201637281}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: vitela
   m_TagString: Objects
   m_Icon: {fileID: 0}

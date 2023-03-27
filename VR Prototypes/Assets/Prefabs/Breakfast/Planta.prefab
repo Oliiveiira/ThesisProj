@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -1794441084168107553}
   - component: {fileID: -7992855432527498288}
   - component: {fileID: 6416584972781243451}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Planta
   m_TagString: Objects
   m_Icon: {fileID: 0}
@@ -510,7 +510,7 @@ GameObject:
   - component: {fileID: 4337458010013144699}
   - component: {fileID: 2372095970535381558}
   - component: {fileID: 6427926639673852737}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: coverbutter
   m_TagString: Untagged
   m_Icon: {fileID: 0}

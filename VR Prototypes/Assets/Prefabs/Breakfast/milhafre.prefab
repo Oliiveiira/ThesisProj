@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -8254240521246406416}
   - component: {fileID: -6790624481811338663}
   - component: {fileID: -3063842984056667597}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: milhafre
   m_TagString: Objects
   m_Icon: {fileID: 0}
@@ -511,7 +511,7 @@ GameObject:
   - component: {fileID: 3392948045337991510}
   - component: {fileID: 8622082937729931248}
   - component: {fileID: 6606552797265733928}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: coverbutter.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}

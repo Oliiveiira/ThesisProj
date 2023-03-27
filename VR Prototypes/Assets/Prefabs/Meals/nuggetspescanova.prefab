@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -5324422224717217389}
   - component: {fileID: 5089609355750169494}
   - component: {fileID: -8911569289249087957}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: nuggetspescanova
   m_TagString: Objects
   m_Icon: {fileID: 0}

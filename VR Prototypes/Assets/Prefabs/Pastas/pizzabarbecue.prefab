@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -3905534704919652960}
   - component: {fileID: -3242620886729364929}
   - component: {fileID: 4959024596325147538}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pizzabarbecue
   m_TagString: Objects
   m_Icon: {fileID: 0}

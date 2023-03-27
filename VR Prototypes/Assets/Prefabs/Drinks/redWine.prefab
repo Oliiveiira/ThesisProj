@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 7689102814420403880}
   - component: {fileID: 2200798959100811627}
   - component: {fileID: 1691145258256641161}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: redWine
   m_TagString: Objects
   m_Icon: {fileID: 0}

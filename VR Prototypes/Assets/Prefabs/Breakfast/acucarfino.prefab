@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 5879589714488159496}
   - component: {fileID: 6558646065580152199}
   - component: {fileID: 4373872828529141493}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: acucarfino
   m_TagString: Objects
   m_Icon: {fileID: 0}

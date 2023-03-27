@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -3837276848045680701}
   - component: {fileID: 4812712552814884600}
   - component: {fileID: 4486428165673272881}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Maca&CAnela
   m_TagString: Objects
   m_Icon: {fileID: 0}

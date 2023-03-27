@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -1252842000740483662}
   - component: {fileID: -7634926822516879121}
   - component: {fileID: -4845874053785959250}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: compal
   m_TagString: Objects
   m_Icon: {fileID: 0}

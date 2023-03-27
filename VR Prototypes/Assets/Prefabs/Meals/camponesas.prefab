@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -2873314661298703735}
   - component: {fileID: -447013619240043316}
   - component: {fileID: -2568757693134785168}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: camponesas
   m_TagString: Objects
   m_Icon: {fileID: 0}

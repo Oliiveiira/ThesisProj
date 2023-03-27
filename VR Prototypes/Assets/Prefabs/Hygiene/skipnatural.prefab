@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -8092390881001336544}
   - component: {fileID: -2972345361895943051}
   - component: {fileID: 1923583723289726551}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: skipnatural
   m_TagString: Objects
   m_Icon: {fileID: 0}

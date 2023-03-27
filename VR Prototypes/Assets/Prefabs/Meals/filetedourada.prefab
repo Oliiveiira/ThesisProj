@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 5014586046216907787}
   - component: {fileID: -6958974349209173230}
   - component: {fileID: 3740963082547035440}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: filetedourada
   m_TagString: Objects
   m_Icon: {fileID: 0}

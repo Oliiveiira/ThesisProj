@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -2989761256922737726}
   - component: {fileID: 1058585541003428883}
   - component: {fileID: -2548134263696223365}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: fusilli
   m_TagString: Objects
   m_Icon: {fileID: 0}

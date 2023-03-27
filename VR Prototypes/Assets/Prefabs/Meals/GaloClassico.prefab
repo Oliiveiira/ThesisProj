@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 2390822171679626026}
   - component: {fileID: 2737231695089994773}
   - component: {fileID: 3030600628926081079}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GaloClassico
   m_TagString: Objects
   m_Icon: {fileID: 0}

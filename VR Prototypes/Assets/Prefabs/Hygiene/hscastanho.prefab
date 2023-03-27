@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -6883224127941572665}
   - component: {fileID: 2634466296350654828}
   - component: {fileID: 91828389952168294}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: hscastanho
   m_TagString: Objects
   m_Icon: {fileID: 0}

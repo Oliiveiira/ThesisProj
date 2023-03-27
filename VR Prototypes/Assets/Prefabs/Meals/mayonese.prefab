@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 990829039797397463}
   - component: {fileID: 6085507593823262813}
   - component: {fileID: -7168630466799092740}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: mayonese
   m_TagString: Objects
   m_Icon: {fileID: 0}

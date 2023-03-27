@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 7695575046038966438}
   - component: {fileID: 2924895763172021496}
   - component: {fileID: -1721168443124894457}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: doverosa
   m_TagString: Objects
   m_Icon: {fileID: 0}

@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -2026179806832467011}
   - component: {fileID: 4226771321824696533}
   - component: {fileID: -2044492264783347685}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: greenspray
   m_TagString: Objects
   m_Icon: {fileID: 0}

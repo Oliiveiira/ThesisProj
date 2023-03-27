@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -8707769819717076555}
   - component: {fileID: 7179493227063434664}
   - component: {fileID: -268890418624262879}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: activia
   m_TagString: Objects
   m_Icon: {fileID: 0}

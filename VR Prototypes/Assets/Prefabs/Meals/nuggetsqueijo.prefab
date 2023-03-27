@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 9047321232106207675}
   - component: {fileID: -1107184991449944319}
   - component: {fileID: -4570160435454273954}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: nuggetsqueijo
   m_TagString: Objects
   m_Icon: {fileID: 0}

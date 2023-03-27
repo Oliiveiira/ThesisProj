@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -6931204750702245824}
   - component: {fileID: 332098792025779228}
   - component: {fileID: 6253534308756753733}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: chakal
   m_TagString: Objects
   m_Icon: {fileID: 0}

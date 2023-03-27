@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 3059935662992035964}
   - component: {fileID: 1301442059091570305}
   - component: {fileID: -5158411869465837799}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: vaqueiro
   m_TagString: Objects
   m_Icon: {fileID: 0}

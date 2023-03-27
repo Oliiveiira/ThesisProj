@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 1627035457228002484}
   - component: {fileID: -6632161522623644648}
   - component: {fileID: -3550017342165894891}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: acucarbranco
   m_TagString: Objects
   m_Icon: {fileID: 0}

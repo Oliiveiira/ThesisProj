@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 5611679393894437824}
   - component: {fileID: 6587440730219507442}
   - component: {fileID: 6595018564535676513}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: digestivas
   m_TagString: Objects
   m_Icon: {fileID: 0}

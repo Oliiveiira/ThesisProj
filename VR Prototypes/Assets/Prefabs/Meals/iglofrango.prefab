@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -4793843537039045560}
   - component: {fileID: -4598957746034917296}
   - component: {fileID: -8512022276660488835}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: iglofrango
   m_TagString: Objects
   m_Icon: {fileID: 0}

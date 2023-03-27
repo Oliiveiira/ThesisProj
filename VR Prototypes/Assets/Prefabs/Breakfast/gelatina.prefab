@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 8095516295829548032}
   - component: {fileID: 365555168226709853}
   - component: {fileID: -4955412609975548257}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: gelatina
   m_TagString: Objects
   m_Icon: {fileID: 0}

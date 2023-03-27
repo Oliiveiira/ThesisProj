@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -5107971060816634945}
   - component: {fileID: 4110838321651506138}
   - component: {fileID: 4498870072400634402}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: yoprostrawb
   m_TagString: Objects
   m_Icon: {fileID: 0}

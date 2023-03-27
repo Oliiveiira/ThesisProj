@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -9156606253081333283}
   - component: {fileID: 1668360232759919921}
   - component: {fileID: 3400112401331948366}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: nobre
   m_TagString: Objects
   m_Icon: {fileID: 0}

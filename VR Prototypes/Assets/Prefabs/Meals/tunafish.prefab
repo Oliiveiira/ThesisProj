@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -615362339579417602}
   - component: {fileID: 7940008065813403492}
   - component: {fileID: -15122573226906559}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tunafish
   m_TagString: Objects
   m_Icon: {fileID: 0}

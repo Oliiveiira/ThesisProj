@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -7487101332211947308}
   - component: {fileID: -7044608382428022429}
   - component: {fileID: -7518866488697927306}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bompetisco
   m_TagString: Objects
   m_Icon: {fileID: 0}

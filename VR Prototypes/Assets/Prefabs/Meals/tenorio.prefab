@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -7737993315339439422}
   - component: {fileID: 3410993741548767201}
   - component: {fileID: -3236412032518758318}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tenorio
   m_TagString: Objects
   m_Icon: {fileID: 0}

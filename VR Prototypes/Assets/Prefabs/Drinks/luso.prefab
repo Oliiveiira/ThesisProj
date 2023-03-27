@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 6371261364520621505}
   - component: {fileID: 8119624598052748773}
   - component: {fileID: -2058728080695569660}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: luso
   m_TagString: Objects
   m_Icon: {fileID: 0}

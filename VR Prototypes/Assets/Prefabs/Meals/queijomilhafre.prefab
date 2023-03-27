@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -1818541526987463776}
   - component: {fileID: 5810512593528932195}
   - component: {fileID: -6091597112742014702}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: queijomilhafre
   m_TagString: Objects
   m_Icon: {fileID: 0}

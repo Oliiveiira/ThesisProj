@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 1105215695807750972}
   - component: {fileID: -1325027991326379386}
   - component: {fileID: -1326612209125048373}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: nuggets
   m_TagString: Objects
   m_Icon: {fileID: 0}

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4990767177189331117}
   - component: {fileID: -1122817565034555109}
   - component: {fileID: -3087501217780999603}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: roseWine
   m_TagString: Objects
   m_Icon: {fileID: 0}

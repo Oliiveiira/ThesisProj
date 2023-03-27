@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -6578978763247572766}
   - component: {fileID: -2841830249465151808}
   - component: {fileID: -3887691632452400073}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GaloSubtil
   m_TagString: Objects
   m_Icon: {fileID: 0}

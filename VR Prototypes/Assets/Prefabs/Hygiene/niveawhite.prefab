@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 513205875022555956}
   - component: {fileID: 1801142889029330902}
   - component: {fileID: -2283318609275162568}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: niveawhite
   m_TagString: Objects
   m_Icon: {fileID: 0}

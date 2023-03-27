@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -3484531495158393230}
   - component: {fileID: -951208332804474820}
   - component: {fileID: 1930810743719705918}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: cafe8
   m_TagString: Objects
   m_Icon: {fileID: 0}

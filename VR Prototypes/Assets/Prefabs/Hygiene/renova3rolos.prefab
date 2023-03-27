@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 2399015630074390761}
   - component: {fileID: 1824477174371918000}
   - component: {fileID: -7296405395444453980}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: renova3rolos
   m_TagString: Objects
   m_Icon: {fileID: 0}

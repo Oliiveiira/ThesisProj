@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -7034494048874964333}
   - component: {fileID: 822186214560104588}
   - component: {fileID: 5265347540047931634}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: vege
   m_TagString: Objects
   m_Icon: {fileID: 0}

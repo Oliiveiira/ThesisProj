@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 483427400918718530}
   - component: {fileID: 7573031179476269268}
   - component: {fileID: 8749551503893036476}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: filetespescada
   m_TagString: Objects
   m_Icon: {fileID: 0}

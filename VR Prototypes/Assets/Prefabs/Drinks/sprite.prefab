@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 8859875508523812683}
   - component: {fileID: 2030872051748512345}
   - component: {fileID: -8646658490467172440}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: sprite
   m_TagString: Objects
   m_Icon: {fileID: 0}

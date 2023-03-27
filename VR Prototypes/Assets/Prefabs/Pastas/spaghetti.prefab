@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -4667854118956058351}
   - component: {fileID: 3992280872234808685}
   - component: {fileID: -5896792120532689705}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: spaghetti
   m_TagString: Objects
   m_Icon: {fileID: 0}

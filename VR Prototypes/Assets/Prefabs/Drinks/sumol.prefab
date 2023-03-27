@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -4369966993371438675}
   - component: {fileID: 3537997995785973353}
   - component: {fileID: 787010307265821077}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: sumol
   m_TagString: Objects
   m_Icon: {fileID: 0}

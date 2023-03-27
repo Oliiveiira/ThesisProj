@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -8483844346061124796}
   - component: {fileID: -244728353845194318}
   - component: {fileID: -2360815257400132191}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: handlotionred
   m_TagString: Objects
   m_Icon: {fileID: 0}

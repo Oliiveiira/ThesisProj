@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -1207946081648864534}
   - component: {fileID: 4027654571214604830}
   - component: {fileID: 8738510823064057563}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: izidoro
   m_TagString: Objects
   m_Icon: {fileID: 0}

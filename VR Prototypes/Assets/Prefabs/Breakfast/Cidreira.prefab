@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -4370030537452614390}
   - component: {fileID: 7781804861150085391}
   - component: {fileID: -7821102204609067673}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cidreira
   m_TagString: Objects
   m_Icon: {fileID: 0}

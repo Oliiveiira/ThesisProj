@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 8318830711084268425}
   - component: {fileID: 6974481510396220044}
   - component: {fileID: 2319848752987562142}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: basmati
   m_TagString: Objects
   m_Icon: {fileID: 0}

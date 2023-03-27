@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -4161255589050409055}
   - component: {fileID: -8462943818085953017}
   - component: {fileID: 7223353096399457401}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pizzacarbonara
   m_TagString: Objects
   m_Icon: {fileID: 0}

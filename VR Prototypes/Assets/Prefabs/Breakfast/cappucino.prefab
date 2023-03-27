@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -7220299178150913246}
   - component: {fileID: 8957529933540474405}
   - component: {fileID: 5286983387618272023}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: cappucino
   m_TagString: Objects
   m_Icon: {fileID: 0}

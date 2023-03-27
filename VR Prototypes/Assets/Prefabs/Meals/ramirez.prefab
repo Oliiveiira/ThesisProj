@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -4892890870576376737}
   - component: {fileID: -8364391874866944953}
   - component: {fileID: -2649107116642035279}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ramirez
   m_TagString: Objects
   m_Icon: {fileID: 0}

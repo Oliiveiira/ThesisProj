@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -1477988306847009140}
   - component: {fileID: 3063051007542913367}
   - component: {fileID: -8738319084981982314}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: acucaramarelo
   m_TagString: Objects
   m_Icon: {fileID: 0}

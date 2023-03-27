@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -6484230822777192593}
   - component: {fileID: 4238521284314326323}
   - component: {fileID: 4370580324778147026}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: vitalday
   m_TagString: Objects
   m_Icon: {fileID: 0}

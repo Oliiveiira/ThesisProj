@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -767298619993767555}
   - component: {fileID: -8352433373112545494}
   - component: {fileID: 6466629652588502347}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: cornflakes
   m_TagString: Objects
   m_Icon: {fileID: 0}

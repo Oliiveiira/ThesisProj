@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -8489651829605783793}
   - component: {fileID: -2787604978032306048}
   - component: {fileID: 752892027778987088}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: hsverde
   m_TagString: Objects
   m_Icon: {fileID: 0}

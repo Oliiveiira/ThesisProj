@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -1734718336858111544}
   - component: {fileID: 7856907645118203631}
   - component: {fileID: 8684691433429738041}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: niveagold
   m_TagString: Objects
   m_Icon: {fileID: 0}

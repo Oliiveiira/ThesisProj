@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 9144514005864419912}
   - component: {fileID: 2649711247090760506}
   - component: {fileID: 3189017845155783358}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: queijoterranostra
   m_TagString: Objects
   m_Icon: {fileID: 0}

@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -3896016320698687787}
   - component: {fileID: 8710634125239748807}
   - component: {fileID: -1346854978297088615}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: fileterobalo
   m_TagString: Objects
   m_Icon: {fileID: 0}

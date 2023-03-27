@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 1329440525074343340}
   - component: {fileID: -8397970096047207929}
   - component: {fileID: 5048659785282871176}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: yoprovanila
   m_TagString: Objects
   m_Icon: {fileID: 0}

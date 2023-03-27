@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -4128301458452571185}
   - component: {fileID: -4449656740717965846}
   - component: {fileID: 3858923079862176752}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: chouricao
   m_TagString: Objects
   m_Icon: {fileID: 0}

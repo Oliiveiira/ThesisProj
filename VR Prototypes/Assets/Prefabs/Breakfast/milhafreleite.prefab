@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 679423097943698197}
   - component: {fileID: -6332829671341143667}
   - component: {fileID: 6866098426715607473}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: milhafreleite
   m_TagString: Objects
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 4441547114821802931}
   - component: {fileID: 407022844427961723}
   - component: {fileID: 4734740123904723114}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 7543879362840077085}
   - component: {fileID: 3165890763083272872}
   - component: {fileID: 4476769232875466864}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: orangespray
   m_TagString: Objects
   m_Icon: {fileID: 0}

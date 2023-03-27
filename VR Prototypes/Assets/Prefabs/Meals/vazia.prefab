@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -2839156261200163919}
   - component: {fileID: 532717333408479035}
   - component: {fileID: -699655088454594016}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: vazia
   m_TagString: Objects
   m_Icon: {fileID: 0}

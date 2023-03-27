@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 7413951593081017142}
   - component: {fileID: 7256096483947036670}
   - component: {fileID: -5477436068045024968}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: renovaXXL
   m_TagString: Objects
   m_Icon: {fileID: 0}

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -7609625259439136924}
   - component: {fileID: -5604415408433431390}
   - component: {fileID: -7242917585477451143}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: heineken
   m_TagString: Objects
   m_Icon: {fileID: 0}

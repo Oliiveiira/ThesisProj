@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -70791694695042397}
   - component: {fileID: 4538185456939015486}
   - component: {fileID: 3460944219994092118}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: danacol
   m_TagString: Objects
   m_Icon: {fileID: 0}

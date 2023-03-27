@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 5051518331263930092}
   - component: {fileID: 5490656825548675671}
   - component: {fileID: 5037406365238277859}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: cotovelinhos
   m_TagString: Objects
   m_Icon: {fileID: 0}

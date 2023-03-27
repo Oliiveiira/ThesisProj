@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 970076799404921592}
   - component: {fileID: 6284960082807839879}
   - component: {fileID: -1636815027376164540}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: nobrefrango
   m_TagString: Objects
   m_Icon: {fileID: 0}

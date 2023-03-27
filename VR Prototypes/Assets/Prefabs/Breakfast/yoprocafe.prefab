@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -163796674754246563}
   - component: {fileID: 118796242637337606}
   - component: {fileID: -4731115899448689222}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: yoprocafe
   m_TagString: Objects
   m_Icon: {fileID: 0}

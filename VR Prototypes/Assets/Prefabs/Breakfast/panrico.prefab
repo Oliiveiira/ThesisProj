@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -1691486113560182000}
   - component: {fileID: 4970341944313221970}
   - component: {fileID: -4379748845435382552}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: panrico
   m_TagString: Objects
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 8031118288620272648}
   - component: {fileID: 4055276250760515943}
   - component: {fileID: 2780545379385752714}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}

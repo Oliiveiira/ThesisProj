@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -7781488377416414038}
   - component: {fileID: 3832149940680418658}
   - component: {fileID: 1777325804391483719}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: hamporminho
   m_TagString: Objects
   m_Icon: {fileID: 0}

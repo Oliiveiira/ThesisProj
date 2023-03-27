@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -1239998922241627509}
   - component: {fileID: -6487442797173315621}
   - component: {fileID: 6262090496511632448}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: frizetangerina
   m_TagString: Objects
   m_Icon: {fileID: 0}

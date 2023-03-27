@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4051219936476492368}
   - component: {fileID: 517520713416620986}
   - component: {fileID: -5672511069008265441}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: doveverde
   m_TagString: Objects
   m_Icon: {fileID: 0}

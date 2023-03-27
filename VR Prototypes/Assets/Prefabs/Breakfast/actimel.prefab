@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -579497783596582941}
   - component: {fileID: 8332381174100915852}
   - component: {fileID: 2821826462474071504}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: actimel
   m_TagString: Objects
   m_Icon: {fileID: 0}

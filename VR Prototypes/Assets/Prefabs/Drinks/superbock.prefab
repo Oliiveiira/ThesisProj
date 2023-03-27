@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -7550938114135492978}
   - component: {fileID: 4360613334100673144}
   - component: {fileID: 4784108802926499955}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: superbock
   m_TagString: Objects
   m_Icon: {fileID: 0}

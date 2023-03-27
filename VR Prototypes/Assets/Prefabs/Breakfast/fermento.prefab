@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: -4358786392790656324}
   - component: {fileID: -8030127524319199333}
   - component: {fileID: -6593761784198271066}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: fermento
   m_TagString: Objects
   m_Icon: {fileID: 0}

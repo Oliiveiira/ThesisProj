@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -8335255390774880511}
   - component: {fileID: -8507530910624070974}
   - component: {fileID: 4082018684106426091}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: frizemaracuja
   m_TagString: Objects
   m_Icon: {fileID: 0}

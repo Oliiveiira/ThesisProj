@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4727055803398267985}
   - component: {fileID: 8668680784108880718}
   - component: {fileID: 3965002782546200753}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Canela
   m_TagString: Objects
   m_Icon: {fileID: 0}

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -7597962278389131748}
   - component: {fileID: 1991577960257633280}
   - component: {fileID: 5000755621744610162}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: colgatetotal
   m_TagString: Objects
   m_Icon: {fileID: 0}
