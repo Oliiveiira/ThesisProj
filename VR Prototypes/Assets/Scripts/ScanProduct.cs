@@ -52,7 +52,7 @@ public class ScanProduct : MonoBehaviour
         {
             warning.gameObject.SetActive(false);
             paymentAvailable = true;
-            setWinPanel.Raise();
+            //setWinPanel.Raise();
         }
     }
 

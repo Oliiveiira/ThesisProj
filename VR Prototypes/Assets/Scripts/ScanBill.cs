@@ -1,4 +1,5 @@
 using Oculus.Interaction.HandGrab;
+using RoboRyanTron.Unite2017.Events;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,8 @@ public class ScanBill : scanMoney
     public Transform billTransform;
     public AudioSource billSound;//trigger the sound
     public float speed;
+    [SerializeField]
+    private GameEvent setWinPanel;
 
     private void FixedUpdate()
     {
@@ -56,6 +59,7 @@ public class ScanBill : scanMoney
                 billPosition = other.transform;
 
                 totalCost.SetText("Total: " + total.Value.ToString());
+                setWinPanel.Raise();
             }
             else
             {

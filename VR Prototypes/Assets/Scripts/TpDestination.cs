@@ -62,8 +62,8 @@ public class TpDestination : MonoBehaviour
         {
             mesh.enabled = false;
             //  player.rotation = Quaternion.Euler(0, targetRotation, 0);
-            ChangeCartPosition();
-            ChangeWalletPosition();
+           // ChangeCartPosition();
+           // ChangeWalletPosition();
             activateCart.Raise();
             activateWallet.Raise();
             //player.rotation = Quaternion.Lerp(player.transform.rotation, Quaternion.Euler(0, targetRotation, 0), 10f);

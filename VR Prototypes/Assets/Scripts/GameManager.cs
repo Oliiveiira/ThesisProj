@@ -68,7 +68,7 @@ public class GameManager : JSONReader
         leftButton.SetActive(false);
         rightButton.SetActive(false);
         // alreadyShowed = true;
-        //startTimer.Raise();
+        startTimer.Raise();
         listPaper.SetActive(true);
         if(mirrorLeft)
         watchR.SetActive(true);
