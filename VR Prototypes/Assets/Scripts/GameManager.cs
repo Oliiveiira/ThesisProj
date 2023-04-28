@@ -48,6 +48,8 @@ public class GameManager : JSONReader
     public bool mirrorLeft;
     public bool mirrorRight;
 
+    public IntSO level;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -81,26 +83,26 @@ public class GameManager : JSONReader
         //its choosing the recepie randomly now, but then its going to be sequentially, based on the difficulty level
         randomIndex = Random.Range(0, myRecipeList.recipe.Length);
 
-        budget = myRecipeList.recipe[randomIndex].budget;
+        budget = myRecipeList.recipe[level.Value].budget;
 
-        money = (GameObject)Instantiate(Resources.Load(myRecipeList.recipe[randomIndex].budgetPrefab)); //instantiate the money prefab
+        money = (GameObject)Instantiate(Resources.Load(myRecipeList.recipe[level.Value].budgetPrefab)); //instantiate the money prefab
         money.transform.position = moneyTransform.position;
 
-        image.sprite = allSprites[randomIndex];
+        image.sprite = allSprites[level.Value];
 
-        Debug.Log(myRecipeList.recipe[randomIndex].spriteURL);
+        Debug.Log(myRecipeList.recipe[level.Value].spriteURL);
 
-        budgettoWatchR.SetText("Money: " + myRecipeList.recipe[randomIndex].budget.ToString()); //to Watch
-        budgettoWatchL.SetText("Money: " + myRecipeList.recipe[randomIndex].budget.ToString()); //to Watch
+        budgettoWatchR.SetText("Money: " + myRecipeList.recipe[level.Value].budget.ToString()); //to Watch
+        budgettoWatchL.SetText("Money: " + myRecipeList.recipe[level.Value].budget.ToString()); //to Watch
 
-        budgetText.SetText("Money: " + myRecipeList.recipe[randomIndex].budget.ToString());
-        recipeName.SetText(myRecipeList.recipe[randomIndex].recipeName);
+        budgetText.SetText("Money: " + myRecipeList.recipe[level.Value].budget.ToString());
+        recipeName.SetText(myRecipeList.recipe[level.Value].recipeName);
 
-        for (int i = 0; i < myRecipeList.recipe[randomIndex].ingredients.Length; i++)
+        for (int i = 0; i < myRecipeList.recipe[level.Value].ingredients.Length; i++)
         {
-            productsToGet[i].text = myRecipeList.recipe[randomIndex].ingredients[i];
-            productsToGettoWatchR[i].text = myRecipeList.recipe[randomIndex].ingredients[i]; //to Watch
-            productsToGettoWatchL[i].text = myRecipeList.recipe[randomIndex].ingredients[i]; //to Watch
+            productsToGet[i].text = myRecipeList.recipe[level.Value].ingredients[i];
+            productsToGettoWatchR[i].text = myRecipeList.recipe[level.Value].ingredients[i]; //to Watch
+            productsToGettoWatchL[i].text = myRecipeList.recipe[level.Value].ingredients[i]; //to Watch
         }
     }
 

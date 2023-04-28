@@ -1,11 +1,46 @@
 {
 	"recipe": [
+			{
+			"budget": 10,
+			"budgetPrefab": "Money/10euros",
+			"recipeName": " ",
+			"spriteURL": "RecipeImages/bimbo.jpg",
+			"ingredients":["Pao"]
+		},
+		{
+			"budget": 10,
+			"budgetPrefab": "Money/10euros",
+			"recipeName": "Leite com cereais",
+			"spriteURL": "RecipeImages/bolo.jpeg",
+			"ingredients":["Leite", "Cereais"]
+		},
+		{
+			"budget": 10,
+			"budgetPrefab": "Money/10euros",
+			"recipeName": "Tosta Mista",
+			"spriteURL": "RecipeImages/bolo.jpeg",
+			"ingredients":["Pao", "Queijo", "Fiambre"]
+		},
+		{
+			"budget": 20,
+			"budgetPrefab": "Money/20euros",
+			"recipeName": "Massa com Frango",
+			"spriteURL": "RecipeImages/bolo.jpeg",
+			"ingredients":["300g de Esparguete", "2 Peitos de Frango", "1 Cebola", "Polpa de Tomate"]
+		},
+		{
+			"budget": 20,
+			"budgetPrefab": "Money/20euros",
+			"recipeName": "Sopa",
+			"spriteURL": "RecipeImages/sopa.jpg",
+			"ingredients":["2 Cebolas", "2 Cenouras", "1 Alho Frances", "500g de Batata", "Azeite"]
+		},
 		{
 			"budget": 10,
 			"budgetPrefab": "Money/10euros",
 			"recipeName": "Bolo",
-			"spriteURL": "Recipes/Cake.jpg",
-			"ingredients":["Manteiga", "Acucar", "Ovos", "Farinha", "Fermento"]
+			"spriteURL": "RecipeImages/bolo.jpeg",
+			"ingredients":["20g de Manteiga", "30g de Acucar", "3 Ovos", "200g de Farinha", "Fermento"]
 		}
 	]
 }

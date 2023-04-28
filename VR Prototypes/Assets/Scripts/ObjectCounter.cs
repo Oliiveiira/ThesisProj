@@ -10,7 +10,7 @@ public class ObjectCounter : MonoBehaviour
     //[SerializeField]
     //private Products products; //Para utilizar em 3D
     [SerializeField]
-    private GameManager products;
+    private GameManager list;
     //[SerializeField]
     //private ObjectSO objectSO;
     private int successCounter;
@@ -28,6 +28,8 @@ public class ObjectCounter : MonoBehaviour
     [SerializeField]
     private AudioSource wrongSound;
 
+    private Product product;
+
     private void Start()
     {
 
@@ -40,7 +42,7 @@ public class ObjectCounter : MonoBehaviour
 
     void Win()
     {
-        if (successCounter == products.myRecipeList.recipe[products.randomIndex].ingredients.Length)
+        if (successCounter == list.myRecipeList.recipe[list.level.Value].ingredients.Length)
         {
             scanAvaiable = true;
             //setWinPanel.Raise();
@@ -55,17 +57,22 @@ public class ObjectCounter : MonoBehaviour
         {
             //ObjectSO products = other.gameObject.GetComponent<ObjectSO>();
             isInFlag = false;
-            for (int i = 0; i < products.myRecipeList.recipe[products.randomIndex].ingredients.Length; i++)
+            for (int i = 0; i < list.myRecipeList.recipe[list.level.Value].ingredients.Length; i++)
             {
-                if (other.name.Equals(products.productsToGet[i].text))
+                if (other.name.Equals(list.productsToGet[i].text))
                 {
                     other.transform.SetParent(this.transform);
-                    scoreUI.Raise(); //Evento para adicionar 1 ponto no score
+                    // scoreUI.Raise(); //Evento para adicionar 1 ponto no score
                     //products.productsToGet[i].SetText("Boa");
+                    product = other.GetComponent<Product>();
+                    if (!product.isInCart)
+                    {
+                        product.sound.Play();
+                        product.isInCart = true;
+                    }
                     Debug.Log("yes");
                     successCounter++;
                     isInFlag = true;
-                   // correctSound.Play();
                 }
             }
 
@@ -81,20 +88,20 @@ public class ObjectCounter : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Objects"))
-        {
-            for (int i = 0; i < products.myRecipeList.recipe[products.randomIndex].ingredients.Length; i++)
-            {
-                if (other.name.Equals(products.productsToGet[i].text))
-                {
-                    other.transform.parent = null;
-                    successCounter--;
-                }
-            }
-        }   
-    }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.CompareTag("Objects"))
+    //    {
+    //        for (int i = 0; i < products.myRecipeList.recipe[products.level.Value].ingredients.Length; i++)
+    //        {
+    //            if (other.name.Equals(products.productsToGet[i].text))
+    //            {
+    //                other.transform.parent = null;
+    //                successCounter--;
+    //            }
+    //        }
+    //    }   
+    //}
     
 
 

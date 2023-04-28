@@ -63,7 +63,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EdgePosition: 1
-    - _FadeEnd: -1
+    - _FadeEnd: -0.4
     - _FadeStart: 0.25
     - _FrontFactor: 0
     - _Glossiness: 0.5

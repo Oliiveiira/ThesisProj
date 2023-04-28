@@ -9,11 +9,38 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: b607f3b9c7def634089dcbe20209ebe2
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
+    path: Assets/Scenes/Tutorial.unity
+    guid: aa5917cfad296014296967770735fd09
+  - enabled: 1
+    path: Assets/Scenes/Level1 - Static.unity
     guid: f02bc29a4f2292140a81007f7720764b
   - enabled: 1
-    path: Assets/Scenes/Scene1-SpaceChanges.unity
+    path: Assets/Scenes/Level4.unity
     guid: 84ce4bb434c0fee4da4df71400ab1c57
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: 963b625588fe48b4d94d07a70441dfe4
+  - enabled: 1
+    path: Assets/Scenes/Level2 - Static.unity
+    guid: 22b78db0efdf99640ac9c2f29c2ae486
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: ff4e078ff382ef44b8de231a405af36b
+  - enabled: 1
+    path: Assets/Scenes/Level3 - Static.unity
+    guid: daca00205db17dd46879b25ebea2f502
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: ce2f4b33eb4472c449ee666e3134fe23
+  - enabled: 1
+    path: Assets/Scenes/Level4 - Static.unity
+    guid: 1a031e2a9b4187347a4f7dada8c466ad
+  - enabled: 1
+    path: Assets/Scenes/Level5 - Static.unity
+    guid: d25cd5548ddef5c4f8ae4458b83ed5cc
+  - enabled: 1
+    path: Assets/Scenes/Level5.unity
+    guid: 3cdeea45d2c7e0a4eaa7a211711d327d
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 6eefee752c7ee674183932769f47456a, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}

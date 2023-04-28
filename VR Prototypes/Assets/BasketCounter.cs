@@ -27,6 +27,11 @@ public class BasketCounter : MonoBehaviour
     [SerializeField]
     private GameObject[] shelves;
 
+    [SerializeField]
+    private RecipeReader listProduct;
+
+    private Product product;
+
     private void Start()
     {
 
@@ -39,7 +44,7 @@ public class BasketCounter : MonoBehaviour
 
     void Win()
     {
-        if (successCounter == products.myRecipeList.recipe[products.randomIndex].ingredients.Length)
+        if (successCounter == products.myRecipeList.recipe[products.level.Value].ingredients.Length)
         {
             DeactivateShelves();
             setWinPanel.Raise();
@@ -62,12 +67,15 @@ public class BasketCounter : MonoBehaviour
         {
             //ObjectSO products = other.gameObject.GetComponent<ObjectSO>();
             isInFlag = false;
-            for (int i = 0; i < products.myRecipeList.recipe[products.randomIndex].ingredients.Length; i++)
+            for (int i = 0; i < products.myRecipeList.recipe[products.level.Value].ingredients.Length; i++)
             {
                 if (other.name.Equals(products.productsToGet[i].text))
                 {
                     other.transform.SetParent(this.transform);
+                    listProduct.productsToGet[i].SetText("Boa!");
                     //products.productsToGet[i].SetText("Boa");
+                    product = other.GetComponent<Product>();
+                    product.isInBasket = true;
                     Debug.Log("yes");
                     successCounter++;
                     isInFlag = true;
@@ -75,12 +83,12 @@ public class BasketCounter : MonoBehaviour
                 }
             }
 
-            if (!isInFlag)
-            {
-                Debug.Log("tente outra vez");
-                isInFlag = false;
-                wrongSound.Play();
-            }
+            //if (!isInFlag)
+            //{
+            //    Debug.Log("tente outra vez");
+            //    isInFlag = false;
+            //    wrongSound.Play();
+            //}
 
             Win();
 
@@ -91,7 +99,7 @@ public class BasketCounter : MonoBehaviour
     {
         if (other.CompareTag("Objects"))
         {
-            for (int i = 0; i < products.myRecipeList.recipe[products.randomIndex].ingredients.Length; i++)
+            for (int i = 0; i < products.myRecipeList.recipe[products.level.Value].ingredients.Length; i++)
             {
                 if (other.name.Equals(products.productsToGet[i].text))
                 {

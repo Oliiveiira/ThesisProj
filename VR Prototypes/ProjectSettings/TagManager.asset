@@ -13,6 +13,7 @@ TagManager:
   - TeleportDestination
   - TeleportDestinationR
   - Wallet
+  - Ground
   layers:
   - Default
   - TransparentFX

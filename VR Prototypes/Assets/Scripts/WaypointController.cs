@@ -15,6 +15,7 @@ public class WaypointController : MonoBehaviour
     public int raylenght = 10;
     public float delay = 0.1f;
     public Vector3 teleportPos;
+    public Transform selectedWaypoint;
 
     public GameObject pointer;
     public ActiveStateSelector laserPose;
@@ -43,8 +44,8 @@ public class WaypointController : MonoBehaviour
     [SerializeField]
     private GameEvent DeactivateTpPoint;
 
-    [SerializeField]
-    private GameObject shoppingCart;
+    //[SerializeField]
+    //private GameObject shoppingCart;
     [SerializeField]
     private GameObject wallet;
 
@@ -74,6 +75,11 @@ public class WaypointController : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out hit, raylenght * 10))
         {
             //teleportPos = hit.point;
+            if(hit.transform.TryGetComponent(out tpDestination))
+            {
+                selectedWaypoint = tpDestination.waypointPosition;
+                pointer.transform.position = selectedWaypoint.position;
+            }
 
             if (showLaser)
             {
@@ -107,10 +113,11 @@ public class WaypointController : MonoBehaviour
             {
                 ActivateTpPointMesh.Raise();
                 DeactivateTpPoint.Raise();
-                shoppingCart.SetActive(false);
+               // shoppingCart.SetActive(false);
                 wallet.SetActive(false);
                 //playerPosition.transform.position = Vector3.MoveTowards(playerPosition.transform.position, teleportPos, speed * Time.deltaTime);
-                navMeshAgent.destination = teleportPos;
+                // navMeshAgent.destination = teleportPos;
+                navMeshAgent.SetDestination(selectedWaypoint.transform.position);
                 //ovrCameraRig.transform.position = playerPosition.transform.position;
                 ovrCameraRig.transform.position = navMeshAgent.transform.position;
                 canWalk = false;

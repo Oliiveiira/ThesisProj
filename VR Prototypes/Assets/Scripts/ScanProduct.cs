@@ -48,7 +48,7 @@ public class ScanProduct : MonoBehaviour
 
     void AllProductsScan()
     {
-        if (successCounter == ingredients.myRecipeList.recipe[ingredients.randomIndex].ingredients.Length)
+        if (successCounter == ingredients.myRecipeList.recipe[ingredients.level.Value].ingredients.Length)
         {
             warning.gameObject.SetActive(false);
             paymentAvailable = true;
@@ -62,7 +62,7 @@ public class ScanProduct : MonoBehaviour
         if (other.CompareTag("Objects"))
         {
             isInFlag = false;
-            for (int i = 0; i < ingredients.myRecipeList.recipe[ingredients.randomIndex].ingredients.Length; i++)
+            for (int i = 0; i < ingredients.myRecipeList.recipe[ingredients.level.Value].ingredients.Length; i++)
             {
                 if (other.name.Equals(ingredients.productsToGet[i].text))
                 {

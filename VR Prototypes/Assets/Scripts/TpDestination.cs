@@ -25,6 +25,7 @@ public class TpDestination : MonoBehaviour
 
     private Collider capsuleCollider;
 
+    public Transform waypointPosition;
 
     //public float rotationLerpSpeed = 2.5f;
 
@@ -90,6 +91,7 @@ public class TpDestination : MonoBehaviour
         wallet.localRotation = Quaternion.Euler(wallet.localRotation.x, walletTargetRotation, wallet.localRotation.z);
         wallet.localPosition = new Vector3(walletPositionX, wallet.localPosition.y, walletPositionZ);
     }
+
 
     //public void DeactivateTeleportPoint()
     //{
