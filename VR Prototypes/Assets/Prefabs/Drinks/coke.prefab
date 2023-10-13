@@ -36,7 +36,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 992275108424477322}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.498, y: 1.29, z: -0.688}
   m_LocalScale: {x: 1.06, y: 1.1018577, z: 1.1018577}
   m_ConstrainProportionsScale: 1
@@ -44,7 +44,7 @@ Transform:
   - {fileID: 6590842442930359546}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!33 &4666889490357296751
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -112,6 +112,7 @@ MonoBehaviour:
   costText: {fileID: 5572079055779159149}
   isGround: 0
   isInBasket: 0
+  isInCart: 0
   sound: {fileID: -2348761047649256041}
 --- !u!65 &-8871329745635229273
 BoxCollider:
@@ -135,8 +136,8 @@ Rigidbody:
   m_GameObject: {fileID: 992275108424477322}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 7
+  m_AngularDrag: 100
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0

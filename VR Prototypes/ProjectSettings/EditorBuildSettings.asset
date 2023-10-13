@@ -9,38 +9,41 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: b607f3b9c7def634089dcbe20209ebe2
   - enabled: 1
-    path: Assets/Scenes/Tutorial.unity
+    path: Assets/Scenes/TPLevels/TutorialTP.unity
     guid: aa5917cfad296014296967770735fd09
   - enabled: 1
-    path: Assets/Scenes/Level1 - Static.unity
-    guid: f02bc29a4f2292140a81007f7720764b
+    path: Assets/Scenes/StaticLevelsInPlace 1/Level1 - StaticTP.unity
+    guid: 883432b6a173a5b479c89bf7ecc1e451
   - enabled: 1
-    path: Assets/Scenes/Level4.unity
-    guid: 84ce4bb434c0fee4da4df71400ab1c57
+    path: Assets/Scenes/StaticLevelsInPlace 1/Level2 - StaticTP.unity
+    guid: 5a0ed1044fc159248a19a90f82cfd6e2
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
-    guid: 963b625588fe48b4d94d07a70441dfe4
+    path: Assets/Scenes/StaticLevelsInPlace 1/Level3 - StaticTP.unity
+    guid: 2755f29b120e7734eab6650bfc3e29f1
   - enabled: 1
-    path: Assets/Scenes/Level2 - Static.unity
-    guid: 22b78db0efdf99640ac9c2f29c2ae486
+    path: Assets/Scenes/StaticLevelsInPlace 1/Level4 - StaticTP.unity
+    guid: 901fba8d5f4df134698a516bb3f45bce
   - enabled: 1
-    path: Assets/Scenes/Level2.unity
-    guid: ff4e078ff382ef44b8de231a405af36b
+    path: Assets/Scenes/StaticLevelsInPlace 1/Level5 - StaticTP.unity
+    guid: 9ae771b2eb6395a4f9c6215d5aee8fc1
   - enabled: 1
-    path: Assets/Scenes/Level3 - Static.unity
-    guid: daca00205db17dd46879b25ebea2f502
+    path: Assets/Scenes/TPLevels/Level1TP.unity
+    guid: a5546758fa51b6746b49ef81ae5d3acd
   - enabled: 1
-    path: Assets/Scenes/Level3.unity
-    guid: ce2f4b33eb4472c449ee666e3134fe23
+    path: Assets/Scenes/TPLevels/Level2TP.unity
+    guid: fc983999b09f1024aa7de28349323805
   - enabled: 1
-    path: Assets/Scenes/Level4 - Static.unity
-    guid: 1a031e2a9b4187347a4f7dada8c466ad
+    path: Assets/Scenes/TPLevels/Level3TP.unity
+    guid: c1e15b76417b817438941d17eac2f36e
   - enabled: 1
-    path: Assets/Scenes/Level5 - Static.unity
-    guid: d25cd5548ddef5c4f8ae4458b83ed5cc
+    path: Assets/Scenes/TPLevels/Level4TP.unity
+    guid: 4f5bff536e3dd67458c8baf37c83fba8
   - enabled: 1
-    path: Assets/Scenes/Level5.unity
-    guid: 3cdeea45d2c7e0a4eaa7a211711d327d
+    path: Assets/Scenes/TPLevels/Level5TP.unity
+    guid: dd724f3e32f2c874da02277032f671db
+  - enabled: 1
+    path: Assets/Scenes/CustomLevels/CustomLevel - 1.unity
+    guid: 99a3868019ada9c4297dbee9616fc4c9
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 6eefee752c7ee674183932769f47456a, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}

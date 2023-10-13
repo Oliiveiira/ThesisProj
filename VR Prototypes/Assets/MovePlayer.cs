@@ -12,6 +12,12 @@ public class MovePlayer : MonoBehaviour
     private Transform finalWaypoint;
 
     [SerializeField]
+    private GameObject canvas;
+
+    //[SerializeField]
+    //private GameEvent movePlayer;
+
+    [SerializeField]
     public GameObject supermarketCart;
 
     private void Update()
@@ -28,6 +34,7 @@ public class MovePlayer : MonoBehaviour
 
     public void SetinitialPlayerLocation()
     {
+        canvas.SetActive(false);
         navMeshAgent.SetDestination(initialWaypoint.position);
     }
 
@@ -35,4 +42,10 @@ public class MovePlayer : MonoBehaviour
     {
         navMeshAgent.SetDestination(finalWaypoint.position);
     }
+
+    //public void MovePlayer()
+    //{
+    //    canvas.SetActive(false);
+    //    movePlayer.Raise();
+    //}
 }

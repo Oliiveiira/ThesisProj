@@ -40,8 +40,8 @@ public class ScanCoin : scanMoney
             coinSound.Play();
             moveMoney = true;
             other.attachedRigidbody.isKinematic = true;
-            //ObjectGrabbable objectGrabbable = other.GetComponent<ObjectGrabbable>();
-            //objectGrabbable.Drop();
+            ObjectGrabbable objectGrabbable = other.GetComponent<ObjectGrabbable>();
+            objectGrabbable.Drop();
 
             grabInteractor.ForceRelease();
             handgrabInteractorR.ForceRelease();

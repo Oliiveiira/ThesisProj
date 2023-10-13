@@ -58,6 +58,8 @@ public class ScanBill : scanMoney
 
                 billPosition = other.transform;
 
+                other.transform.parent = transform;
+                
                 totalCost.SetText("Total: " + total.Value.ToString());
                 setWinPanel.Raise();
             }

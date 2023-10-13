@@ -1,0 +1,7 @@
+{
+	"recipe": [
+			{
+			"ingredientName":["AllProducts/bimbonormal", "AllProducts/acucarbranco"]
+		}
+	]
+}

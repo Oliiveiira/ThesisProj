@@ -54,7 +54,7 @@ public class BasketCounter : MonoBehaviour
 
     void DeactivateShelves()
     {
-        foreach(GameObject obj in shelves)
+        foreach (GameObject obj in shelves)
         {
             obj.SetActive(false);
         }
@@ -66,21 +66,27 @@ public class BasketCounter : MonoBehaviour
         if (other.CompareTag("Objects"))
         {
             //ObjectSO products = other.gameObject.GetComponent<ObjectSO>();
+            product = other.GetComponent<Product>();
             isInFlag = false;
             for (int i = 0; i < products.myRecipeList.recipe[products.level.Value].ingredients.Length; i++)
             {
                 if (other.name.Equals(products.productsToGet[i].text))
                 {
                     other.transform.SetParent(this.transform);
-                    listProduct.productsToGet[i].SetText("Boa!");
+                    // listProduct.productsToGet[i].SetText("Boa!");
                     //products.productsToGet[i].SetText("Boa");
-                    product = other.GetComponent<Product>();
+                    //product = other.GetComponent<Product>();
                     product.isInBasket = true;
                     Debug.Log("yes");
                     successCounter++;
                     isInFlag = true;
                     correctSound.Play();
+                    break;
                 }
+            }
+            if (!product.isInBasket)
+            {
+                product.SetProductInitialPosition();
             }
 
             //if (!isInFlag)
@@ -89,7 +95,6 @@ public class BasketCounter : MonoBehaviour
             //    isInFlag = false;
             //    wrongSound.Play();
             //}
-
             Win();
 
         }
@@ -105,6 +110,7 @@ public class BasketCounter : MonoBehaviour
                 {
                     other.transform.parent = null;
                     successCounter--;
+                    product.isInBasket = false;
                 }
             }
         }

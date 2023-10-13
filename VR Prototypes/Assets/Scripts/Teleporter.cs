@@ -34,6 +34,12 @@ public class Teleporter : MonoBehaviour
     [SerializeField]
     private GameEvent ActivateTpPoint;
 
+    [SerializeField]
+    private GameEvent ActivateTpPointMesh;
+
+    private TpDestination tpDestination;
+    public Transform selectedWaypoint;
+
     void Start()
     {
         laserPose.WhenSelected += () => showLaser = true;
@@ -65,12 +71,19 @@ public class Teleporter : MonoBehaviour
                 lr.SetPositions(positions);
                 pointer.transform.position = new Vector3(teleportPos.x, 0, teleportPos.z);
 
+                if (hit.transform.TryGetComponent(out tpDestination))
+                {
+                    selectedWaypoint = tpDestination.waypointPosition;
+                    pointer.transform.position = new Vector3(selectedWaypoint.position.x, 0, selectedWaypoint.position.z);
+                }
+
                 if (canTP && Time.time - lastTp > cooldown && hit.collider.gameObject.tag == "TeleportDestination")
                 {
                     ovrCameraRig.SetActive(false);
-                    playerPosition.transform.position = new Vector3(hit.point.x, 1.414f, hit.point.z);
+                    playerPosition.transform.position = new Vector3(selectedWaypoint.position.x, 0.1797453f, selectedWaypoint.position.z); /*selectedWaypoint.transform.position;*/ /*new Vector3(hit.point.x, 1.414f, hit.point.z);*/
                     ovrCameraRig.SetActive(true);
                     ActivateTpPoint.Raise();
+                    ActivateTpPointMesh.Raise();
                     lastTp = Time.time;
                 }
             }

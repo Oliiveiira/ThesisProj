@@ -25,18 +25,19 @@ public class Product : MonoBehaviour
         initialRotation = transform.rotation;
         name = objects.productName;
         productCost = objects.productCost;
-        costText.SetText(objects.productCost.ToString() + "€");
+        costText.SetText(objects.productCost.ToString() + "â‚¬");
     }
 
     private void Update()
     {
-        if(transform.position.y <= 0.2 && isGround && !isInBasket && !isInCart)
+        if (transform.position.y <= 0.2 && isGround && !isInBasket && !isInCart)
         {
             transform.position = initialPosition;
             transform.rotation = initialRotation;
             isGround = false;
 
-        }else if(transform.position.y <= 0.2 && isGround && isInCart)
+        }
+        else if (transform.position.y <= 0.2 && isGround && isInCart)
         {
             transform.position = transform.parent.position;
             isGround = false;
@@ -54,5 +55,11 @@ public class Product : MonoBehaviour
         //    //sound.Play();
         //    isInCart = true;
         //}
+    }
+
+    public void SetProductInitialPosition()
+    {
+        transform.position = initialPosition;
+        transform.rotation = initialRotation;
     }
 }

@@ -19,25 +19,25 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         Scene scene = SceneManager.GetActiveScene();
-        if(scene.name == "Tutorial")
+        if(scene.name == "Tutorial" || scene.name == "TutorialTP")
         {
             level.Value = 0;
-        }else if (scene.name == "Level1" || scene.name == "Level1 - Static")
+        }else if (scene.name == "Level1" || scene.name == "Level1 - Static" || scene.name == "Level1 - StaticTP" || scene.name == "Level1TP")
         {
             level.Value = 1;
-        }else if (scene.name == "Level2" || scene.name == "Level2 - Static")
+        }else if (scene.name == "Level2" || scene.name == "Level2 - Static" || scene.name == "Level2 - StaticTP" || scene.name == "Level2TP")
         {
             level.Value = 2;
         }
-        else if (scene.name == "Level3" || scene.name == "Level3 - Static")
+        else if (scene.name == "Level3" || scene.name == "Level3 - Static" || scene.name == "Level3 - StaticTP" || scene.name == "Level3TP")
         {
             level.Value = 3;
         }
-        else if (scene.name == "Level4" || scene.name == "Level4 - Static")
+        else if (scene.name == "Level4" || scene.name == "Level4 - Static" || scene.name == "Level4 - StaticTP" || scene.name == "Level4TP")
         {
             level.Value = 4;
         }
-        else if (scene.name == "Level5" || scene.name == "Level5 - Static")
+        else if (scene.name == "Level5" || scene.name == "Level5 - Static" || scene.name == "Level5 - StaticTP" || scene.name == "Level5TP")
         {
             level.Value = 5;
         }

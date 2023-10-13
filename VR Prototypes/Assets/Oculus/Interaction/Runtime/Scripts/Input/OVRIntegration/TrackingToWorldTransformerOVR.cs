@@ -33,7 +33,7 @@ namespace Oculus.Interaction.Input
         public bool teleported = false;
 
         public Transform Transform => CameraRigRef.CameraRig.transform;
-
+        public float mirrorfactor;
         /// <summary>
         /// Converts a tracking space pose to a world space pose (Applies any transform applied to the OVRCameraRig)
         /// </summary>
@@ -49,7 +49,7 @@ namespace Oculus.Interaction.Input
             }
             else
             {
-                pose.position = trackingToWorldSpace.TransformPoint(pose.position);
+                pose.position = trackingToWorldSpace.TransformPoint(-pose.position.x * mirrorfactor, pose.position.y, pose.position.z);
                 pose.rotation = trackingToWorldSpace.rotation * pose.rotation * Quaternion.Euler(180, 180, 0);
                 return pose;
             }

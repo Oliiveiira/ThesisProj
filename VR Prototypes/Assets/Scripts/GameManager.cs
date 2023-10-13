@@ -92,10 +92,10 @@ public class GameManager : JSONReader
 
         Debug.Log(myRecipeList.recipe[level.Value].spriteURL);
 
-        budgettoWatchR.SetText("Money: " + myRecipeList.recipe[level.Value].budget.ToString()); //to Watch
-        budgettoWatchL.SetText("Money: " + myRecipeList.recipe[level.Value].budget.ToString()); //to Watch
+        budgettoWatchR.SetText("Dinheiro: " + myRecipeList.recipe[level.Value].budget.ToString() + "€"); //to Watch
+        budgettoWatchL.SetText("Dinheiro: " + myRecipeList.recipe[level.Value].budget.ToString() + "€"); //to Watch
 
-        budgetText.SetText("Money: " + myRecipeList.recipe[level.Value].budget.ToString());
+        budgetText.SetText("Dinheiro: " + myRecipeList.recipe[level.Value].budget.ToString() + "€");
         recipeName.SetText(myRecipeList.recipe[level.Value].recipeName);
 
         for (int i = 0; i < myRecipeList.recipe[level.Value].ingredients.Length; i++)

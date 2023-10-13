@@ -285,6 +285,7 @@ MonoBehaviour:
   costText: {fileID: 2374809904032711286}
   isGround: 0
   isInBasket: 0
+  isInCart: 0
   sound: {fileID: -2483266347958465354}
 --- !u!65 &5390823194436956092
 BoxCollider:
@@ -308,8 +309,8 @@ Rigidbody:
   m_GameObject: {fileID: 8441385112817294623}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 7
+  m_AngularDrag: 100
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0

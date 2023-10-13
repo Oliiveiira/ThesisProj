@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c027190d5ba95489905a0d1a2fa59a, type: 3}
   m_Name: Sugar
   m_EditorClassIdentifier: 
-  productName: 30g de Acucar
-  productCost: 1.69
+  productName: Acucar
+  productCost: 0

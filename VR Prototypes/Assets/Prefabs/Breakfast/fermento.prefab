@@ -276,8 +276,8 @@ Rigidbody:
   m_GameObject: {fileID: 6122398567176918581}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 7
+  m_AngularDrag: 100
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -313,6 +313,7 @@ MonoBehaviour:
   costText: {fileID: 3792009025380666860}
   isGround: 0
   isInBasket: 0
+  isInCart: 0
   sound: {fileID: -3049901050693423523}
 --- !u!114 &-2008662592666652300
 MonoBehaviour:

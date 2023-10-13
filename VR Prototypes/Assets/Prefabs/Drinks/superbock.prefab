@@ -38,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1832318620525357689}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.169, y: 1.298, z: -3.283}
-  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6405267045943063613}
@@ -112,6 +112,7 @@ MonoBehaviour:
   costText: {fileID: 6379158993031153215}
   isGround: 0
   isInBasket: 0
+  isInCart: 0
   sound: {fileID: 5256856361176132981}
 --- !u!65 &1429970072228706999
 BoxCollider:
@@ -135,8 +136,8 @@ Rigidbody:
   m_GameObject: {fileID: 1832318620525357689}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 7
+  m_AngularDrag: 100
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
