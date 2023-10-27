@@ -57,7 +57,7 @@ public class RecipeReader : JSONReader
 
         //its choosing the recepie randomly now, but then its going to be sequentially, based on the difficulty level
         //randomIndex = Random.Range(0, myRecipeList.recipe.Length);
-        level.Value = 1;
+       // level.Value = 1;
 
         budget = myRecipeList.recipe[level.Value].budget;
 

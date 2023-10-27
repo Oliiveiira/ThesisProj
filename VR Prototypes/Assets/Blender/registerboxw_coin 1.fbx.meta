@@ -3,7 +3,12 @@ guid: 01337dac4f5c0b54cb1ad50d8edad247
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: vivid-blurred-colorful-background
+    second: {fileID: 2800000, guid: 10c7b9f9811a9ee4f8ed65cf3f0d7017, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

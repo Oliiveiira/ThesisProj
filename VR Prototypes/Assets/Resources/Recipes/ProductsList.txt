@@ -1,1 +1,1 @@
-{"recipes":[{"ingredientsName":["Pao","Acucar","Leite","Cafe"],"ingredientsPath":["AllProducts/Pao","AllProducts/Acucar","AllProducts/Leite","AllProducts/cafe8"]},{"ingredientsName":[],"ingredientsPath":[]}]}
+{"recipes":[{"ingredientsName":["Cebola","Batatas","Cerveja","Bifes de Frango"],"ingredientsPath":["AllProducts/cebola","AllProducts/batatas","AllProducts/superbock","AllProducts/frango"]},{"ingredientsName":[],"ingredientsPath":[]}]}

@@ -27,6 +27,15 @@ public class CustomRecipeBasketCounter : MonoBehaviour
 
     private Product product;
 
+    [SerializeField]
+    private GameObject registerBox;
+    
+    [SerializeField]
+    private GameObject wallet;
+
+    //Flag to stop Comparing the products name, in order to reset the products in the basket in the end of the level
+    private bool stopComparing;
+
     private void Start()
     {
 
@@ -42,7 +51,10 @@ public class CustomRecipeBasketCounter : MonoBehaviour
         if (successCounter == products.myProductLists.recipes[0].ingredientsName.Count)
         {
             DeactivateShelves();
-            setWinPanel.Raise();
+            registerBox.SetActive(true);
+            wallet.SetActive(true);
+            stopComparing = true;
+           // setWinPanel.Raise();
             Debug.Log("Ganhou");
         }
     }
@@ -58,45 +70,50 @@ public class CustomRecipeBasketCounter : MonoBehaviour
     //private ObjectGrabbable grabbedObject;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Objects"))
+        if (!stopComparing)
         {
-            //ObjectSO products = other.gameObject.GetComponent<ObjectSO>();
-            product = other.GetComponent<Product>();
-            isInFlag = false;
-            for (int i = 0; i < products.myProductLists.recipes[0].ingredientsName.Count; i++)
+            if (other.CompareTag("Objects"))
             {
-                if (other.name.Equals(products.productsToGet[i].text))
+                //ObjectSO products = other.gameObject.GetComponent<ObjectSO>();
+                product = other.GetComponent<Product>();
+                isInFlag = false;
+                for (int i = 0; i < products.myProductLists.recipes[0].ingredientsName.Count; i++)
                 {
-                    other.transform.SetParent(this.transform);
-                    product.isInBasket = true;
-                    Debug.Log("yes");
-                    successCounter++;
-                    isInFlag = true;
-                    correctSound.Play();
-                    break;
+                    if (other.name.Equals(products.productsToGet[i].text))
+                    {
+                        other.transform.SetParent(this.transform);
+                        product.isInBasket = true;
+                        Debug.Log("yes");
+                        successCounter++;
+                        isInFlag = true;
+                        correctSound.Play();
+                        break;
+                    }
                 }
-            }
-            if (!product.isInBasket)
-            {
-                product.SetProductInitialPosition();
-            }
+                if (!product.isInBasket)
+                {
+                    product.SetProductInitialPosition();
+                }
 
-            Win();
-
+                Win();
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Objects"))
+        if (!stopComparing)
         {
-            for (int i = 0; i < products.myProductLists.recipes[0].ingredientsName.Count; i++)
+            if (other.CompareTag("Objects"))
             {
-                if (other.name.Equals(products.productsToGet[i].text))
+                for (int i = 0; i < products.myProductLists.recipes[0].ingredientsName.Count; i++)
                 {
-                    other.transform.parent = null;
-                    successCounter--;
-                    product.isInBasket = false;
+                    if (other.name.Equals(products.productsToGet[i].text))
+                    {
+                        other.transform.parent = null;
+                        successCounter--;
+                        product.isInBasket = false;
+                    }
                 }
             }
         }

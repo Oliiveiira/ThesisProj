@@ -37,7 +37,7 @@ public class Product : MonoBehaviour
             isGround = false;
 
         }
-        else if (transform.position.y <= 0.2 && isGround && isInCart)
+        else if (transform.position.y <= 0.2 && isGround && isInCart || transform.position.y <= 0.2 && isGround && isInBasket)
         {
             transform.position = transform.parent.position;
             isGround = false;

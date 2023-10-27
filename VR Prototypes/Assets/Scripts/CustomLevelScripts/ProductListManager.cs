@@ -5,6 +5,7 @@ using TMPro;
 using RoboRyanTron.Unite2017.Events;
 using UnityEngine.SceneManagement;
 using System.IO;
+using Random = System.Random;
 
 public class ProductListManager : ProductListReader
 {
@@ -49,6 +50,10 @@ public class ProductListManager : ProductListReader
 
     public IntSO level;
 
+    //creditCard
+    public TextMeshProUGUI uiCode;
+    public string code;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -63,7 +68,8 @@ public class ProductListManager : ProductListReader
         //Debug.Log(jsonText);
         myProductLists = JsonUtility.FromJson<ProductList>(jsonText);
 
-      //  myProductLists = JsonUtility.FromJson<ProductList>(productListJSON.text);
+        //  myProductLists = JsonUtility.FromJson<ProductList>(productListJSON.text);
+        GenerateCode();
     }
     // Update is called once per frame
     void Update()
@@ -78,6 +84,10 @@ public class ProductListManager : ProductListReader
         //        productsToGettoWatchL[i].text = myProductLists.recipes[0].ingredientsName[i]; //to Watch
         //    }
         //}
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            ShowRecipe();
+        }
     }
 
     public void ShowRecipe()
@@ -98,7 +108,7 @@ public class ProductListManager : ProductListReader
         {
             watchL.SetActive(true);
         }
-
+        uiCode.text = "Pin: " + code;
         //budget = myRecipeList.recipe[level.Value].budget;
 
         //money = (GameObject)Instantiate(Resources.Load(myRecipeList.recipe[level.Value].budgetPrefab)); //instantiate the money prefab
@@ -120,6 +130,17 @@ public class ProductListManager : ProductListReader
             productsToGettoWatchR[i].text = myProductLists.recipes[0].ingredientsName[i];  //to Watch
             productsToGettoWatchL[i].text = myProductLists.recipes[0].ingredientsName[i]; //to Watch
         }
+    }
+
+    public void GenerateCode()
+    {
+        // Instantiate random number generator 
+        Random random = new Random();
+
+        // Print 4 random numbers between 50 and 100 
+        for (int i = 1; i <= 4; i++)
+            code = code + random.Next(0, 9).ToString();
+        Debug.Log(code);
     }
 
     public void ResetScene()

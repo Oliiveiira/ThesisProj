@@ -103,7 +103,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   money: {fileID: 11400000, guid: 0960d443bd088224789dcaf1da748585, type: 2}
-  value: 0
+  value: 1
 --- !u!114 &-2296728323666503734
 MonoBehaviour:
   m_ObjectHideFlags: 0

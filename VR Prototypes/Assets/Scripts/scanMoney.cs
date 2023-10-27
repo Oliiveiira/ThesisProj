@@ -41,13 +41,13 @@ public class scanMoney : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(total.Value <= 0)
-        {
-            totalpositive = total.Value * -1;
-            change.SetText("Troco: " + totalpositive.ToString());
-            totalCost.SetText("Total: 0");
-            //total.Value = 0;
-            //totalCost.SetText("Total: " + total.Value.ToString());
-        }
+        //if(total.Value <= 0)
+        //{
+        //    //totalpositive = total.Value * -1;
+        //    //change.SetText("Troco: " + totalpositive.ToString());
+        //    //totalCost.SetText("Total: 0");
+        //    //total.Value = 0;
+        //    //totalCost.SetText("Total: " + total.Value.ToString());
+        //}
     }
 }

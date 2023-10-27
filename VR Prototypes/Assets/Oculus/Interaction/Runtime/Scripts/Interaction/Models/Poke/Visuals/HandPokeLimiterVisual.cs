@@ -116,6 +116,13 @@ namespace Oculus.Interaction
             _syntheticHand.MarkInputDataRequiresUpdate();
         }
 
+        public void ReleaseHand(PokeInteractable pokeInteractable)
+        {
+            _syntheticHand.FreeWrist();
+            _isTouching = false;
+            UpdateWrist();
+        }
+
         #region Inject
 
         public void InjectAllHandPokeLimiterVisual(IHand hand, PokeInteractor pokeInteractor,

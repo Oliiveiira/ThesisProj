@@ -11,7 +11,10 @@ public class ProductListWritter : ProductListReader
     void Awake()
     {
         myProductLists = JsonUtility.FromJson<ProductList>(productListJSON.text);
-        RemoveRecipeAtIndex(0);
+        if(myProductLists.recipes.Count >= 2)
+        {
+            RemoveRecipeAtIndex(0);
+        }
 
        // RemoveRecipeAtIndex(0);
         // If there are no recipes in the list, add an empty one      

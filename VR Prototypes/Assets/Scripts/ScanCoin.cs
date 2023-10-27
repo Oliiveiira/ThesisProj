@@ -1,3 +1,4 @@
+using Oculus.Interaction.HandGrab;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,6 +29,7 @@ public class ScanCoin : scanMoney
             {
                 moveMoney = false;
                 speed = (float)0.2;
+                speed = 0;
             }
         }
     }
@@ -39,13 +41,16 @@ public class ScanCoin : scanMoney
         {
             coinSound.Play();
             moveMoney = true;
-            other.attachedRigidbody.isKinematic = true;
+            // other.attachedRigidbody.isKinematic = true;
+
             ObjectGrabbable objectGrabbable = other.GetComponent<ObjectGrabbable>();
             objectGrabbable.Drop();
 
-            grabInteractor.ForceRelease();
-            handgrabInteractorR.ForceRelease();
-            handgrabInteractorL.ForceRelease();
+            //grabInteractor.ForceRelease();
+            //handgrabInteractorR.ForceRelease();
+            //handgrabInteractorL.ForceRelease();
+            HandGrabInteractable coinHandGrab = other.GetComponent<HandGrabInteractable>();
+            coinHandGrab.enabled = false;
 
             Money money = other.GetComponent<Money>();
             total.Value -= money.value;
@@ -54,6 +59,7 @@ public class ScanCoin : scanMoney
             b = coinTransform.position;
 
             coinPosition = other.transform;
+            other.transform.parent = transform;
 
             totalCost.SetText("Total: " + total.Value.ToString());
         }

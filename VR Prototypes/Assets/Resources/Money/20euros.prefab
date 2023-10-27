@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   money: {fileID: 11400000, guid: 42adc1b90405c3d47bc0d4f663d19800, type: 2}
-  value: 0
+  value: 20
 --- !u!114 &-8918050112510142719
 MonoBehaviour:
   m_ObjectHideFlags: 0
