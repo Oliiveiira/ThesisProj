@@ -12,7 +12,7 @@ public class ProductListManager : ProductListReader
 
     //public TextAsset recipeJSON;
     //public TextMeshProUGUI budgetText;
-    //public TextMeshProUGUI recipeName;
+    public TextMeshProUGUI recipeName;
     public TextMeshProUGUI[] productsToGet;
     [SerializeField]
     private GameObject listPaper;
@@ -35,12 +35,12 @@ public class ProductListManager : ProductListReader
     private GameObject rightButton;
 
     //To control the Data Watch
-  //  public TextMeshProUGUI budgettoWatchR;
+    public TextMeshProUGUI codetoWatchR;
     public TextMeshProUGUI[] productsToGettoWatchR;
     [SerializeField]
     private GameObject watchR;
 
-  //  public TextMeshProUGUI budgettoWatchL;
+    public TextMeshProUGUI codetoWatchL;
     public TextMeshProUGUI[] productsToGettoWatchL;
     [SerializeField]
     private GameObject watchL;
@@ -53,6 +53,8 @@ public class ProductListManager : ProductListReader
     //creditCard
     public TextMeshProUGUI uiCode;
     public string code;
+    [SerializeField]
+    private IntSO paymentMethod;
 
     // Start is called before the first frame update
     void Awake()
@@ -108,7 +110,15 @@ public class ProductListManager : ProductListReader
         {
             watchL.SetActive(true);
         }
-        uiCode.text = "Pin: " + code;
+
+        if(paymentMethod.Value == 3)
+        {
+            uiCode.text = "Pin: " + code;
+            codetoWatchL.SetText(uiCode.text);
+            codetoWatchR.SetText(uiCode.text);
+            codetoWatchL.gameObject.SetActive(true);
+            codetoWatchR.gameObject.SetActive(true);
+        }
         //budget = myRecipeList.recipe[level.Value].budget;
 
         //money = (GameObject)Instantiate(Resources.Load(myRecipeList.recipe[level.Value].budgetPrefab)); //instantiate the money prefab
@@ -122,7 +132,8 @@ public class ProductListManager : ProductListReader
         //budgettoWatchL.SetText("Dinheiro: " + myRecipeList.recipe[level.Value].budget.ToString() + "€"); //to Watch
 
         //budgetText.SetText("Dinheiro: " + myRecipeList.recipe[level.Value].budget.ToString() + "€");
-        //recipeName.SetText(myRecipeList.recipe[level.Value].recipeName);
+
+        recipeName.SetText(myProductLists.recipes[0].recipeName);
 
         for (int i = 0; i < myProductLists.recipes[0].ingredientsName.Count; i++)
         {

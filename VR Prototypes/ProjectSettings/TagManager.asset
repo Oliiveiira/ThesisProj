@@ -17,6 +17,8 @@ TagManager:
   - Shelf
   - Card
   - PuzzlePlace
+  - QRCode
+  - Phone
   layers:
   - Default
   - TransparentFX

@@ -8,6 +8,9 @@ public class CustomScoreManager : MonoBehaviour
     [SerializeField]
     private IntSO customLevel;
 
+    [SerializeField]
+    private IntSO setPaymentMethod;
+
     public string sceneName;
     // Start is called before the first frame update
     void Start()
@@ -73,6 +76,28 @@ public class CustomScoreManager : MonoBehaviour
     public void ResetLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    //Set PaymentMethod
+    public void Set10EurosPayment()
+    {
+        setPaymentMethod.Value = 1;
+    }   
+    public void Set20EurosPayment()
+    {
+        setPaymentMethod.Value = 2;
+    }    
+    public void SetCardPayment()
+    {
+        setPaymentMethod.Value = 3;
+    }    
+    public void SetMbWayPayment()
+    {
+        setPaymentMethod.Value = 4;
+    }    
+    public void SetRaiseMoneyPayment()
+    {
+        setPaymentMethod.Value = 5;
     }
 
     // Update is called once per frame

@@ -21,12 +21,15 @@ public class ListElementAdd : ProductListReader
 
     public void AddIngredientsToRecipe()
     {
-        // Add the new ingredients to the current recipe
-        productList.myProductLists.recipes[0].ingredientsName.Add(buttonText.text);
-        productList.myProductLists.recipes[0].ingredientsPath.Add(pathContainers.text);
+        if (productList.myProductLists.recipes[0].ingredientsName.Count <= 4)
+        {
+            // Add the new ingredients to the current recipe
+            productList.myProductLists.recipes[0].ingredientsName.Add(buttonText.text);
+            productList.myProductLists.recipes[0].ingredientsPath.Add(pathContainers.text);
 
-        //// Serialize and save the updated data to the JSON file
-        productList.SaveProductListToJson();
-        button.interactable = false;
+            //// Serialize and save the updated data to the JSON file
+            productList.SaveProductListToJson();
+            button.interactable = false;
+        }
     }
 }

@@ -1,1 +1,1 @@
-{"recipes":[{"ingredientsName":["Cebola","Batatas","Cerveja","Bifes de Frango"],"ingredientsPath":["AllProducts/cebola","AllProducts/batatas","AllProducts/superbock","AllProducts/frango"]},{"ingredientsName":[],"ingredientsPath":[]}]}
+{"recipes":[{"recipeName":"BOLO​","ingredientsName":["Bifes de Peru","Pescada","Bifes de Frango","Vitela","Agua"],"ingredientsPath":["AllProducts/peru","AllProducts/filetedourada","AllProducts/frango","AllProducts/vitela","AllProducts/luso"]},{"recipeName":"","ingredientsName":[],"ingredientsPath":[]}]}

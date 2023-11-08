@@ -31,6 +31,8 @@ public class CustomScanproduct : MonoBehaviour
     [SerializeField]
     private GameEvent setWinPanel;
 
+    public GameObject qRCode;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +53,7 @@ public class CustomScanproduct : MonoBehaviour
         if (successCounter == ingredients.myProductLists.recipes[0].ingredientsName.Count)
         {
             warning.gameObject.SetActive(false);
+            qRCode.SetActive(true);
             paymentAvailable = true;
             //setWinPanel.Raise();
         }

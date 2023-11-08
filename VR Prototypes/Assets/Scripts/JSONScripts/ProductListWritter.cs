@@ -52,6 +52,18 @@ public class ProductListWritter : ProductListReader
             SaveProductListToJson();
         }
     }
+
+    public void EraseList()
+    {
+        if (myProductLists.recipes.Count >= 2)
+        {
+            RemoveRecipeAtIndex(0);
+            myProductLists.recipes.Add(new Recipes());
+
+            // Set the current recipe to the first recipe in the list
+           // currentRecipe = myProductLists.recipes[0];
+        }
+    }
     //// Start is called before the first frame update
     //void Start()
     //{

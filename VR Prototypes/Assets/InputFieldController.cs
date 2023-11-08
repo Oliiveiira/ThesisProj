@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InputFieldController : MonoBehaviour
+public class RecipeNameAdd : MonoBehaviour
 {
     [SerializeField]
     private InputField inputField;
@@ -18,10 +18,5 @@ public class InputFieldController : MonoBehaviour
     void Update()
     {
 
-    }
-
-    void ActivateOVRKeyboard()
-    {
-        
     }
 }

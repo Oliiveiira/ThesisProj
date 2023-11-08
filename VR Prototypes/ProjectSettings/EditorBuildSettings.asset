@@ -53,6 +53,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PuzzleLevels/PuzzleLevel3.unity
     guid: 7fe5f792b27632d43b637830ed689c0e
+  - enabled: 1
+    path: Assets/Scenes/SpotDifferencesLevels/SpotTheDifference1.unity
+    guid: 84ad0f6f42a91b244819f46590a8c7c4
+  - enabled: 1
+    path: Assets/Scenes/SpotDifferencesLevels/SpotTheDifference2.unity
+    guid: e263d146c1fbf284d9c31e7693a52e96
+  - enabled: 1
+    path: Assets/Scenes/SpotDifferencesLevels/SpotTheDifference3.unity
+    guid: f69e9cdde133d7942ab83a2b5063177b
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 6eefee752c7ee674183932769f47456a, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}

@@ -12,7 +12,7 @@ public class ProductListReader : MonoBehaviour
     {
         //public string[] ingredientsName;
         //public string[] ingredientsPath;
-
+        public string recipeName;
         public List<string> ingredientsName;
         public List<string> ingredientsPath;
     }
