@@ -40,6 +40,7 @@ public class CustomScanCard : MonoBehaviour
 
     public Transform cardTransform;
     public AudioSource cardSound;//trigger the sound
+    public AudioSource codeSound;//trigger the sound
 
     public float speed;
 
@@ -113,8 +114,9 @@ public class CustomScanCard : MonoBehaviour
                 allowCode = true;
                 introduceCode.gameObject.SetActive(true);
                 cardSound.Play();
+                codeSound.PlayDelayed(0.2f);
                 moveCard = true;
-
+  
                 HandGrabInteractable cardHandGrab = other.GetComponent<HandGrabInteractable>();
                 cardHandGrab.enabled = false;
 

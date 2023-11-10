@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TomatoPaste
   m_EditorClassIdentifier: 
   productName: Polpa de Tomate
-  productCost: 0.95
+  productCost: 1

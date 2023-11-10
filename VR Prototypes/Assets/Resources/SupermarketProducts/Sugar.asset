@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Sugar
   m_EditorClassIdentifier: 
   productName: Acucar
-  productCost: 0
+  productCost: 1

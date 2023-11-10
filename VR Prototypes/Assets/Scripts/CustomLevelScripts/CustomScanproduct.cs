@@ -21,6 +21,12 @@ public class CustomScanproduct : MonoBehaviour
 
     [SerializeField]
     private AudioSource scanSound;//trigger the sound
+    [SerializeField]
+    private AudioSource introduceMoney;//trigger the sound
+    [SerializeField]
+    private AudioSource introduceCard;//trigger the sound
+    [SerializeField]
+    private AudioSource scanQRCode;//trigger the sound
 
     private int successCounter;
 
@@ -32,6 +38,9 @@ public class CustomScanproduct : MonoBehaviour
     private GameEvent setWinPanel;
 
     public GameObject qRCode;
+
+    [SerializeField]
+    private IntSO paymentMethod;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +64,18 @@ public class CustomScanproduct : MonoBehaviour
             warning.gameObject.SetActive(false);
             qRCode.SetActive(true);
             paymentAvailable = true;
+            if(paymentMethod.Value == 1 || paymentMethod.Value == 2)
+            {
+                introduceMoney.Play();
+            }
+            else if (paymentMethod.Value == 3)
+            {
+                introduceCard.Play();
+            }
+            else if (paymentMethod.Value == 4)
+            {
+                scanQRCode.Play();
+            }
             //setWinPanel.Raise();
         }
     }

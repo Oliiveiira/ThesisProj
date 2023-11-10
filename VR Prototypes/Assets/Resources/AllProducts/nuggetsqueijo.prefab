@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b248e38b800cd004eb65c47dc6bebc96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects: {fileID: 11400000, guid: a209688389ca880479c955feaf099c60, type: 2}
+  objects: {fileID: 11400000, guid: a61ea94b115ada04398f8b72f359fe48, type: 2}
   productCost: 0
   costText: {fileID: 2593862254465987923}
   isGround: 0

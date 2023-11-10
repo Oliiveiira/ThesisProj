@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = System.Random;
 
 public class MBController : MonoBehaviour
 {
@@ -14,8 +15,11 @@ public class MBController : MonoBehaviour
     public RawImage moneyPanel;
     public RawImage RemoveCardPanel;
 
-    [SerializeField]
-    private ProductListManager code;
+    //Para utilizar caso O MB esteja na mesma cena do supermercado
+    //[SerializeField]
+    //private ProductListManager code;
+    public TextMeshProUGUI uiCode;
+    public string code;
 
     private string insertedCode = null;
     public TextMeshProUGUI outputCode;
@@ -44,10 +48,14 @@ public class MBController : MonoBehaviour
     public HandGrabInteractor handGrabInteractorL;
 
     public AudioSource cardSound;
+    public AudioSource codeAudio;
+    public AudioSource grabMoneySound;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        GenerateCode();
+        uiCode.text = "Pin: " + code;
     }
 
     // Update is called once per frame
@@ -88,6 +96,17 @@ public class MBController : MonoBehaviour
         }
     }
 
+    public void GenerateCode()
+    {
+        // Instantiate random number generator 
+        Random random = new Random();
+
+        // Print 4 random numbers between 50 and 100 
+        for (int i = 1; i <= 4; i++)
+            code = code + random.Next(0, 9).ToString();
+        Debug.Log(code);
+    }
+
     public void CodeFunction(string numbers)
     {
         if (allowCode)
@@ -99,7 +118,15 @@ public class MBController : MonoBehaviour
 
     public void Enter()
     {
-        if (insertedCode == code.code)
+        //if (insertedCode == code.code)
+        //{
+        //    optionsPanel.gameObject.SetActive(true);
+        //}
+        //else
+        //{
+        //    incorrectCode.gameObject.SetActive(true);
+        //}
+        if (insertedCode == code)
         {
             optionsPanel.gameObject.SetActive(true);
         }
@@ -131,12 +158,14 @@ public class MBController : MonoBehaviour
     {
         moveCardBack = true;
         Instantiate(Resources.Load("Money/10euros"), moneyPosition.position, Quaternion.Euler(0,90,90));
+        grabMoneySound.Play();
     }
 
     public void Raise20()
     {
         moveCardBack = true;
         Instantiate(Resources.Load("Money/20euros"), moneyPosition.position, Quaternion.Euler(0, 90, 90));
+        grabMoneySound.Play();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -144,6 +173,7 @@ public class MBController : MonoBehaviour
         if (other.CompareTag("Card"))
         {
             cardSound.Play();
+            codeAudio.PlayDelayed(0.2f);
             moveCard = true;
             introduceCode.gameObject.SetActive(true);
             allowCode = true;

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Tomato
   m_EditorClassIdentifier: 
   productName: Tomato
-  productCost: 0
+  productCost: 1

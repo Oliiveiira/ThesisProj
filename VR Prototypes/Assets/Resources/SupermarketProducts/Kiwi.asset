@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Kiwi
   m_EditorClassIdentifier: 
   productName: Kiwi
-  productCost: 0
+  productCost: 1

@@ -97,7 +97,7 @@ public class CustomScoreManager : MonoBehaviour
     }    
     public void SetRaiseMoneyPayment()
     {
-        setPaymentMethod.Value = 5;
+        sceneName = "MBLevel";
     }
 
     // Update is called once per frame
