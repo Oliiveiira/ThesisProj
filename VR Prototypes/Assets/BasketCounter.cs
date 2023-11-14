@@ -32,6 +32,12 @@ public class BasketCounter : MonoBehaviour
 
     private Product product;
 
+    [SerializeField]
+    private GameObject registerBox;
+
+    //Flag to stop Comparing the products name, in order to reset the products in the basket in the end of the level
+    private bool stopComparing;
+
     private void Start()
     {
 
@@ -47,7 +53,8 @@ public class BasketCounter : MonoBehaviour
         if (successCounter == products.myRecipeList.recipe[products.level.Value].ingredients.Length)
         {
             DeactivateShelves();
-            setWinPanel.Raise();
+            registerBox.SetActive(true);
+            //setWinPanel.Raise();
             Debug.Log("Ganhou");
         }
     }
@@ -63,54 +70,59 @@ public class BasketCounter : MonoBehaviour
     //private ObjectGrabbable grabbedObject;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Objects"))
+        if (!stopComparing)
         {
-            //ObjectSO products = other.gameObject.GetComponent<ObjectSO>();
-            product = other.GetComponent<Product>();
-            isInFlag = false;
-            for (int i = 0; i < products.myRecipeList.recipe[products.level.Value].ingredients.Length; i++)
+            if (other.CompareTag("Objects"))
             {
-                if (other.name.Equals(products.productsToGet[i].text))
+                //ObjectSO products = other.gameObject.GetComponent<ObjectSO>();
+                product = other.GetComponent<Product>();
+                isInFlag = false;
+                for (int i = 0; i < products.myRecipeList.recipe[products.level.Value].ingredients.Length; i++)
                 {
-                    other.transform.SetParent(this.transform);
-                    // listProduct.productsToGet[i].SetText("Boa!");
-                    //products.productsToGet[i].SetText("Boa");
-                    //product = other.GetComponent<Product>();
-                    product.isInBasket = true;
-                    Debug.Log("yes");
-                    successCounter++;
-                    isInFlag = true;
-                    correctSound.Play();
-                    break;
+                    if (other.name.Equals(products.productsToGet[i].text))
+                    {
+                        other.transform.SetParent(this.transform);
+                        // listProduct.productsToGet[i].SetText("Boa!");
+                        //products.productsToGet[i].SetText("Boa");
+                        //product = other.GetComponent<Product>();
+                        product.isInBasket = true;
+                        Debug.Log("yes");
+                        successCounter++;
+                        isInFlag = true;
+                        correctSound.Play();
+                        break;
+                    }
                 }
-            }
-            if (!product.isInBasket)
-            {
-                product.SetProductInitialPosition();
-            }
+                if (!product.isInBasket)
+                {
+                    product.SetProductInitialPosition();
+                }
 
-            //if (!isInFlag)
-            //{
-            //    Debug.Log("tente outra vez");
-            //    isInFlag = false;
-            //    wrongSound.Play();
-            //}
-            Win();
-
+                //if (!isInFlag)
+                //{
+                //    Debug.Log("tente outra vez");
+                //    isInFlag = false;
+                //    wrongSound.Play();
+                //}
+                Win();
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Objects"))
+        if (!stopComparing)
         {
-            for (int i = 0; i < products.myRecipeList.recipe[products.level.Value].ingredients.Length; i++)
+            if (other.CompareTag("Objects"))
             {
-                if (other.name.Equals(products.productsToGet[i].text))
+                for (int i = 0; i < products.myRecipeList.recipe[products.level.Value].ingredients.Length; i++)
                 {
-                    other.transform.parent = null;
-                    successCounter--;
-                    product.isInBasket = false;
+                    if (other.name.Equals(products.productsToGet[i].text))
+                    {
+                        other.transform.parent = null;
+                        successCounter--;
+                        product.isInBasket = false;
+                    }
                 }
             }
         }

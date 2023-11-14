@@ -29,6 +29,9 @@ public class ScanCustomProduct : MonoBehaviour
     [SerializeField]
     private GameEvent setWinPanel;
 
+    [SerializeField]
+    private IntSO recipeNumberSO;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +49,7 @@ public class ScanCustomProduct : MonoBehaviour
 
     void AllProductsScan()
     {
-        if (successCounter == ingredients.myProductLists.recipes[0].ingredientsName.Count)
+        if (successCounter == ingredients.myProductLists.recipes[recipeNumberSO.Value].ingredientsName.Count)
         {
             warning.gameObject.SetActive(false);
             paymentAvailable = true;
@@ -60,7 +63,7 @@ public class ScanCustomProduct : MonoBehaviour
         if (other.CompareTag("Objects"))
         {
             isInFlag = false;
-            for (int i = 0; i < ingredients.myProductLists.recipes[0].ingredientsName.Count; i++)
+            for (int i = 0; i < ingredients.myProductLists.recipes[recipeNumberSO.Value].ingredientsName.Count; i++)
             {
                 if (other.name.Equals(ingredients.productsToGet[i].text))
                 {

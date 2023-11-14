@@ -14,6 +14,9 @@ public class ListElementAdd : ProductListReader
     [SerializeField]
     private ProductListWritter productList;
 
+    [SerializeField]
+    private IntSO recipeNumberSO;
+
     private void Start()
     {
         button = GetComponent<Button>();
@@ -21,11 +24,11 @@ public class ListElementAdd : ProductListReader
 
     public void AddIngredientsToRecipe()
     {
-        if (productList.myProductLists.recipes[0].ingredientsName.Count <= 4)
+        if (productList.myProductLists.recipes[recipeNumberSO.Value].ingredientsName.Count <= 4)
         {
             // Add the new ingredients to the current recipe
-            productList.myProductLists.recipes[0].ingredientsName.Add(buttonText.text);
-            productList.myProductLists.recipes[0].ingredientsPath.Add(pathContainers.text);
+            productList.myProductLists.recipes[recipeNumberSO.Value].ingredientsName.Add(buttonText.text);
+            productList.myProductLists.recipes[recipeNumberSO.Value].ingredientsPath.Add(pathContainers.text);
 
             //// Serialize and save the updated data to the JSON file
             productList.SaveProductListToJson();

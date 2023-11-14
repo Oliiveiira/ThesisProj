@@ -36,7 +36,10 @@ public class CustomRecipeBasketCounter : MonoBehaviour
     //Flag to stop Comparing the products name, in order to reset the products in the basket in the end of the level
     private bool stopComparing;
 
-    private void Start()
+    [SerializeField]
+    private IntSO recipeNumber;
+
+   private void Start()
     {
 
     }
@@ -48,7 +51,7 @@ public class CustomRecipeBasketCounter : MonoBehaviour
 
     void Win()
     {
-        if (successCounter == products.myProductLists.recipes[0].ingredientsName.Count)
+        if (successCounter == products.myProductLists.recipes[recipeNumber.Value].ingredientsName.Count)
         {
             DeactivateShelves();
             registerBox.SetActive(true);
@@ -77,7 +80,7 @@ public class CustomRecipeBasketCounter : MonoBehaviour
                 //ObjectSO products = other.gameObject.GetComponent<ObjectSO>();
                 product = other.GetComponent<Product>();
                 isInFlag = false;
-                for (int i = 0; i < products.myProductLists.recipes[0].ingredientsName.Count; i++)
+                for (int i = 0; i < products.myProductLists.recipes[recipeNumber.Value].ingredientsName.Count; i++)
                 {
                     if (other.name.Equals(products.productsToGet[i].text))
                     {
@@ -106,7 +109,7 @@ public class CustomRecipeBasketCounter : MonoBehaviour
         {
             if (other.CompareTag("Objects"))
             {
-                for (int i = 0; i < products.myProductLists.recipes[0].ingredientsName.Count; i++)
+                for (int i = 0; i < products.myProductLists.recipes[recipeNumber.Value].ingredientsName.Count; i++)
                 {
                     if (other.name.Equals(products.productsToGet[i].text))
                     {

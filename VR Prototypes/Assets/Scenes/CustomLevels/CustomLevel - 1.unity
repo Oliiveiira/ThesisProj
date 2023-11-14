@@ -5113,7 +5113,15 @@ PrefabInstance:
     - target: {fileID: 7589553757763553671, guid: 912d93bde8f1c3c48a6b291b82ce26b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 625028883}
+      objectReference: {fileID: 1321887146}
+    - target: {fileID: 7589553757763553671, guid: 912d93bde8f1c3c48a6b291b82ce26b6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7589553757763553671, guid: 912d93bde8f1c3c48a6b291b82ce26b6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CustomScoreManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7589553757763553720, guid: 912d93bde8f1c3c48a6b291b82ce26b6, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.5
@@ -6407,6 +6415,7 @@ MonoBehaviour:
   setWinPanel: {fileID: 11400000, guid: ef33d6c9ab615ee43bd3d7ca065ce61a, type: 2}
   qRCode: {fileID: 600531736}
   paymentMethod: {fileID: 11400000, guid: 832b91b923cb9b14c8048a1141b28c27, type: 2}
+  recipeNumberSO: {fileID: 0}
 --- !u!82 &696261206
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8117,6 +8126,7 @@ MonoBehaviour:
   mirrorLeft: 0
   mirrorRight: 0
   level: {fileID: 11400000, guid: d54236a44af62864396c3f28767d6e9b, type: 2}
+  code: 
 --- !u!4 &837050077
 Transform:
   m_ObjectHideFlags: 0
@@ -9337,6 +9347,7 @@ GameObject:
   - component: {fileID: 960782108}
   - component: {fileID: 960782107}
   - component: {fileID: 960782106}
+  - component: {fileID: 960782109}
   m_Layer: 0
   m_Name: ScanCard
   m_TagString: Untagged
@@ -9387,7 +9398,7 @@ MonoBehaviour:
   b: {x: 0, y: 0, z: 0}
   cardTransform: {fileID: 1617195375}
   cardSound: {fileID: 960782107}
-  codeSound: {fileID: 0}
+  codeSound: {fileID: 960782109}
   speed: 0
 --- !u!82 &960782107
 AudioSource:
@@ -9498,6 +9509,102 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.68431014, z: 1}
   m_Center: {x: 0, y: -0.21427321, z: 0}
+--- !u!82 &960782109
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960782104}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 9354f846c57ec654786b1e2f863e0966, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.107
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &967766173 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4800754082751965285, guid: 1bc73e154e3b2b14ca54acdbedd39079, type: 3}
@@ -11171,6 +11278,7 @@ MonoBehaviour:
   listProduct: {fileID: 1180753032}
   registerBox: {fileID: 2012356539}
   wallet: {fileID: 7125479780367366426}
+  recipeNumber: {fileID: 11400000, guid: 07ad338b54a1b2f4ea957c4b61f177e7, type: 2}
 --- !u!1 &1148391674
 GameObject:
   m_ObjectHideFlags: 0
@@ -12704,6 +12812,7 @@ GameObject:
   - component: {fileID: 1321887142}
   - component: {fileID: 1321887144}
   - component: {fileID: 1321887145}
+  - component: {fileID: 1321887146}
   m_Layer: 0
   m_Name: GameManager (1)
   m_TagString: Untagged
@@ -12761,6 +12870,7 @@ MonoBehaviour:
   uiCode: {fileID: 2010146292}
   code: 
   paymentMethod: {fileID: 11400000, guid: 832b91b923cb9b14c8048a1141b28c27, type: 2}
+  recipeNumberSO: {fileID: 11400000, guid: 07ad338b54a1b2f4ea957c4b61f177e7, type: 2}
 --- !u!4 &1321887143
 Transform:
   m_ObjectHideFlags: 0
@@ -12805,7 +12915,7 @@ MonoBehaviour:
   allProducts: []
   jsonPrefabs: []
   placeHoldersObject: {fileID: 190776901}
-  customLevel: {fileID: 0}
+  recipeNumberSO: {fileID: 11400000, guid: 07ad338b54a1b2f4ea957c4b61f177e7, type: 2}
 --- !u!114 &1321887145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12870,6 +12980,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1321887146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321887141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a5430fd1874c5429a4f09aa0cd8840, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  productListJSON: {fileID: 4900000, guid: c65a863ecc7e44441bd30fcaa81f5264, type: 3}
+  myProductLists:
+    recipes: []
+  recipeNumberSO: {fileID: 11400000, guid: 07ad338b54a1b2f4ea957c4b61f177e7, type: 2}
+  setPaymentMethod: {fileID: 11400000, guid: 832b91b923cb9b14c8048a1141b28c27, type: 2}
+  sceneName: 
 --- !u!65 &1329556054
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17494,9 +17622,7 @@ MonoBehaviour:
   products: {fileID: 0}
   total: {fileID: 11400000, guid: 3eaf90571d78cff44965fd8424ef5ec0, type: 2}
   totalpositive: 0
-  grabInteractor: {fileID: 0}
-  handgrabInteractorR: {fileID: 0}
-  handgrabInteractorL: {fileID: 0}
+  ConfirmChange: {fileID: 0}
   moveMoney: 0
   coinPosition: {fileID: 0}
   a: {x: 0, y: 0, z: 0}
@@ -18797,9 +18923,7 @@ MonoBehaviour:
   products: {fileID: 0}
   total: {fileID: 11400000, guid: 3eaf90571d78cff44965fd8424ef5ec0, type: 2}
   totalpositive: 0
-  grabInteractor: {fileID: 0}
-  handgrabInteractorR: {fileID: 0}
-  handgrabInteractorL: {fileID: 0}
+  ConfirmChange: {fileID: 0}
   moveMoney: 0
   billPosition: {fileID: 0}
   a: {x: 0, y: 0, z: 0}
@@ -20148,9 +20272,7 @@ MonoBehaviour:
   products: {fileID: 0}
   total: {fileID: 11400000, guid: 3eaf90571d78cff44965fd8424ef5ec0, type: 2}
   totalpositive: 0
-  grabInteractor: {fileID: 0}
-  handgrabInteractorR: {fileID: 0}
-  handgrabInteractorL: {fileID: 0}
+  ConfirmChange: {fileID: 0}
 --- !u!114 &2032717978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44055,7 +44177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1933587497558213157, guid: caf1104dfe6d01c4e9dabd59f18e535a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6890038641385330087, guid: caf1104dfe6d01c4e9dabd59f18e535a, type: 3}
       propertyPath: _controller
@@ -47245,7 +47367,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7125479781239324809}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0579bbb69e0d134faef078e31e2117a, type: 3}
   m_Name: 
@@ -50424,7 +50546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1933587497558213157, guid: caf1104dfe6d01c4e9dabd59f18e535a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6890038641385330087, guid: caf1104dfe6d01c4e9dabd59f18e535a, type: 3}
       propertyPath: _controller
@@ -56365,7 +56487,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1738156703910324417}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6729b15d1bb8c2243bbb678e05f9f780, type: 3}
   m_Name: 

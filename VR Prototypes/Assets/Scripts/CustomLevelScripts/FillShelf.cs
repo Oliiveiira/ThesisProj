@@ -10,8 +10,9 @@ public class FillShelf : ProductListReader
     public List<GameObject> allProducts;
     public List<GameObject> jsonPrefabs = new List<GameObject>();
     public GameObject placeHoldersObject;
+    
     [SerializeField]
-    private IntSO customLevel;
+    private IntSO recipeNumberSO;
 
     // Start is called before the first frame update
     void Awake()
@@ -26,10 +27,10 @@ public class FillShelf : ProductListReader
         string jsonText = File.ReadAllText(jsonFilePath);
         myProductLists = JsonUtility.FromJson<ProductList>(jsonText);
 
-        if(customLevel.Value >= 2)
-        {
-            InstantiatePrefabs();
-        }
+        //if(customLevel.Value >= 2)
+        //{
+        //    InstantiatePrefabs();
+        //}
     }
     // Update is called once per frame
     void Update()
@@ -44,11 +45,11 @@ public class FillShelf : ProductListReader
 
     private void LoadPrefabsFromJSON()
     {
-        List<string> ingredientPaths = myProductLists.recipes[0].ingredientsPath;
+        List<string> ingredientPaths = myProductLists.recipes[recipeNumberSO.Value].ingredientsPath;
         
         for (int i = 0; i < ingredientPaths.Count; i++)
         {
-            GameObject ingredientToCatch = Resources.Load<GameObject>(myProductLists.recipes[0].ingredientsPath[i]);
+            GameObject ingredientToCatch = Resources.Load<GameObject>(myProductLists.recipes[recipeNumberSO.Value].ingredientsPath[i]);
             jsonPrefabs.Add(ingredientToCatch);
         }
         //for (int i = 0; i < myProductLists.recipes[0].ingredientsName.Count; i++)

@@ -25,11 +25,14 @@ public class scanMoney : MonoBehaviour
     [SerializeField]
     private float totalpositive;//to give change
 
+    //Ativate checkChange Objects
+    public GameObject ConfirmChange;
+
     //  public AudioSource coinSound;//trigger the sound
 
-    public GrabInteractor grabInteractor;//to force release
-    public HandGrabInteractor handgrabInteractorR;//to force release
-    public HandGrabInteractor handgrabInteractorL;//to force release
+    //public GrabInteractor grabInteractor;//to force release
+    //public HandGrabInteractor handgrabInteractorR;//to force release
+    //public HandGrabInteractor handgrabInteractorL;//to force release
 
 
     // Start is called before the first frame update

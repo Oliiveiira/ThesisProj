@@ -61,7 +61,8 @@ public class ScanBill : scanMoney
                 other.transform.parent = transform;
                 
                 totalCost.SetText("Total: " + total.Value.ToString());
-                setWinPanel.Raise();
+                ConfirmChange.SetActive(true);
+               // setWinPanel.Raise();
             }
             else
             {

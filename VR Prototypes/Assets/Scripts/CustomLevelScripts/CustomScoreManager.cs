@@ -1,45 +1,72 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CustomScoreManager : MonoBehaviour
+public class CustomScoreManager : ProductListReader
 {
     [SerializeField]
-    private IntSO customLevel;
+    private IntSO recipeNumberSO;
 
     [SerializeField]
     private IntSO setPaymentMethod;
 
     public string sceneName;
+
     // Start is called before the first frame update
     void Start()
     {
-        Scene scene = SceneManager.GetActiveScene();
-        if (scene.name == "CustomLevel - 1")
+        string jsonFilePath = "Assets/Resources/Recipes/ProductsList.txt";
+        string jsonText = File.ReadAllText(jsonFilePath);
+        myProductLists = JsonUtility.FromJson<ProductList>(jsonText);
+
+        if (myProductLists.recipes[recipeNumberSO.Value].paymentMethod == 1)
         {
-            customLevel.Value = 1;
+            setPaymentMethod.Value = 1;
         }
-        else if (scene.name == "CustomLevel - 2Shelf")
+        if (myProductLists.recipes[recipeNumberSO.Value].paymentMethod == 2)
         {
-            customLevel.Value = 2;
+            setPaymentMethod.Value = 2;
         }
-        else if (scene.name == "CustomLevel - 4Shelf")
+        if (myProductLists.recipes[recipeNumberSO.Value].paymentMethod == 3)
         {
-            customLevel.Value = 3;
+            setPaymentMethod.Value = 3;
         }
-        else if (scene.name == "CustomLevel - 6Shelf")
+        if (myProductLists.recipes[recipeNumberSO.Value].paymentMethod == 4)
         {
-            customLevel.Value = 4;
+            setPaymentMethod.Value = 4;
         }
-        else if (scene.name == "CustomLevel - 8Shelf")
+        if (myProductLists.recipes[recipeNumberSO.Value].paymentMethod == 5)
         {
-            customLevel.Value = 5;
+            setPaymentMethod.Value = 5;
         }
-        else if (scene.name == "CustomDefinerLevel")
-        {
-            customLevel.Value = 0;
-        }
+
+        //Scene scene = SceneManager.GetActiveScene();
+        //if (scene.name == "CustomLevel - 1")
+        //{
+        //    customLevel.Value = 1;
+        //}
+        //else if (scene.name == "CustomLevel - 2Shelf")
+        //{
+        //    customLevel.Value = 2;
+        //}
+        //else if (scene.name == "CustomLevel - 4Shelf")
+        //{
+        //    customLevel.Value = 3;
+        //}
+        //else if (scene.name == "CustomLevel - 6Shelf")
+        //{
+        //    customLevel.Value = 4;
+        //}
+        //else if (scene.name == "CustomLevel - 8Shelf")
+        //{
+        //    customLevel.Value = 5;
+        //}
+        //else if (scene.name == "CustomDefinerLevel")
+        //{
+        //    customLevel.Value = 0;
+        //}
     }
 
     public void SetLevel1()
@@ -67,10 +94,33 @@ public class CustomScoreManager : MonoBehaviour
         sceneName = "CustomLevel - 8Shelf";
     }
 
+    public void StartGame()
+    {
+        recipeNumberSO.Value = 0;
+        if(myProductLists.recipes[0].paymentMethod == 5)
+        {
+            SceneManager.LoadScene("MBLevel");
+        }
+        SceneManager.LoadScene("CustomLevel - 1");
+    }
+
     public void NextLevel()
     {
-        customLevel.Value++;
-        SceneManager.LoadScene(sceneName);
+        recipeNumberSO.Value++;
+        if (myProductLists.recipes[recipeNumberSO.Value].paymentMethod == 5)
+        {
+            SceneManager.LoadScene("MBLevel");
+        }
+        else
+        {
+            SceneManager.LoadScene("CustomLevel - 1");
+        }
+    
+    }
+
+    public void GoToSupermarket()
+    {
+        SceneManager.LoadScene("CustomLevel - 1");
     }
 
     public void ResetLevel()
@@ -82,10 +132,12 @@ public class CustomScoreManager : MonoBehaviour
     public void Set10EurosPayment()
     {
         setPaymentMethod.Value = 1;
+        myProductLists.recipes[recipeNumberSO.Value].paymentMethod = 1;
     }   
     public void Set20EurosPayment()
     {
         setPaymentMethod.Value = 2;
+        myProductLists.recipes[recipeNumberSO.Value].paymentMethod = 1;
     }    
     public void SetCardPayment()
     {

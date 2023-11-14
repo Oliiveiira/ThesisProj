@@ -15,6 +15,7 @@ public class ProductListReader : MonoBehaviour
         public string recipeName;
         public List<string> ingredientsName;
         public List<string> ingredientsPath;
+        public int paymentMethod;
     }
 
     [System.Serializable]

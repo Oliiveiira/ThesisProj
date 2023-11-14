@@ -112,6 +112,12 @@ public class ScanProduct : MonoBehaviour
 
     [SerializeField]
     private AudioSource scanSound;//trigger the sound
+    [SerializeField]
+    private AudioSource introduceMoney;//trigger the sound
+    [SerializeField]
+    private AudioSource introduceCard;//trigger the sound
+    [SerializeField]
+    private AudioSource scanQRCode;//trigger the sound
 
     private int successCounter;
 
@@ -121,6 +127,11 @@ public class ScanProduct : MonoBehaviour
 
     [SerializeField]
     private GameEvent setWinPanel;
+
+    public GameObject qRCode;
+
+    [SerializeField]
+    private GameObject wallet;
 
     // Start is called before the first frame update
     void Start()
@@ -142,6 +153,8 @@ public class ScanProduct : MonoBehaviour
         if (successCounter == ingredients.myRecipeList.recipe[ingredients.level.Value].ingredients.Length)
         {
             warning.gameObject.SetActive(false);
+            qRCode.SetActive(true);
+            wallet.SetActive(true);
             paymentAvailable = true;
             //setWinPanel.Raise();
         }

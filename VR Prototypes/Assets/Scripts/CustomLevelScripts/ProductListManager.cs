@@ -55,6 +55,8 @@ public class ProductListManager : ProductListReader
     public string code;
     [SerializeField]
     private IntSO paymentMethod;
+    [SerializeField]
+    private IntSO recipeNumberSO;
 
     // Start is called before the first frame update
     void Awake()
@@ -133,13 +135,13 @@ public class ProductListManager : ProductListReader
 
         //budgetText.SetText("Dinheiro: " + myRecipeList.recipe[level.Value].budget.ToString() + "€");
 
-        recipeName.SetText(myProductLists.recipes[0].recipeName);
+        recipeName.SetText(myProductLists.recipes[recipeNumberSO.Value].recipeName);
 
-        for (int i = 0; i < myProductLists.recipes[0].ingredientsName.Count; i++)
+        for (int i = 0; i < myProductLists.recipes[recipeNumberSO.Value].ingredientsName.Count; i++)
         {
-            productsToGet[i].text = myProductLists.recipes[0].ingredientsName[i];
-            productsToGettoWatchR[i].text = myProductLists.recipes[0].ingredientsName[i];  //to Watch
-            productsToGettoWatchL[i].text = myProductLists.recipes[0].ingredientsName[i]; //to Watch
+            productsToGet[i].text = myProductLists.recipes[recipeNumberSO.Value].ingredientsName[i];
+            productsToGettoWatchR[i].text = myProductLists.recipes[recipeNumberSO.Value].ingredientsName[i];  //to Watch
+            productsToGettoWatchL[i].text = myProductLists.recipes[recipeNumberSO.Value].ingredientsName[i]; //to Watch
         }
     }
 

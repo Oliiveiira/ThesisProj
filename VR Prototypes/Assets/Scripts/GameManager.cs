@@ -5,6 +5,7 @@ using TMPro;
 using RoboRyanTron.Unite2017.Events;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using Random = System.Random;
 
 public class GameManager : JSONReader
 {
@@ -50,6 +51,9 @@ public class GameManager : JSONReader
 
     public IntSO level;
 
+    //creditCard
+   // public TextMeshProUGUI uiCode;
+    public string code;
 
     // Start is called before the first frame update
     void Awake()
@@ -58,10 +62,18 @@ public class GameManager : JSONReader
         myRecipeList = JsonUtility.FromJson<RecipeList>(recipeJSON.text);
     }
 
+    private void Start()
+    {
+        GenerateCode();
+    }
+
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            ShowRecipe();
+        }
     }
 
     public void ShowRecipe()
@@ -81,7 +93,7 @@ public class GameManager : JSONReader
             watchL.SetActive(true);
         }
         //its choosing the recepie randomly now, but then its going to be sequentially, based on the difficulty level
-        randomIndex = Random.Range(0, myRecipeList.recipe.Length);
+        //randomIndex = Random.Range(0, myRecipeList.recipe.Length);
 
         budget = myRecipeList.recipe[level.Value].budget;
 
@@ -92,10 +104,20 @@ public class GameManager : JSONReader
 
         Debug.Log(myRecipeList.recipe[level.Value].spriteURL);
 
-        budgettoWatchR.SetText("Dinheiro: " + myRecipeList.recipe[level.Value].budget.ToString() + "€"); //to Watch
-        budgettoWatchL.SetText("Dinheiro: " + myRecipeList.recipe[level.Value].budget.ToString() + "€"); //to Watch
+        if(level.Value == 1|| level.Value == 2)
+        {
+            budgettoWatchR.SetText("Dinheiro: " + myRecipeList.recipe[level.Value].budget.ToString() + "€"); //to Watch
+            budgettoWatchL.SetText("Dinheiro: " + myRecipeList.recipe[level.Value].budget.ToString() + "€"); //to Watch
 
-        budgetText.SetText("Dinheiro: " + myRecipeList.recipe[level.Value].budget.ToString() + "€");
+            budgetText.SetText("Dinheiro: " + myRecipeList.recipe[level.Value].budget.ToString() + "€");
+        }else if(level.Value == 3 || level.Value == 4)
+        {
+            budgettoWatchR.SetText("Código: " + code); //to Watch
+            budgettoWatchL.SetText("Código: " + code); //to Watch
+
+            budgetText.SetText("Código: " + code);
+        }
+
         recipeName.SetText(myRecipeList.recipe[level.Value].recipeName);
 
         for (int i = 0; i < myRecipeList.recipe[level.Value].ingredients.Length; i++)
@@ -109,6 +131,17 @@ public class GameManager : JSONReader
     public void ResetScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void GenerateCode()
+    {
+        // Instantiate random number generator 
+        Random random = new Random();
+
+        // Print 4 random numbers between 50 and 100 
+        for (int i = 1; i <= 4; i++)
+            code = code + random.Next(0, 9).ToString();
+        Debug.Log(code);
     }
 
     //public ObjectSO[] allObjects;

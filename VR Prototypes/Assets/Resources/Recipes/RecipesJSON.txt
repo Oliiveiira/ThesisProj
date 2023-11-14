@@ -15,8 +15,8 @@
 			"ingredients":["Leite", "Cereais"]
 		},
 		{
-			"budget": 10,
-			"budgetPrefab": "Money/10euros",
+			"budget": 20,
+			"budgetPrefab": "Money/20euros",
 			"recipeName": "Tosta Mista",
 			"spriteURL": "RecipeImages/bolo.jpeg",
 			"ingredients":["Pao", "Queijo", "Fiambre"]
