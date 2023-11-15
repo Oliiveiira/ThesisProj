@@ -35,7 +35,8 @@ public class ClientSender : NetworkBehaviour
             startButton = Instantiate(startButtonPrefab, canvas.transform);
             startButton.gameObject.SetActive(false);
             // Add a listener to the button click event
-            sendButton.onClick.AddListener(SendJsonDataToServer);
+            sendButton.onClick.AddListener(SendJsonDataToServer); 
+            sendButton.onClick.AddListener(ActivateStartButton);
             startButton.onClick.AddListener(StartGameServerRpc);
         }
         else
@@ -54,6 +55,11 @@ public class ClientSender : NetworkBehaviour
         SendDataServerRpc(jsonData);
     }
 
+    private void ActivateStartButton()
+    {
+        startButton.gameObject.SetActive(true);
+    }
+
     [ServerRpc]
     private void SendDataServerRpc(string jsonData)
     {
@@ -61,7 +67,6 @@ public class ClientSender : NetworkBehaviour
         // You can process or display the data as needed
         Debug.Log("Received JSON data on client: " + jsonData);
         File.WriteAllText(jsonFilePath, jsonData);
-        startButton.gameObject.SetActive(true);
         //startGame.Raise();
     }
 
