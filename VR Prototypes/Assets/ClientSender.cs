@@ -4,6 +4,7 @@ using UnityEngine;
 using Unity.Netcode;
 using UnityEngine.UI;
 using RoboRyanTron.Unite2017.Events;
+using System.IO;
 
 public class ClientSender : NetworkBehaviour
 {
@@ -42,8 +43,8 @@ public class ClientSender : NetworkBehaviour
     private void SendJsonDataToServer()
     {
         // Read JSON data from the file
-        string jsonData = System.IO.File.ReadAllText(jsonFilePath);
-
+        string jsonData = File.ReadAllText(jsonFilePath);
+        File.WriteAllText(jsonFilePath,jsonData);
         // Send JSON data to the server using a ServerRpc
         SendDataServerRpc(jsonData);
     }
