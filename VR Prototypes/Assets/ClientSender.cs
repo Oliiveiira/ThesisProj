@@ -12,6 +12,10 @@ public class ClientSender : NetworkBehaviour
     public Button sendButtonPrefab; // Reference to the button prefab
 
     private Button sendButton; // Reference to the instantiated button
+    
+    public Button startButtonPrefab; // Reference to the button prefab
+
+    private Button startButton; // Reference to the instantiated button
     [SerializeField]
     private GameEvent startGame;
 
@@ -28,9 +32,10 @@ public class ClientSender : NetworkBehaviour
 
             // Instantiate the button prefab as a child of the Canvas
             sendButton = Instantiate(sendButtonPrefab, canvas.transform);
-
+            startButton = Instantiate(startButtonPrefab, canvas.transform);
             // Add a listener to the button click event
             sendButton.onClick.AddListener(SendJsonDataToServer);
+            startButton.onClick.AddListener(StartGameServerRpc);
         }
         else
         {
@@ -44,7 +49,6 @@ public class ClientSender : NetworkBehaviour
     {
         // Read JSON data from the file
         string jsonData = File.ReadAllText(jsonFilePath);
-        File.WriteAllText(jsonFilePath,jsonData);
         // Send JSON data to the server using a ServerRpc
         SendDataServerRpc(jsonData);
     }
@@ -55,6 +59,13 @@ public class ClientSender : NetworkBehaviour
         // Receive JSON data on all clients
         // You can process or display the data as needed
         Debug.Log("Received JSON data on client: " + jsonData);
+        File.WriteAllText(jsonFilePath, jsonData);
+        //startGame.Raise();
+    }
+
+    [ServerRpc]
+    private void StartGameServerRpc()
+    {
         startGame.Raise();
     }
 }
