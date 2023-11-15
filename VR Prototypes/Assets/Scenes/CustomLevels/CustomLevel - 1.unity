@@ -4271,7 +4271,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &561871133
 Transform:
   m_ObjectHideFlags: 0
@@ -6415,7 +6415,7 @@ MonoBehaviour:
   setWinPanel: {fileID: 11400000, guid: ef33d6c9ab615ee43bd3d7ca065ce61a, type: 2}
   qRCode: {fileID: 600531736}
   paymentMethod: {fileID: 11400000, guid: 832b91b923cb9b14c8048a1141b28c27, type: 2}
-  recipeNumberSO: {fileID: 0}
+  recipeNumberSO: {fileID: 11400000, guid: 07ad338b54a1b2f4ea957c4b61f177e7, type: 2}
 --- !u!82 &696261206
 AudioSource:
   m_ObjectHideFlags: 0
@@ -14244,7 +14244,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1448700837
 Transform:
   m_ObjectHideFlags: 0

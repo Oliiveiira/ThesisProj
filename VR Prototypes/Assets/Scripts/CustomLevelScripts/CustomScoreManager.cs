@@ -39,7 +39,8 @@ public class CustomScoreManager : ProductListReader
         }
         if (myProductLists.recipes[recipeNumberSO.Value].paymentMethod == 5)
         {
-            setPaymentMethod.Value = 5;
+           // setPaymentMethod.Value = 5;
+           // SceneManager.LoadScene("MBLevel");
         }
 
         //Scene scene = SceneManager.GetActiveScene();
@@ -101,7 +102,10 @@ public class CustomScoreManager : ProductListReader
         {
             SceneManager.LoadScene("MBLevel");
         }
-        SceneManager.LoadScene("CustomLevel - 1");
+        else
+        {
+            SceneManager.LoadScene("CustomLevel - 1");
+        }
     }
 
     public void NextLevel()
@@ -149,6 +153,7 @@ public class CustomScoreManager : ProductListReader
     }    
     public void SetRaiseMoneyPayment()
     {
+        setPaymentMethod.Value = 5;
         sceneName = "MBLevel";
     }
 

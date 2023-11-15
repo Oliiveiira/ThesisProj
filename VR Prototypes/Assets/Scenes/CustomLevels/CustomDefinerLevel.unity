@@ -6062,7 +6062,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &223046147
 RectTransform:
   m_ObjectHideFlags: 0
@@ -30386,6 +30386,7 @@ MonoBehaviour:
   - {fileID: 1058761427}
   - {fileID: 1757616028}
   listProduct: {fileID: 1180753032}
+  registerBox: {fileID: 0}
 --- !u!65 &1145740296
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45526,6 +45527,7 @@ MonoBehaviour:
   allProducts: []
   jsonPrefabs: []
   placeHoldersObject: {fileID: 0}
+  recipeNumberSO: {fileID: 0}
 --- !u!1 &1764169924
 GameObject:
   m_ObjectHideFlags: 0

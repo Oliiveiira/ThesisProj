@@ -24,21 +24,26 @@ public class AddPaymentMethod : ProductListReader
     public void Set10EurosPaymentMethod()
     {
         productList.myProductLists.recipes[recipeNumberSO.Value].paymentMethod = 1;
+        productList.SaveProductListToJson();
     }
     public void Set20EurosPaymentMethod()
     {
         productList.myProductLists.recipes[recipeNumberSO.Value].paymentMethod = 2;
+        productList.SaveProductListToJson();
     }
     public void SetCardPaymentMethod()
     {
         productList.myProductLists.recipes[recipeNumberSO.Value].paymentMethod = 3;
+        productList.SaveProductListToJson();
     }
     public void SetMBWayPaymentMethod()
     {
         productList.myProductLists.recipes[recipeNumberSO.Value].paymentMethod = 4;
+        productList.SaveProductListToJson();
     }
     public void SetRaiseMoneyPaymentMethod()
     {
         productList.myProductLists.recipes[recipeNumberSO.Value].paymentMethod = 5;
+        productList.SaveProductListToJson();
     }
 }
