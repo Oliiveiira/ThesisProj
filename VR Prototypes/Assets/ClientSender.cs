@@ -22,17 +22,18 @@ public class ClientSender : NetworkBehaviour
     private void Start()
     {
         // Find the Canvas GameObject by its name (adjust the name as needed)
-        GameObject canvasObject = GameObject.Find("Canvas");
+        GameObject canvasObject = GameObject.Find("StartLevelScreen");
 
         // Check if the Canvas GameObject is found
         if (canvasObject != null)
         {
             // Get the Canvas component
-            Canvas canvas = canvasObject.GetComponent<Canvas>();
+            RectTransform canvas = canvasObject.GetComponent<RectTransform>();
 
             // Instantiate the button prefab as a child of the Canvas
             sendButton = Instantiate(sendButtonPrefab, canvas.transform);
             startButton = Instantiate(startButtonPrefab, canvas.transform);
+            startButton.gameObject.SetActive(false);
             // Add a listener to the button click event
             sendButton.onClick.AddListener(SendJsonDataToServer);
             startButton.onClick.AddListener(StartGameServerRpc);
@@ -60,6 +61,7 @@ public class ClientSender : NetworkBehaviour
         // You can process or display the data as needed
         Debug.Log("Received JSON data on client: " + jsonData);
         File.WriteAllText(jsonFilePath, jsonData);
+        startButton.gameObject.SetActive(true);
         //startGame.Raise();
     }
 
