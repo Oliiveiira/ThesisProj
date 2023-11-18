@@ -104,6 +104,6 @@ public class LevelRestarter : MonoBehaviour
 
     public void GoToMenuScene()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("GameHUB");
     }
 }

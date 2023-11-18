@@ -1,0 +1,7 @@
+{
+	"puzzleLevel": [
+			{
+		"textureURL":"", "numberOfCubes":0
+		}
+	]
+}

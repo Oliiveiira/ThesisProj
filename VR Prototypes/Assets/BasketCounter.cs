@@ -54,6 +54,7 @@ public class BasketCounter : MonoBehaviour
         {
             DeactivateShelves();
             registerBox.SetActive(true);
+            stopComparing = true;
             //setWinPanel.Raise();
             Debug.Log("Ganhou");
         }

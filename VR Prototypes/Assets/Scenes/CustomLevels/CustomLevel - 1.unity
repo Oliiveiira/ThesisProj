@@ -1851,11 +1851,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3995626715378307604, guid: 7f1440ea850b6c34fafba2e068a0777f, type: 3}
   m_PrefabInstance: {fileID: 1872459974}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &245946858 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5716350098845903445, guid: 5516161d40d7d7f428027aafe458325b, type: 3}
-  m_PrefabInstance: {fileID: 7125479780297652216}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &245946866 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3306452538322587778, guid: 5516161d40d7d7f428027aafe458325b, type: 3}
@@ -42915,7 +42910,7 @@ MonoBehaviour:
   cooldown: 2
   speed: 2
   ovrCameraRig: {fileID: 7125479780006264977}
-  navMeshAgent: {fileID: 7125479781239324811}
+  navMeshAgent: {fileID: 0}
   ActivateTpPointMesh: {fileID: 11400000, guid: db2d7a0973919cc49be389738d0fc3f6, type: 2}
   ActivateTpPoint: {fileID: 11400000, guid: 5be0b5f878d9e3b4582eaf6609036e3d, type: 2}
   DeactivateTpPoint: {fileID: 11400000, guid: be6b6d9227c46ac4e95d759fb7584f00, type: 2}
@@ -47250,11 +47245,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7125479781239324810}
-  - component: {fileID: 7125479781239324811}
-  - component: {fileID: 7125479781239324812}
-  - component: {fileID: 7125479781239324813}
-  - component: {fileID: 7125479781239324815}
-  - component: {fileID: 7125479781239324814}
   - component: {fileID: 7125479781239324816}
   m_Layer: 8
   m_Name: PlayerSampleRig
@@ -47282,129 +47272,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!195 &7125479781239324811
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7125479781239324809}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.26
-  m_Speed: 1
-  m_Acceleration: 1
-  avoidancePriority: 50
-  m_AngularSpeed: 0
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!114 &7125479781239324812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7125479781239324809}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e5af2adb5ffa1c489d516d6591775a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: c217e792b2b58104d8d81636e2477c2c, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 245946858}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
---- !u!114 &7125479781239324813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7125479781239324809}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e5af2adb5ffa1c489d516d6591775a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 674f3052958d7aa428e30365ad7cff6b, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7125479781722509392}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
---- !u!114 &7125479781239324814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7125479781239324809}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0579bbb69e0d134faef078e31e2117a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 7125479781239324811}
-  initialWaypoint: {fileID: 1317791528}
-  finalWaypoint: {fileID: 0}
-  canvas: {fileID: 2109384794}
-  supermarketCart: {fileID: 0}
---- !u!114 &7125479781239324815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7125479781239324809}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e5af2adb5ffa1c489d516d6591775a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 00ef5dca0a9d01f4ea22fd445c5139f9, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7125479781239324814}
-        m_TargetAssemblyTypeName: MovePlayer, Assembly-CSharp
-        m_MethodName: SetinitialPlayerLocation
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &7125479781239324816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48003,7 +47870,7 @@ MonoBehaviour:
   cooldown: 2
   speed: 2
   ovrCameraRig: {fileID: 7125479780006264977}
-  navMeshAgent: {fileID: 7125479781239324811}
+  navMeshAgent: {fileID: 0}
   ActivateTpPointMesh: {fileID: 11400000, guid: db2d7a0973919cc49be389738d0fc3f6, type: 2}
   ActivateTpPoint: {fileID: 11400000, guid: 5be0b5f878d9e3b4582eaf6609036e3d, type: 2}
   DeactivateTpPoint: {fileID: 11400000, guid: be6b6d9227c46ac4e95d759fb7584f00, type: 2}

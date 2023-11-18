@@ -66,11 +66,18 @@ public class ProductListManager : ProductListReader
 
     private void Start()
     {
-        // Load the JSON data from the file every time the scene starts
-        string jsonFilePath = "Assets/Resources/Recipes/ProductsList.txt";
+        string jsonFileName = "ProductsList.txt";
+        string jsonFilePath = Path.Combine(Application.persistentDataPath, jsonFileName);
+
+        // Check if the file exists in the persistent data path
         string jsonText = File.ReadAllText(jsonFilePath);
-        //Debug.Log(jsonText);
         myProductLists = JsonUtility.FromJson<ProductList>(jsonText);
+
+        //// Load the JSON data from the file every time the scene starts
+        //string jsonFilePath = "Assets/Resources/Recipes/ProductsList.txt";
+        //string jsonText = File.ReadAllText(jsonFilePath);
+        ////Debug.Log(jsonText);
+        //myProductLists = JsonUtility.FromJson<ProductList>(jsonText);
 
         //  myProductLists = JsonUtility.FromJson<ProductList>(productListJSON.text);
         GenerateCode();

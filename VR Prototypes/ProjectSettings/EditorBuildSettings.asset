@@ -6,11 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: b607f3b9c7def634089dcbe20209ebe2
+    path: Assets/Scenes/GameHUB.unity
+    guid: df5696789f3a4c648b333b5fa3fe64dc
   - enabled: 1
-    path: Assets/Scenes/TPLevels/TutorialTP.unity
-    guid: aa5917cfad296014296967770735fd09
+    path: Assets/Scenes/CustomLevels/SupermarketMainMenu.unity
+    guid: 2e2a7e4a37742b1449f8b7f7f0cfdce7
+  - enabled: 1
+    path: Assets/Scenes/CustomLevels/CustomDefinerLevel.unity
+    guid: 33c0d8fa93debc243b06e500919231db
+  - enabled: 1
+    path: Assets/Scenes/CustomLevels/CustomDefinerLevelNetwork.unity
+    guid: d8da129ff35a8c84c93a98fa5dac9de4
+  - enabled: 1
+    path: Assets/Scenes/CustomLevels/CustomLevel - 1.unity
+    guid: 99a3868019ada9c4297dbee9616fc4c9
+  - enabled: 1
+    path: Assets/Scenes/CustomLevels/MBLevel.unity
+    guid: 86b5ccb8a8c520845821736a022e20e1
   - enabled: 1
     path: Assets/Scenes/StaticLevelsInPlace 1/Level1 - StaticTP.unity
     guid: 883432b6a173a5b479c89bf7ecc1e451
@@ -27,24 +39,6 @@ EditorBuildSettings:
     path: Assets/Scenes/StaticLevelsInPlace 1/Level5 - StaticTP.unity
     guid: 9ae771b2eb6395a4f9c6215d5aee8fc1
   - enabled: 1
-    path: Assets/Scenes/TPLevels/Level1TP.unity
-    guid: a5546758fa51b6746b49ef81ae5d3acd
-  - enabled: 1
-    path: Assets/Scenes/TPLevels/Level2TP.unity
-    guid: fc983999b09f1024aa7de28349323805
-  - enabled: 1
-    path: Assets/Scenes/TPLevels/Level3TP.unity
-    guid: c1e15b76417b817438941d17eac2f36e
-  - enabled: 1
-    path: Assets/Scenes/TPLevels/Level4TP.unity
-    guid: 4f5bff536e3dd67458c8baf37c83fba8
-  - enabled: 1
-    path: Assets/Scenes/TPLevels/Level5TP.unity
-    guid: dd724f3e32f2c874da02277032f671db
-  - enabled: 1
-    path: Assets/Scenes/CustomLevels/CustomLevel - 1.unity
-    guid: 99a3868019ada9c4297dbee9616fc4c9
-  - enabled: 1
     path: Assets/Scenes/PuzzleLevels/PuzzleLevel1.unity
     guid: 6ebe65376b96984439f29b61a522ddbf
   - enabled: 1
@@ -54,6 +48,21 @@ EditorBuildSettings:
     path: Assets/Scenes/PuzzleLevels/PuzzleLevel3.unity
     guid: 7fe5f792b27632d43b637830ed689c0e
   - enabled: 1
+    path: Assets/Scenes/PuzzleLevels/PuzzleMainMenu.unity
+    guid: 2da97971ac4d6f44bb375f49e8b15b3f
+  - enabled: 1
+    path: Assets/Scenes/PuzzleLevels/CustomPuzzleLevel.unity
+    guid: aa44c2a990e169743b5b2a037744f659
+  - enabled: 1
+    path: Assets/Scenes/PuzzleLevels/PuzzleLevelNetWork4Cubes.unity
+    guid: d5701392bf19d0a4c805a7c608fe2067
+  - enabled: 1
+    path: Assets/Scenes/PuzzleLevels/PuzzleLevelNetWork9Cubes.unity
+    guid: 5aca81a4f58d0a94d8972362c26149ae
+  - enabled: 1
+    path: Assets/Scenes/PuzzleLevels/PuzzleLevelNetwork16cubes.unity
+    guid: b7b430e05624e844ca4efdc110066978
+  - enabled: 1
     path: Assets/Scenes/SpotDifferencesLevels/SpotTheDifference1.unity
     guid: 84ad0f6f42a91b244819f46590a8c7c4
   - enabled: 1
@@ -62,12 +71,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SpotDifferencesLevels/SpotTheDifference3.unity
     guid: f69e9cdde133d7942ab83a2b5063177b
-  - enabled: 1
-    path: Assets/Scenes/CustomLevels/MBLevel.unity
-    guid: 86b5ccb8a8c520845821736a022e20e1
-  - enabled: 1
-    path: Assets/Scenes/CustomLevels/CustomDefinerLevelNetwork.unity
-    guid: d8da129ff35a8c84c93a98fa5dac9de4
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 6eefee752c7ee674183932769f47456a, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}

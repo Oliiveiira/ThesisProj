@@ -17,9 +17,24 @@ public class CustomScoreManager : ProductListReader
     // Start is called before the first frame update
     void Start()
     {
-        string jsonFilePath = "Assets/Resources/Recipes/ProductsList.txt";
-        string jsonText = File.ReadAllText(jsonFilePath);
-        myProductLists = JsonUtility.FromJson<ProductList>(jsonText);
+        string jsonFileName = "ProductsList.txt";
+        string jsonFilePath = Path.Combine(Application.persistentDataPath, jsonFileName);
+
+        // Check if the file exists in the persistent data path
+        if (File.Exists(jsonFilePath))
+        {
+            string jsonText = File.ReadAllText(jsonFilePath);
+            myProductLists = JsonUtility.FromJson<ProductList>(jsonText);
+            Debug.Log("File Exists");
+        }
+        else
+        {
+            // Handle the case when the file doesn't exist in the persistent data path
+            Debug.LogError("JSON file not found in the persistent data path.");
+        }
+        //string jsonFilePath = "Assets/Resources/Recipes/ProductsList.txt";
+        //string jsonText = File.ReadAllText(jsonFilePath);
+        //myProductLists = JsonUtility.FromJson<ProductList>(jsonText);
 
         if (myProductLists.recipes[recipeNumberSO.Value].paymentMethod == 1)
         {
@@ -95,6 +110,11 @@ public class CustomScoreManager : ProductListReader
         sceneName = "CustomLevel - 8Shelf";
     }
 
+    public void GoToNextScene()
+    {
+        SceneManager.LoadScene("CustomLevel - 1");
+    }
+
     public void StartGame()
     {
         recipeNumberSO.Value = 0;
@@ -111,13 +131,20 @@ public class CustomScoreManager : ProductListReader
     public void NextLevel()
     {
         recipeNumberSO.Value++;
-        if (myProductLists.recipes[recipeNumberSO.Value].paymentMethod == 5)
+        if(recipeNumberSO.Value < myProductLists.recipes.Count - 5)
         {
-            SceneManager.LoadScene("MBLevel");
+            if (myProductLists.recipes[recipeNumberSO.Value].paymentMethod == 5)
+            {
+                SceneManager.LoadScene("MBLevel");
+            }
+            else
+            {
+                SceneManager.LoadScene("CustomLevel - 1");
+            }
         }
         else
         {
-            SceneManager.LoadScene("CustomLevel - 1");
+            SceneManager.LoadScene("SupermarketMainMenu");
         }
     
     }

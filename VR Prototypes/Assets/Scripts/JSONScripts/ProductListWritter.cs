@@ -14,8 +14,12 @@ public class ProductListWritter : ProductListReader
     void Awake()
     {
         recipeNumberSO.Value = 0;
-        myProductLists = JsonUtility.FromJson<ProductList>(productListJSON.text);
-        if(myProductLists.recipes.Count >= 2)
+        string jsonFilePath = Path.Combine(Application.persistentDataPath, "ProductsList.txt");
+        string jsonText = File.ReadAllText(jsonFilePath);
+        myProductLists = JsonUtility.FromJson<ProductList>(jsonText);
+
+        //myProductLists = JsonUtility.FromJson<ProductList>(productListJSON.text);
+        if (myProductLists.recipes.Count >= 2)
         {
            // RemoveRecipeAtIndex(myProductLists.recipes.Count - 2);
             myProductLists.recipes.RemoveRange(0, myProductLists.recipes.Count - 5);
@@ -56,7 +60,10 @@ public class ProductListWritter : ProductListReader
     public void SaveProductListToJson()
     {
         string json = JsonUtility.ToJson(myProductLists);
-        File.WriteAllText("Assets/Resources/Recipes/ProductsList.txt", json);
+        string jsonFilePath = Path.Combine(Application.persistentDataPath, "ProductsList.txt");
+        File.WriteAllText(jsonFilePath, json);
+        //string json = JsonUtility.ToJson(myProductLists);
+        //File.WriteAllText("Assets/Resources/Recipes/ProductsList.txt", json);
     }
 
     public void RemoveRecipeAtIndex(int index)
@@ -70,19 +77,6 @@ public class ProductListWritter : ProductListReader
             // Serialize and save the updated data to the JSON file
             SaveProductListToJson();
         }
-    }
-
-    public void SwapElements<T>(List<T> list, int index1, int index2)
-    {
-        if (index1 < 0 || index1 >= list.Count || index2 < 0 || index2 >= list.Count)
-        {
-            // Handle invalid indices based on your requirements
-            return;
-        }
-
-        T temp = list[index1];
-        list[index1] = list[index2];
-        list[index2] = temp;
     }
 
     public void EraseList()

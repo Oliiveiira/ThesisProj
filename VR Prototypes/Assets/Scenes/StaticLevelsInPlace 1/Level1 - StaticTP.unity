@@ -3847,6 +3847,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8618654880183637208, guid: ff4738ddaedddfc4bba4933d77fb4441, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 8993772429813223010, guid: ff4738ddaedddfc4bba4933d77fb4441, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -8872,6 +8876,7 @@ MonoBehaviour:
   - {fileID: 3919315491438455833}
   - {fileID: 1058761427}
   - {fileID: 1757616028}
+  - {fileID: 7098085132433738269}
   listProduct: {fileID: 1180753032}
   registerBox: {fileID: 1476395555}
 --- !u!65 &1145740296
@@ -9402,7 +9407,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1230356360
 Transform:
   m_ObjectHideFlags: 0
@@ -38287,7 +38292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1933587497558213157, guid: caf1104dfe6d01c4e9dabd59f18e535a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6890038641385330087, guid: caf1104dfe6d01c4e9dabd59f18e535a, type: 3}
       propertyPath: _controller
@@ -44542,7 +44547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1933587497558213157, guid: caf1104dfe6d01c4e9dabd59f18e535a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6890038641385330087, guid: caf1104dfe6d01c4e9dabd59f18e535a, type: 3}
       propertyPath: _controller

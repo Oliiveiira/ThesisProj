@@ -23,9 +23,16 @@ public class FillShelf : ProductListReader
 
     private void Start()
     {
-        string jsonFilePath = "Assets/Resources/Recipes/ProductsList.txt";
+        string jsonFileName = "ProductsList.txt";
+        string jsonFilePath = Path.Combine(Application.persistentDataPath, jsonFileName);
+
+        // Check if the file exists in the persistent data path
         string jsonText = File.ReadAllText(jsonFilePath);
         myProductLists = JsonUtility.FromJson<ProductList>(jsonText);
+
+        //string jsonFilePath = "Assets/Resources/Recipes/ProductsList.txt";
+        //string jsonText = File.ReadAllText(jsonFilePath);
+        //myProductLists = JsonUtility.FromJson<ProductList>(jsonText);
 
         //if(customLevel.Value >= 2)
         //{

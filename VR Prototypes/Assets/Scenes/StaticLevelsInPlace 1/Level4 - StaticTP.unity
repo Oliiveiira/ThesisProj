@@ -8368,6 +8368,7 @@ MonoBehaviour:
   - {fileID: 3919315491438455833}
   - {fileID: 1790299601}
   - {fileID: 1289772567}
+  - {fileID: 7098085132433738269}
   listProduct: {fileID: 1180753032}
   registerBox: {fileID: 1900973363}
 --- !u!65 &1145740296
@@ -15162,7 +15163,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1891109864
 Transform:
   m_ObjectHideFlags: 0
@@ -15171,7 +15172,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1891109863}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.7117647, y: 0.717647, z: 0.75882405}
+  m_LocalPosition: {x: -0.7117647, y: 0.717647, z: 0.75882405}
   m_LocalScale: {x: 1.2117645, y: 0.14914027, z: 0.9321265}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -38140,7 +38141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1933587497558213157, guid: caf1104dfe6d01c4e9dabd59f18e535a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6890038641385330087, guid: caf1104dfe6d01c4e9dabd59f18e535a, type: 3}
       propertyPath: _controller
@@ -41155,7 +41156,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7125479781239324809}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.26
   m_Speed: 1
@@ -41233,7 +41234,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7125479781239324809}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0579bbb69e0d134faef078e31e2117a, type: 3}
   m_Name: 
@@ -44395,7 +44396,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1933587497558213157, guid: caf1104dfe6d01c4e9dabd59f18e535a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6890038641385330087, guid: caf1104dfe6d01c4e9dabd59f18e535a, type: 3}
       propertyPath: _controller

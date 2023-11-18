@@ -19,6 +19,11 @@ public class ClientSender : NetworkBehaviour
     [SerializeField]
     private GameEvent startGame;
 
+    private void Awake()
+    {
+        jsonFilePath = Path.Combine(Application.persistentDataPath, "ProductsList.txt");
+    }
+
     private void Start()
     {
         // Find the Canvas GameObject by its name (adjust the name as needed)

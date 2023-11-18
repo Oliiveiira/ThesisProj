@@ -41,7 +41,7 @@ public class NetworkManagerUI : MonoBehaviour
     public void SetIpAdress()
     {
         UnityTransport ipAdress = NetworkManager.Singleton.GetComponent<UnityTransport>();
-        ipAdress.ConnectionData.Address = insertedAdress;
+        ipAdress.ConnectionData.Address = textInput.text;
     }
 
     public void KeyLetter(string letter)

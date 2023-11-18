@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProductListReader : MonoBehaviour
 {
-    public TextAsset productListJSON;
+    //public TextAsset productListJSON;
     // public Recipe ingredients;
 
     [System.Serializable]
