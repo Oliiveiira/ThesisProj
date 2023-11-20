@@ -46,6 +46,14 @@ public class CustomPuzzleGameManager : PuzzleListReader
         {
             SceneManager.LoadScene("PuzzleLevelNetWork16Cubes");
         }
+        else if (myPuzzleList.puzzlelevel[0].numberOfCubes == 6)
+        {
+            SceneManager.LoadScene("PuzzleLevelNetWork6Cubes");
+        }
+        else if (myPuzzleList.puzzlelevel[0].numberOfCubes == 12)
+        {
+            SceneManager.LoadScene("PuzzleLevelNetWork12Cubes");
+        }
     }
 
     public void NextLevel()
@@ -67,12 +75,25 @@ public class CustomPuzzleGameManager : PuzzleListReader
             {
                 SceneManager.LoadScene("PuzzleLevelNetWork16Cubes");
             }
+            else if (myPuzzleList.puzzlelevel[puzzleLevelSO.Value].numberOfCubes == 6)
+            {
+                SceneManager.LoadScene("PuzzleLevelNetWork6Cubes");
+            }
+            else if (myPuzzleList.puzzlelevel[puzzleLevelSO.Value].numberOfCubes == 12)
+            {
+                SceneManager.LoadScene("PuzzleLevelNetWork12Cubes");
+            }
         }
         else
         {
             SceneManager.LoadScene("PuzzleMainMenu");
         }
        // SceneManager.LoadScene("CustomPuzzleLevel");
+    }
+
+    public void GoToAppMenu()
+    {
+        SceneManager.LoadScene("AppHub");
     }
 
     // Update is called once per frame

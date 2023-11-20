@@ -104,6 +104,7 @@ public class PuzzleGameManager : MonoBehaviour
         }
         else if(mirrorNoneHand && !isPlaced)
         {
+            int i = 0;
             foreach (var puzzlePiece in puzzlePieces)
             {
                 grid.position = new Vector3(grid.position.x, grid.position.y, 0);
@@ -112,13 +113,15 @@ public class PuzzleGameManager : MonoBehaviour
                 {
                     PuzzlePiece puzzlePieceTransform = puzzlePiece.GetComponent<PuzzlePiece>();
                     puzzlePieceTransform.rightPosition = puzzlePiece.transform.position;
-                    puzzlePiece.SetPositionAndRotation(new Vector3(puzzlePiece.position.x, puzzlePiece.position.y, Random.Range(-0.3f, -0.7f)), Quaternion.Euler(-90, 0, 0));
+                    puzzlePiece.SetPositionAndRotation(sidePlaceHolders[i].position, Quaternion.Euler(-90, 0, 0));
+                    i++;
                     isPlaced = true;
                 }
             }
         }
         else if (!mirrorRightHand && !mirrorLeftHand && !mirrorNoneHand && !isPlaced)
         {
+            int i = 0;
             foreach (var puzzlePiece in puzzlePieces)
             {
                 grid.position = new Vector3(grid.position.x, grid.position.y, 0);
@@ -127,7 +130,8 @@ public class PuzzleGameManager : MonoBehaviour
                 {
                     PuzzlePiece puzzlePieceTransform = puzzlePiece.GetComponent<PuzzlePiece>();
                     puzzlePieceTransform.rightPosition = puzzlePiece.transform.position;
-                    puzzlePiece.SetPositionAndRotation(new Vector3(puzzlePiece.position.x, puzzlePiece.position.y, Random.Range(-0.3f, -0.7f)), Quaternion.Euler(-90, 0, 0));
+                    puzzlePiece.SetPositionAndRotation(sidePlaceHolders[i].position, Quaternion.Euler(-90, 0, 0));
+                    i++;
                     isPlaced = true;
                 }
             }

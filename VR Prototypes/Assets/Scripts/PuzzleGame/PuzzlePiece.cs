@@ -38,10 +38,10 @@ public class PuzzlePiece : MonoBehaviour
         {
             isInRightPlace = false;
         }
-        if (isInRightPlace)
-        {
-            placeSound.Play();
-        }
+        //if (isInRightPlace)
+        //{
+        //    placeSound.Play();
+        //}
     }
 
     private void OnTriggerStay(Collider other)

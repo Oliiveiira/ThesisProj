@@ -24,4 +24,14 @@ public class AddPuzzleNumberOfCubes : MonoBehaviour
         puzzleList.myPuzzleList.puzzlelevel[puzzleLevelSO.Value].numberOfCubes = 16;
         puzzleList.SavePuzzleListToJson();
     }
+    public void Set6CubesScene()
+    {
+        puzzleList.myPuzzleList.puzzlelevel[puzzleLevelSO.Value].numberOfCubes = 6;
+        puzzleList.SavePuzzleListToJson();
+    }
+    public void Set12CubesScene()
+    {
+        puzzleList.myPuzzleList.puzzlelevel[puzzleLevelSO.Value].numberOfCubes = 12;
+        puzzleList.SavePuzzleListToJson();
+    }
 }

@@ -154,6 +154,11 @@ public class CustomScoreManager : ProductListReader
         SceneManager.LoadScene("CustomLevel - 1");
     }
 
+    public void GoToAppMenu()
+    {
+        SceneManager.LoadScene("AppHub");
+    }
+
     public void ResetLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
