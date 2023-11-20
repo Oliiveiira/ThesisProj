@@ -19,6 +19,8 @@ public class PuzzleClientSender : NetworkBehaviour
     private Button startButton; // Reference to the instantiated button
     [SerializeField]
     private GameEvent startPuzzleGame;
+    [SerializeField]
+    private GameEvent deserializeJson;
 
     private void Awake()
     {
@@ -73,12 +75,14 @@ public class PuzzleClientSender : NetworkBehaviour
         // You can process or display the data as needed
         Debug.Log("Received JSON data on client: " + jsonData);
         File.WriteAllText(jsonFilePath, jsonData);
+        deserializeJson.Raise();
         //startGame.Raise();
     }
 
     [ServerRpc]
     private void StartGameServerRpc()
     {
+        File.ReadAllText(jsonFilePath);
         Debug.Log("Working");
         startPuzzleGame.Raise();
     }

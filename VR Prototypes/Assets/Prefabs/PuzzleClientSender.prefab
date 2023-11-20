@@ -65,3 +65,4 @@ MonoBehaviour:
   sendButtonPrefab: {fileID: 5062728918430131977, guid: 1982c33bc5c18bc4cb92345a6afdace8, type: 3}
   startButtonPrefab: {fileID: 5062728918430131977, guid: 8318199bf2462264187cf7bea3876d5c, type: 3}
   startPuzzleGame: {fileID: 11400000, guid: 7d1332ae616a54a408aade0be467de27, type: 2}
+  deserializeJson: {fileID: 11400000, guid: 92a6c13c31a920b48a279fd56918c2b8, type: 2}

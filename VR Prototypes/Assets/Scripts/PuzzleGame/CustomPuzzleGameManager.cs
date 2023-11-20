@@ -96,6 +96,15 @@ public class CustomPuzzleGameManager : PuzzleListReader
         SceneManager.LoadScene("AppHub");
     }
 
+    public void DeserializeJson()
+    {
+        string jsonFileName = "ImageLinks.txt";
+        string jsonFilePath = Path.Combine(Application.persistentDataPath, jsonFileName);
+        string jsonText = File.ReadAllText(jsonFilePath);
+        myPuzzleList = JsonUtility.FromJson<PuzzleList>(jsonText);
+
+    }
+
     // Update is called once per frame
     void Update()
     {

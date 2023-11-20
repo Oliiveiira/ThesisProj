@@ -41107,6 +41107,7 @@ GameObject:
   - component: {fileID: 1470748107}
   - component: {fileID: 1470748106}
   - component: {fileID: 1470748108}
+  - component: {fileID: 1470748109}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -41274,6 +41275,34 @@ MonoBehaviour:
       - m_Target: {fileID: 1470748107}
         m_TargetAssemblyTypeName: CustomPuzzleGameManager, Assembly-CSharp
         m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1470748109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470748099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e5af2adb5ffa1c489d516d6591775a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 92a6c13c31a920b48a279fd56918c2b8, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1470748107}
+        m_TargetAssemblyTypeName: CustomPuzzleGameManager, Assembly-CSharp
+        m_MethodName: DeserializeJson
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -49,6 +49,7 @@ MonoBehaviour:
   sendButtonPrefab: {fileID: 5062728918430131977, guid: 1982c33bc5c18bc4cb92345a6afdace8, type: 3}
   startButtonPrefab: {fileID: 5062728918430131977, guid: 8318199bf2462264187cf7bea3876d5c, type: 3}
   startGame: {fileID: 11400000, guid: a6a6e894e593272478a786bc85594ca3, type: 2}
+  deserializeJson: {fileID: 11400000, guid: 92a6c13c31a920b48a279fd56918c2b8, type: 2}
 --- !u!114 &526582533886318894
 MonoBehaviour:
   m_ObjectHideFlags: 0

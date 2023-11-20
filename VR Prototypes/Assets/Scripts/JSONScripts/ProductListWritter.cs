@@ -29,8 +29,8 @@ public class ProductListWritter : ProductListReader
         // If there are no recipes in the list, add an empty one      
         myProductLists.recipes.Add(new Recipes());
 
-        // Set the current recipe to the first recipe in the list
-        currentRecipe = myProductLists.recipes[0];
+        //// Set the current recipe to the first recipe in the list
+        //currentRecipe = myProductLists.recipes[0];
     }
 
     public void addAnotherRecipe()

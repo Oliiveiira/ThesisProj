@@ -189,6 +189,14 @@ public class CustomScoreManager : ProductListReader
         sceneName = "MBLevel";
     }
 
+    public void DeserializeJson()
+    {
+        string jsonFileName = "ProductsList.txt";
+        string jsonFilePath = Path.Combine(Application.persistentDataPath, jsonFileName);
+        string jsonText = File.ReadAllText(jsonFilePath);
+        myProductLists = JsonUtility.FromJson<ProductList>(jsonText);
+    }
+
     // Update is called once per frame
     void Update()
     {
