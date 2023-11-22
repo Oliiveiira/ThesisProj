@@ -32463,6 +32463,7 @@ GameObject:
   - component: {fileID: 8559876699921732838}
   - component: {fileID: 8559876699921732844}
   - component: {fileID: 8559876699921732845}
+  - component: {fileID: 8559876699921732846}
   m_Layer: 0
   m_Name: piece2.004
   m_TagString: Untagged
@@ -32532,6 +32533,7 @@ GameObject:
   - component: {fileID: 4002728054108984301}
   - component: {fileID: 4002728054108984307}
   - component: {fileID: 4002728054108984308}
+  - component: {fileID: 4002728054108984309}
   m_Layer: 0
   m_Name: piece2.002
   m_TagString: Untagged
@@ -32558,6 +32560,7 @@ GameObject:
   - component: {fileID: 9153264089108833932}
   - component: {fileID: 9153264089108833938}
   - component: {fileID: 9153264089108833939}
+  - component: {fileID: 9153264089108833940}
   m_Layer: 0
   m_Name: piece2.001
   m_TagString: Untagged
@@ -32665,6 +32668,7 @@ GameObject:
   - component: {fileID: 5432974193971554186}
   - component: {fileID: 5432974193971554192}
   - component: {fileID: 5432974193971554193}
+  - component: {fileID: 5432974193971554194}
   m_Layer: 0
   m_Name: piece3.001
   m_TagString: Untagged
@@ -32800,7 +32804,7 @@ MonoBehaviour:
   _transferOnSecondSelection: 0
   _addNewPointsToFront: 0
   _forwardElement: {fileID: 0}
-  _oneGrabTransformer: {fileID: 0}
+  _oneGrabTransformer: {fileID: 4002728054108984309}
   _twoGrabTransformer: {fileID: 0}
   _maxGrabPoints: -1
 --- !u!114 &4002728054108984304
@@ -32956,6 +32960,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4002728054108984309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2461275686847373117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9597e632dfbca247bcf65e49c67078e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _constraints:
+    ConstraintsAreRelative: 0
+    MinX:
+      Constrain: 0
+      Value: 0
+    MaxX:
+      Constrain: 0
+      Value: 0
+    MinY:
+      Constrain: 0
+      Value: 0
+    MaxY:
+      Constrain: 0
+      Value: 0
+    MinZ:
+      Constrain: 0
+      Value: 0
+    MaxZ:
+      Constrain: 0
+      Value: 0
 --- !u!23 &4350893323611377525
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -33018,6 +33054,7 @@ GameObject:
   - component: {fileID: 7279235396227088418}
   - component: {fileID: 7279235396227088424}
   - component: {fileID: 7279235396227088425}
+  - component: {fileID: 7279235396227088426}
   m_Layer: 0
   m_Name: piece4.002
   m_TagString: Untagged
@@ -33204,7 +33241,7 @@ MonoBehaviour:
   _transferOnSecondSelection: 0
   _addNewPointsToFront: 0
   _forwardElement: {fileID: 0}
-  _oneGrabTransformer: {fileID: 0}
+  _oneGrabTransformer: {fileID: 5432974193971554194}
   _twoGrabTransformer: {fileID: 0}
   _maxGrabPoints: -1
 --- !u!114 &5432974193971554189
@@ -33360,6 +33397,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5432974193971554194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3450434448119200944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9597e632dfbca247bcf65e49c67078e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _constraints:
+    ConstraintsAreRelative: 0
+    MinX:
+      Constrain: 0
+      Value: 0
+    MaxX:
+      Constrain: 0
+      Value: 0
+    MinY:
+      Constrain: 0
+      Value: 0
+    MaxY:
+      Constrain: 0
+      Value: 0
+    MinZ:
+      Constrain: 0
+      Value: 0
+    MaxZ:
+      Constrain: 0
+      Value: 0
 --- !u!33 &5597937874156444574
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -33387,6 +33456,7 @@ GameObject:
   - component: {fileID: 7395077763487340297}
   - component: {fileID: 7395077763487340303}
   - component: {fileID: 7395077763487340304}
+  - component: {fileID: 7395077763487340305}
   m_Layer: 0
   m_Name: piece4.001
   m_TagString: Untagged
@@ -33443,6 +33513,7 @@ GameObject:
   - component: {fileID: 8702552732983195367}
   - component: {fileID: 8702552732983195373}
   - component: {fileID: 8702552732983195374}
+  - component: {fileID: 8702552732983195375}
   m_Layer: 0
   m_Name: piece1.001
   m_TagString: Untagged
@@ -33594,7 +33665,7 @@ MonoBehaviour:
   _transferOnSecondSelection: 0
   _addNewPointsToFront: 0
   _forwardElement: {fileID: 0}
-  _oneGrabTransformer: {fileID: 0}
+  _oneGrabTransformer: {fileID: 7279235396227088426}
   _twoGrabTransformer: {fileID: 0}
   _maxGrabPoints: -1
 --- !u!114 &7279235396227088421
@@ -33750,6 +33821,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7279235396227088426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4391015755094067470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9597e632dfbca247bcf65e49c67078e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _constraints:
+    ConstraintsAreRelative: 0
+    MinX:
+      Constrain: 0
+      Value: 0
+    MaxX:
+      Constrain: 0
+      Value: 0
+    MinY:
+      Constrain: 0
+      Value: 0
+    MaxY:
+      Constrain: 0
+      Value: 0
+    MinZ:
+      Constrain: 0
+      Value: 0
+    MaxZ:
+      Constrain: 0
+      Value: 0
 --- !u!23 &7395077763487340296
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -33863,7 +33966,7 @@ MonoBehaviour:
   _transferOnSecondSelection: 0
   _addNewPointsToFront: 0
   _forwardElement: {fileID: 0}
-  _oneGrabTransformer: {fileID: 0}
+  _oneGrabTransformer: {fileID: 7395077763487340305}
   _twoGrabTransformer: {fileID: 0}
   _maxGrabPoints: -1
 --- !u!114 &7395077763487340300
@@ -34019,6 +34122,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7395077763487340305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6206530339726412534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9597e632dfbca247bcf65e49c67078e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _constraints:
+    ConstraintsAreRelative: 0
+    MinX:
+      Constrain: 0
+      Value: 0
+    MaxX:
+      Constrain: 0
+      Value: 0
+    MinY:
+      Constrain: 0
+      Value: 0
+    MaxY:
+      Constrain: 0
+      Value: 0
+    MinZ:
+      Constrain: 0
+      Value: 0
+    MaxZ:
+      Constrain: 0
+      Value: 0
 --- !u!1 &7518364492816120446
 GameObject:
   m_ObjectHideFlags: 0
@@ -34038,6 +34173,7 @@ GameObject:
   - component: {fileID: 7518364492816120447}
   - component: {fileID: 7518364492816120453}
   - component: {fileID: 7518364492816120454}
+  - component: {fileID: 7518364492816120455}
   m_Layer: 0
   m_Name: piece3.002
   m_TagString: Untagged
@@ -34115,7 +34251,7 @@ MonoBehaviour:
   _transferOnSecondSelection: 0
   _addNewPointsToFront: 0
   _forwardElement: {fileID: 0}
-  _oneGrabTransformer: {fileID: 0}
+  _oneGrabTransformer: {fileID: 7518364492816120455}
   _twoGrabTransformer: {fileID: 0}
   _maxGrabPoints: -1
 --- !u!114 &7518364492816120450
@@ -34271,6 +34407,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7518364492816120455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7518364492816120446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9597e632dfbca247bcf65e49c67078e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _constraints:
+    ConstraintsAreRelative: 0
+    MinX:
+      Constrain: 0
+      Value: 0
+    MaxX:
+      Constrain: 0
+      Value: 0
+    MinY:
+      Constrain: 0
+      Value: 0
+    MaxY:
+      Constrain: 0
+      Value: 0
+    MinZ:
+      Constrain: 0
+      Value: 0
+    MaxZ:
+      Constrain: 0
+      Value: 0
 --- !u!33 &7585193705287086544
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -34388,7 +34556,7 @@ MonoBehaviour:
   _transferOnSecondSelection: 0
   _addNewPointsToFront: 0
   _forwardElement: {fileID: 0}
-  _oneGrabTransformer: {fileID: 0}
+  _oneGrabTransformer: {fileID: 8559876699921732846}
   _twoGrabTransformer: {fileID: 0}
   _maxGrabPoints: -1
 --- !u!114 &8559876699921732841
@@ -34544,6 +34712,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8559876699921732846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583656065146287503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9597e632dfbca247bcf65e49c67078e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _constraints:
+    ConstraintsAreRelative: 0
+    MinX:
+      Constrain: 0
+      Value: 0
+    MaxX:
+      Constrain: 0
+      Value: 0
+    MinY:
+      Constrain: 0
+      Value: 0
+    MaxY:
+      Constrain: 0
+      Value: 0
+    MinZ:
+      Constrain: 0
+      Value: 0
+    MaxZ:
+      Constrain: 0
+      Value: 0
 --- !u!1 &8674304457246519267
 GameObject:
   m_ObjectHideFlags: 0
@@ -34563,6 +34763,7 @@ GameObject:
   - component: {fileID: 8674304457246519268}
   - component: {fileID: 8674304457246519274}
   - component: {fileID: 8674304457246519275}
+  - component: {fileID: 8674304457246519276}
   m_Layer: 0
   m_Name: piece2.003
   m_TagString: Untagged
@@ -34640,7 +34841,7 @@ MonoBehaviour:
   _transferOnSecondSelection: 0
   _addNewPointsToFront: 0
   _forwardElement: {fileID: 0}
-  _oneGrabTransformer: {fileID: 0}
+  _oneGrabTransformer: {fileID: 8674304457246519276}
   _twoGrabTransformer: {fileID: 0}
   _maxGrabPoints: -1
 --- !u!114 &8674304457246519271
@@ -34796,6 +34997,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8674304457246519276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8674304457246519267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9597e632dfbca247bcf65e49c67078e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _constraints:
+    ConstraintsAreRelative: 0
+    MinX:
+      Constrain: 0
+      Value: 0
+    MaxX:
+      Constrain: 0
+      Value: 0
+    MinY:
+      Constrain: 0
+      Value: 0
+    MaxY:
+      Constrain: 0
+      Value: 0
+    MinZ:
+      Constrain: 0
+      Value: 0
+    MaxZ:
+      Constrain: 0
+      Value: 0
 --- !u!33 &8702552732983195366
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -34874,7 +35107,7 @@ MonoBehaviour:
   _transferOnSecondSelection: 0
   _addNewPointsToFront: 0
   _forwardElement: {fileID: 0}
-  _oneGrabTransformer: {fileID: 0}
+  _oneGrabTransformer: {fileID: 8702552732983195375}
   _twoGrabTransformer: {fileID: 0}
   _maxGrabPoints: -1
 --- !u!114 &8702552732983195370
@@ -35030,6 +35263,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8702552732983195375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6892487224643660317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9597e632dfbca247bcf65e49c67078e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _constraints:
+    ConstraintsAreRelative: 0
+    MinX:
+      Constrain: 0
+      Value: 0
+    MaxX:
+      Constrain: 0
+      Value: 0
+    MinY:
+      Constrain: 0
+      Value: 0
+    MaxY:
+      Constrain: 0
+      Value: 0
+    MinZ:
+      Constrain: 0
+      Value: 0
+    MaxZ:
+      Constrain: 0
+      Value: 0
 --- !u!33 &9153264089108833931
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -35108,7 +35373,7 @@ MonoBehaviour:
   _transferOnSecondSelection: 0
   _addNewPointsToFront: 0
   _forwardElement: {fileID: 0}
-  _oneGrabTransformer: {fileID: 0}
+  _oneGrabTransformer: {fileID: 9153264089108833940}
   _twoGrabTransformer: {fileID: 0}
   _maxGrabPoints: -1
 --- !u!114 &9153264089108833935
@@ -35264,3 +35529,35 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &9153264089108833940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2628333267079478770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9597e632dfbca247bcf65e49c67078e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _constraints:
+    ConstraintsAreRelative: 0
+    MinX:
+      Constrain: 0
+      Value: 0
+    MaxX:
+      Constrain: 0
+      Value: 0
+    MinY:
+      Constrain: 0
+      Value: 0
+    MaxY:
+      Constrain: 0
+      Value: 0
+    MinZ:
+      Constrain: 0
+      Value: 0
+    MaxZ:
+      Constrain: 0
+      Value: 0

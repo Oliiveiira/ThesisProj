@@ -50,7 +50,6 @@ public class PuzzlePiece : MonoBehaviour
         {
             if (transform.position == other.transform.position)
             {
-                Debug.Log(placeSound);
                 placeSound.Play();
                 HandGrabInteractable handGrabInteractable = GetComponent<HandGrabInteractable>();
                 handGrabInteractable.enabled = false;
