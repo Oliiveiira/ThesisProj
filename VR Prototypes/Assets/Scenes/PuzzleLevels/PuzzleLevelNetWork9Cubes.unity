@@ -20944,6 +20944,7 @@ MonoBehaviour:
   myPuzzleList:
     puzzlelevel: []
   puzzleLevelSO: {fileID: 11400000, guid: c2be04ab9bf29554b984afd41c8a6dd8, type: 2}
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!1 &1480077778
 GameObject:
   m_ObjectHideFlags: 0
@@ -32864,6 +32865,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!82 &4002728054108984308
 AudioSource:
   m_ObjectHideFlags: 0
@@ -33301,6 +33304,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!82 &5432974193971554193
 AudioSource:
   m_ObjectHideFlags: 0
@@ -33725,6 +33730,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!82 &7279235396227088425
 AudioSource:
   m_ObjectHideFlags: 0
@@ -34026,6 +34033,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!82 &7395077763487340304
 AudioSource:
   m_ObjectHideFlags: 0
@@ -34311,6 +34320,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!82 &7518364492816120454
 AudioSource:
   m_ObjectHideFlags: 0
@@ -34616,6 +34627,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!82 &8559876699921732845
 AudioSource:
   m_ObjectHideFlags: 0
@@ -34901,6 +34914,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!82 &8674304457246519275
 AudioSource:
   m_ObjectHideFlags: 0
@@ -35167,6 +35182,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!82 &8702552732983195374
 AudioSource:
   m_ObjectHideFlags: 0
@@ -35433,6 +35450,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!82 &9153264089108833939
 AudioSource:
   m_ObjectHideFlags: 0

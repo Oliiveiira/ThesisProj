@@ -11,6 +11,11 @@ public class PuzzlePiece : MonoBehaviour
     // Start is called before the first frame update
     public bool isInRightPlace;
     private AudioSource placeSound;
+    [SerializeField]
+    private bool hasPlayedSound = false;
+
+    [SerializeField]
+    private FloatSO difficultyValue;
 
     private void Awake()
     {
@@ -28,14 +33,21 @@ public class PuzzlePiece : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, rightPosition) < 0.035f)
+        if (Vector3.Distance(transform.position, rightPosition) < difficultyValue.Value /*0.035f*/)
         {
             isInRightPlace = true;
             transform.position = rightPosition;
-            transform.rotation = Quaternion.Euler(-90, 0, 0);        
+            transform.rotation = Quaternion.Euler(-90, 0, 0);
+
+            if (!hasPlayedSound)
+            {
+                placeSound.Play();
+                hasPlayedSound = true;  // Set the flag to indicate that the sound has been played
+            }
         }
         else
         {
+            hasPlayedSound = false;
             isInRightPlace = false;
         }
         //if (isInRightPlace)
@@ -50,7 +62,7 @@ public class PuzzlePiece : MonoBehaviour
         {
             if (transform.position == other.transform.position)
             {
-                placeSound.Play();
+                //placeSound.Play();
                 HandGrabInteractable handGrabInteractable = GetComponent<HandGrabInteractable>();
                 handGrabInteractable.enabled = false;
                 MeshRenderer puzzlePlaceRenderer = other.GetComponent<MeshRenderer>();

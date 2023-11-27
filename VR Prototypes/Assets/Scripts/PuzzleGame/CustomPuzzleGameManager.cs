@@ -9,7 +9,10 @@ public class CustomPuzzleGameManager : PuzzleListReader
     [SerializeField]
     private IntSO puzzleLevelSO;
 
-   // public string sceneName;
+    [SerializeField]
+    private FloatSO difficultyValue;
+
+    // public string sceneName;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +32,8 @@ public class CustomPuzzleGameManager : PuzzleListReader
             // Handle the case when the file doesn't exist in the persistent data path
             Debug.LogError("JSON file not found in the persistent data path.");
         }
+        //set the difficultyValueSO to set the distance between the cubes and the grid placement 
+        difficultyValue.Value = myPuzzleList.puzzlelevel[puzzleLevelSO.Value].difficultyValue;
     }
 
     public void StartGame()
@@ -87,6 +92,7 @@ public class CustomPuzzleGameManager : PuzzleListReader
         else
         {
             SceneManager.LoadScene("PuzzleMainMenu");
+            difficultyValue.Value = 0.035f;
         }
        // SceneManager.LoadScene("CustomPuzzleLevel");
     }

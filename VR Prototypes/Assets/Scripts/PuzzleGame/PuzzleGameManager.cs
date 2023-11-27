@@ -36,6 +36,7 @@ public class PuzzleGameManager : MonoBehaviour
     public AudioSource winSound;
 
     public string nextSceneName;
+    [SerializeField]
     public bool gameHasStarted;
 
     // Start is called before the first frame update

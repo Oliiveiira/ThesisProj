@@ -33222,6 +33222,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!114 &6127500405901398704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33490,6 +33492,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!114 &6267476703200535019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33790,6 +33794,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!114 &6625539909369486121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34066,6 +34072,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!114 &6973361685184700526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34403,6 +34411,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!114 &8334864555390027327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34686,6 +34696,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!114 &8684533395631446867
 MonoBehaviour:
   m_ObjectHideFlags: 0

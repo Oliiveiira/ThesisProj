@@ -32565,6 +32565,10 @@ PrefabInstance:
       propertyPath: releaseHand
       value: 
       objectReference: {fileID: 11400000, guid: 997ed1a5f27d7e041bff504bf5fa04ce, type: 2}
+    - target: {fileID: 4784246798611559375, guid: 3a0eb2bf0a1310841ba3fd2471ae6b5d, type: 3}
+      propertyPath: difficultyValue
+      value: 
+      objectReference: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
     - target: {fileID: 4784246798611559380, guid: 3a0eb2bf0a1310841ba3fd2471ae6b5d, type: 3}
       propertyPath: _oneGrabTransformer
       value: 
@@ -32573,6 +32577,10 @@ PrefabInstance:
       propertyPath: releaseHand
       value: 
       objectReference: {fileID: 11400000, guid: 997ed1a5f27d7e041bff504bf5fa04ce, type: 2}
+    - target: {fileID: 7621106396262630543, guid: 3a0eb2bf0a1310841ba3fd2471ae6b5d, type: 3}
+      propertyPath: difficultyValue
+      value: 
+      objectReference: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
     - target: {fileID: 7621106396262630548, guid: 3a0eb2bf0a1310841ba3fd2471ae6b5d, type: 3}
       propertyPath: _oneGrabTransformer
       value: 
@@ -32581,6 +32589,10 @@ PrefabInstance:
       propertyPath: releaseHand
       value: 
       objectReference: {fileID: 11400000, guid: 997ed1a5f27d7e041bff504bf5fa04ce, type: 2}
+    - target: {fileID: 8714028338468166546, guid: 3a0eb2bf0a1310841ba3fd2471ae6b5d, type: 3}
+      propertyPath: difficultyValue
+      value: 
+      objectReference: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
     - target: {fileID: 8714028338468166551, guid: 3a0eb2bf0a1310841ba3fd2471ae6b5d, type: 3}
       propertyPath: _oneGrabTransformer
       value: 
@@ -32593,6 +32605,10 @@ PrefabInstance:
       propertyPath: releaseHand
       value: 
       objectReference: {fileID: 11400000, guid: 997ed1a5f27d7e041bff504bf5fa04ce, type: 2}
+    - target: {fileID: 8947679529594577482, guid: 3a0eb2bf0a1310841ba3fd2471ae6b5d, type: 3}
+      propertyPath: difficultyValue
+      value: 
+      objectReference: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
     - target: {fileID: 8947679529594577486, guid: 3a0eb2bf0a1310841ba3fd2471ae6b5d, type: 3}
       propertyPath: _oneGrabTransformer
       value: 

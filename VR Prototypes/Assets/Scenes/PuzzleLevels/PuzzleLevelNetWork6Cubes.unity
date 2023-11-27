@@ -20955,6 +20955,7 @@ MonoBehaviour:
   myPuzzleList:
     puzzlelevel: []
   puzzleLevelSO: {fileID: 11400000, guid: c2be04ab9bf29554b984afd41c8a6dd8, type: 2}
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!1 &1480077778
 GameObject:
   m_ObjectHideFlags: 0
@@ -32544,26 +32545,50 @@ PrefabInstance:
       propertyPath: _oneGrabTransformer
       value: 
       objectReference: {fileID: 2120890035007897341}
+    - target: {fileID: 5088028877048767964, guid: 5d2e4f42a8d087a4a874793bedf141b6, type: 3}
+      propertyPath: difficultyValue
+      value: 
+      objectReference: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
     - target: {fileID: 5217326815158152263, guid: 5d2e4f42a8d087a4a874793bedf141b6, type: 3}
       propertyPath: _oneGrabTransformer
       value: 
       objectReference: {fileID: 2120890035007897340}
+    - target: {fileID: 5217326815158152283, guid: 5d2e4f42a8d087a4a874793bedf141b6, type: 3}
+      propertyPath: difficultyValue
+      value: 
+      objectReference: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
     - target: {fileID: 5446090983601233690, guid: 5d2e4f42a8d087a4a874793bedf141b6, type: 3}
       propertyPath: _oneGrabTransformer
       value: 
       objectReference: {fileID: 2120890035007897339}
+    - target: {fileID: 5446090983601233694, guid: 5d2e4f42a8d087a4a874793bedf141b6, type: 3}
+      propertyPath: difficultyValue
+      value: 
+      objectReference: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
     - target: {fileID: 7344037437895517602, guid: 5d2e4f42a8d087a4a874793bedf141b6, type: 3}
       propertyPath: _oneGrabTransformer
       value: 
       objectReference: {fileID: 8684533395631446866}
+    - target: {fileID: 7344037437895517606, guid: 5d2e4f42a8d087a4a874793bedf141b6, type: 3}
+      propertyPath: difficultyValue
+      value: 
+      objectReference: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
     - target: {fileID: 7981936654167046326, guid: 5d2e4f42a8d087a4a874793bedf141b6, type: 3}
       propertyPath: _oneGrabTransformer
       value: 
       objectReference: {fileID: 5980786907990879779}
+    - target: {fileID: 7981936654167046346, guid: 5d2e4f42a8d087a4a874793bedf141b6, type: 3}
+      propertyPath: difficultyValue
+      value: 
+      objectReference: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
     - target: {fileID: 9054682482301951621, guid: 5d2e4f42a8d087a4a874793bedf141b6, type: 3}
       propertyPath: _oneGrabTransformer
       value: 
       objectReference: {fileID: 6495314841678327704}
+    - target: {fileID: 9054682482301951641, guid: 5d2e4f42a8d087a4a874793bedf141b6, type: 3}
+      propertyPath: difficultyValue
+      value: 
+      objectReference: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d2e4f42a8d087a4a874793bedf141b6, type: 3}
 --- !u!1 &2120890035007897333 stripped

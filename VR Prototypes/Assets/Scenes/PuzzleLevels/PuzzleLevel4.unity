@@ -34230,6 +34230,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!65 &4496657920037558656
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34644,6 +34646,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!65 &6071876598281316028
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34953,6 +34957,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!65 &6122202286175025669
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35226,6 +35232,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!65 &6235476346664264161
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35519,6 +35527,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!65 &6784919099081145263
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35804,6 +35814,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!65 &6999760345121661472
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36105,6 +36117,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!65 &7053167993765155754
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36398,6 +36412,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!65 &7287866064834250994
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36707,6 +36723,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!65 &7374494145453403981
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36980,6 +36998,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!65 &7612702490596790123
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37296,6 +37316,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!65 &7927487471240405179
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37562,6 +37584,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!65 &7965935708835804853
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37828,6 +37852,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!65 &8319734831274386700
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38113,6 +38139,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!65 &8610178521788014481
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38398,6 +38426,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!65 &8731377333890216469
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38664,6 +38694,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!65 &8888559386432477199
 BoxCollider:
   m_ObjectHideFlags: 0

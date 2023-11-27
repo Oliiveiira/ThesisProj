@@ -11971,6 +11971,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!82 &807630114
 AudioSource:
   m_ObjectHideFlags: 0
@@ -14273,6 +14275,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!82 &942929933
 AudioSource:
   m_ObjectHideFlags: 0
@@ -16604,6 +16608,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!82 &1142005146
 AudioSource:
   m_ObjectHideFlags: 0
@@ -21896,6 +21902,7 @@ MonoBehaviour:
   myPuzzleList:
     puzzlelevel: []
   puzzleLevelSO: {fileID: 11400000, guid: c2be04ab9bf29554b984afd41c8a6dd8, type: 2}
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!1 &1480077778
 GameObject:
   m_ObjectHideFlags: 0
@@ -29980,6 +29987,8 @@ MonoBehaviour:
   rightPosition: {x: 0, y: 0, z: 0}
   alreadyPlaced: 0
   isInRightPlace: 0
+  hasPlayedSound: 0
+  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!82 &1967926596
 AudioSource:
   m_ObjectHideFlags: 0

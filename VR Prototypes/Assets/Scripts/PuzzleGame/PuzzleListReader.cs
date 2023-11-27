@@ -9,6 +9,7 @@ public class PuzzleListReader : MonoBehaviour
     {
         public string textureURL;
         public int numberOfCubes;
+        public float difficultyValue;
     }
 
     [System.Serializable]
