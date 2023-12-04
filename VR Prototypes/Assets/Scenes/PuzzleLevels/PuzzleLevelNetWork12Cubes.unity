@@ -11367,7 +11367,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3435887460470905102, guid: f50d246825383354599ed5b8a5527f0b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -300
       objectReference: {fileID: 0}
     - target: {fileID: 3435887460470905102, guid: f50d246825383354599ed5b8a5527f0b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -26769,7 +26769,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6994405848786458231, guid: c29d8de7b3eeaf14384bc13b319d00af, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -300
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6994405848786458231, guid: c29d8de7b3eeaf14384bc13b319d00af, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -33369,10 +33369,18 @@ PrefabInstance:
       propertyPath: _oneGrabTransformer
       value: 
       objectReference: {fileID: 5125309312424163685}
+    - target: {fileID: 4984386993396779799, guid: cfc03eb638234fa449bb87eeb1c478e7, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5457861120332628212, guid: cfc03eb638234fa449bb87eeb1c478e7, type: 3}
       propertyPath: _oneGrabTransformer
       value: 
       objectReference: {fileID: 2579343980008916976}
+    - target: {fileID: 5457861120332628216, guid: cfc03eb638234fa449bb87eeb1c478e7, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5457861120332628217, guid: cfc03eb638234fa449bb87eeb1c478e7, type: 3}
       propertyPath: difficultyValue
       value: 
@@ -33381,6 +33389,10 @@ PrefabInstance:
       propertyPath: _oneGrabTransformer
       value: 
       objectReference: {fileID: 7333860198982482469}
+    - target: {fileID: 6103448327811881797, guid: cfc03eb638234fa449bb87eeb1c478e7, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6103448327811881798, guid: cfc03eb638234fa449bb87eeb1c478e7, type: 3}
       propertyPath: difficultyValue
       value: 
@@ -33389,6 +33401,10 @@ PrefabInstance:
       propertyPath: _oneGrabTransformer
       value: 
       objectReference: {fileID: 5898014355178504389}
+    - target: {fileID: 6174850997154795953, guid: cfc03eb638234fa449bb87eeb1c478e7, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6174850997154795954, guid: cfc03eb638234fa449bb87eeb1c478e7, type: 3}
       propertyPath: difficultyValue
       value: 
@@ -33397,6 +33413,10 @@ PrefabInstance:
       propertyPath: _oneGrabTransformer
       value: 
       objectReference: {fileID: 2909214733034022881}
+    - target: {fileID: 6654856782373222260, guid: cfc03eb638234fa449bb87eeb1c478e7, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6654856782373222261, guid: cfc03eb638234fa449bb87eeb1c478e7, type: 3}
       propertyPath: difficultyValue
       value: 
@@ -33405,6 +33425,10 @@ PrefabInstance:
       propertyPath: _oneGrabTransformer
       value: 
       objectReference: {fileID: 6869870612950247019}
+    - target: {fileID: 6766692819669968077, guid: cfc03eb638234fa449bb87eeb1c478e7, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6766692819669968078, guid: cfc03eb638234fa449bb87eeb1c478e7, type: 3}
       propertyPath: difficultyValue
       value: 
@@ -33417,6 +33441,10 @@ PrefabInstance:
       propertyPath: _oneGrabTransformer
       value: 
       objectReference: {fileID: 5706685008649957545}
+    - target: {fileID: 7852479398477952851, guid: cfc03eb638234fa449bb87eeb1c478e7, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8171051942006019000, guid: cfc03eb638234fa449bb87eeb1c478e7, type: 3}
       propertyPath: difficultyValue
       value: 
@@ -33425,10 +33453,18 @@ PrefabInstance:
       propertyPath: _oneGrabTransformer
       value: 
       objectReference: {fileID: 5957914714996577365}
+    - target: {fileID: 8171051942006019007, guid: cfc03eb638234fa449bb87eeb1c478e7, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8396973157094158628, guid: cfc03eb638234fa449bb87eeb1c478e7, type: 3}
       propertyPath: _oneGrabTransformer
       value: 
       objectReference: {fileID: 6288046766511044292}
+    - target: {fileID: 8396973157094158632, guid: cfc03eb638234fa449bb87eeb1c478e7, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8396973157094158633, guid: cfc03eb638234fa449bb87eeb1c478e7, type: 3}
       propertyPath: difficultyValue
       value: 
@@ -33437,6 +33473,10 @@ PrefabInstance:
       propertyPath: _oneGrabTransformer
       value: 
       objectReference: {fileID: 6419747388684191754}
+    - target: {fileID: 8853001079231221746, guid: cfc03eb638234fa449bb87eeb1c478e7, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8853001079231221747, guid: cfc03eb638234fa449bb87eeb1c478e7, type: 3}
       propertyPath: difficultyValue
       value: 
@@ -33449,10 +33489,18 @@ PrefabInstance:
       propertyPath: _oneGrabTransformer
       value: 
       objectReference: {fileID: 1543674908}
+    - target: {fileID: 8978238574383122535, guid: cfc03eb638234fa449bb87eeb1c478e7, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9178305570476553741, guid: cfc03eb638234fa449bb87eeb1c478e7, type: 3}
       propertyPath: _oneGrabTransformer
       value: 
       objectReference: {fileID: 2590690000453267082}
+    - target: {fileID: 9178305570476553745, guid: cfc03eb638234fa449bb87eeb1c478e7, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9178305570476553746, guid: cfc03eb638234fa449bb87eeb1c478e7, type: 3}
       propertyPath: difficultyValue
       value: 

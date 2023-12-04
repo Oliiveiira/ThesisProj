@@ -17959,14 +17959,14 @@ PrefabInstance:
     - target: {fileID: 7589553757763553671, guid: 912d93bde8f1c3c48a6b291b82ce26b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1470748104}
     - target: {fileID: 7589553757763553671, guid: 912d93bde8f1c3c48a6b291b82ce26b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NextLevel
       objectReference: {fileID: 0}
     - target: {fileID: 7589553757763553671, guid: 912d93bde8f1c3c48a6b291b82ce26b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PuzzleGameManager, Assembly-CSharp
+      value: DifferencesGameManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7589553757763553720, guid: 912d93bde8f1c3c48a6b291b82ce26b6, type: 3}
       propertyPath: m_LocalScale.x
@@ -19402,7 +19402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: {fileID: 11400000, guid: d54236a44af62864396c3f28767d6e9b, type: 2}
-  sceneName: Level2 - StaticTP
+  sceneName: GameHUB
 --- !u!114 &1328809247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22006,7 +22006,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfDifferences: 5
   spottedDifferences: 
-  nextSceneName: 
+  nextSceneName: GameHUB
   mirror: {fileID: 11400000, guid: 6c2c6ae6301467740b45912aff14b3fb, type: 2}
   mirrorLeft: {fileID: 11400000, guid: 0cdcb70594a166c48b8af31696bf43b7, type: 2}
   mirrorRight: {fileID: 11400000, guid: 157330372e4e1ce4abdaaf95dcc37c7e, type: 2}

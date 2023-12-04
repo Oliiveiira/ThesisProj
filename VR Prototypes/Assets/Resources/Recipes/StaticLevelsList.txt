@@ -1,0 +1,100 @@
+{
+	"recipe": [
+			{
+			"budget":10,
+			"recipeName": "Leite com Cereais",
+			"ingredientsName":["Leite", "Cereais"],
+			"ingredientsPath":["AllProducts/Leite", "AllProducts/cheerios"],
+			"spriteURL": "RecipeImages/bimbo.jpg",
+			"paymentMethod":1
+		},
+		{
+			"budget":10,
+			"recipeName": "Pao com Manteiga",
+			"ingredientsName":["Pao", "Manteiga"],
+			"ingredientsPath":["AllProducts/Pao", "AllProducts/mimosa"],
+			"spriteURL": "RecipeImages/bimbo.jpg",
+			"paymentMethod":1
+		},
+		{
+			"budget":10,
+			"recipeName": "Massa com Atum",
+			"ingredientsName":["Massa", "Atum"],
+			"ingredientsPath":["AllProducts/fusilli", "AllProducts/bompetisco"],
+			"spriteURL": "RecipeImages/bimbo.jpg",
+			"paymentMethod":1
+		},
+		{
+			"budget":10,
+			"recipeName": "Tosta Mista",
+			"ingredientsName":["Pao", "Fiambre", "Queijo"],
+			"ingredientsPath":["AllProducts/Pao", "AllProducts/Fiambre", "AllProducts/Queijo"],
+			"spriteURL": "RecipeImages/bimbo.jpg",
+			"paymentMethod":3
+		},
+		{
+			"budget":10,
+			"recipeName": "Arroz com Hamburgueres e Ketchup",
+			"ingredientsName":["Arroz", "Hamburgueres", "Ketchup"],
+			"ingredientsPath":["AllProducts/carolino", "AllProducts/iglovaca", "AllProducts/ketchup"],
+			"spriteURL": "RecipeImages/bimbo.jpg",
+			"paymentMethod":3
+		},
+		{
+			"budget":10,
+			"recipeName": "Batatas Fritas e Salsichas",
+			"ingredientsName":["Batatas", "Oleo", "Salsichas"],
+			"ingredientsPath":["AllProducts/batatas", "AllProducts/fula", "AllProducts/nobre"],
+			"spriteURL": "RecipeImages/bimbo.jpg",
+			"paymentMethod":3
+		},
+		{
+			"budget":10,
+			"recipeName": "Massa com Frango",
+			"ingredientsName":["Massa Esparguete", "Bifes de Frango", "Polpa de Tomate", "Cebola"],
+			"ingredientsPath":["AllProducts/spaghetti", "AllProducts/frango", "AllProducts/guloso", "AllProducts/cebola"],
+			"spriteURL": "RecipeImages/bimbo.jpg",
+			"paymentMethod":4
+		},
+		{
+			"budget":0,
+			"recipeName": "Arroz com Salmao",
+			"ingredientsName":["Arroz", "Salmao", "Alho em po", "Azeite"],
+			"ingredientsPath":["AllProducts/carolino", "AllProducts/lombosalmao", "AllProducts/Alho", "AllProducts/OliveiraSerra"],
+			"spriteURL": "RecipeImages/bimbo.jpg",
+			"paymentMethod":4
+		},
+		{
+			"budget":0,
+			"recipeName": "Arroz com Nuggets e Mostarda",
+			"ingredientsName":["Arroz", "Nuggets", "Mostarda", "Azeite"],
+			"ingredientsPath":["AllProducts/carolino", "AllProducts/nuggets", "AllProducts/mostarda", "AllProducts/OliveiraSerra"],
+			"spriteURL": "RecipeImages/bimbo.jpg",
+			"paymentMethod":4
+		},
+		{
+			"budget":20,
+			"recipeName": "Bolo",
+			"ingredientsName":["Acucar", "Farinha", "Manteiga", "Ovos", "Fermento"],
+			"ingredientsPath":["AllProducts/Acucar", "AllProducts/brancadeneve", "AllProducts/mimosa", "AllProducts/eggs", "AllProducts/fermento"],
+			"spriteURL": "RecipeImages/bimbo.jpg",
+			"paymentMethod":2
+		},
+		{
+			"budget":20,
+			"recipeName": "Sopa",
+			"ingredientsName":["Batatas", "Cebola", "Cenoura", "Alho Frances", "Azeite"],
+			"ingredientsPath":["AllProducts/batatas", "AllProducts/cebola", "AllProducts/cenoura", "AllProducts/french", "AllProducts/OliveiraSerra"],
+			"spriteURL": "RecipeImages/bimbo.jpg",
+			"paymentMethod":2
+		},
+		{
+			"budget":20,
+			"recipeName": "Arroz com Robalo e Vinho",
+			"ingredientsName":["Arroz", "Filetes de Robalo", "Azeite", "Cebola", "Vinho"],
+			"ingredientsPath":["AllProducts/carolino", "AllProducts/fileterobalo", "AllProducts/OliveiraSerra", "AllProducts/cebola", "AllProducts/redWine"],
+			"spriteURL": "RecipeImages/bimbo.jpg",
+			"paymentMethod":2
+		}
+	]
+}

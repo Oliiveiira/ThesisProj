@@ -2273,7 +2273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: {fileID: 11400000, guid: d54236a44af62864396c3f28767d6e9b, type: 2}
-  sceneName: Level5 - StaticTP
+  sceneName: MBLevelInPlace
 --- !u!114 &375365320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17056,7 +17056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3bbc5d427db72d459905197ebd0d59d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HMD: {fileID: 0}
+  HMD: {fileID: 7125479780707728415}
   bodySockets:
   - gameObject: {fileID: 29512443}
     heightRatio: 0.507

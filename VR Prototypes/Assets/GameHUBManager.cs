@@ -39,4 +39,9 @@ public class GameHUBManager : NetworkBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

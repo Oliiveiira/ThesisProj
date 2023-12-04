@@ -10409,7 +10409,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 18224979380a9664197456463debba63, type: 3}
+  m_Texture: {fileID: 2800000, guid: 1428c47ff4496d8488794727a310804d, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -10914,7 +10914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3435887460470905102, guid: f50d246825383354599ed5b8a5527f0b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -300
       objectReference: {fileID: 0}
     - target: {fileID: 3435887460470905102, guid: f50d246825383354599ed5b8a5527f0b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -16576,7 +16576,7 @@ PrefabInstance:
     - target: {fileID: 7589553757763553671, guid: 912d93bde8f1c3c48a6b291b82ce26b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1470748100}
     - target: {fileID: 7589553757763553671, guid: 912d93bde8f1c3c48a6b291b82ce26b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -16595,7 +16595,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7589553757763553671, guid: 912d93bde8f1c3c48a6b291b82ce26b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: CustomPuzzleGameManager, Assembly-CSharp
+      value: PuzzleGameManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7589553757763553671, guid: 912d93bde8f1c3c48a6b291b82ce26b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -25967,7 +25967,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6994405848786458231, guid: c29d8de7b3eeaf14384bc13b319d00af, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -300
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6994405848786458231, guid: c29d8de7b3eeaf14384bc13b319d00af, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -33351,7 +33351,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: efdd27cfdea36884ebc7a1da88e2607a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -33621,7 +33621,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: efdd27cfdea36884ebc7a1da88e2607a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -33923,7 +33923,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: efdd27cfdea36884ebc7a1da88e2607a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.11
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -34201,7 +34201,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: efdd27cfdea36884ebc7a1da88e2607a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -34540,7 +34540,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: efdd27cfdea36884ebc7a1da88e2607a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -34825,7 +34825,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: efdd27cfdea36884ebc7a1da88e2607a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -66,6 +66,11 @@ public class ScoreManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    public void GoToSupermaket()
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
     public void ResetLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

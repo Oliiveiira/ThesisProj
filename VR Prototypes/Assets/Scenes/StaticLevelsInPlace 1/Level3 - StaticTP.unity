@@ -10646,7 +10646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3bbc5d427db72d459905197ebd0d59d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HMD: {fileID: 0}
+  HMD: {fileID: 7125479780707728415}
   bodySockets:
   - gameObject: {fileID: 245391002}
     heightRatio: 0.507

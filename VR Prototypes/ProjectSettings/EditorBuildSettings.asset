@@ -23,21 +23,24 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CustomLevels/MBLevel.unity
     guid: 86b5ccb8a8c520845821736a022e20e1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/StaticLevelsInPlace 1/Level1 - StaticTP.unity
     guid: 883432b6a173a5b479c89bf7ecc1e451
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/StaticLevelsInPlace 1/Level2 - StaticTP.unity
     guid: 5a0ed1044fc159248a19a90f82cfd6e2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/StaticLevelsInPlace 1/Level3 - StaticTP.unity
     guid: 2755f29b120e7734eab6650bfc3e29f1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/StaticLevelsInPlace 1/Level4 - StaticTP.unity
     guid: 901fba8d5f4df134698a516bb3f45bce
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/StaticLevelsInPlace 1/Level5 - StaticTP.unity
     guid: 9ae771b2eb6395a4f9c6215d5aee8fc1
+  - enabled: 1
+    path: Assets/Scenes/StaticLevelsInPlace 1/MBLevelInPlace.unity
+    guid: 04fa36ef5bf8ab649a7389fb6163571a
   - enabled: 1
     path: Assets/Scenes/PuzzleLevels/PuzzleLevel1.unity
     guid: 6ebe65376b96984439f29b61a522ddbf
@@ -80,6 +83,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SpotDifferencesLevels/SpotTheDifference3.unity
     guid: f69e9cdde133d7942ab83a2b5063177b
+  - enabled: 1
+    path: Assets/Scenes/StaticLevelsInPlace 1/StaticLevel1.unity
+    guid: 620df179e34835c44ad06e8889a73daa
+  - enabled: 1
+    path: Assets/Scenes/StaticLevelsInPlace 1/StaticLevel2.unity
+    guid: 4c4137f4d63d9044c8737acd35f3e83d
+  - enabled: 1
+    path: Assets/Scenes/StaticLevelsInPlace 1/StaticLevel3.unity
+    guid: d20ad7cc275b5a749b95ecd8d0786b82
+  - enabled: 1
+    path: Assets/Scenes/StaticLevelsInPlace 1/StaticLevel4.unity
+    guid: fd8c506549b84c841bc40b6ec7062780
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 6eefee752c7ee674183932769f47456a, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}

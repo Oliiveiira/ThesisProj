@@ -1252,6 +1252,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 568528881265660146, guid: cd1bdc079a60af34eb1ccdf420c8b53f, type: 3}
+      propertyPath: objects
+      value: 
+      objectReference: {fileID: 11400000, guid: a4bfcd137f6eacf428b4c29dce6e5df9, type: 2}
     - target: {fileID: 4833181345697830701, guid: cd1bdc079a60af34eb1ccdf420c8b53f, type: 3}
       propertyPath: m_Name
       value: mimosa
@@ -3561,7 +3565,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &514338636
 Transform:
   m_ObjectHideFlags: 0
@@ -5476,7 +5480,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &756986723
 Transform:
   m_ObjectHideFlags: 0
@@ -6202,6 +6206,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: brancadeneve
       objectReference: {fileID: 0}
+    - target: {fileID: 5995996865506850362, guid: 27d4c9ce6c318c343a6bec4220896c4c, type: 3}
+      propertyPath: objects
+      value: 
+      objectReference: {fileID: 11400000, guid: dcfe03977fe26634e9b3f1bbc0523d2e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27d4c9ce6c318c343a6bec4220896c4c, type: 3}
 --- !u!4 &867841299 stripped
@@ -11972,7 +11980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3bbc5d427db72d459905197ebd0d59d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HMD: {fileID: 0}
+  HMD: {fileID: 7125479780707728415}
   bodySockets:
   - gameObject: {fileID: 670630262}
     heightRatio: 0.507
@@ -13631,6 +13639,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 659898571}
     m_Modifications:
+    - target: {fileID: 580231564641935181, guid: 124ed3c3507487b4aa9565ab8ad5b0ef, type: 3}
+      propertyPath: objects
+      value: 
+      objectReference: {fileID: 11400000, guid: 2c1fd9dc6d4909b468bd731beb0b1475, type: 2}
     - target: {fileID: 2692892739106823977, guid: 124ed3c3507487b4aa9565ab8ad5b0ef, type: 3}
       propertyPath: m_RootOrder
       value: 14
