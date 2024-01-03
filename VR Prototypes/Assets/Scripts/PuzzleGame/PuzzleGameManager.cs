@@ -1,6 +1,7 @@
 using RoboRyanTron.Unite2017.Events;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -38,6 +39,11 @@ public class PuzzleGameManager : MonoBehaviour
     public string nextSceneName;
     [SerializeField]
     public bool gameHasStarted;
+    //Timer to trigger next scene
+    private float startingTime = 5;
+    private float currentTime;
+    [SerializeField]
+    private TextMeshProUGUI timer;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +54,7 @@ public class PuzzleGameManager : MonoBehaviour
             placeholderMeshRenderer.enabled = true;
         }
 
+        currentTime = startingTime;
         //foreach (var puzzlePiece in puzzlePieces)
         //{
         //    PuzzlePiece puzzlePieceTransform = puzzlePiece.GetComponent<PuzzlePiece>();
@@ -142,6 +149,12 @@ public class PuzzleGameManager : MonoBehaviour
         {
             Debug.Log("Boa!");
             setWinPanel.Raise();
+            timer.SetText("Proximo nivel em " + currentTime.ToString("0"));
+            currentTime -= 1 * Time.deltaTime;
+            if (currentTime <= 0)
+            {
+                NextLevel();
+            }
         }
     }
 

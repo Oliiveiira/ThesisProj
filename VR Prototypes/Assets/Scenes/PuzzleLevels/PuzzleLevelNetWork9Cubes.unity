@@ -32976,12 +32976,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _constraints:
-    ConstraintsAreRelative: 0
+    ConstraintsAreRelative: 1
     MinX:
-      Constrain: 0
+      Constrain: 1
       Value: 0
     MaxX:
-      Constrain: 0
+      Constrain: 1
       Value: 0
     MinY:
       Constrain: 0
@@ -33415,12 +33415,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _constraints:
-    ConstraintsAreRelative: 0
+    ConstraintsAreRelative: 1
     MinX:
-      Constrain: 0
+      Constrain: 1
       Value: 0
     MaxX:
-      Constrain: 0
+      Constrain: 1
       Value: 0
     MinY:
       Constrain: 0
@@ -33841,12 +33841,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _constraints:
-    ConstraintsAreRelative: 0
+    ConstraintsAreRelative: 1
     MinX:
-      Constrain: 0
+      Constrain: 1
       Value: 0
     MaxX:
-      Constrain: 0
+      Constrain: 1
       Value: 0
     MinY:
       Constrain: 0
@@ -34144,12 +34144,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _constraints:
-    ConstraintsAreRelative: 0
+    ConstraintsAreRelative: 1
     MinX:
-      Constrain: 0
+      Constrain: 1
       Value: 0
     MaxX:
-      Constrain: 0
+      Constrain: 1
       Value: 0
     MinY:
       Constrain: 0
@@ -34431,12 +34431,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _constraints:
-    ConstraintsAreRelative: 0
+    ConstraintsAreRelative: 1
     MinX:
-      Constrain: 0
+      Constrain: 1
       Value: 0
     MaxX:
-      Constrain: 0
+      Constrain: 1
       Value: 0
     MinY:
       Constrain: 0
@@ -34738,12 +34738,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _constraints:
-    ConstraintsAreRelative: 0
+    ConstraintsAreRelative: 1
     MinX:
-      Constrain: 0
+      Constrain: 1
       Value: 0
     MaxX:
-      Constrain: 0
+      Constrain: 1
       Value: 0
     MinY:
       Constrain: 0
@@ -35025,12 +35025,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _constraints:
-    ConstraintsAreRelative: 0
+    ConstraintsAreRelative: 1
     MinX:
-      Constrain: 0
+      Constrain: 1
       Value: 0
     MaxX:
-      Constrain: 0
+      Constrain: 1
       Value: 0
     MinY:
       Constrain: 0
@@ -35293,12 +35293,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _constraints:
-    ConstraintsAreRelative: 0
+    ConstraintsAreRelative: 1
     MinX:
-      Constrain: 0
+      Constrain: 1
       Value: 0
     MaxX:
-      Constrain: 0
+      Constrain: 1
       Value: 0
     MinY:
       Constrain: 0
@@ -35561,12 +35561,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _constraints:
-    ConstraintsAreRelative: 0
+    ConstraintsAreRelative: 1
     MinX:
-      Constrain: 0
+      Constrain: 1
       Value: 0
     MaxX:
-      Constrain: 0
+      Constrain: 1
       Value: 0
     MinY:
       Constrain: 0
