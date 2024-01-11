@@ -5,22 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/GameHUB.unity
     guid: df5696789f3a4c648b333b5fa3fe64dc
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/CustomLevels/SupermarketMainMenu.unity
     guid: 2e2a7e4a37742b1449f8b7f7f0cfdce7
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/CustomLevels/CustomDefinerLevel.unity
     guid: 33c0d8fa93debc243b06e500919231db
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/CustomLevels/CustomDefinerLevelNetwork.unity
     guid: d8da129ff35a8c84c93a98fa5dac9de4
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/CustomLevels/CustomLevel - 1.unity
     guid: 99a3868019ada9c4297dbee9616fc4c9
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/CustomLevels/MBLevel.unity
     guid: 86b5ccb8a8c520845821736a022e20e1
   - enabled: 0
@@ -39,9 +39,6 @@ EditorBuildSettings:
     path: Assets/Scenes/StaticLevelsInPlace 1/Level5 - StaticTP.unity
     guid: 9ae771b2eb6395a4f9c6215d5aee8fc1
   - enabled: 0
-    path: Assets/Scenes/StaticLevelsInPlace 1/MBLevelInPlace.unity
-    guid: 04fa36ef5bf8ab649a7389fb6163571a
-  - enabled: 0
     path: Assets/Scenes/PuzzleLevels/PuzzleLevel1.unity
     guid: 6ebe65376b96984439f29b61a522ddbf
   - enabled: 0
@@ -53,51 +50,63 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/PuzzleLevels/PuzzleLevel4.unity
     guid: 7fe5f792b27632d43b637830ed689c0e
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/PuzzleLevels/PuzzleMainMenu.unity
     guid: 2da97971ac4d6f44bb375f49e8b15b3f
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/PuzzleLevels/CustomPuzzleLevel.unity
     guid: aa44c2a990e169743b5b2a037744f659
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/PuzzleLevels/PuzzleLevelNetWork4Cubes.unity
     guid: d5701392bf19d0a4c805a7c608fe2067
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/PuzzleLevels/PuzzleLevelNetWork9Cubes.unity
     guid: 5aca81a4f58d0a94d8972362c26149ae
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/PuzzleLevels/PuzzleLevelNetwork16cubes.unity
     guid: b7b430e05624e844ca4efdc110066978
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/PuzzleLevels/PuzzleLevelNetWork6Cubes.unity
     guid: ca3297233c1665c4c91b7de13ab11153
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/PuzzleLevels/PuzzleLevelNetWork12Cubes.unity
     guid: 597f4b24e345d2445b5525c97cf200f6
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/SpotDifferencesLevels/SpotTheDifference1.unity
     guid: 84ad0f6f42a91b244819f46590a8c7c4
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/SpotDifferencesLevels/SpotTheDifference2.unity
     guid: e263d146c1fbf284d9c31e7693a52e96
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/SpotDifferencesLevels/SpotTheDifference3.unity
     guid: f69e9cdde133d7942ab83a2b5063177b
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/StaticLevelsInPlace 1/StaticLevel1.unity
     guid: 620df179e34835c44ad06e8889a73daa
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/StaticLevelsInPlace 1/StaticLevel2.unity
     guid: 4c4137f4d63d9044c8737acd35f3e83d
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/StaticLevelsInPlace 1/StaticLevel3.unity
     guid: d20ad7cc275b5a749b95ecd8d0786b82
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/StaticLevelsInPlace 1/StaticLevel4.unity
     guid: fd8c506549b84c841bc40b6ec7062780
   - enabled: 1
-    path: Assets/Scenes/PuzzleLevels/PuzzleLevel1Passthrough.unity
+    path: Assets/Scenes/StaticLevelsInPlace 1/MBLevelInPlace.unity
+    guid: 04fa36ef5bf8ab649a7389fb6163571a
+  - enabled: 1
+    path: Assets/Scenes/PuzzleLevels/PuzzleTableSetting.unity
     guid: 5456671d91b9ad74db2be54b80a254f2
+  - enabled: 1
+    path: Assets/Scenes/PuzzleLevels/PuzzleLevel1Passthrough.unity
+    guid: c8172d64f5236914caf0fbfaaf0fb7c8
+  - enabled: 1
+    path: Assets/Scenes/PuzzleLevels/PuzzleLevel2Passthrough.unity
+    guid: 6a6937549d76f844d8630e8a55c0ec8e
+  - enabled: 1
+    path: Assets/Scenes/PuzzleLevels/PuzzleLevel3Passthrough.unity
+    guid: d337c98a759db624bab6e76aedd1f365
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 6eefee752c7ee674183932769f47456a, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}

@@ -37,7 +37,7 @@ public class PuzzlePiece : MonoBehaviour
         {
             isInRightPlace = true;
             transform.position = rightPosition;
-            transform.rotation = Quaternion.Euler(-90, 0, 0);
+            transform.rotation = Quaternion.Euler(0, -90, 90);
 
             if (!hasPlayedSound)
             {

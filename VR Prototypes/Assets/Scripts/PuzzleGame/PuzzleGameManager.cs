@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = System.Random;
 
 public class PuzzleGameManager : MonoBehaviour
 {
@@ -61,6 +62,7 @@ public class PuzzleGameManager : MonoBehaviour
         //    puzzlePieceTransform.rightPosition = puzzlePiece.transform.position;
         //    puzzlePiece.SetPositionAndRotation(new Vector3(puzzlePiece.position.x, puzzlePiece.position.y, Random.Range(-0.3f, -0.7f)), Quaternion.Euler(-90, 0, 0));
         //}
+        ShuffleArray(sidePlaceHolders);
     }
 
     void Update()
@@ -70,8 +72,8 @@ public class PuzzleGameManager : MonoBehaviour
             int i = 0;
             foreach (var puzzlePiece in puzzlePieces)
             {
-                grid.position = new Vector3(grid.position.x, grid.position.y, 0.1f);
-                puzzle.position = new Vector3(puzzle.position.x, puzzle.position.y, 0.1f);
+                //grid.position = new Vector3(grid.position.x, grid.position.y, 0.1f);
+                //puzzle.position = new Vector3(puzzle.position.x, puzzle.position.y, 0.1f);
 
                 if (gameHasStarted)
                 {
@@ -81,7 +83,7 @@ public class PuzzleGameManager : MonoBehaviour
                     //{
                     //    puzzlePiece.SetPositionAndRotation(sidePlaceHolders[i].position, Quaternion.Euler(-90, 0, 0));
                     //}
-                    puzzlePiece.SetPositionAndRotation(sidePlaceHolders[i].position, Quaternion.Euler(-90, 0, 0));
+                    puzzlePiece.SetPositionAndRotation(sidePlaceHolders[i].position, Quaternion.Euler(0, -90, 90));
                     i++;
                     isPlaced = true;
                 }
@@ -93,8 +95,8 @@ public class PuzzleGameManager : MonoBehaviour
 
             foreach (var puzzlePiece in puzzlePieces)
             {
-                grid.position = new Vector3(grid.position.x, grid.position.y, -0.1f);
-                puzzle.position = new Vector3(puzzle.position.x, puzzle.position.y, -0.1f);
+              //  grid.position = new Vector3(grid.position.x, grid.position.y, -0.1f);
+               // puzzle.position = new Vector3(puzzle.position.x, puzzle.position.y, -0.1f);
                 if (gameHasStarted)
                 {
                     PuzzlePiece puzzlePieceTransform = puzzlePiece.GetComponent<PuzzlePiece>();
@@ -104,7 +106,7 @@ public class PuzzleGameManager : MonoBehaviour
                     //{
                     //    puzzlePiece.SetPositionAndRotation(new Vector3(sidePlaceHolders[i].position.x,sidePlaceHolders[i].position.y, -sidePlaceHolders[i].position.z), Quaternion.Euler(-90, 0, 0));
                     //}
-                    puzzlePiece.SetPositionAndRotation(new Vector3(sidePlaceHolders[i].position.x, sidePlaceHolders[i].position.y, -sidePlaceHolders[i].position.z), Quaternion.Euler(-90, 0, 0));
+                    puzzlePiece.SetPositionAndRotation(new Vector3(sidePlaceHolders[i].position.x, sidePlaceHolders[i].position.y, -sidePlaceHolders[i].position.z), Quaternion.Euler(0, -90, 90));
                     i++;
                     isPlaced = true;
                 }
@@ -115,13 +117,13 @@ public class PuzzleGameManager : MonoBehaviour
             int i = 0;
             foreach (var puzzlePiece in puzzlePieces)
             {
-                grid.position = new Vector3(grid.position.x, grid.position.y, 0);
-                puzzle.position = new Vector3(puzzle.position.x, puzzle.position.y, 0);
+                //grid.position = new Vector3(grid.position.x, grid.position.y, 0);
+                //puzzle.position = new Vector3(puzzle.position.x, puzzle.position.y, 0);
                 if (gameHasStarted)
                 {
                     PuzzlePiece puzzlePieceTransform = puzzlePiece.GetComponent<PuzzlePiece>();
                     puzzlePieceTransform.rightPosition = puzzlePiece.transform.position;
-                    puzzlePiece.SetPositionAndRotation(sidePlaceHolders[i].position, Quaternion.Euler(-90, 0, 0));
+                    puzzlePiece.SetPositionAndRotation(sidePlaceHolders[i].position, Quaternion.Euler(0, -90, 90));
                     i++;
                     isPlaced = true;
                 }
@@ -132,13 +134,13 @@ public class PuzzleGameManager : MonoBehaviour
             int i = 0;
             foreach (var puzzlePiece in puzzlePieces)
             {
-                grid.position = new Vector3(grid.position.x, grid.position.y, 0);
-                puzzle.position = new Vector3(puzzle.position.x, puzzle.position.y, 0);
+                //grid.position = new Vector3(grid.position.x, grid.position.y, 0);
+                //puzzle.position = new Vector3(puzzle.position.x, puzzle.position.y, 0);
                 if (gameHasStarted)
                 {
                     PuzzlePiece puzzlePieceTransform = puzzlePiece.GetComponent<PuzzlePiece>();
                     puzzlePieceTransform.rightPosition = puzzlePiece.transform.position;
-                    puzzlePiece.SetPositionAndRotation(sidePlaceHolders[i].position, Quaternion.Euler(-90, 0, 0));
+                    puzzlePiece.SetPositionAndRotation(sidePlaceHolders[i].position, Quaternion.Euler(0, -90, 90));
                     i++;
                     isPlaced = true;
                 }
@@ -174,6 +176,21 @@ public class PuzzleGameManager : MonoBehaviour
         }
 
         return true; // All positions are equal.
+    }
+
+    public static void ShuffleArray<T>(T[] array)
+    {
+        Random random = new Random();
+
+        for (int i = array.Length - 1; i > 0; i--)
+        {
+            int j = random.Next(0, i + 1);
+
+            // Swap array[i] and array[j]
+            T temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
     }
 
     public void MirrorLeft()
