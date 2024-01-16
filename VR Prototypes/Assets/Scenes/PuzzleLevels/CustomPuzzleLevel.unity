@@ -10740,7 +10740,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 324532080}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: ec8b2b5020737c841a7e1974f3f05e44, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 0051be0ac5f3e564fb43da7d69185087, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -42616,6 +42616,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myPuzzleList:
     puzzlelevel: []
+  mirror: {fileID: 0}
+  mirrorLeft: {fileID: 0}
+  mirrorRight: {fileID: 0}
+  setWinPanel: {fileID: 0}
+  mirrorNone: {fileID: 0}
+  placeholders: []
+  puzzlePieces: []
+  mirrorRightHand: 0
+  mirrorLeftHand: 0
+  mirrorNoneHand: 0
+  isPlaced: 0
+  setNormalMode: 0
+  grid: {fileID: 0}
+  puzzle: {fileID: 0}
+  sidePlaceHolders: []
+  winSound: {fileID: 0}
+  nextSceneName: 
+  gameHasStarted: 0
+  timer: {fileID: 0}
   puzzleLevelSO: {fileID: 11400000, guid: c2be04ab9bf29554b984afd41c8a6dd8, type: 2}
   difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!114 &1470748108

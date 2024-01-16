@@ -222,6 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finalScreen: {fileID: 6615509754255331242}
+  paymentAvailable: {fileID: 0}
 --- !u!1 &6615509753592513101
 GameObject:
   m_ObjectHideFlags: 0

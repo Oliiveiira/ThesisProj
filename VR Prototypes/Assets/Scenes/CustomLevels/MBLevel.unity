@@ -12804,7 +12804,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ca348d57e538a44b8d818e958a9b7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productListJSON: {fileID: 4900000, guid: c65a863ecc7e44441bd30fcaa81f5264, type: 3}
   myProductLists:
     recipes: []
   recipeName: {fileID: 529503131}
@@ -12870,7 +12869,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3213bec6b3590f49983aa0b023d7aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productListJSON: {fileID: 4900000, guid: c65a863ecc7e44441bd30fcaa81f5264, type: 3}
   myProductLists:
     recipes: []
   placeHolders:
@@ -12964,7 +12962,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9a5430fd1874c5429a4f09aa0cd8840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productListJSON: {fileID: 4900000, guid: c65a863ecc7e44441bd30fcaa81f5264, type: 3}
   myProductLists:
     recipes: []
   recipeNumberSO: {fileID: 11400000, guid: 07ad338b54a1b2f4ea957c4b61f177e7, type: 2}
@@ -47959,7 +47956,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7125479781239324809}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 8.115001, y: 0.03, z: 13.763}
+  m_LocalPosition: {x: 8.266, y: 0.167, z: 13.763}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
