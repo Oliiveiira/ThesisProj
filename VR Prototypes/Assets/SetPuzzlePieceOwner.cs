@@ -5,33 +5,17 @@ using Oculus.Interaction.HandGrab;
 
 public class SetPuzzlePieceOwner : HandGrabInteractor
 {
-    protected override void InteractableSelected(HandGrabInteractable interactable)
+    public override void Select()
     {
-        var virtualObject = interactable.GetComponent<PuzzlePieceMultiplayer>();
-        virtualObject.SetClientOwnershipServerRPC();
-        Debug.Log("ObjectSelected");
-        //base.InteractableSelected(interactable);
-        //    Debug.Log("ObjectSelected");
-        //if (virtualObject.ChangeOwnership())
+        var interactable = Interactable.GetComponent<PuzzlePieceMultiplayer>();
+        Debug.Log("Selected");
+        interactable.SetClientOwnershipServerRPC();
+
+        //if (interactable.ChangeOwnership())
         //{
-        //    base.InteractableSelected(interactable);
+        //    Debug.Log("HoverObject");
         //}
     }
-    //protected override void DoHoverUpdate()
-    //{
-    //    //Debug.Log("HoverObject");
-    //    PuzzlePieceMultiplayer puzzlePiece = GetComponent<PuzzlePieceMultiplayer>();
-    //    puzzlePiece.SetClientOwnershipServerRPC();
-    //    Debug.Log("HoverObject");
-    //    base.DoHoverUpdate();
-
-    //    //if (puzzlePiece.ChangeOwnership())
-    //    //{
-    //    //    Debug.Log("Client is now the owner");
-    //    //    base.DoHoverUpdate();
-    //    //}
-
-    //}
 
     //protected override void InteractableUnselected(HandGrabInteractable interactable)
     //{

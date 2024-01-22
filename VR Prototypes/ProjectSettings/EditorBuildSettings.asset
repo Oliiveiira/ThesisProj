@@ -81,6 +81,9 @@ EditorBuildSettings:
     path: Assets/Scenes/PuzzleLevels/PuzzleLevel3Passthrough.unity
     guid: d337c98a759db624bab6e76aedd1f365
   - enabled: 1
+    path: Assets/Scenes/PuzzleLevels/PuzzleMultiplayerHub.unity
+    guid: dd1b968f573678d4098447617833fd04
+  - enabled: 1
     path: Assets/Scenes/PuzzleLevels/PuzzleLevelMultiplayerTest.unity
     guid: ef1782b156189284f808c1d5ec58fdea
   m_configObjects:
