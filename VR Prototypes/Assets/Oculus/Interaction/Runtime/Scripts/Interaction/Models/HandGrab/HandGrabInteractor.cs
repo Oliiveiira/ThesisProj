@@ -223,7 +223,7 @@ namespace Oculus.Interaction.HandGrab
             {
                 _handGrabShouldSelect = true;
             }
-            Debug.Log("HandHover");
+          //  Debug.Log("HandHover");
         }
 
         /// <summary>
@@ -256,7 +256,7 @@ namespace Oculus.Interaction.HandGrab
             {
                 _handGrabShouldUnselect = true;
             }
-            Debug.Log("ObjectGrabbed");
+           // Debug.Log("ObjectGrabbed");
         }
 
         /// <summary>
@@ -282,7 +282,7 @@ namespace Oculus.Interaction.HandGrab
             Pose interactableGrabStartPose = _currentTarget.WorldGrabPose;
             _movement = interactable.GenerateMovement(interactableGrabStartPose, grabPose);
             base.InteractableSelected(interactable);
-            Debug.Log("ObjectSelected");
+           // Debug.Log("ObjectSelected");
         }
 
         /// <summary>
@@ -299,7 +299,7 @@ namespace Oculus.Interaction.HandGrab
                 VelocityCalculator.CalculateThrowVelocity(interactable.transform) :
                 new ReleaseVelocityInformation(Vector3.zero, Vector3.zero, Vector3.zero);
             interactable.ApplyVelocities(throwVelocity.LinearVelocity, throwVelocity.AngularVelocity);
-            Debug.Log("ObjectReleased");
+          //  Debug.Log("ObjectReleased");
         }
 
         protected override void HandlePointerEventRaised(PointerEvent evt)

@@ -4,30 +4,6 @@ using UnityEngine;
 using Unity.Netcode;
 using Oculus.Interaction.HandGrab;
 
-public class PuzzlePieceSetOwner: HandGrabInteractor
-{
-    protected override void DoHoverUpdate()
-    {
-        PuzzlePieceMultiplayer puzzlePiece = GetComponent<PuzzlePieceMultiplayer>();
-        puzzlePiece.SetClientOwnershipServerRPC();
-        base.DoHoverUpdate();
-
-        //if (puzzlePiece.ChangeOwnership())
-        //{
-        //    Debug.Log("Client is now the owner");
-        //    base.DoHoverUpdate();
-        //}
-
-    }
-
-    protected override void InteractableUnselected(HandGrabInteractable interactable)
-    {
-        var virtualObject = interactable.GetComponent<PuzzlePieceMultiplayer>();
-        virtualObject.RemoveOwnership();
-        //base.InteractableUnselected(interactable);
-    }
-}
-
 public class PuzzlePieceMultiplayer : NetworkBehaviour
 {
     public Vector3 rightPosition;
@@ -116,7 +92,7 @@ public class PuzzlePieceMultiplayer : NetworkBehaviour
 
         SetClientOwnershipServerRPC();
         // Send a request to the server to change ownership
-        ChangeOwnershipServerRpc(NetworkManager.Singleton.LocalClientId);
+        //ChangeOwnershipServerRpc(NetworkManager.Singleton.LocalClientId);
         return true;
     }
 
@@ -173,6 +149,24 @@ public class PuzzlePieceMultiplayer : NetworkBehaviour
         else
         {
             Debug.Log("not working");
+        }
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void RemoveOwnershipServerRPC(ServerRpcParams serverRpcParams = default)
+    {
+        var networkObject = GetComponent<NetworkObject>();
+
+        // Check if the object has an owner
+        if (networkObject.IsOwner)
+        {
+            // Remove ownership from the current owner
+            networkObject.RemoveOwnership();
+            Debug.Log("Ownership removed");
+        }
+        else
+        {
+            Debug.Log("Object doesn't have an owner");
         }
     }
 
