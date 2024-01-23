@@ -69142,7 +69142,6 @@ GameObject:
   - component: {fileID: 8684533395631446869}
   - component: {fileID: 8684533395631446868}
   - component: {fileID: 8684533395631446867}
-  - component: {fileID: 8684533395631446866}
   - component: {fileID: 8684533395631446873}
   - component: {fileID: 8684533395631446877}
   - component: {fileID: 8684533395631446879}
@@ -70014,7 +70013,6 @@ GameObject:
   - component: {fileID: 6973361685184700528}
   - component: {fileID: 6973361685184700527}
   - component: {fileID: 6973361685184700526}
-  - component: {fileID: 6973361685184700525}
   - component: {fileID: 6973361685184700532}
   - component: {fileID: 6495314841678327715}
   - component: {fileID: 6973361685184700534}
@@ -70479,7 +70477,6 @@ GameObject:
   - component: {fileID: 6127500405901398706}
   - component: {fileID: 6127500405901398705}
   - component: {fileID: 6127500405901398704}
-  - component: {fileID: 6127500405901398703}
   - component: {fileID: 6127500405901398710}
   - component: {fileID: 1178826866197114264}
   - component: {fileID: 6127500405901398711}
@@ -70492,23 +70489,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6127500405901398703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6127500405901398702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3285960af3c279048bb27bb41ac24f1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rightPosition: {x: 0, y: 0, z: 0}
-  alreadyPlaced: 0
-  isInRightPlace: 0
-  hasPlayedSound: 0
-  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!114 &6127500405901398704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70819,7 +70799,6 @@ GameObject:
   - component: {fileID: 6267476703200535021}
   - component: {fileID: 6267476703200535020}
   - component: {fileID: 6267476703200535019}
-  - component: {fileID: 6267476703200535018}
   - component: {fileID: 6267476703200535025}
   - component: {fileID: 29707495806330949}
   - component: {fileID: 6267476703200535026}
@@ -70832,23 +70811,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6267476703200535018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6267476703200535017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3285960af3c279048bb27bb41ac24f1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rightPosition: {x: 0, y: 0, z: 0}
-  alreadyPlaced: 0
-  isInRightPlace: 0
-  hasPlayedSound: 0
-  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!114 &6267476703200535019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71191,7 +71153,6 @@ GameObject:
   - component: {fileID: 6625539909369486123}
   - component: {fileID: 6625539909369486122}
   - component: {fileID: 6625539909369486121}
-  - component: {fileID: 6625539909369486120}
   - component: {fileID: 6625539909369486127}
   - component: {fileID: 246280743098423315}
   - component: {fileID: 6625539909369486128}
@@ -71204,23 +71165,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6625539909369486120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6625539909369486119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3285960af3c279048bb27bb41ac24f1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rightPosition: {x: 0, y: 0, z: 0}
-  alreadyPlaced: 0
-  isInRightPlace: 0
-  hasPlayedSound: 0
-  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!114 &6625539909369486121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71549,23 +71493,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4525801272758607762}
   m_Mesh: {fileID: -7522817360392516471, guid: d3ff73cf0a79f6a4c9fd180c81116646, type: 3}
---- !u!114 &6973361685184700525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4525801272758607762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3285960af3c279048bb27bb41ac24f1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rightPosition: {x: 0, y: 0, z: 0}
-  alreadyPlaced: 0
-  isInRightPlace: 0
-  hasPlayedSound: 0
-  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!114 &6973361685184700526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72258,7 +72185,6 @@ GameObject:
   - component: {fileID: 8334864555390027329}
   - component: {fileID: 8334864555390027328}
   - component: {fileID: 8334864555390027327}
-  - component: {fileID: 8334864555390027326}
   - component: {fileID: 8334864555390027333}
   - component: {fileID: 5980786907990879790}
   - component: {fileID: 8334864555390027335}
@@ -72271,23 +72197,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &8334864555390027326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8334864555390027325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3285960af3c279048bb27bb41ac24f1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rightPosition: {x: 0, y: 0, z: 0}
-  alreadyPlaced: 0
-  isInRightPlace: 0
-  hasPlayedSound: 0
-  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!114 &8334864555390027327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72623,23 +72532,6 @@ Transform:
   m_Father: {fileID: 543450651610720491}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8684533395631446866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 65613273336278010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3285960af3c279048bb27bb41ac24f1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rightPosition: {x: 0, y: 0, z: 0}
-  alreadyPlaced: 0
-  isInRightPlace: 0
-  hasPlayedSound: 0
-  difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
 --- !u!114 &8684533395631446867
 MonoBehaviour:
   m_ObjectHideFlags: 0

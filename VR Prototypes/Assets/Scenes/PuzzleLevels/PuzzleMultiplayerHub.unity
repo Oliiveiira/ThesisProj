@@ -70884,6 +70884,7 @@ MonoBehaviour:
   isInRightPlace: 0
   hasPlayedSound: 0
   difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
+  delayTime: 3
 --- !u!4 &6166840095243032979
 Transform:
   m_ObjectHideFlags: 0
@@ -71224,6 +71225,7 @@ MonoBehaviour:
   isInRightPlace: 0
   hasPlayedSound: 0
   difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
+  delayTime: 3
 --- !u!4 &6495314841678327703
 Transform:
   m_ObjectHideFlags: 0
@@ -71596,6 +71598,7 @@ MonoBehaviour:
   isInRightPlace: 0
   hasPlayedSound: 0
   difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
+  delayTime: 3
 --- !u!23 &6632468591034543209
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -71941,6 +71944,7 @@ MonoBehaviour:
   isInRightPlace: 0
   hasPlayedSound: 0
   difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
+  delayTime: 3
 --- !u!1 &6985931805924266009
 GameObject:
   m_ObjectHideFlags: 0
@@ -72318,6 +72322,7 @@ MonoBehaviour:
   isInRightPlace: 0
   hasPlayedSound: 0
   difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
+  delayTime: 3
 --- !u!114 &8291466981150278328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72663,6 +72668,7 @@ MonoBehaviour:
   isInRightPlace: 0
   hasPlayedSound: 0
   difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
+  delayTime: 3
 --- !u!23 &8571038209904365924
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -73047,6 +73053,7 @@ MonoBehaviour:
   isInRightPlace: 0
   hasPlayedSound: 0
   difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
+  delayTime: 3
 --- !u!114 &8714028338416609698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73264,6 +73271,7 @@ MonoBehaviour:
   isInRightPlace: 0
   hasPlayedSound: 0
   difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
+  delayTime: 3
 --- !u!114 &8776377466797427028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73404,6 +73412,7 @@ MonoBehaviour:
   isInRightPlace: 0
   hasPlayedSound: 0
   difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
+  delayTime: 3
 --- !u!114 &8886768179862306904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73608,6 +73617,7 @@ MonoBehaviour:
   isInRightPlace: 0
   hasPlayedSound: 0
   difficultyValue: {fileID: 11400000, guid: 3bfe3f3e16232b14494765800a603c43, type: 2}
+  delayTime: 3
 --- !u!114 &8947679529545207930
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -28,6 +28,8 @@ public class PuzzlePieceMultiplayer : NetworkBehaviour
         // rightPosition = transform.position;
         //transform.position = new Vector3(transform.position.x, transform.position.y, Random.Range(0.3f, 0.7f));
         //transform.rotation = Quaternion.Euler(-90, 0, 0);
+        HandGrabInteractable handGrabInteractable = GetComponent<HandGrabInteractable>();
+        handGrabInteractable.enabled = true;
     }
 
     // Update is called once per frame

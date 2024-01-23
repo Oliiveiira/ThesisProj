@@ -80,7 +80,7 @@ public class PuzzleGameManagerMultiplayer : NetworkBehaviour
 
                 if (gameHasStarted.Value)
                 {
-                    PuzzlePiece puzzlePieceTransform = puzzlePiece.GetComponent<PuzzlePiece>();
+                    PuzzlePieceMultiplayer puzzlePieceTransform = puzzlePiece.GetComponent<PuzzlePieceMultiplayer>();
                     puzzlePieceTransform.rightPosition = puzzlePiece.transform.position;
                     //for (int i =0; i < sidePlaceHolders.Length; i++)
                     //{
@@ -102,7 +102,7 @@ public class PuzzleGameManagerMultiplayer : NetworkBehaviour
                 // puzzle.position = new Vector3(puzzle.position.x, puzzle.position.y, -0.1f);
                 if (gameHasStarted.Value)
                 {
-                    PuzzlePiece puzzlePieceTransform = puzzlePiece.GetComponent<PuzzlePiece>();
+                    PuzzlePieceMultiplayer puzzlePieceTransform = puzzlePiece.GetComponent<PuzzlePieceMultiplayer>();
                     puzzlePieceTransform.rightPosition = puzzlePiece.transform.position;
                     //  puzzlePiece.SetPositionAndRotation(new Vector3(puzzlePiece.position.x, puzzlePiece.position.y, Random.Range(-0.3f, -0.7f)), Quaternion.Euler(-90, 0, 0));
                     //for (int i = 0; i < sidePlaceHolders.Length; i++)
@@ -124,7 +124,7 @@ public class PuzzleGameManagerMultiplayer : NetworkBehaviour
                 //puzzle.position = new Vector3(puzzle.position.x, puzzle.position.y, 0);
                 if (gameHasStarted.Value)
                 {
-                    PuzzlePiece puzzlePieceTransform = puzzlePiece.GetComponent<PuzzlePiece>();
+                    PuzzlePieceMultiplayer puzzlePieceTransform = puzzlePiece.GetComponent<PuzzlePieceMultiplayer>();
                     puzzlePieceTransform.rightPosition = puzzlePiece.transform.position;
                     puzzlePiece.SetPositionAndRotation(sidePlaceHolders[i].position, Quaternion.Euler(0, -90, 90));
                     i++;
@@ -141,7 +141,7 @@ public class PuzzleGameManagerMultiplayer : NetworkBehaviour
                 //puzzle.position = new Vector3(puzzle.position.x, puzzle.position.y, 0);
                 if (gameHasStarted.Value)
                 {
-                    PuzzlePiece puzzlePieceTransform = puzzlePiece.GetComponent<PuzzlePiece>();
+                    PuzzlePieceMultiplayer puzzlePieceTransform = puzzlePiece.GetComponent<PuzzlePieceMultiplayer>();
                     puzzlePieceTransform.rightPosition = puzzlePiece.transform.position;
                     puzzlePiece.SetPositionAndRotation(sidePlaceHolders[i].position, Quaternion.Euler(0, -90, 90));
                     i++;
