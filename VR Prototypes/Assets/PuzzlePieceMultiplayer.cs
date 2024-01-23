@@ -17,8 +17,16 @@ public class PuzzlePieceMultiplayer : NetworkBehaviour
     [SerializeField]
     private FloatSO difficultyValue;
 
+    private bool canInteract = false;
+    public float delayTime = 3.0f; // Adjust the delay time as needed
+
+    // Ensure that the puzzle piece has an associated NetworkObject
+    private NetworkObject networkObject;
+
     private void Awake()
     {
+        networkObject = GetComponent<NetworkObject>();
+        StartCoroutine(EnableInteractionAfterDelay());
         //rightPosition = transform.position;
     }
 
@@ -35,39 +43,50 @@ public class PuzzlePieceMultiplayer : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, rightPosition) < difficultyValue.Value /*0.035f*/)
+        if (IsServer)
         {
-            isInRightPlace = true;
-            transform.position = rightPosition;
-            transform.rotation = Quaternion.Euler(0, -90, 90);
-
-            if (!hasPlayedSound)
+            if (Vector3.Distance(networkObject.transform.position, rightPosition) < difficultyValue.Value/*0.035f*/)
             {
-                placeSound.Play();
-                hasPlayedSound = true;  // Set the flag to indicate that the sound has been played
-            }
-        }
-        else
-        {
-            hasPlayedSound = false;
-            isInRightPlace = false;
-        }
-        //if (isInRightPlace)
-        //{
-        //    placeSound.Play();
-        //}
+                isInRightPlace = true;
+                //transform.position = rightPosition;
+                networkObject.transform.position = rightPosition;
+                networkObject.transform.rotation = Quaternion.Euler(0, -90, 90);
 
+                if (!hasPlayedSound)
+                {
+                    placeSound.Play();
+                    hasPlayedSound = true;  // Set the flag to indicate that the sound has been played
+                }
+            }
+            else
+            {
+                hasPlayedSound = false;
+                isInRightPlace = false;
+            }
+            //if (isInRightPlace)
+            //{
+            //    placeSound.Play();
+            //}
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             SetClientOwnershipServerRPC();
         }
     }
 
+    private IEnumerator EnableInteractionAfterDelay()
+    {
+        yield return new WaitForSeconds(delayTime);
+
+        // Allow interaction after the delay
+        canInteract = true;
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("PuzzlePlace"))
         {
-            if (transform.position == other.transform.position)
+            if (networkObject.transform.position == other.transform.position && canInteract)
             {
                 //placeSound.Play();
                 HandGrabInteractable handGrabInteractable = GetComponent<HandGrabInteractable>();
