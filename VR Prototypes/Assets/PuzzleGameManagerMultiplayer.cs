@@ -28,7 +28,7 @@ public class PuzzleGameManagerMultiplayer : NetworkBehaviour
     public bool mirrorRightHand;
     public bool mirrorLeftHand;
     public bool mirrorNoneHand;
-    public bool isPlaced;
+    public NetworkVariable<bool> isPlaced;
     public bool setNormalMode;
 
     public Transform grid;
@@ -43,7 +43,8 @@ public class PuzzleGameManagerMultiplayer : NetworkBehaviour
     public NetworkVariable<bool> gameHasStarted;
     //Timer to trigger next scene
     private float startingTime = 5;
-    private NetworkVariable<float> currentTime;
+    [SerializeField]
+    private NetworkVariable<float> currentTime = new NetworkVariable<float>(0);
     [SerializeField]
     private TextMeshProUGUI timer;
 
@@ -57,7 +58,7 @@ public class PuzzleGameManagerMultiplayer : NetworkBehaviour
             MeshRenderer placeholderMeshRenderer = placeholder.GetComponent<MeshRenderer>();
             placeholderMeshRenderer.enabled = true;
         }
-
+        if(IsServer)
         currentTime.Value = startingTime;
         //foreach (var puzzlePiece in puzzlePieces)
         //{
@@ -70,7 +71,7 @@ public class PuzzleGameManagerMultiplayer : NetworkBehaviour
 
     void Update()
     {
-        if (mirrorRightHand && !isPlaced && IsServer)
+        if (mirrorRightHand && !isPlaced.Value && IsServer)
         {
             int i = 0;
             foreach (var puzzlePiece in puzzlePieces)
@@ -88,11 +89,11 @@ public class PuzzleGameManagerMultiplayer : NetworkBehaviour
                     //}
                     puzzlePiece.SetPositionAndRotation(sidePlaceHolders[i].position, Quaternion.Euler(0, -90, 90));
                     i++;
-                    isPlaced = true;
+                    isPlaced.Value = true;
                 }
             }
         }
-        else if (mirrorLeftHand && !isPlaced && IsServer)
+        else if (mirrorLeftHand && !isPlaced.Value && IsServer)
         {
             int i = 0;
 
@@ -111,11 +112,11 @@ public class PuzzleGameManagerMultiplayer : NetworkBehaviour
                     //}
                     puzzlePiece.SetPositionAndRotation(new Vector3(sidePlaceHolders[i].position.x, sidePlaceHolders[i].position.y, -sidePlaceHolders[i].position.z), Quaternion.Euler(0, -90, 90));
                     i++;
-                    isPlaced = true;
+                    isPlaced.Value = true;
                 }
             }
         }
-        else if (mirrorNoneHand && !isPlaced && IsServer)
+        else if (mirrorNoneHand && !isPlaced.Value && IsServer)
         {
             int i = 0;
             foreach (var puzzlePiece in puzzlePieces)
@@ -128,11 +129,11 @@ public class PuzzleGameManagerMultiplayer : NetworkBehaviour
                     puzzlePieceTransform.rightPosition.Value = puzzlePiece.transform.position;
                     puzzlePiece.SetPositionAndRotation(sidePlaceHolders[i].position, Quaternion.Euler(0, -90, 90));
                     i++;
-                    isPlaced = true;
+                    isPlaced.Value = true;
                 }
             }
         }
-        else if (!mirrorRightHand && !mirrorLeftHand && !mirrorNoneHand && !isPlaced && IsServer)
+        else if (!mirrorRightHand && !mirrorLeftHand && !mirrorNoneHand && !isPlaced.Value && IsServer)
         {
             int i = 0;
             foreach (var puzzlePiece in puzzlePieces)
@@ -145,12 +146,12 @@ public class PuzzleGameManagerMultiplayer : NetworkBehaviour
                     puzzlePieceTransform.rightPosition.Value = puzzlePiece.transform.position;
                     puzzlePiece.SetPositionAndRotation(sidePlaceHolders[i].position, Quaternion.Euler(0, -90, 90));
                     i++;
-                    isPlaced = true;
+                    isPlaced.Value = true;
                 }
             }
         }
 
-        if (AreTransformPositionsEqual() && isPlaced)
+        if (AreTransformPositionsEqual() && isPlaced.Value)
         {
             Debug.Log("Boa!");
             if (IsServer)

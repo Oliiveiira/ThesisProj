@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
 using Oculus.Interaction.Input;
+using UnityEngine.SceneManagement;
 
 public class NetworkPlayer : NetworkBehaviour
 {
@@ -27,6 +28,8 @@ public class NetworkPlayer : NetworkBehaviour
 	// Start is called before the first frame update
 	public override void OnNetworkSpawn()
 	{
+		NetworkManager.SceneManager.OnLoadComplete += OnChangeScene;
+
 		var myID = transform.GetComponent<NetworkObject>().NetworkObjectId;
 		if (IsOwnedByServer)
 			transform.name = "Host:" + myID;    //this must be the host
@@ -79,5 +82,27 @@ public class NetworkPlayer : NetworkBehaviour
 		{
 			avBody.position = avHead.position + avatarBodyPositionOffset;
 		}
+	}
+
+	public void OnChangeScene(ulong clientId, string sceneName = "", LoadSceneMode loadSceneMode = LoadSceneMode.Single)
+	{
+		Debug.Log($"{clientId} - ChangeScene");
+		if (!IsOwner) return;
+
+		myXRRig = GameObject.Find("InputOVR");
+		if (myXRRig) Debug.Log("Found InputOVR");
+		else Debug.Log("Could not find OVRCameraRig!");
+
+		//pointers to the XR RIg
+		RigRef = myXRRig.GetComponent<OVRCameraRigRef>();
+		myXRLC = RigRef.LeftController;
+		myXRRC = RigRef.RightController;
+		myXRCam = RigRef.CameraRig.centerEyeAnchor.transform;
+
+		//pointers to the avatar
+		avLeft = transform.Find("Left Hand");
+		avRight = transform.Find("Right Hand");
+		avHead = transform.Find("Head");
+		avBody = transform.Find("Body");
 	}
 }

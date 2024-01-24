@@ -43,7 +43,7 @@ public class PuzzlePieceMultiplayer : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsServer || IsOwner)
+        if (IsOwner)
         {
             if (Vector3.Distance(networkObject.transform.position, rightPosition.Value) < difficultyValue.Value/*0.035f*/)
             {
@@ -88,6 +88,7 @@ public class PuzzlePieceMultiplayer : NetworkBehaviour
         {
             if (networkObject.transform.position == other.transform.position && canInteract)
             {
+                Debug.Log("OnTriggerStay Active");
                 //placeSound.Play();
                 //HandGrabInteractable handGrabInteractable = GetComponent<HandGrabInteractable>();
                 //handGrabInteractable.enabled = false;
@@ -103,7 +104,7 @@ public class PuzzlePieceMultiplayer : NetworkBehaviour
     {
         // Find the GameObject using the identifier
         GameObject other = GameObject.Find(objectName);
-
+        placeSound.Play();
         if (other != null)
         {
             HandGrabInteractable handGrabInteractable = GetComponent<HandGrabInteractable>();
