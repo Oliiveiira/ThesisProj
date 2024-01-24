@@ -52,15 +52,16 @@ public class PuzzlePieceMultiplayer : NetworkBehaviour
                 networkObject.transform.position = rightPosition.Value;
                 networkObject.transform.rotation = Quaternion.Euler(0, -90, 90);
 
-                if (!hasPlayedSound)
-                {
-                    placeSound.Play();
-                    hasPlayedSound = true;  // Set the flag to indicate that the sound has been played
-                }
+                callClientServerRPC();
+                //if (!hasPlayedSound)
+                //{
+                //    placeSound.Play();
+                //    hasPlayedSound = true;  // Set the flag to indicate that the sound has been played
+                //}
             }
             else
             {
-                hasPlayedSound = false;
+               // hasPlayedSound = false;
                 isInRightPlace.Value = false;
             }
             //if (isInRightPlace)
@@ -89,6 +90,7 @@ public class PuzzlePieceMultiplayer : NetworkBehaviour
             if (networkObject.transform.position == other.transform.position && canInteract)
             {
                 Debug.Log("OnTriggerStay Active");
+                Debug.Log(other.gameObject.name);
                 //placeSound.Play();
                 //HandGrabInteractable handGrabInteractable = GetComponent<HandGrabInteractable>();
                 //handGrabInteractable.enabled = false;
@@ -99,12 +101,29 @@ public class PuzzlePieceMultiplayer : NetworkBehaviour
         }
     }
 
+    [ServerRpc]
+    private void callClientServerRPC()
+    {
+        SoundClientRPC();
+    }
+
+    [ClientRpc]
+    private void SoundClientRPC()
+    {
+        if (!hasPlayedSound)
+        {
+            placeSound.Play();
+            hasPlayedSound = true;  // Set the flag to indicate that the sound has been played
+        }
+    }
+
     [ClientRpc]
     private void DisableInteractableClientRpc(string objectName)
     {
         // Find the GameObject using the identifier
         GameObject other = GameObject.Find(objectName);
-        placeSound.Play();
+        Debug.Log(other.name);
+        //placeSound.Play();
         if (other != null)
         {
             HandGrabInteractable handGrabInteractable = GetComponent<HandGrabInteractable>();
