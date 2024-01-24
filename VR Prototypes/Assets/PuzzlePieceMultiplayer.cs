@@ -89,9 +89,32 @@ public class PuzzlePieceMultiplayer : NetworkBehaviour
             if (networkObject.transform.position == other.transform.position && canInteract)
             {
                 //placeSound.Play();
-                HandGrabInteractable handGrabInteractable = GetComponent<HandGrabInteractable>();
+                //HandGrabInteractable handGrabInteractable = GetComponent<HandGrabInteractable>();
+                //handGrabInteractable.enabled = false;
+                //MeshRenderer puzzlePlaceRenderer = other.GetComponent<MeshRenderer>();
+                //puzzlePlaceRenderer.enabled = false;
+                DisableInteractableClientRpc(other.gameObject.name);
+            }
+        }
+    }
+
+    [ClientRpc]
+    private void DisableInteractableClientRpc(string objectName)
+    {
+        // Find the GameObject using the identifier
+        GameObject other = GameObject.Find(objectName);
+
+        if (other != null)
+        {
+            HandGrabInteractable handGrabInteractable = other.GetComponent<HandGrabInteractable>();
+            if (handGrabInteractable != null)
+            {
                 handGrabInteractable.enabled = false;
-                MeshRenderer puzzlePlaceRenderer = other.GetComponent<MeshRenderer>();
+            }
+
+            MeshRenderer puzzlePlaceRenderer = other.GetComponent<MeshRenderer>();
+            if (puzzlePlaceRenderer != null)
+            {
                 puzzlePlaceRenderer.enabled = false;
             }
         }
