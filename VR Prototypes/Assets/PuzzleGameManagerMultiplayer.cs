@@ -43,7 +43,7 @@ public class PuzzleGameManagerMultiplayer : NetworkBehaviour
     public NetworkVariable<bool> gameHasStarted;
     //Timer to trigger next scene
     private float startingTime = 5;
-    private float currentTime;
+    private NetworkVariable<float> currentTime;
     [SerializeField]
     private TextMeshProUGUI timer;
 
@@ -58,7 +58,7 @@ public class PuzzleGameManagerMultiplayer : NetworkBehaviour
             placeholderMeshRenderer.enabled = true;
         }
 
-        currentTime = startingTime;
+        currentTime.Value = startingTime;
         //foreach (var puzzlePiece in puzzlePieces)
         //{
         //    PuzzlePiece puzzlePieceTransform = puzzlePiece.GetComponent<PuzzlePiece>();
@@ -150,16 +150,19 @@ public class PuzzleGameManagerMultiplayer : NetworkBehaviour
             }
         }
 
-        if (AreTransformPositionsEqual() && isPlaced && IsServer)
+        if (AreTransformPositionsEqual() && isPlaced)
         {
             Debug.Log("Boa!");
-            setWinPanel.Raise();
-            timer.SetText("Proximo nivel em " + currentTime.ToString("0"));
-            currentTime -= 1 * Time.deltaTime;
-            if (currentTime <= 0)
+            if (IsServer)
             {
-                NextLevelServerRPC();
+                RaiseWinPanelClientRPC();
+                currentTime.Value -= 1 * Time.deltaTime;
+                if (currentTime.Value <= 0)
+                {
+                    NextLevelServerRPC();
+                }
             }
+            timer.SetText("Proximo nivel em " + currentTime.Value.ToString("0"));
         }
     }
 
@@ -221,6 +224,12 @@ public class PuzzleGameManagerMultiplayer : NetworkBehaviour
         mirrorNoneHand = true;
         mirrorLeftHand = false;
         mirrorRightHand = false;
+    }
+
+    [ClientRpc]
+    public void RaiseWinPanelClientRPC()
+    {
+        setWinPanel.Raise();
     }
 
     [ClientRpc]

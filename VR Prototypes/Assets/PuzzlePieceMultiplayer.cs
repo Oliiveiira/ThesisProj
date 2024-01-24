@@ -9,7 +9,7 @@ public class PuzzlePieceMultiplayer : NetworkBehaviour
     public NetworkVariable<Vector3> rightPosition;
     public bool alreadyPlaced;
     // Start is called before the first frame update
-    public NetworkVariable<bool> isInRightPlace;
+    public NetworkVariable<bool> isInRightPlace = new NetworkVariable<bool>(false, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
     private AudioSource placeSound;
     [SerializeField]
     private bool hasPlayedSound = false;
