@@ -6,10 +6,10 @@ using Oculus.Interaction.HandGrab;
 
 public class PuzzlePieceMultiplayer : NetworkBehaviour
 {
-    public Vector3 rightPosition;
+    public NetworkVariable<Vector3> rightPosition;
     public bool alreadyPlaced;
     // Start is called before the first frame update
-    public bool isInRightPlace;
+    public NetworkVariable<bool> isInRightPlace;
     private AudioSource placeSound;
     [SerializeField]
     private bool hasPlayedSound = false;
@@ -43,13 +43,13 @@ public class PuzzlePieceMultiplayer : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsServer)
+        if (IsServer || IsOwner)
         {
-            if (Vector3.Distance(networkObject.transform.position, rightPosition) < difficultyValue.Value/*0.035f*/)
+            if (Vector3.Distance(networkObject.transform.position, rightPosition.Value) < difficultyValue.Value/*0.035f*/)
             {
-                isInRightPlace = true;
+                isInRightPlace.Value = true;
                 //transform.position = rightPosition;
-                networkObject.transform.position = rightPosition;
+                networkObject.transform.position = rightPosition.Value;
                 networkObject.transform.rotation = Quaternion.Euler(0, -90, 90);
 
                 if (!hasPlayedSound)
@@ -61,7 +61,7 @@ public class PuzzlePieceMultiplayer : NetworkBehaviour
             else
             {
                 hasPlayedSound = false;
-                isInRightPlace = false;
+                isInRightPlace.Value = false;
             }
             //if (isInRightPlace)
             //{
@@ -122,7 +122,7 @@ public class PuzzlePieceMultiplayer : NetworkBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (!isInRightPlace)
+        if (!isInRightPlace.Value)
         {
             MeshRenderer puzzlePlace = other.GetComponent<MeshRenderer>();
             puzzlePlace.enabled = true;
