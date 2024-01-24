@@ -106,7 +106,7 @@ public class PuzzlePieceMultiplayer : NetworkBehaviour
 
         if (other != null)
         {
-            HandGrabInteractable handGrabInteractable = other.GetComponent<HandGrabInteractable>();
+            HandGrabInteractable handGrabInteractable = GetComponent<HandGrabInteractable>();
             if (handGrabInteractable != null)
             {
                 handGrabInteractable.enabled = false;
