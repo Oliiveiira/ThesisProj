@@ -31,6 +31,7 @@ public class IKTargetFollowVRRig : NetworkBehaviour
     public Transform headIKTarget;
     public Vector3 trackingPositionOffset;
     public Vector3 trackingRotationOffset;
+    public SkinnedMeshRenderer avatarRenderer;
 
     [Range(0, 1)]
     public float turnSmoothness = 0.1f;
@@ -73,6 +74,27 @@ public class IKTargetFollowVRRig : NetworkBehaviour
         Debug.Log(rightVRTarget);
         headVRTarget = centerEyeAnchor.transform.GetChild(2);
         Debug.Log(headVRTarget);
+    }
+
+    private void Start()
+    {
+        if (IsLocalPlayer)
+        {
+            // If this is the local player, hide the avatar for their own vision
+            avatarRenderer.enabled = false;
+        }
+        else
+        {
+            // If this is a remote player, request the server to show their avatar
+            ShowAvatarServerRpc();
+        }
+    }
+
+    [ServerRpc]
+    void ShowAvatarServerRpc(ServerRpcParams rpcParams = default)
+    {
+        // Show the avatar on the server
+        avatarRenderer.enabled = true;
     }
 
     public void Map()

@@ -1212,6 +1212,7 @@ MonoBehaviour:
   headIKTarget: {fileID: 8030458225385525531}
   trackingPositionOffset: {x: 0, y: 0, z: 0}
   trackingRotationOffset: {x: 0, y: 0, z: 0}
+  avatarRenderer: {fileID: 336916007610741276}
   turnSmoothness: 0.1
   headBodyPositionOffset: {x: 0, y: -1.54, z: 0}
   headBodyYawOffset: 0
