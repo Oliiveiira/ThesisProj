@@ -49,10 +49,10 @@ public class NetworkPlayer : NetworkBehaviour
 		myXRCam = RigRef.CameraRig.centerEyeAnchor.transform;
 
 		//pointers to the avatar
-		avLeft = transform.Find("Left Hand");
-		avRight = transform.Find("Right Hand");
-		avHead = transform.Find("Head");
-		avBody = transform.Find("Body");
+		avLeft = transform.Find("LeftArmIK_target");
+		avRight = transform.Find("RightArmIK_target");
+		avHead = transform.Find("HeadTarget");
+		//avBody = transform.Find("Armature");
 	}
 
 	void Update()
@@ -78,10 +78,10 @@ public class NetworkPlayer : NetworkBehaviour
 			avHead.position = myXRCam.position + avatarHeadPositionOffset.x * myXRCam.transform.right + avatarHeadPositionOffset.y * myXRCam.transform.up + avatarHeadPositionOffset.z * myXRCam.transform.forward;
 		}
 
-		if (avBody)
-		{
-			avBody.position = avHead.position + avatarBodyPositionOffset;
-		}
+		//if (avBody)
+		//{
+		//	avBody.position = avHead.position + avatarBodyPositionOffset;
+		//}
 	}
 
 	public void OnChangeScene(ulong clientId, string sceneName = "", LoadSceneMode loadSceneMode = LoadSceneMode.Single)

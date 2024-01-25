@@ -3932,9 +3932,7 @@ MonoBehaviour:
   products: {fileID: 1724161939}
   total: {fileID: 11400000, guid: 3eaf90571d78cff44965fd8424ef5ec0, type: 2}
   totalpositive: 0
-  grabInteractor: {fileID: 0}
-  handgrabInteractorR: {fileID: 0}
-  handgrabInteractorL: {fileID: 0}
+  ConfirmChange: {fileID: 0}
 --- !u!1001 &155259289
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4065,9 +4063,7 @@ MonoBehaviour:
   products: {fileID: 1587350615}
   total: {fileID: 11400000, guid: 3eaf90571d78cff44965fd8424ef5ec0, type: 2}
   totalpositive: 0
-  grabInteractor: {fileID: 0}
-  handgrabInteractorR: {fileID: 0}
-  handgrabInteractorL: {fileID: 0}
+  ConfirmChange: {fileID: 0}
 --- !u!64 &160232246
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10666,7 +10662,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   total: {fileID: 11400000, guid: 3eaf90571d78cff44965fd8424ef5ec0, type: 2}
   allMoney: []
-  changeTransform: {fileID: 1541971913}
+  changeTransform:
+  - {fileID: 0}
+  setWinPanel: {fileID: 0}
+  totalCost: {fileID: 0}
+  cashRegister: {fileID: 0}
+  probability: 0
+  giveWrongChange: 0
+  resetChange: 0
 --- !u!4 &445264725
 Transform:
   m_ObjectHideFlags: 0
@@ -24308,6 +24311,7 @@ MonoBehaviour:
   _cameraRigRef: {fileID: 964484014}
   mirrorHands: 0
   teleported: 0
+  mirrorfactor: 0
 --- !u!114 &964484014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29277,9 +29281,7 @@ MonoBehaviour:
   products: {fileID: 1724161939}
   total: {fileID: 11400000, guid: 3eaf90571d78cff44965fd8424ef5ec0, type: 2}
   totalpositive: 0
-  grabInteractor: {fileID: 0}
-  handgrabInteractorR: {fileID: 0}
-  handgrabInteractorL: {fileID: 0}
+  ConfirmChange: {fileID: 0}
   moveMoney: 0
   coinPosition: {fileID: 0}
   a: {x: 0, y: 0, z: 0}
@@ -37774,6 +37776,7 @@ MonoBehaviour:
   mirrorLeft: 0
   mirrorRight: 0
   level: {fileID: 11400000, guid: d54236a44af62864396c3f28767d6e9b, type: 2}
+  code: 
 --- !u!4 &1451273801
 Transform:
   m_ObjectHideFlags: 0
@@ -38157,9 +38160,7 @@ MonoBehaviour:
   products: {fileID: 1587350615}
   total: {fileID: 11400000, guid: 3eaf90571d78cff44965fd8424ef5ec0, type: 2}
   totalpositive: 0
-  grabInteractor: {fileID: 0}
-  handgrabInteractorR: {fileID: 0}
-  handgrabInteractorL: {fileID: 0}
+  ConfirmChange: {fileID: 0}
   moveMoney: 0
   billPosition: {fileID: 0}
   a: {x: 0, y: 0, z: 0}
@@ -40873,9 +40874,7 @@ MonoBehaviour:
   products: {fileID: 1587350615}
   total: {fileID: 11400000, guid: 3eaf90571d78cff44965fd8424ef5ec0, type: 2}
   totalpositive: 0
-  grabInteractor: {fileID: 0}
-  handgrabInteractorR: {fileID: 0}
-  handgrabInteractorL: {fileID: 0}
+  ConfirmChange: {fileID: 0}
   moveMoney: 0
   coinPosition: {fileID: 0}
   a: {x: 0, y: 0, z: 0}
@@ -41321,8 +41320,13 @@ MonoBehaviour:
   basketTransform: {fileID: 1210264237}
   ingredients: {fileID: 1451273800}
   scanSound: {fileID: 1587350616}
+  introduceMoney: {fileID: 0}
+  introduceCard: {fileID: 0}
+  scanQRCode: {fileID: 0}
   paymentAvailable: 0
   setWinPanel: {fileID: 11400000, guid: ef33d6c9ab615ee43bd3d7ca065ce61a, type: 2}
+  qRCode: {fileID: 0}
+  wallet: {fileID: 0}
 --- !u!82 &1587350616
 AudioSource:
   m_ObjectHideFlags: 0
@@ -43779,8 +43783,13 @@ MonoBehaviour:
   basketTransform: {fileID: 234891002}
   ingredients: {fileID: 1451273800}
   scanSound: {fileID: 1724161940}
+  introduceMoney: {fileID: 0}
+  introduceCard: {fileID: 0}
+  scanQRCode: {fileID: 0}
   paymentAvailable: 0
   setWinPanel: {fileID: 11400000, guid: ef33d6c9ab615ee43bd3d7ca065ce61a, type: 2}
+  qRCode: {fileID: 0}
+  wallet: {fileID: 0}
 --- !u!82 &1724161940
 AudioSource:
   m_ObjectHideFlags: 0
@@ -48541,7 +48550,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   total: {fileID: 11400000, guid: 3eaf90571d78cff44965fd8424ef5ec0, type: 2}
   allMoney: []
-  changeTransform: {fileID: 1441227856}
+  changeTransform:
+  - {fileID: 0}
+  setWinPanel: {fileID: 0}
+  totalCost: {fileID: 0}
+  cashRegister: {fileID: 0}
+  probability: 0
+  giveWrongChange: 0
+  resetChange: 0
 --- !u!4 &1896382761
 Transform:
   m_ObjectHideFlags: 0
@@ -50642,9 +50658,7 @@ MonoBehaviour:
   products: {fileID: 1724161939}
   total: {fileID: 11400000, guid: 3eaf90571d78cff44965fd8424ef5ec0, type: 2}
   totalpositive: 0
-  grabInteractor: {fileID: 0}
-  handgrabInteractorR: {fileID: 0}
-  handgrabInteractorL: {fileID: 0}
+  ConfirmChange: {fileID: 0}
   moveMoney: 0
   billPosition: {fileID: 0}
   a: {x: 0, y: 0, z: 0}
@@ -58843,7 +58857,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 22aa74c2358e53c42a3967082342c60a, type: 2}
+  - {fileID: 2100000, guid: 8872271be3e3bdd439ad9872b133d7af, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -70912,7 +70926,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 22aa74c2358e53c42a3967082342c60a, type: 2}
+  - {fileID: 2100000, guid: 8872271be3e3bdd439ad9872b133d7af, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
