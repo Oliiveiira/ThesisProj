@@ -169,18 +169,24 @@ public class PuzzleGameManagerMultiplayer : NetworkBehaviour
 
     bool AreTransformPositionsEqual()
     {
-        if (placeholders.Count != puzzlePieces.Count)
+        foreach(Transform pieceTransform in puzzlePieces)
         {
-            return false; // Lists must have the same length to compare positions.
+            PuzzlePieceMultiplayer piece = pieceTransform.gameObject.GetComponent<PuzzlePieceMultiplayer>();
+            if (!piece.isInRightPlace.Value)
+                return false;
         }
+        //if (placeholders.Count != puzzlePieces.Count)
+        //{
+        //    return false; // Lists must have the same length to compare positions.
+        //}
 
-        for (int i = 0; i < placeholders.Count; i++)
-        {
-            if (placeholders[i].position != puzzlePieces[i].position)
-            {
-                return false; // If any pair of positions is not equal, return false.
-            }
-        }
+        //for (int i = 0; i < placeholders.Count; i++)
+        //{
+        //    if (placeholders[i].position != puzzlePieces[i].position)
+        //    {
+        //        return false; // If any pair of positions is not equal, return false.
+        //    }
+        //}
 
         return true; // All positions are equal.
     }

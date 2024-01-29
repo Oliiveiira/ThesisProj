@@ -47,12 +47,23 @@ public class PuzzlePieceMultiplayer : NetworkBehaviour
         {
             if (Vector3.Distance(networkObject.transform.position, rightPosition.Value) < difficultyValue.Value/*0.035f*/)
             {
+                if (!isInRightPlace.Value)
+                {
+                    GameObject myXRRig = GameObject.Find("InputOVR");
+                    Debug.Log(myXRRig.GetComponentsInChildren<HandGrabInteractor>().Length);
+                    foreach (HandGrabInteractor hand in myXRRig.GetComponentsInChildren<HandGrabInteractor>())
+                    {
+                        hand.ForceRelease();
+                    }
+                }
                 isInRightPlace.Value = true;
                 //transform.position = rightPosition;
                 networkObject.transform.position = rightPosition.Value;
                 networkObject.transform.rotation = Quaternion.Euler(0, -90, 90);
 
+
                 callClientServerRPC();
+                RemoveOwnershipServerRpc();
                 //if (!hasPlayedSound)
                 //{
                 //    placeSound.Play();
@@ -87,10 +98,10 @@ public class PuzzlePieceMultiplayer : NetworkBehaviour
     {
         if (other.CompareTag("PuzzlePlace"))
         {
-            if (networkObject.transform.position == other.transform.position && canInteract)
+            if (Vector3.Distance(networkObject.transform.position, other.transform.position) <= 0.01f && isInRightPlace.Value && canInteract)
             {
-                Debug.Log("OnTriggerStay Active");
-                Debug.Log(other.gameObject.name);
+                //Debug.Log("OnTriggerStay Active");
+                //Debug.Log(other.gameObject.name);
                 //placeSound.Play();
                 //HandGrabInteractable handGrabInteractable = GetComponent<HandGrabInteractable>();
                 //handGrabInteractable.enabled = false;

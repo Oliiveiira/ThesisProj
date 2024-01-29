@@ -1229,20 +1229,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationInputs:
-  - animationPropertyName: RightPinch
+  - animationPropertyName: Right Pinch
     action:
       m_UseReference: 1
       m_Action:
         m_Name: Action
-        m_Type: 0
+        m_Type: 2
         m_ExpectedControlType: 
         m_Id: 913da7f4-3d67-41c8-8caf-6c2736062de1
         m_Processors: 
         m_Interactions: 
         m_SingletonActionBindings: []
         m_Flags: 0
-      m_Reference: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  - animationPropertyName: RightGrab
+      m_Reference: {fileID: -8198699208435500284, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  - animationPropertyName: Right Grab
     action:
       m_UseReference: 1
       m_Action:
@@ -1255,7 +1255,7 @@ MonoBehaviour:
         m_SingletonActionBindings: []
         m_Flags: 0
       m_Reference: {fileID: -1758520528963094988, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  - animationPropertyName: LeftPinch
+  - animationPropertyName: Left Pinch
     action:
       m_UseReference: 1
       m_Action:
@@ -1268,7 +1268,7 @@ MonoBehaviour:
         m_SingletonActionBindings: []
         m_Flags: 0
       m_Reference: {fileID: -4289430672226363583, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  - animationPropertyName: LeftGrab
+  - animationPropertyName: Left Grab
     action:
       m_UseReference: 1
       m_Action:

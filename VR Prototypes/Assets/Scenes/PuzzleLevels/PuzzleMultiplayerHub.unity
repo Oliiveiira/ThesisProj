@@ -72932,26 +72932,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1952339133}
     - target: {fileID: 6459986056491599744, guid: f99fa0f71cf79194e955dff5f6906e7c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6459986056491599744, guid: f99fa0f71cf79194e955dff5f6906e7c, type: 3}
-      propertyPath: animationInputs.Array.data[0].action.m_Reference
-      value: 
-      objectReference: {fileID: -8198699208435500284, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-    - target: {fileID: 6459986056491599744, guid: f99fa0f71cf79194e955dff5f6906e7c, type: 3}
-      propertyPath: animationInputs.Array.data[0].action.m_UseReference
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6459986056491599744, guid: f99fa0f71cf79194e955dff5f6906e7c, type: 3}
-      propertyPath: animationInputs.Array.data[0].action.m_Action.m_Type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6459986056491599744, guid: f99fa0f71cf79194e955dff5f6906e7c, type: 3}
-      propertyPath: animationInputs.Array.data[0].action.m_Action.m_SingletonActionBindings.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6459986056491599744, guid: f99fa0f71cf79194e955dff5f6906e7c, type: 3}
       propertyPath: animationInputs.Array.data[0].action.m_Action.m_SingletonActionBindings.Array.data[0].m_Id
       value: 5dda93c2-2910-4334-a010-c16d104d0d4e
       objectReference: {fileID: 0}
