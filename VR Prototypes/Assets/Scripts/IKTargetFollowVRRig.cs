@@ -76,18 +76,10 @@ public class IKTargetFollowVRRig : NetworkBehaviour
         Debug.Log(headVRTarget);
         
         GameObject spawnLocations = GameObject.Find("SpawnLocations");
-        int i = 0;
-        foreach (NetworkClient player in NetworkManager.ConnectedClients.Values) 
-        {
-            if (player.ClientId == NetworkManager.LocalClientId) 
-            {
-                myXRRig.transform.parent.position = spawnLocations.transform.GetChild(i % spawnLocations.transform.childCount).position;
-                myXRRig.transform.parent.rotation = spawnLocations.transform.GetChild(i % spawnLocations.transform.childCount).rotation;
-                Debug.Log($"Spawned to location {spawnLocations.transform.GetChild(i % spawnLocations.transform.childCount).position} and rotation {spawnLocations.transform.GetChild(i % spawnLocations.transform.childCount).rotation}");
-                break;
-            }
-            i++;
-        }
+        myXRRig.transform.parent.position = spawnLocations.transform.GetChild((int)NetworkManager.LocalClientId % spawnLocations.transform.childCount).position;
+        myXRRig.transform.parent.rotation = spawnLocations.transform.GetChild((int)NetworkManager.LocalClientId % spawnLocations.transform.childCount).rotation;
+        Debug.Log($"Spawned to location {spawnLocations.transform.GetChild((int)NetworkManager.LocalClientId % spawnLocations.transform.childCount).position} and rotation {spawnLocations.transform.GetChild((int)NetworkManager.LocalClientId % spawnLocations.transform.childCount).rotation}");
+
     }
 
     private void Start()
@@ -169,17 +161,8 @@ public class IKTargetFollowVRRig : NetworkBehaviour
         Debug.Log(headVRTarget);
 
         GameObject spawnLocations = GameObject.Find("SpawnLocations");
-        int i = 0;
-        foreach (NetworkClient player in NetworkManager.ConnectedClients.Values)
-        {
-            if (player.ClientId == NetworkManager.LocalClientId)
-            {
-                myXRRig.transform.parent.position = spawnLocations.transform.GetChild(i % spawnLocations.transform.childCount).position;
-                myXRRig.transform.parent.rotation = spawnLocations.transform.GetChild(i % spawnLocations.transform.childCount).rotation;
-                Debug.Log($"Spawned to location {spawnLocations.transform.GetChild(i % spawnLocations.transform.childCount).position} and rotation {spawnLocations.transform.GetChild(i % spawnLocations.transform.childCount).rotation}");
-                break;
-            }
-            i++;
-        }
+        myXRRig.transform.parent.position = spawnLocations.transform.GetChild((int)NetworkManager.LocalClientId % spawnLocations.transform.childCount).position;
+        myXRRig.transform.parent.rotation = spawnLocations.transform.GetChild((int)NetworkManager.LocalClientId % spawnLocations.transform.childCount).rotation;
+        Debug.Log($"Spawned to location {spawnLocations.transform.GetChild((int)NetworkManager.LocalClientId % spawnLocations.transform.childCount).position} and rotation {spawnLocations.transform.GetChild((int)NetworkManager.LocalClientId % spawnLocations.transform.childCount).rotation}");
     }
 }
