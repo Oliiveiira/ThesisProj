@@ -299,7 +299,6 @@ namespace Oculus.Interaction.HandGrab
                 VelocityCalculator.CalculateThrowVelocity(interactable.transform) :
                 new ReleaseVelocityInformation(Vector3.zero, Vector3.zero, Vector3.zero);
             interactable.ApplyVelocities(throwVelocity.LinearVelocity, throwVelocity.AngularVelocity);
-          //  Debug.Log("ObjectReleased");
         }
 
         protected override void HandlePointerEventRaised(PointerEvent evt)
@@ -551,6 +550,7 @@ namespace Oculus.Interaction.HandGrab
                 ClearComputeShouldUnselectOverride();
             }
             base.Unselect();
+            //Debug.Log("ObjectReleased");
         }
 
         private void ComputeTargetForInteractable(HandGrabInteractable interactable)

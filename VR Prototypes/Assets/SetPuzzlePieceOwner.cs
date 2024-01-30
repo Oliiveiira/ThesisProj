@@ -2,13 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Oculus.Interaction.HandGrab;
+using Oculus.Interaction;
 
 public class SetPuzzlePieceOwner : HandGrabInteractor
 {
+    private bool isSelected;
+
+    private PuzzlePieceMultiplayer interactable;
+
     public override void Select()
     {
-        var interactable = Interactable.GetComponent<PuzzlePieceMultiplayer>();
+        interactable = Interactable.GetComponent<PuzzlePieceMultiplayer>();
         Debug.Log("Selected");
+        if (!isSelected)
+        {
+            interactable.SetOutlineMaterial();
+            isSelected = true;
+        }
+
         interactable.SetClientOwnershipServerRPC();
 
         //if (interactable.ChangeOwnership())
@@ -17,11 +28,37 @@ public class SetPuzzlePieceOwner : HandGrabInteractor
         //}
     }
 
+    //public override void Unselect()
+    //{
+    //    var interactable = Interactable.GetComponent<PuzzlePieceMultiplayer>();
+    //    interactable.DisableOutlineMaterial();
+    //    Debug.Log("Unselected");
+    //    //isSelected = false;
+    //    base.Unselect();
+    //    //interactable.DisableOutlineMaterial();
+    //    Debug.Log("Unselected");
+    //}
+
+    protected override void Update()
+    {
+        //Debug.Log(State);
+        base.Update();
+        if(State != InteractorState.Hover && isSelected)
+        {
+            //var interactable = Interactable.GetComponent<PuzzlePieceMultiplayer>();
+            interactable.DisableOutlineMaterial();
+            Debug.Log(interactable.gameObject.name);
+            Debug.Log("Unselected");
+            isSelected = false;
+        }
+    }
+
     //protected override void InteractableUnselected(HandGrabInteractable interactable)
     //{
-    //    var virtualObject = interactable.GetComponent<PuzzlePieceMultiplayer>();
+    //    interactable.GetComponent<PuzzlePieceMultiplayer>();
     //    virtualObject.RemoveOwnershipServerRPC();
     //    Debug.Log("Released");
     //    base.InteractableUnselected(interactable);
+    //    Debug.Log("Released");
     //}
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
 using Oculus.Interaction.HandGrab;
+using System.Linq;
 
 public class PuzzlePieceMultiplayer : NetworkBehaviour
 {
@@ -23,6 +24,15 @@ public class PuzzlePieceMultiplayer : NetworkBehaviour
     // Ensure that the puzzle piece has an associated NetworkObject
     private NetworkObject networkObject;
 
+    [SerializeField]
+    private Material defaultMaterial;
+    [SerializeField]
+    private Material outlineMaterial;
+    [SerializeField]
+    private List<Material> materials;
+    [SerializeField]
+    private Renderer piecerenderer;
+
     private void Awake()
     {
         networkObject = GetComponent<NetworkObject>();
@@ -33,6 +43,9 @@ public class PuzzlePieceMultiplayer : NetworkBehaviour
     void Start()
     {
         placeSound = GetComponent<AudioSource>();
+        materials = GetComponent<Renderer>().materials.ToList();
+        piecerenderer = GetComponent<Renderer>();
+        defaultMaterial = piecerenderer.materials[0];
         // rightPosition = transform.position;
         //transform.position = new Vector3(transform.position.x, transform.position.y, Random.Range(0.3f, 0.7f));
         //transform.rotation = Quaternion.Euler(-90, 0, 0);
@@ -83,6 +96,7 @@ public class PuzzlePieceMultiplayer : NetworkBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             SetClientOwnershipServerRPC();
+            SetOutlineMaterial();
         }
     }
 
@@ -158,6 +172,45 @@ public class PuzzlePieceMultiplayer : NetworkBehaviour
             MeshRenderer puzzlePlace = other.GetComponent<MeshRenderer>();
             puzzlePlace.enabled = true;
         }
+    }
+
+    public void SetOutlineMaterial()
+    {
+        //defaultMaterial = materials[0];
+        materials[0] = outlineMaterial;
+
+        //piecerenderer.materials[0] = outlineMaterial;
+
+        Material[] rendererMaterials = piecerenderer.materials;
+
+        for (int i = 0; i < rendererMaterials.Length; i++)
+        {
+            if (i < materials.Count)
+            {
+                rendererMaterials[i] = materials[i];
+            }
+        }
+        piecerenderer.materials = rendererMaterials;
+    }
+
+    public void DisableOutlineMaterial()
+    {
+        //outlineMaterial = materials[0];
+        //materials[0] = defaultMaterial;
+        //materials[0] = outlineMaterial;
+
+        materials[0] = defaultMaterial;
+
+        Material[] rendererMaterials = piecerenderer.materials;
+
+        for (int i = 0; i < rendererMaterials.Length; i++)
+        {
+            if (i < materials.Count)
+            {
+                rendererMaterials[i] = materials[i];
+            }
+        }
+        piecerenderer.materials = rendererMaterials;
     }
 
     public bool ChangeOwnership()
