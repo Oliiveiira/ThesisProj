@@ -20,6 +20,15 @@ public class PairsGameMultiplayerManager : PairsListReader
     private List<int> usedIndexes;
     [SerializeField]
     private bool pickPair;
+    [SerializeField]
+    private int randomIndex;
+    [SerializeField]
+    private List<GameObject> leftPieces;
+    [SerializeField]
+    private List<GameObject> rightPieces;
+    public bool isInLeftPlace;
+    public bool isInRightPlace;
+
     private void Awake()
     {
         //// Load 5 random GameObjects
@@ -66,14 +75,33 @@ public class PairsGameMultiplayerManager : PairsListReader
         // Choose a random index from the remaining prefabs list
         if(jsonPrefabs.Count > 0 && !pickPair)
         {
-            int randomIndex = Random.Range(0, jsonPrefabs.Count);
+            randomIndex = Random.Range(0, jsonPrefabs.Count);
 
-            gridPositions[0].name = jsonPrefabs[randomIndex].transform.GetChild(0).name;
-            gridPositions[1].name = jsonPrefabs[randomIndex].transform.GetChild(1).name;
+            gridPositions[0].name = leftPieces[randomIndex].transform.name;
+            gridPositions[1].name = rightPieces[randomIndex].transform.name;
 
-            jsonPrefabs.RemoveAt(randomIndex);
+            //jsonPrefabs.RemoveAt(randomIndex);
             pickPair = true;
         }
+    }
+
+    private void ComparePositions()
+    {
+        if(Vector3.Distance(leftPieces[randomIndex].transform.position, gridPositions[0].transform.position) < 0.02f)
+        {
+            leftPieces[randomIndex].transform.position = gridPositions[0].transform.position;
+            isInLeftPlace = true;
+        }
+        else if(Vector3.Distance(rightPieces[randomIndex].transform.position, gridPositions[1].transform.position) < 0.02f)
+        {
+            rightPieces[randomIndex].transform.position = gridPositions[1].transform.position;
+            isInRightPlace = true;
+        }
+        else if(isInLeftPlace && isInRightPlace)
+        {
+            pickPair = false;
+        }
+
     }
 
     private void AssignPlaceholders()
@@ -84,11 +112,13 @@ public class PairsGameMultiplayerManager : PairsListReader
             leftPiece.transform.parent = piecesParent.transform;
             leftPiece.transform.localScale = scale;
             leftPiece.name = piece.transform.GetChild(0).name;
+            leftPieces.Add(leftPiece);
 
             GameObject rightPiece = Instantiate(piece.transform.GetChild(1).gameObject, rightPlaceholders[0].position, Quaternion.Euler(0, -90, 90));
             rightPiece.transform.parent = piecesParent.transform;
             rightPiece.transform.localScale = scale;
             rightPiece.name = piece.transform.GetChild(1).name;
+            rightPieces.Add(rightPiece);
         }
         //GameObject piece1 = Instantiate(jsonPrefabs[0].transform.GetChild(0).gameObject, leftPlaceholders[0].position, Quaternion.Euler(0,-90,90));
         //piece1.transform.parent = piecesParent.transform;
@@ -104,6 +134,7 @@ public class PairsGameMultiplayerManager : PairsListReader
         {
             AssignPlaceholders();
             ChoosePair();
+            ComparePositions();
         }
     }
 }
