@@ -43,6 +43,8 @@ public class PairsGameMultiplayerManager : PairsListReader
     private List<int> usedPieceIndexes;
     [SerializeField]
     private string nextSceneName;
+    [SerializeField]
+    private Transform ObjectsToHide;
 
     private void Awake()
     {
@@ -181,18 +183,19 @@ public class PairsGameMultiplayerManager : PairsListReader
         int i = 0;
         foreach(GameObject piece in jsonPrefabs)
         {
-            GameObject leftPiece = Instantiate(piece.transform.GetChild(0).gameObject, leftPlaceholders[i].position, Quaternion.Euler(0, -90, 90));
-            leftPiece.GetComponent<NetworkObject>().Spawn();
-            leftPiece.transform.parent = piecesParent.transform;
-            leftPiece.transform.localScale = scale;
+            GameObject pair = Instantiate(piece.transform.gameObject, leftPlaceholders[i].position, Quaternion.identity);
+            NetworkObject pairNetwork = pair.GetComponent<NetworkObject>();
+            pairNetwork.Spawn();
+            pairNetwork.TrySetParent(ObjectsToHide);
+
+            GameObject leftPiece = piece.transform.GetChild(0).gameObject;
             leftPiece.name = piece.transform.GetChild(0).name;
+            leftPiece.transform.position = leftPlaceholders[i].position;
             leftPieces.Add(leftPiece);
 
-            GameObject rightPiece = Instantiate(piece.transform.GetChild(1).gameObject, rightPlaceholders[i].position, Quaternion.Euler(0, -90, 90));
-            rightPiece.GetComponent<NetworkObject>().Spawn();
-            rightPiece.transform.parent = piecesParent.transform;
-            rightPiece.transform.localScale = scale;
+            GameObject rightPiece = piece.transform.GetChild(1).gameObject;
             rightPiece.name = piece.transform.GetChild(1).name;
+            rightPiece.transform.position = rightPlaceholders[i].position;
             rightPieces.Add(rightPiece);
             i++;
         }

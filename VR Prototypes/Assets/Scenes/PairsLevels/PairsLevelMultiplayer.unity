@@ -45173,16 +45173,20 @@ MonoBehaviour:
   - {fileID: 2009011365}
   - {fileID: 1373916006}
   usedIndexes: 
-  pickPair: 0
-  randomIndex: 0
+  pickPair:
+    m_InternalValue: 0
   leftPieces: []
   rightPieces: []
-  isInLeftPlace: 0
-  isInRightPlace: 0
+  isInLeftPlace:
+    m_InternalValue: 0
+  isInRightPlace:
+    m_InternalValue: 0
   leftPieceMaterial: {fileID: 766568134}
   rightPieceMaterial: {fileID: 1894296032}
   setWinPanel: {fileID: 11400000, guid: ef33d6c9ab615ee43bd3d7ca065ce61a, type: 2}
   usedPieceIndexes: 
+  nextSceneName: 
+  ObjectsToHide: {fileID: 866028086}
 --- !u!1 &1472026051
 GameObject:
   m_ObjectHideFlags: 0
