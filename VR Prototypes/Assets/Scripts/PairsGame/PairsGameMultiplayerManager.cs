@@ -76,8 +76,7 @@ public class PairsGameMultiplayerManager : PairsListReader
         LoadPrefabsFromJSON();
         if(IsServer)
             AssignPlaceholders();
-        if(IsServer)
-            ChoosePair();
+        ChoosePair();
         //AssignPlaceholders();
     }
 
@@ -104,6 +103,9 @@ public class PairsGameMultiplayerManager : PairsListReader
 
     private void ChoosePair()
     {
+        if (!IsServer)
+            return;
+
         // Choose a random index from the remaining prefabs list
         if(jsonPrefabs.Count > 0 && !pickPair.Value)
         {
@@ -111,9 +113,9 @@ public class PairsGameMultiplayerManager : PairsListReader
             Debug.Log("choosePair");
             //randomIndex = random.Next(0, jsonPrefabs.Count);
             //Debug.Log(randomIndex);
-            gridPositions[0].name = leftPieces[jsonPrefabs.Count - 1].transform.name;
-            gridPositions[1].name = rightPieces[jsonPrefabs.Count - 1].transform.name;
-            SetPairToMakeMaterial();
+            gridPositions[0].name = leftPieces[jsonPrefabs.Count - 1].transform.name + "l";
+            gridPositions[1].name = rightPieces[jsonPrefabs.Count - 1].transform.name + "l";
+            SetPairToMakeMaterialClientRpc(leftPieces[jsonPrefabs.Count - 1].transform.name, rightPieces[jsonPrefabs.Count - 1].transform.name);
 
             //jsonPrefabs.RemoveAt(randomIndex);
             pickPair.Value = true;
@@ -126,17 +128,21 @@ public class PairsGameMultiplayerManager : PairsListReader
         }
     }
 
-    public void SetPairToMakeMaterial()
+
+    [ClientRpc]
+    public void SetPairToMakeMaterialClientRpc(string leftPieceName, string rightPieceName)
     {
-        Renderer leftRendererMaterials = leftPieces[jsonPrefabs.Count - 1].GetComponent<Renderer>();
+        Renderer leftRendererMaterials = GameObject.Find(leftPieceName).GetComponent<Renderer>();
         leftPieceMaterial.materials = leftRendererMaterials.sharedMaterials;
-        Renderer rightRendererMaterials = rightPieces[jsonPrefabs.Count - 1].GetComponent<Renderer>();
+        Renderer rightRendererMaterials = GameObject.Find(rightPieceName).GetComponent<Renderer>();
         rightPieceMaterial.materials = rightRendererMaterials.sharedMaterials;
+        Debug.Log(leftRendererMaterials.sharedMaterials);
+        Debug.Log(rightPieceName);
     }
 
     private void ComparePositions()
     {
-        if(Vector3.Distance(leftPieces[jsonPrefabs.Count - 1].transform.position, gridPositions[0].transform.position) < 0.02f && gridPositions[0].name == leftPieces[jsonPrefabs.Count - 1].transform.name && !isInLeftPlace.Value)
+        if(Vector3.Distance(leftPieces[jsonPrefabs.Count - 1].transform.position, gridPositions[0].transform.position) < 0.02f/* && gridPositions[0].name == leftPieces[jsonPrefabs.Count - 1].transform.name*/ && !isInLeftPlace.Value)
         {
             Debug.Log("leftPiece");
             leftPieces[jsonPrefabs.Count - 1].transform.position = gridPositions[0].transform.position;
@@ -149,7 +155,7 @@ public class PairsGameMultiplayerManager : PairsListReader
 
             isInLeftPlace.Value = true;
         }
-        if(Vector3.Distance(rightPieces[jsonPrefabs.Count - 1].transform.position, gridPositions[1].transform.position) < 0.02f && gridPositions[1].name == rightPieces[jsonPrefabs.Count - 1].transform.name && !isInRightPlace.Value)
+        if(Vector3.Distance(rightPieces[jsonPrefabs.Count - 1].transform.position, gridPositions[1].transform.position) < 0.02f/* && gridPositions[1].name == rightPieces[jsonPrefabs.Count - 1].transform.name */&& !isInRightPlace.Value)
         {
             Debug.Log("rightPiece");
             rightPieces[jsonPrefabs.Count - 1].transform.position = gridPositions[1].transform.position;
