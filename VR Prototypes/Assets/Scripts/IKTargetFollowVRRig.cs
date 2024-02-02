@@ -114,7 +114,7 @@ public class IKTargetFollowVRRig : NetworkBehaviour
         if (!IsOwner) return;
         if (playerPlatform.Value == Platform.Therapist)
         {
-            Debug.Log("entering here");
+           // Debug.Log("entering here");
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 ChangeCameraPosition(0);

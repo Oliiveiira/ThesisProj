@@ -129,9 +129,9 @@ public class PairsGameMultiplayerManager : PairsListReader
     public void SetPairToMakeMaterial()
     {
         Renderer leftRendererMaterials = leftPieces[jsonPrefabs.Count - 1].GetComponent<Renderer>();
-        leftPieceMaterial.materials = leftRendererMaterials.materials;
+        leftPieceMaterial.materials = leftRendererMaterials.sharedMaterials;
         Renderer rightRendererMaterials = rightPieces[jsonPrefabs.Count - 1].GetComponent<Renderer>();
-        rightPieceMaterial.materials = rightRendererMaterials.materials;
+        rightPieceMaterial.materials = rightRendererMaterials.sharedMaterials;
     }
 
     private void ComparePositions()
@@ -183,20 +183,22 @@ public class PairsGameMultiplayerManager : PairsListReader
         int i = 0;
         foreach(GameObject piece in jsonPrefabs)
         {
-            GameObject pair = Instantiate(piece.transform.gameObject, leftPlaceholders[i].position, Quaternion.identity);
+            GameObject pair = Instantiate(piece.transform.gameObject, leftPlaceholders[i].position, Quaternion.Euler(0, 0, 90));
+            pair.transform.localScale = leftPieceMaterial.transform.parent.lossyScale;
             NetworkObject pairNetwork = pair.GetComponent<NetworkObject>();
             pairNetwork.Spawn();
-            pairNetwork.TrySetParent(ObjectsToHide);
-
-            GameObject leftPiece = piece.transform.GetChild(0).gameObject;
-            leftPiece.name = piece.transform.GetChild(0).name;
+            GameObject leftPiece = pair.transform.GetChild(0).gameObject;
+            //leftPiece.name = piece.transform.GetChild(0).name;
             leftPiece.transform.position = leftPlaceholders[i].position;
+            //leftPiece.transform.localScale = leftPieceMaterial.transform.lossyScale * (10 * 0.65f);
             leftPieces.Add(leftPiece);
-
-            GameObject rightPiece = piece.transform.GetChild(1).gameObject;
-            rightPiece.name = piece.transform.GetChild(1).name;
+            Debug.Log(leftPlaceholders[i].position);
+            GameObject rightPiece = pair.transform.GetChild(1).gameObject;
+            //rightPiece.name = piece.transform.GetChild(1).name;
             rightPiece.transform.position = rightPlaceholders[i].position;
+           // rightPiece.transform.localScale = leftPieceMaterial.transform.localScale;
             rightPieces.Add(rightPiece);
+            //// pairNetwork.TrySetParent(ObjectsToHide);
             i++;
         }
     }
