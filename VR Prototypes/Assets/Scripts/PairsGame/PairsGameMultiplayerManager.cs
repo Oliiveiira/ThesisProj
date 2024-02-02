@@ -26,8 +26,6 @@ public class PairsGameMultiplayerManager : PairsListReader
     [SerializeField]
     private NetworkVariable<bool> pickPair;
     [SerializeField]
-    private NetworkVariable<int> randomPairIndex = new NetworkVariable<int>();
-    [SerializeField]
     private List<GameObject> leftPieces;
     [SerializeField]
     private List<GameObject> rightPieces;
@@ -76,7 +74,8 @@ public class PairsGameMultiplayerManager : PairsListReader
         LoadPrefabsFromJSON();
         if(IsServer)
             AssignPlaceholders();
-        ChoosePair();
+        if(IsServer)
+            ChoosePair();
         //AssignPlaceholders();
     }
 
@@ -86,17 +85,17 @@ public class PairsGameMultiplayerManager : PairsListReader
         {
             // Get the count of pair paths for the current index
             int pairPathCount = myPairsList.pairlevel.Count;
-            randomPairIndex.Value = random.Next(0, pairPathCount);
+            int randomPairIndex = random.Next(0, pairPathCount);
 
             do
             {
-                randomPairIndex.Value = random.Next(0, pairPathCount);
-            } while (usedIndexes.Contains(randomPairIndex.Value)); // Check if the index has been used before
+                randomPairIndex = random.Next(0, pairPathCount);
+            } while (usedIndexes.Contains(randomPairIndex)); // Check if the index has been used before
 
-            GameObject pairsToInstantiate = Resources.Load<GameObject>(myPairsList.pairlevel[randomPairIndex.Value].pairPath);
+            GameObject pairsToInstantiate = Resources.Load<GameObject>(myPairsList.pairlevel[randomPairIndex].pairPath);
             //guardar indexes que serão utilizados para dar load dos vários pares, para posteriormente escolher cada um recorrentemente
            
-            usedIndexes.Add(randomPairIndex.Value);
+            usedIndexes.Add(randomPairIndex);
             jsonPrefabs.Add(pairsToInstantiate);
         }
     }
@@ -173,6 +172,7 @@ public class PairsGameMultiplayerManager : PairsListReader
         }
     }
 
+    
     private void AssignPlaceholders()
     {
         ShuffleArray(leftPlaceholders);
@@ -182,12 +182,14 @@ public class PairsGameMultiplayerManager : PairsListReader
         foreach(GameObject piece in jsonPrefabs)
         {
             GameObject leftPiece = Instantiate(piece.transform.GetChild(0).gameObject, leftPlaceholders[i].position, Quaternion.Euler(0, -90, 90));
+            leftPiece.GetComponent<NetworkObject>().Spawn();
             leftPiece.transform.parent = piecesParent.transform;
             leftPiece.transform.localScale = scale;
             leftPiece.name = piece.transform.GetChild(0).name;
             leftPieces.Add(leftPiece);
 
             GameObject rightPiece = Instantiate(piece.transform.GetChild(1).gameObject, rightPlaceholders[i].position, Quaternion.Euler(0, -90, 90));
+            rightPiece.GetComponent<NetworkObject>().Spawn();
             rightPiece.transform.parent = piecesParent.transform;
             rightPiece.transform.localScale = scale;
             rightPiece.name = piece.transform.GetChild(1).name;
