@@ -2,6 +2,7 @@
 using Unity.Netcode;
 using UnityEngine.SceneManagement;
 using Oculus.Interaction.Input;
+using System.Collections.Generic;
 
 //[System.Serializable]
 //public class VRMap: NetworkBehaviour
@@ -43,6 +44,8 @@ public class IKTargetFollowVRRig : NetworkBehaviour
     public float headBodyYawOffset;
 
     public NetworkVariable<Platform> playerPlatform = new NetworkVariable<Platform>(Platform.Patient, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    public GameObject therapistSpawnLocs = null;
+    public Camera therapistCamera = null;
 
     // Start is called before the first frame update
     public override void OnNetworkSpawn()
@@ -59,7 +62,11 @@ public class IKTargetFollowVRRig : NetworkBehaviour
 
         playerPlatform.Value = PlatformPicker.localPlatform;
 
-        if (PlatformPicker.localPlatform == Platform.Therapist) return;
+        if (PlatformPicker.localPlatform == Platform.Therapist) {
+            therapistSpawnLocs = GameObject.Find("TherapistSpawnLocs");
+            therapistCamera = GameObject.Find("TherapistCamera").GetComponent<Camera>();
+            return;
+        }
 
         myXRRig = GameObject.Find("InputOVR");
         if (myXRRig) Debug.Log("Found InputOVR");
@@ -102,6 +109,24 @@ public class IKTargetFollowVRRig : NetworkBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (!IsOwner) return;
+        if (playerPlatform.Value == Platform.Therapist)
+        {
+            Debug.Log("entering here");
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                ChangeCameraPosition(0);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                ChangeCameraPosition(1);
+            }
+            return;
+        }
+    }
+
     [ServerRpc]
     void ShowAvatarServerRpc(ServerRpcParams rpcParams = default)
     {
@@ -127,8 +152,8 @@ public class IKTargetFollowVRRig : NetworkBehaviour
     void LateUpdate()
     {
         if (!IsOwner) return;
-        if (!myXRRig) return;
         if (playerPlatform.Value == Platform.Therapist) return;
+        if (!myXRRig) return;
 
         //transform.position = head.ikTarget.position + headBodyPositionOffset;
         transform.position = headIKTarget.position + headBodyPositionOffset;
@@ -147,7 +172,12 @@ public class IKTargetFollowVRRig : NetworkBehaviour
     {
         Debug.Log($"{clientId} - ChangeScene");
         if (!IsOwner) return;
-        if (PlatformPicker.localPlatform == Platform.Therapist) return;
+        if (PlatformPicker.localPlatform == Platform.Therapist)
+        {
+            therapistSpawnLocs = GameObject.Find("TherapistSpawnLocs");
+            therapistCamera = GameObject.Find("TherapistCamera").GetComponent<Camera>();
+            return;
+        }
 
         myXRRig = GameObject.Find("InputOVR");
         if (myXRRig) Debug.Log("Found InputOVR");
@@ -172,5 +202,11 @@ public class IKTargetFollowVRRig : NetworkBehaviour
         myXRRig.transform.parent.position = spawnLocations.transform.GetChild((int)NetworkManager.LocalClientId % spawnLocations.transform.childCount).position;
         myXRRig.transform.parent.rotation = spawnLocations.transform.GetChild((int)NetworkManager.LocalClientId % spawnLocations.transform.childCount).rotation;
         Debug.Log($"Spawned to location {spawnLocations.transform.GetChild((int)NetworkManager.LocalClientId % spawnLocations.transform.childCount).position} and rotation {spawnLocations.transform.GetChild((int)NetworkManager.LocalClientId % spawnLocations.transform.childCount).rotation}");
+    }
+
+    public void ChangeCameraPosition(int index) 
+    {
+        therapistCamera.transform.position = therapistSpawnLocs.transform.GetChild(index).position;
+        therapistCamera.transform.rotation = therapistSpawnLocs.transform.GetChild(index).rotation;
     }
 }
