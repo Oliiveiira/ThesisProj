@@ -42,6 +42,8 @@ public class IKTargetFollowVRRig : NetworkBehaviour
     public Vector3 headBodyPositionOffset;
     public float headBodyYawOffset;
 
+    public NetworkVariable<Platform> playerPlatform = new NetworkVariable<Platform>(Platform.Patient, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+
     // Start is called before the first frame update
     public override void OnNetworkSpawn()
     {
@@ -54,6 +56,10 @@ public class IKTargetFollowVRRig : NetworkBehaviour
             transform.name = "Client:" + myID; //this must be the client 
 
         if (!IsOwner) return;
+
+        playerPlatform.Value = PlatformPicker.localPlatform;
+
+        if (PlatformPicker.localPlatform == Platform.Therapist) return;
 
         myXRRig = GameObject.Find("InputOVR");
         if (myXRRig) Debug.Log("Found InputOVR");
@@ -84,7 +90,7 @@ public class IKTargetFollowVRRig : NetworkBehaviour
 
     private void Start()
     {
-        if (IsLocalPlayer)
+        if (IsLocalPlayer || playerPlatform.Value == Platform.Therapist)
         {
             // If this is the local player, hide the avatar for their own vision
             avatarRenderer.enabled = false;
@@ -122,6 +128,7 @@ public class IKTargetFollowVRRig : NetworkBehaviour
     {
         if (!IsOwner) return;
         if (!myXRRig) return;
+        if (playerPlatform.Value == Platform.Therapist) return;
 
         //transform.position = head.ikTarget.position + headBodyPositionOffset;
         transform.position = headIKTarget.position + headBodyPositionOffset;
@@ -140,6 +147,7 @@ public class IKTargetFollowVRRig : NetworkBehaviour
     {
         Debug.Log($"{clientId} - ChangeScene");
         if (!IsOwner) return;
+        if (PlatformPicker.localPlatform == Platform.Therapist) return;
 
         myXRRig = GameObject.Find("InputOVR");
         if (myXRRig) Debug.Log("Found InputOVR");
