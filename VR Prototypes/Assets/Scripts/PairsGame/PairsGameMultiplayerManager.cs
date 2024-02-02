@@ -214,6 +214,7 @@ public class PairsGameMultiplayerManager : PairsListReader
         yield return new WaitForSeconds(2);
         leftPieces[lastRandomIndex].SetActive(false);
         rightPieces[lastRandomIndex].SetActive(false);
+        Destroy(leftPieces[lastRandomIndex].transform.parent.gameObject);
     }
 
     [ClientRpc]
