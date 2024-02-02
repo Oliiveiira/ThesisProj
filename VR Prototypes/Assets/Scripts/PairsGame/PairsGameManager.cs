@@ -1,14 +1,12 @@
 using Oculus.Interaction.HandGrab;
+using RoboRyanTron.Unite2017.Events;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using Random = System.Random;
-using RoboRyanTron.Unite2017.Events;
-using Unity.Netcode;
-using UnityEngine.SceneManagement;
 
-public class PairsGameMultiplayerManager : PairsListReader
+public class PairsGameManager : PairsListReader
 {
     public List<GameObject> pairsObjects;
     public List<GameObject> jsonPrefabs = new List<GameObject>();
@@ -24,15 +22,15 @@ public class PairsGameMultiplayerManager : PairsListReader
     [SerializeField]
     private List<int> usedIndexes;
     [SerializeField]
-    private NetworkVariable<bool> pickPair;
+    private bool pickPair;
     [SerializeField]
-    private NetworkVariable<int> randomPairIndex = new NetworkVariable<int>();
+    private int randomIndex;
     [SerializeField]
     private List<GameObject> leftPieces;
     [SerializeField]
     private List<GameObject> rightPieces;
-    public NetworkVariable<bool> isInLeftPlace;
-    public NetworkVariable<bool> isInRightPlace;
+    public bool isInLeftPlace;
+    public bool isInRightPlace;
     private AudioSource popSound;
     [SerializeField]
     private Renderer leftPieceMaterial;
@@ -43,8 +41,6 @@ public class PairsGameMultiplayerManager : PairsListReader
     private GameEvent setWinPanel;
     [SerializeField]
     private List<int> usedPieceIndexes;
-    [SerializeField]
-    private string nextSceneName;
 
     private void Awake()
     {
@@ -59,7 +55,7 @@ public class PairsGameMultiplayerManager : PairsListReader
         //}
     }
 
-   
+
 
     // Start is called before the first frame update
     void Start()
@@ -74,8 +70,7 @@ public class PairsGameMultiplayerManager : PairsListReader
         popSound = GetComponent<AudioSource>();
 
         LoadPrefabsFromJSON();
-        if(IsServer)
-            AssignPlaceholders();
+        AssignPlaceholders();
         ChoosePair();
         //AssignPlaceholders();
     }
@@ -86,17 +81,17 @@ public class PairsGameMultiplayerManager : PairsListReader
         {
             // Get the count of pair paths for the current index
             int pairPathCount = myPairsList.pairlevel.Count;
-            randomPairIndex.Value = random.Next(0, pairPathCount);
+            int randomPairIndex = random.Next(0, pairPathCount);
 
             do
             {
-                randomPairIndex.Value = random.Next(0, pairPathCount);
-            } while (usedIndexes.Contains(randomPairIndex.Value)); // Check if the index has been used before
+                randomPairIndex = random.Next(0, pairPathCount);
+            } while (usedIndexes.Contains(randomPairIndex)); // Check if the index has been used before
 
-            GameObject pairsToInstantiate = Resources.Load<GameObject>(myPairsList.pairlevel[randomPairIndex.Value].pairPath);
+            GameObject pairsToInstantiate = Resources.Load<GameObject>(myPairsList.pairlevel[randomPairIndex].pairPath);
             //guardar indexes que serão utilizados para dar load dos vários pares, para posteriormente escolher cada um recorrentemente
-           
-            usedIndexes.Add(randomPairIndex.Value);
+
+            usedIndexes.Add(randomPairIndex);
             jsonPrefabs.Add(pairsToInstantiate);
         }
     }
@@ -104,24 +99,23 @@ public class PairsGameMultiplayerManager : PairsListReader
     private void ChoosePair()
     {
         // Choose a random index from the remaining prefabs list
-        if(jsonPrefabs.Count > 0 && !pickPair.Value)
+        if (jsonPrefabs.Count > 0 && !pickPair)
         {
             Debug.Log(jsonPrefabs.Count - 1);
             Debug.Log("choosePair");
-            //randomIndex = random.Next(0, jsonPrefabs.Count);
-            //Debug.Log(randomIndex);
+            randomIndex = random.Next(0, jsonPrefabs.Count);
+            Debug.Log(randomIndex);
             gridPositions[0].name = leftPieces[jsonPrefabs.Count - 1].transform.name;
             gridPositions[1].name = rightPieces[jsonPrefabs.Count - 1].transform.name;
             SetPairToMakeMaterial();
 
             //jsonPrefabs.RemoveAt(randomIndex);
-            pickPair.Value = true;
+            pickPair = true;
         }
         else
         {
             Debug.Log("Winner!");
-            // setWinPanel.Raise();
-            RaiseWinPanelClientRPC();
+            setWinPanel.Raise();
         }
     }
 
@@ -135,7 +129,7 @@ public class PairsGameMultiplayerManager : PairsListReader
 
     private void ComparePositions()
     {
-        if(Vector3.Distance(leftPieces[jsonPrefabs.Count - 1].transform.position, gridPositions[0].transform.position) < 0.02f && gridPositions[0].name == leftPieces[jsonPrefabs.Count - 1].transform.name && !isInLeftPlace.Value)
+        if (Vector3.Distance(leftPieces[jsonPrefabs.Count - 1].transform.position, gridPositions[0].transform.position) < 0.02f && gridPositions[0].name == leftPieces[jsonPrefabs.Count - 1].transform.name && !isInLeftPlace)
         {
             Debug.Log("leftPiece");
             leftPieces[jsonPrefabs.Count - 1].transform.position = gridPositions[0].transform.position;
@@ -146,9 +140,9 @@ public class PairsGameMultiplayerManager : PairsListReader
                 handGrabInteractable.enabled = false;
             }
 
-            isInLeftPlace.Value = true;
+            isInLeftPlace = true;
         }
-        if(Vector3.Distance(rightPieces[jsonPrefabs.Count - 1].transform.position, gridPositions[1].transform.position) < 0.02f && gridPositions[1].name == rightPieces[jsonPrefabs.Count - 1].transform.name && !isInRightPlace.Value)
+        if (Vector3.Distance(rightPieces[jsonPrefabs.Count - 1].transform.position, gridPositions[1].transform.position) < 0.02f && gridPositions[1].name == rightPieces[jsonPrefabs.Count - 1].transform.name && !isInRightPlace)
         {
             Debug.Log("rightPiece");
             rightPieces[jsonPrefabs.Count - 1].transform.position = gridPositions[1].transform.position;
@@ -159,16 +153,16 @@ public class PairsGameMultiplayerManager : PairsListReader
                 handGrabInteractable.enabled = false;
             }
 
-            isInRightPlace.Value = true;
+            isInRightPlace = true;
         }
-        if(isInLeftPlace.Value && isInRightPlace.Value && pickPair.Value)
+        if (isInLeftPlace && isInRightPlace && pickPair)
         {
-            isInLeftPlace.Value = false;
-            isInRightPlace.Value = false;
+            isInLeftPlace = false;
+            isInRightPlace = false;
             Debug.Log("Entrou aqui");
             StartCoroutine(DeactivatePair(jsonPrefabs.Count - 1));
             jsonPrefabs.RemoveAt(jsonPrefabs.Count - 1);
-            pickPair.Value = false;
+            pickPair = false;
             ChoosePair();
         }
     }
@@ -179,7 +173,7 @@ public class PairsGameMultiplayerManager : PairsListReader
         ShuffleArray(rightPlaceholders);
 
         int i = 0;
-        foreach(GameObject piece in jsonPrefabs)
+        foreach (GameObject piece in jsonPrefabs)
         {
             GameObject leftPiece = Instantiate(piece.transform.GetChild(0).gameObject, leftPlaceholders[i].position, Quaternion.Euler(0, -90, 90));
             leftPiece.transform.parent = piecesParent.transform;
@@ -203,12 +197,6 @@ public class PairsGameMultiplayerManager : PairsListReader
         rightPieces[lastRandomIndex].SetActive(false);
     }
 
-    [ClientRpc]
-    public void RaiseWinPanelClientRPC()
-    {
-        setWinPanel.Raise();
-    }
-
     public static void ShuffleArray<T>(T[] array)
     {
         Random random = new Random();
@@ -224,49 +212,11 @@ public class PairsGameMultiplayerManager : PairsListReader
         }
     }
 
-    [ClientRpc]
-    private void DisableInteractableClientRpc()
-    {
-        popSound.Play();
-        HandGrabInteractable handGrabInteractable = rightPieces[jsonPrefabs.Count - 1].GetComponent<HandGrabInteractable>();
-        if (handGrabInteractable != null)
-        {
-            handGrabInteractable.enabled = false;
-        }
-    }
-
-    [ServerRpc(RequireOwnership = false)]
-    public void NextLevelServerRPC()
-    {
-        NetworkManager.SceneManager.LoadScene(nextSceneName, LoadSceneMode.Single);
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if(IsOwner)
-            ComparePositions();
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SetClientOwnershipServerRPC();
-        }
+        ComparePositions();
     }
-
-    [ServerRpc(RequireOwnership = false)]
-    public void SetClientOwnershipServerRPC(ServerRpcParams serverRpcParams = default)
-    {
-        var clientId = serverRpcParams.Receive.SenderClientId;
-        if (NetworkManager.ConnectedClients.ContainsKey(clientId))
-        {
-            var client = NetworkManager.ConnectedClients[clientId];
-            GetComponent<NetworkObject>().ChangeOwnership(clientId);
-            Debug.Log("Client is now the owner");
-        }
-        else
-        {
-            Debug.Log("not working");
-        }
-    }
-
 }
