@@ -46,6 +46,8 @@ public class IKTargetFollowVRRig : NetworkBehaviour
     public NetworkVariable<Platform> playerPlatform = new NetworkVariable<Platform>(Platform.Patient, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
     public GameObject therapistSpawnLocs = null;
     public Camera therapistCamera = null;
+    public int currentIndex = 0;
+    public GameObject headFollowing = null;
 
     // Start is called before the first frame update
     public override void OnNetworkSpawn()
@@ -87,7 +89,7 @@ public class IKTargetFollowVRRig : NetworkBehaviour
         Debug.Log(rightVRTarget);
         headVRTarget = centerEyeAnchor.transform.GetChild(2);
         Debug.Log(headVRTarget);
-        
+
         GameObject spawnLocations = GameObject.Find("SpawnLocations");
         myXRRig.transform.parent.position = spawnLocations.transform.GetChild((int)NetworkManager.LocalClientId % spawnLocations.transform.childCount).position;
         myXRRig.transform.parent.rotation = spawnLocations.transform.GetChild((int)NetworkManager.LocalClientId % spawnLocations.transform.childCount).rotation;
@@ -114,7 +116,7 @@ public class IKTargetFollowVRRig : NetworkBehaviour
         if (!IsOwner) return;
         if (playerPlatform.Value == Platform.Therapist)
         {
-           // Debug.Log("entering here");
+            // Debug.Log("entering here");
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 ChangeCameraPosition(0);
@@ -122,6 +124,11 @@ public class IKTargetFollowVRRig : NetworkBehaviour
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 ChangeCameraPosition(1);
+            }
+            if (headFollowing != null) 
+            {
+                therapistCamera.transform.position = headFollowing.transform.position;
+                therapistCamera.transform.rotation = headFollowing.transform.rotation;
             }
             return;
         }
@@ -204,9 +211,43 @@ public class IKTargetFollowVRRig : NetworkBehaviour
         Debug.Log($"Spawned to location {spawnLocations.transform.GetChild((int)NetworkManager.LocalClientId % spawnLocations.transform.childCount).position} and rotation {spawnLocations.transform.GetChild((int)NetworkManager.LocalClientId % spawnLocations.transform.childCount).rotation}");
     }
 
-    public void ChangeCameraPosition(int index) 
+    public void ChangeCameraPosition(int index)
     {
-        therapistCamera.transform.position = therapistSpawnLocs.transform.GetChild(index).position;
-        therapistCamera.transform.rotation = therapistSpawnLocs.transform.GetChild(index).rotation;
+        currentIndex = index;
+        if (index <= 1)
+        {
+            therapistCamera.transform.position = therapistSpawnLocs.transform.GetChild(index).position;
+            therapistCamera.transform.rotation = therapistSpawnLocs.transform.GetChild(index).rotation;
+            headIKTarget = null;
+            return;
+        }
+        GetPlayerHeadTargetServerRpc(index - 2, NetworkManager.Singleton.LocalClientId);
+    }
+
+    [ServerRpc]
+    public void GetPlayerHeadTargetServerRpc(int targetId, ulong clientId)
+    {
+        ClientRpcParams clientRpcParams = new ClientRpcParams
+        {
+            Send = new ClientRpcSendParams
+            {
+                TargetClientIds = new ulong[] { (ulong)clientId }
+            }
+        };
+
+        NetworkBehaviourReference playerTarget = new NetworkBehaviourReference(NetworkManager.ConnectedClientsList[targetId].PlayerObject.GetComponent<NetworkBehaviour>());
+        SetPlayerHeadTargetClientRpc(playerTarget, clientRpcParams);
+    }
+
+    [ClientRpc]
+    public void SetPlayerHeadTargetClientRpc(NetworkBehaviourReference playerTarget, ClientRpcParams clientRpcParams = default)
+    {
+        if (!IsOwner) return;
+        NetworkBehaviour playerNetwork;
+        if (playerTarget.TryGet<NetworkBehaviour>(out playerNetwork)) 
+        {
+            headFollowing = playerNetwork.gameObject.transform.GetChild(1).GetChild(2).GetChild(0).gameObject;
+        }
+        Debug.Log("Failed to get Network Player");
     }
 }
