@@ -218,7 +218,7 @@ public class IKTargetFollowVRRig : NetworkBehaviour
         {
             therapistCamera.transform.position = therapistSpawnLocs.transform.GetChild(index).position;
             therapistCamera.transform.rotation = therapistSpawnLocs.transform.GetChild(index).rotation;
-            headIKTarget = null;
+            headFollowing = null;
             return;
         }
         GetPlayerHeadTargetServerRpc(index - 2, NetworkManager.Singleton.LocalClientId);
