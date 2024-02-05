@@ -206,7 +206,10 @@ public class IKTargetFollowVRRig : NetworkBehaviour
 
     public void ChangeCameraPosition(int index) 
     {
-        therapistCamera.transform.position = therapistSpawnLocs.transform.GetChild(index).position;
-        therapistCamera.transform.rotation = therapistSpawnLocs.transform.GetChild(index).rotation;
+        if (index <= 1) 
+        { 
+            therapistCamera.transform.position = therapistSpawnLocs.transform.GetChild(index).position;
+            therapistCamera.transform.rotation = therapistSpawnLocs.transform.GetChild(index).rotation;
+        }
     }
 }
