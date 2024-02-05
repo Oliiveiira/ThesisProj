@@ -45946,7 +45946,7 @@ MonoBehaviour:
   - {fileID: 219178502}
   - {fileID: 1839435005}
   winSound: {fileID: 1470748104}
-  nextSceneName: Puzzle3DLevelMultiPlayer
+  nextSceneName: PuzzleLevelMultiplayerTest
   gameHasStarted:
     m_InternalValue: 0
   currentTime:
@@ -57817,7 +57817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 525b4573b2de87a4eb7ed38956b2c3dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  choosenPlatform: 0
+  choosenPlatform: 1
 --- !u!4 &1868055961
 Transform:
   m_ObjectHideFlags: 0
@@ -66994,7 +66994,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.15
   far clip plane: 1000
   field of view: 60
   orthographic: 0
