@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
-public class StaticLevelsListReader : MonoBehaviour
+public class StaticLevelsListReader : NetworkBehaviour
 {
     public Sprite[] allSprites;
     public TextAsset recipeJSON;
