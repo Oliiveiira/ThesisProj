@@ -106,8 +106,9 @@ public class IKTargetFollowVRRig : NetworkBehaviour
         }
         else
         {
+            avatarRenderer.enabled = true;
             // If this is a remote player, request the server to show their avatar
-            ShowAvatarServerRpc();
+          //  ShowAvatarServerRpc();
         }
     }
 
