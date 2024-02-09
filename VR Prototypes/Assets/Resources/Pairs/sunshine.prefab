@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 2131752919629860738}
   - component: {fileID: 2131752919629860739}
   - component: {fileID: 2131752919629860748}
+  - component: {fileID: 6800827808552756193}
   m_Layer: 0
   m_Name: sunshine1
   m_TagString: Untagged
@@ -366,6 +367,18 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &6800827808552756193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131752919629860749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbe1e2b93a4f9c24db1b4ce47cc0fa3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7377490879750138859
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,6 +399,7 @@ GameObject:
   - component: {fileID: 3905488402321717442}
   - component: {fileID: 3905488402321717443}
   - component: {fileID: 3905488402321717452}
+  - component: {fileID: 586964945985308374}
   m_Layer: 0
   m_Name: sunshine2
   m_TagString: Untagged
@@ -732,6 +746,18 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &586964945985308374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7377490879750138859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbe1e2b93a4f9c24db1b4ce47cc0fa3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8103794170954909602
 GameObject:
   m_ObjectHideFlags: 0

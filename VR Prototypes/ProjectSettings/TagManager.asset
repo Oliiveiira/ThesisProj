@@ -19,6 +19,7 @@ TagManager:
   - PuzzlePlace
   - QRCode
   - Phone
+  - leftPiece
   layers:
   - Default
   - TransparentFX

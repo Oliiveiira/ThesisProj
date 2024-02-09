@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 363842827898694970}
   - component: {fileID: 6964576857101544237}
   - component: {fileID: 726763051382347552}
+  - component: {fileID: 554604296923850801}
   m_Layer: 0
   m_Name: airplane2
   m_TagString: Untagged
@@ -366,6 +367,18 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &554604296923850801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6132951410835463038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbe1e2b93a4f9c24db1b4ce47cc0fa3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8586523477666487405
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,6 +453,7 @@ GameObject:
   - component: {fileID: 4964152427462265455}
   - component: {fileID: 6333605199544702829}
   - component: {fileID: 2836739873067823636}
+  - component: {fileID: 5490369653332764207}
   m_Layer: 0
   m_Name: airplane1
   m_TagString: Untagged
@@ -786,3 +800,15 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &5490369653332764207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9101709508597166487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbe1e2b93a4f9c24db1b4ce47cc0fa3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

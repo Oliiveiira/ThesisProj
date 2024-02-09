@@ -1216,6 +1216,12 @@ MonoBehaviour:
   turnSmoothness: 0.1
   headBodyPositionOffset: {x: 0, y: -1.54, z: 0}
   headBodyYawOffset: 0
+  playerPlatform:
+    m_InternalValue: 0
+  therapistSpawnLocs: {fileID: 0}
+  therapistCamera: {fileID: 0}
+  currentIndex: 0
+  headFollowing: {fileID: 0}
 --- !u!114 &6459986056491599744
 MonoBehaviour:
   m_ObjectHideFlags: 0

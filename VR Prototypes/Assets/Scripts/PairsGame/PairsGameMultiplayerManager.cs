@@ -180,11 +180,13 @@ public class PairsGameMultiplayerManager : PairsListReader
         }
     }
 
-    
     private void AssignPlaceholders()
     {
         ShuffleArray(leftPlaceholders);
         ShuffleArray(rightPlaceholders);
+
+        Debug.Log(NetworkManager.ConnectedClientsList[0].PlayerObject.name);
+      //  Debug.Log(NetworkManager.ConnectedClientsList[1].PlayerObject.name);
 
         int i = 0;
         foreach(GameObject piece in jsonPrefabs)
@@ -196,16 +198,30 @@ public class PairsGameMultiplayerManager : PairsListReader
             GameObject leftPiece = pair.transform.GetChild(0).gameObject;
             //leftPiece.name = piece.transform.GetChild(0).name;
             leftPiece.transform.position = leftPlaceholders[i].position;
+            //NetworkManager.AddNetworkPrefab(leftPiece);
+            NetworkManager.ConnectedClientsList[1].OwnedObjects.Add(leftPiece.GetComponent<NetworkObject>());
+            //NetworkManager.ConnectedClientsList[0].OwnedObjects.Remove(leftPiece.GetComponent<NetworkObject>());
+            leftPiece.tag = "leftPiece";
             //leftPiece.transform.localScale = leftPieceMaterial.transform.lossyScale * (10 * 0.65f);
             leftPieces.Add(leftPiece);
             Debug.Log(leftPlaceholders[i].position);
             GameObject rightPiece = pair.transform.GetChild(1).gameObject;
             //rightPiece.name = piece.transform.GetChild(1).name;
             rightPiece.transform.position = rightPlaceholders[i].position;
-           // rightPiece.transform.localScale = leftPieceMaterial.transform.localScale;
+           // NetworkManager.ConnectedClientsList[1].OwnedObjects.Add(rightPiece.GetComponent<NetworkObject>());
+           // NetworkManager.ConnectedClientsList[0].OwnedObjects.Remove(rightPiece.GetComponent<NetworkObject>());
+            // rightPiece.transform.localScale = leftPieceMaterial.transform.localScale;
             rightPieces.Add(rightPiece);
             //// pairNetwork.TrySetParent(ObjectsToHide);
             i++;
+        }
+        foreach (var networkObject in NetworkManager.ConnectedClientsList[0].OwnedObjects)
+        {
+            Debug.Log(networkObject.ToString());
+        }
+        foreach (var networkObject in NetworkManager.ConnectedClientsList[1].OwnedObjects)
+        {
+            Debug.Log(networkObject.ToString());
         }
     }
 
