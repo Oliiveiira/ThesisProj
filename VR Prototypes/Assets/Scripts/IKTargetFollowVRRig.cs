@@ -48,6 +48,7 @@ public class IKTargetFollowVRRig : NetworkBehaviour
     public Camera therapistCamera = null;
     public int currentIndex = 0;
     public GameObject headFollowing = null;
+    public GameObject arrow = null;
 
     // Start is called before the first frame update
     public override void OnNetworkSpawn()
@@ -131,6 +132,13 @@ public class IKTargetFollowVRRig : NetworkBehaviour
                 therapistCamera.transform.position = headFollowing.transform.position;
                 therapistCamera.transform.rotation = headFollowing.transform.rotation;
             }
+            if ((Input.touchCount > 0 || Input.GetMouseButtonDown(0)) && currentIndex == 1) 
+            {
+                Vector3 placeToMove = therapistCamera.ScreenToWorldPoint(Input.mousePosition);
+                //Vector3 placeToMove = therapistCamera.ScreenToWorldPoint(Input.GetTouch(0));
+                placeToMove.y = 1.0f;
+                SpawnArrowServerRpc(placeToMove);
+            }
             return;
         }
     }
@@ -140,6 +148,19 @@ public class IKTargetFollowVRRig : NetworkBehaviour
     {
         // Show the avatar on the server
         avatarRenderer.enabled = true;
+    }
+
+    [ServerRpc]
+    void SpawnArrowServerRpc(Vector3 placeToMove)
+    {
+        Debug.Log("here");
+        if (arrow != null) 
+        {
+            arrow = Instantiate(arrow, placeToMove, Quaternion.identity);
+            arrow.GetComponent<NetworkObject>().Spawn();
+            return;
+        }
+        arrow.transform.position = placeToMove;
     }
 
     public void Map()
