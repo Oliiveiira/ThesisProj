@@ -49,6 +49,12 @@ public class IKTargetFollowVRRig : NetworkBehaviour
     public int currentIndex = 0;
     public GameObject headFollowing = null;
     public GameObject arrow = null;
+    public GameObject arrowPrefab = null;
+
+    public void Awake()
+    {
+        arrowPrefab = Resources.Load<GameObject>("Arrow");
+    }
 
     // Start is called before the first frame update
     public override void OnNetworkSpawn()
@@ -134,9 +140,11 @@ public class IKTargetFollowVRRig : NetworkBehaviour
             }
             if ((Input.touchCount > 0 || Input.GetMouseButtonDown(0)) && currentIndex == 1) 
             {
-                Vector3 placeToMove = therapistCamera.ScreenToWorldPoint(Input.mousePosition);
+                Vector3 placeToMove = therapistCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, therapistCamera.nearClipPlane));
                 //Vector3 placeToMove = therapistCamera.ScreenToWorldPoint(Input.GetTouch(0));
-                placeToMove.y = 1.0f;
+                placeToMove.y = 0.6f;
+                Debug.Log(placeToMove);
+                Debug.Log(Input.mousePosition);
                 SpawnArrowServerRpc(placeToMove);
             }
             return;
@@ -154,12 +162,16 @@ public class IKTargetFollowVRRig : NetworkBehaviour
     void SpawnArrowServerRpc(Vector3 placeToMove)
     {
         Debug.Log("here");
-        if (arrow != null) 
+        if (arrow == null) 
         {
-            arrow = Instantiate(arrow, placeToMove, Quaternion.identity);
+            arrow = Instantiate(arrowPrefab, placeToMove, Quaternion.identity);
             arrow.GetComponent<NetworkObject>().Spawn();
             return;
         }
+        Debug.Log("movement only here");
+        Debug.Log(arrow);
+        Debug.Log(placeToMove);
+
         arrow.transform.position = placeToMove;
     }
 
