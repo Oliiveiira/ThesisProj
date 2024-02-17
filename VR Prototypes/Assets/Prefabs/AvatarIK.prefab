@@ -875,10 +875,10 @@ GameObject:
   - component: {fileID: 336916007610741273}
   - component: {fileID: 336916007610741274}
   - component: {fileID: 336916007610741275}
-  - component: {fileID: 841538378441220718}
   - component: {fileID: 2340966435789263927}
   - component: {fileID: 6325189711279310875}
   - component: {fileID: 6459986056491599744}
+  - component: {fileID: -477491481348328860}
   m_Layer: 0
   m_Name: AvatarIK
   m_TagString: Untagged
@@ -1017,7 +1017,70 @@ SkinnedMeshRenderer:
   - {fileID: 5562676489018972611}
   - {fileID: 4469209845431330376}
   - {fileID: 2542676164584559701}
-  m_BlendShapeWeights: []
+  m_BlendShapeWeights:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   m_RootBone: {fileID: 565841901352263161}
   m_AABB:
     m_Center: {x: -0.00000066682696, y: 0.0011093435, z: 0.00020385126}
@@ -1145,26 +1208,6 @@ MonoBehaviour:
   - m_Rig: {fileID: 8030458224799250553}
     m_Active: 1
   m_Effectors: []
---- !u!114 &841538378441220718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3978907146834640633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 951099334
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  SpawnWithObservers: 1
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
 --- !u!114 &2340966435789263927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1222,6 +1265,7 @@ MonoBehaviour:
   therapistCamera: {fileID: 0}
   currentIndex: 0
   headFollowing: {fileID: 0}
+  arrow: {fileID: 0}
 --- !u!114 &6459986056491599744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1288,6 +1332,26 @@ MonoBehaviour:
         m_Flags: 0
       m_Reference: {fileID: 6558622148059887818, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   animator: {fileID: 336916007610741274}
+--- !u!114 &-477491481348328860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3978907146834640633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &4224464850023859929
 GameObject:
   m_ObjectHideFlags: 0
@@ -1918,8 +1982,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6165520601415709792}
-  m_LocalRotation: {x: -0, y: 0.0000000011641538, z: -0.0000000029336666, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.656613e-10, z: -0.0000000018822521}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2570,9 +2634,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8030458224799250554}
-  m_LocalRotation: {x: 0.7071068, y: -0.0000000012512349, z: -0.0000000028975966, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.0100000035, z: 0.0100000035}
+  m_LocalRotation: {x: 0.7071069, y: -0, z: -0, w: 0.70710677}
+  m_LocalPosition: {x: 0, y: 4.656613e-10, z: -0.0000000018822521}
+  m_LocalScale: {x: 0.010000001, y: 0.010000001, z: 0.0100000035}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8030458224825325095}
