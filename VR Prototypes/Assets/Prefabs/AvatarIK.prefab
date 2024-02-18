@@ -1266,6 +1266,7 @@ MonoBehaviour:
   currentIndex: 0
   headFollowing: {fileID: 0}
   arrow: {fileID: 0}
+  arrowPrefab: {fileID: 0}
 --- !u!114 &6459986056491599744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2578,7 +2579,7 @@ MonoBehaviour:
       m_Length: 1
       m_Item0:
         transform: {fileID: 8030458225385525531}
-        weight: 1
+        weight: 0.5
       m_Item1:
         transform: {fileID: 0}
         weight: 0

@@ -194,13 +194,14 @@ public class PairsGameMultiplayerManager : PairsListReader
             GameObject pair = Instantiate(piece.transform.gameObject, leftPlaceholders[i].position, Quaternion.Euler(0, 0, 90));
             pair.transform.localScale = leftPieceMaterial.transform.parent.lossyScale;
             NetworkObject pairNetwork = pair.GetComponent<NetworkObject>();
-            pairNetwork.Spawn();
+            //pairNetwork.Spawn();
+            pairNetwork.SpawnWithOwnership(1);
             GameObject leftPiece = pair.transform.GetChild(0).gameObject;
             //leftPiece.name = piece.transform.GetChild(0).name;
             leftPiece.transform.position = leftPlaceholders[i].position;
             //NetworkManager.AddNetworkPrefab(leftPiece);
-            NetworkManager.ConnectedClientsList[1].OwnedObjects.Add(leftPiece.GetComponent<NetworkObject>());
-            //NetworkManager.ConnectedClientsList[0].OwnedObjects.Remove(leftPiece.GetComponent<NetworkObject>());
+            // NetworkManager.ConnectedClientsList[1].OwnedObjects.Add(leftPiece.GetComponent<NetworkObject>());
+           // NetworkManager.ConnectedClientsList[0].OwnedObjects.Remove(pairNetwork.GetComponent<NetworkObject>());
             leftPiece.tag = "leftPiece";
             //leftPiece.transform.localScale = leftPieceMaterial.transform.lossyScale * (10 * 0.65f);
             leftPieces.Add(leftPiece);
