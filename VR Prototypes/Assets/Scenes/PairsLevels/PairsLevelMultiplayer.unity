@@ -45290,6 +45290,9 @@ MonoBehaviour:
   usedPieceIndexes: 
   nextSceneName: PuzzleMultiplayerHub
   ObjectsToHide: {fileID: 866028086}
+  currentTime:
+    m_InternalValue: 0
+  timer: {fileID: 965779201}
 --- !u!1 &1472026051
 GameObject:
   m_ObjectHideFlags: 0
