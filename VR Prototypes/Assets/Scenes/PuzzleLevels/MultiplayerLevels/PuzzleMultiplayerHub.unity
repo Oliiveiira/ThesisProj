@@ -47647,7 +47647,7 @@ MonoBehaviour:
   - {fileID: 219178502}
   - {fileID: 1839435005}
   winSound: {fileID: 1470748104}
-  nextSceneName: PairsLevelMultiplayer
+  nextSceneName: SupermarketMultiplayerLevel1
   gameHasStarted:
     m_InternalValue: 0
   currentTime:
@@ -60786,7 +60786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 525b4573b2de87a4eb7ed38956b2c3dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  choosenPlatform: 1
+  choosenPlatform: 0
 --- !u!4 &1868055961
 Transform:
   m_ObjectHideFlags: 0

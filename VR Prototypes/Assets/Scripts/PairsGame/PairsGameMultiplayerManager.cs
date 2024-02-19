@@ -203,7 +203,7 @@ public class PairsGameMultiplayerManager : PairsListReader
             GameObject leftPairPiece = Instantiate(piece.transform.gameObject, leftPlaceholders[i].position, Quaternion.Euler(0, -90, 90));
             leftPairPiece.transform.localScale = leftPieceMaterial.transform.lossyScale;
             NetworkObject leftPieceNetwork = leftPairPiece.GetComponent<NetworkObject>();
-            leftPieceNetwork.SpawnWithOwnership(0);
+            leftPieceNetwork.SpawnWithOwnership(0, destroyWithScene: true);
             leftPieces.Add(leftPairPiece);
             i++;
         }
@@ -213,7 +213,7 @@ public class PairsGameMultiplayerManager : PairsListReader
             GameObject rightPairPiece = Instantiate(piece.transform.gameObject, rightPlaceholders[i].position, Quaternion.Euler(0, -90, 90));
             rightPairPiece.transform.localScale = leftPieceMaterial.transform.lossyScale;
             NetworkObject rightPieceNetwork = rightPairPiece.GetComponent<NetworkObject>();
-            rightPieceNetwork.SpawnWithOwnership(1);
+            rightPieceNetwork.SpawnWithOwnership(1, destroyWithScene: true);
             rightPieces.Add(rightPairPiece);
             i++;
         }

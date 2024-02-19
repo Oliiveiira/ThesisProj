@@ -1,9 +1,12 @@
 using RoboRyanTron.Unite2017.Events;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class StaticLevelsBasketCounterMultiplayer : MonoBehaviour
+public class StaticLevelsBasketCounterMultiplayer : NetworkBehaviour
 {
     [SerializeField]
     private StaticListManagerMultiplayer products;
@@ -39,27 +42,59 @@ public class StaticLevelsBasketCounterMultiplayer : MonoBehaviour
     [SerializeField]
     private IntSO level;
 
+    public string nextSceneName;
+    public TextMeshProUGUI timer;
+    private float startingTime = 5;
+    [SerializeField]
+    private NetworkVariable<float> currentTime = new NetworkVariable<float>(0);
+
     private void Start()
     {
-
+        if (IsServer)
+            currentTime.Value = startingTime;
     }
+
     private void Update()
     {
         // PlayAudio();
         //Win();
+        if (IsServer && stopComparing)
+        {
+            currentTime.Value -= 1 * Time.deltaTime;
+            if (currentTime.Value <= 0)
+            {
+                NextLevelServerRPC();
+            }
+            timer.SetText("Proximo nivel em " + currentTime.Value.ToString("0"));
+        }
     }
 
     void Win()
     {
-        if (successCounter == products.mystaticLevelsLists.recipe[0].ingredientsName.Count)
+        if (successCounter == products.mystaticLevelsLists.recipe[level.Value].ingredientsName.Count)
         {
             DeactivateShelves();
-            registerBox.SetActive(true);
+           // registerBox.SetActive(true);
            // wallet.SetActive(true);
             stopComparing = true;
-            // setWinPanel.Raise();
+            setWinPanel.Raise();
+            WinClientRPC();
             Debug.Log("Ganhou");
         }
+    }
+
+    [ClientRpc]
+    public void WinClientRPC()
+    {
+        DeactivateShelves();
+        stopComparing = true;
+        setWinPanel.Raise();
+    }
+
+    [ClientRpc]
+    public void ActivateSoundClientRPC()
+    {
+        correctSound.Play();
     }
 
     void DeactivateShelves()
@@ -70,9 +105,18 @@ public class StaticLevelsBasketCounterMultiplayer : MonoBehaviour
         }
     }
 
+    [ServerRpc(RequireOwnership = false)]
+    public void NextLevelServerRPC()
+    {
+        NetworkManager.SceneManager.LoadScene(nextSceneName, LoadSceneMode.Single);
+    }
+
     //private ObjectGrabbable grabbedObject;
     private void OnTriggerEnter(Collider other)
     {
+        if (!IsServer)
+            return;
+
         if (!stopComparing)
         {
             if (other.CompareTag("Objects"))
@@ -80,7 +124,7 @@ public class StaticLevelsBasketCounterMultiplayer : MonoBehaviour
                 //ObjectSO products = other.gameObject.GetComponent<ObjectSO>();
                 product = other.GetComponent<Product>();
                 isInFlag = false;
-                for (int i = 0; i < products.mystaticLevelsLists.recipe[0].ingredientsName.Count; i++)
+                for (int i = 0; i < products.mystaticLevelsLists.recipe[level.Value].ingredientsName.Count; i++)
                 {
                     if (other.name.Equals(products.productsToGet[i].text))
                     {
@@ -90,6 +134,7 @@ public class StaticLevelsBasketCounterMultiplayer : MonoBehaviour
                         successCounter++;
                         isInFlag = true;
                         correctSound.Play();
+                        ActivateSoundClientRPC();
                         break;
                     }
                 }
@@ -105,11 +150,13 @@ public class StaticLevelsBasketCounterMultiplayer : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (!IsServer)
+            return;
         if (!stopComparing)
         {
             if (other.CompareTag("Objects"))
             {
-                for (int i = 0; i < products.mystaticLevelsLists.recipe[0].ingredientsName.Count; i++)
+                for (int i = 0; i < products.mystaticLevelsLists.recipe[level.Value].ingredientsName.Count; i++)
                 {
                     if (other.name.Equals(products.productsToGet[i].text))
                     {

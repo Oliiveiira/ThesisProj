@@ -45,7 +45,7 @@ public class NetworkConnect : MonoBehaviour
 
             transport.SetClientRelayData(allocation.RelayServer.IpV4, (ushort)allocation.RelayServer.Port,
                 allocation.AllocationIdBytes, allocation.Key, allocation.ConnectionData, allocation.HostConnectionData);
-            NetworkManager.Singleton.ConnectionApprovalCallback = ConnectionApprovalCallback;
+            NetworkManager.Singleton.NetworkConfig.ConnectionData = System.BitConverter.GetBytes(prefabNumber);
             NetworkManager.Singleton.StartClient();
         }
         catch
@@ -72,6 +72,7 @@ public class NetworkConnect : MonoBehaviour
         lobbyOptions.Data.Add("JOIN_CODE", dataObject);
 
         currentLobby = await Lobbies.Instance.CreateLobbyAsync("Lobby Name", maxConnection, lobbyOptions);
+        NetworkManager.Singleton.NetworkConfig.ConnectionData = System.BitConverter.GetBytes(prefabNumber);
         NetworkManager.Singleton.ConnectionApprovalCallback = ConnectionApprovalCallback;
         NetworkManager.Singleton.StartHost();
     }
@@ -85,9 +86,10 @@ public class NetworkConnect : MonoBehaviour
         var clientId = request.ClientNetworkId;
 
         // Additional connection data defined by user code
-        var connectionData = request.Payload;
+        var playerPrefabIndex = System.BitConverter.ToInt32(request.Payload);
 
-        response.PlayerPrefabHash = AlternatePlayerPrefabs[prefabNumber];
+        //connectionData.ToString();
+        response.PlayerPrefabHash = AlternatePlayerPrefabs[playerPrefabIndex];
         // Your approval logic determines the following values
         response.Approved = true;
         response.CreatePlayerObject = true;
