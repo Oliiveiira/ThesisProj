@@ -197,8 +197,10 @@ public class PairsGameMultiplayerManager : PairsListReader
             }
 
             isInLeftPlace.Value = true;
-
-            DisableLeftInteractableClientRpc();
+            
+            NetworkBehaviourReference leftPieceReference = new NetworkBehaviourReference(leftPieces[leftjsonPrefabs.Count - 1].GetComponent<NetworkBehaviour>());
+            Debug.Log(leftPieceReference);
+            DisableLeftInteractableClientRpc(leftPieceReference);
         }
         if (Vector3.Distance(rightPieces[rightjsonPrefabs.Count - 1].transform.position, gridPositions[1].transform.position) < 0.02f/* && gridPositions[1].name == rightPieces[jsonPrefabs.Count - 1].transform.name */&& !isInRightPlace.Value)
         {
@@ -213,7 +215,9 @@ public class PairsGameMultiplayerManager : PairsListReader
 
             isInRightPlace.Value = true;
 
-            DisableRightInteractableClientRpc();
+            NetworkBehaviourReference rightPieceReference = new NetworkBehaviourReference(rightPieces[rightjsonPrefabs.Count - 1].GetComponent<NetworkBehaviour>());
+            Debug.Log(rightPieceReference);
+            DisableRightInteractableClientRpc(rightPieceReference);
         }
         if (isInLeftPlace.Value && isInRightPlace.Value && pickPair.Value)
         {
@@ -369,24 +373,33 @@ public class PairsGameMultiplayerManager : PairsListReader
     }
 
     [ClientRpc]
-    private void DisableLeftInteractableClientRpc()
+    private void DisableLeftInteractableClientRpc(NetworkBehaviourReference leftPieceReference)
     {
         popSound.Play();
-        HandGrabInteractable handGrabInteractable = leftPieces[leftjsonPrefabs.Count - 1].GetComponent<HandGrabInteractable>();
-        if (handGrabInteractable != null)
+        NetworkBehaviour leftPieceBehaviour;
+        if (leftPieceReference.TryGet<NetworkBehaviour>(out leftPieceBehaviour))
         {
-            handGrabInteractable.enabled = false;
+            HandGrabInteractable handGrabInteractable = leftPieceBehaviour.GetComponent<HandGrabInteractable>();
+            if (handGrabInteractable != null)
+            {
+                handGrabInteractable.enabled = false;
+            }
         }
+
     }
 
     [ClientRpc]
-    private void DisableRightInteractableClientRpc()
+    private void DisableRightInteractableClientRpc(NetworkBehaviourReference rightPieceReference)
     {
         popSound.Play();
-        HandGrabInteractable handGrabInteractable = rightPieces[rightjsonPrefabs.Count - 1].GetComponent<HandGrabInteractable>();
-        if (handGrabInteractable != null)
+        NetworkBehaviour rightPieceBehaviour;
+        if (rightPieceReference.TryGet<NetworkBehaviour>(out rightPieceBehaviour))
         {
-            handGrabInteractable.enabled = false;
+            HandGrabInteractable handGrabInteractable = rightPieceBehaviour.GetComponent<HandGrabInteractable>();
+            if (handGrabInteractable != null)
+            {
+                handGrabInteractable.enabled = false;
+            }
         }
     }
 
