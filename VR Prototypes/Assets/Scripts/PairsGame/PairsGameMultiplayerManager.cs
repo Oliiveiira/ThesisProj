@@ -56,21 +56,6 @@ public class PairsGameMultiplayerManager : PairsListReader
     private TextMeshProUGUI timer;
     private bool winFlag;
 
-    private void Awake()
-    {
-        //// Load 5 random GameObjects
-        //for (int i = 0; i < 5; i++)
-        //{
-        //    // Generate a random index
-        //    int randomIndex = Random.Range(1, 6); // Assuming you have Object1 to Object5
-
-        //    // Load the random GameObject from the Resources folder
-        //    pairsObjects = new List<GameObject>(Resources.LoadAll<GameObject>("Pairs/"));
-        //}
-    }
-
-   
-
     // Start is called before the first frame update
     void Start()
     {
@@ -115,34 +100,6 @@ public class PairsGameMultiplayerManager : PairsListReader
             usedIndexes.Add(randomPairIndex);
         }
     }
-
-    //private void ChoosePair()
-    //{
-    //    if (!IsServer)
-    //        return;
-
-    //    // Choose a random index from the remaining prefabs list
-    //    if(jsonPrefabs.Count > 0 && !pickPair.Value)
-    //    {
-    //        Debug.Log(jsonPrefabs.Count - 1);
-    //        Debug.Log("choosePair");
-    //        //randomIndex = random.Next(0, jsonPrefabs.Count);
-    //        //Debug.Log(randomIndex);
-    //        gridPositions[0].name = leftPieces[jsonPrefabs.Count - 1].transform.name + "l";
-    //        gridPositions[1].name = rightPieces[jsonPrefabs.Count - 1].transform.name + "l";
-    //        SetPairToMakeMaterialClientRpc(leftPieces[jsonPrefabs.Count - 1].transform.name, rightPieces[jsonPrefabs.Count - 1].transform.name);
-
-    //        //jsonPrefabs.RemoveAt(randomIndex);
-    //        pickPair.Value = true;
-    //    }
-    //    else
-    //    {
-    //        Debug.Log("Winner!");
-    //        // setWinPanel.Raise();
-    //        winFlag = true;
-    //        RaiseWinPanelClientRPC();
-    //    }
-    //}
 
     private void ChoosePair()
     {
@@ -232,46 +189,6 @@ public class PairsGameMultiplayerManager : PairsListReader
         }
     }
 
-    //private void ComparePositions()
-    //{
-    //    if(Vector3.Distance(leftPieces[jsonPrefabs.Count - 1].transform.position, gridPositions[0].transform.position) < 0.02f/* && gridPositions[0].name == leftPieces[jsonPrefabs.Count - 1].transform.name*/ && !isInLeftPlace.Value)
-    //    {
-    //        Debug.Log("leftPiece");
-    //        leftPieces[jsonPrefabs.Count - 1].transform.position = gridPositions[0].transform.position;
-    //        popSound.Play();
-    //        HandGrabInteractable handGrabInteractable = leftPieces[jsonPrefabs.Count - 1].GetComponent<HandGrabInteractable>();
-    //        if (handGrabInteractable != null)
-    //        {
-    //            handGrabInteractable.enabled = false;
-    //        }
-
-    //        isInLeftPlace.Value = true;
-    //    }
-    //    if(Vector3.Distance(rightPieces[jsonPrefabs.Count - 1].transform.position, gridPositions[1].transform.position) < 0.02f/* && gridPositions[1].name == rightPieces[jsonPrefabs.Count - 1].transform.name */&& !isInRightPlace.Value)
-    //    {
-    //        Debug.Log("rightPiece");
-    //        rightPieces[jsonPrefabs.Count - 1].transform.position = gridPositions[1].transform.position;
-    //        popSound.Play();
-    //        HandGrabInteractable handGrabInteractable = rightPieces[jsonPrefabs.Count - 1].GetComponent<HandGrabInteractable>();
-    //        if (handGrabInteractable != null)
-    //        {
-    //            handGrabInteractable.enabled = false;
-    //        }
-
-    //        isInRightPlace.Value = true;
-    //    }
-    //    if(isInLeftPlace.Value && isInRightPlace.Value && pickPair.Value)
-    //    {
-    //        isInLeftPlace.Value = false;
-    //        isInRightPlace.Value = false;
-    //        Debug.Log("Entrou aqui");
-    //        StartCoroutine(DeactivatePair(jsonPrefabs.Count - 1));
-    //        jsonPrefabs.RemoveAt(jsonPrefabs.Count - 1);
-    //        pickPair.Value = false;
-    //        ChoosePair();
-    //    }
-    //}
-
     private void AssignPlaceholders()
     {
         ShuffleArray(leftPlaceholders);
@@ -286,41 +203,9 @@ public class PairsGameMultiplayerManager : PairsListReader
             GameObject leftPairPiece = Instantiate(piece.transform.gameObject, leftPlaceholders[i].position, Quaternion.Euler(0, -90, 90));
             leftPairPiece.transform.localScale = leftPieceMaterial.transform.lossyScale;
             NetworkObject leftPieceNetwork = leftPairPiece.GetComponent<NetworkObject>();
-            leftPieceNetwork.SpawnWithOwnership(0);
+            leftPieceNetwork.SpawnWithOwnership(0, destroyWithScene: true);
             leftPieces.Add(leftPairPiece);
             i++;
-
-            //   //GameObject pair = Instantiate(piece.transform.gameObject, leftPlaceholders[i].position, Quaternion.Euler(0, 0, 90));
-            //pair.transform.localScale = leftPieceMaterial.transform.parent.lossyScale;
-            //NetworkObject pairNetwork = pair.GetComponent<NetworkObject>();
-            //pairNetwork.Spawn();
-            //   NetworkObject leftPieceNetwork = pair.transform.GetChild(0).GetComponent<NetworkObject>();
-            //   leftPieceNetwork.SpawnWithOwnership(0); 
-            //   NetworkObject rightPieceNetwork = pair.transform.GetChild(0).GetComponent<NetworkObject>();
-            //   rightPieceNetwork.SpawnWithOwnership(1);
-            //   Transform leftPiece = leftPieceNetwork.GetComponent<Transform>();
-            //   Transform rightPiece = rightPieceNetwork.GetComponent<Transform>();
-            //   //pairNetwork.Spawn();
-            //  // pairNetwork.SpawnWithOwnership(1);
-            //  // GameObject leftPiece = pair.transform.GetChild(0).gameObject;
-            //   //leftPiece.name = piece.transform.GetChild(0).name;
-            //   leftPiece.position = leftPlaceholders[i].position;
-            //   //NetworkManager.AddNetworkPrefab(leftPiece);
-            //   // NetworkManager.ConnectedClientsList[1].OwnedObjects.Add(leftPiece.GetComponent<NetworkObject>());
-            //  // NetworkManager.ConnectedClientsList[0].OwnedObjects.Remove(pairNetwork.GetComponent<NetworkObject>());
-            //   leftPiece.tag = "leftPiece";
-            //   //leftPiece.transform.localScale = leftPieceMaterial.transform.lossyScale * (10 * 0.65f);
-            //   leftPieces.Add(leftPiece.gameObject);
-            //   Debug.Log(leftPlaceholders[i].position);
-            ////   GameObject rightPiece = pair.transform.GetChild(1).gameObject;
-            //   //rightPiece.name = piece.transform.GetChild(1).name;
-            //   rightPiece.position = rightPlaceholders[i].position;
-            //  // NetworkManager.ConnectedClientsList[1].OwnedObjects.Add(rightPiece.GetComponent<NetworkObject>());
-            //  // NetworkManager.ConnectedClientsList[0].OwnedObjects.Remove(rightPiece.GetComponent<NetworkObject>());
-            //   // rightPiece.transform.localScale = leftPieceMaterial.transform.localScale;
-            //   rightPieces.Add(rightPiece.gameObject);
-            //   //// pairNetwork.TrySetParent(ObjectsToHide);
-            //   i++;
         }
         i = 0;
         foreach (GameObject piece in rightjsonPrefabs)
@@ -328,7 +213,7 @@ public class PairsGameMultiplayerManager : PairsListReader
             GameObject rightPairPiece = Instantiate(piece.transform.gameObject, rightPlaceholders[i].position, Quaternion.Euler(0, -90, 90));
             rightPairPiece.transform.localScale = leftPieceMaterial.transform.lossyScale;
             NetworkObject rightPieceNetwork = rightPairPiece.GetComponent<NetworkObject>();
-            rightPieceNetwork.SpawnWithOwnership(1);
+            rightPieceNetwork.SpawnWithOwnership(1, destroyWithScene: true);
             rightPieces.Add(rightPairPiece);
             i++;
         }
@@ -342,14 +227,6 @@ public class PairsGameMultiplayerManager : PairsListReader
         Destroy(leftPieces[lastRandomIndex]);
         Destroy(rightPieces[lastRandomIndex]);
     }
-
-    //IEnumerator DeactivatePair(int lastRandomIndex)
-    //{
-    //    yield return new WaitForSeconds(2);
-    //    leftPieces[lastRandomIndex].SetActive(false);
-    //    rightPieces[lastRandomIndex].SetActive(false);
-    //    Destroy(leftPieces[lastRandomIndex].transform.parent.gameObject);
-    //}
 
     [ClientRpc]
     public void RaiseWinPanelClientRPC()
@@ -384,6 +261,10 @@ public class PairsGameMultiplayerManager : PairsListReader
             {
                 handGrabInteractable.enabled = false;
             }
+            if (leftPieceBehaviour.IsOwner)
+            {
+                leftPieceBehaviour.transform.position = gridPositions[0].transform.position;
+            }
         }
 
     }
@@ -399,6 +280,10 @@ public class PairsGameMultiplayerManager : PairsListReader
             if (handGrabInteractable != null)
             {
                 handGrabInteractable.enabled = false;
+            }
+            if (rightPieceBehaviour.IsOwner)
+            {
+                rightPieceBehaviour.transform.position = gridPositions[1].transform.position;
             }
         }
     }

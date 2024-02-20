@@ -7,6 +7,8 @@ using UnityEngine;
 public class FillStaticShelfMultiplayer : StaticLevelsListReader
 {
     public Transform[] placeHolders;
+    public Transform[] leftplaceHolders;
+    public Transform[] rightplaceHolders;
 
     public List<GameObject> allProducts;
     public List<GameObject> jsonPrefabs = new List<GameObject>();
@@ -26,7 +28,7 @@ public class FillStaticShelfMultiplayer : StaticLevelsListReader
     private void Start()
     {
         if (IsServer)
-            InstantiatePrefabs();
+            StartCoroutine(InstantiatePrefabsAfterDelay());
     }
     // Update is called once per frame
     void Update()
@@ -39,13 +41,21 @@ public class FillStaticShelfMultiplayer : StaticLevelsListReader
         }
     }
 
+    private IEnumerator InstantiatePrefabsAfterDelay()
+    {
+        yield return new WaitForSeconds(3);
+
+        InstantiatePrefabs();
+        // Allow interaction after the delay
+    }
+
     private void LoadPrefabsFromJSON()
     {
-        List<string> ingredientPaths = mystaticLevelsLists.recipe[0].ingredientsPath;
+        List<string> ingredientPaths = mystaticLevelsLists.recipe[level.Value].ingredientsPath;
 
         for (int i = 0; i < ingredientPaths.Count; i++)
         {
-            string path = $"NetworkProducts/{mystaticLevelsLists.recipe[0].ingredientsPath[i].Split("/")[1]}";
+            string path = $"NetworkProducts/{mystaticLevelsLists.recipe[level.Value].ingredientsPath[i].Split("/")[1]}";
             GameObject ingredientToCatch = Resources.Load<GameObject>(path);
             jsonPrefabs.Add(ingredientToCatch);
         }
@@ -59,21 +69,37 @@ public class FillStaticShelfMultiplayer : StaticLevelsListReader
         List<int> usedIndices = new List<int>(); // Store the indices that have been used
         List<int> lastJsonPrefabIndex = new List<int>();
 
-        for (int i = 0; i < jsonPrefabs.Count; i++)
+        for (int i = 1; i < jsonPrefabs.Count; i+=2)
         {
             Random.seed = System.DateTime.Now.Millisecond;
 
-            int randomIndex = Random.Range(0, placeHolders.Length);
+            int randomIndex = Random.Range(0, leftplaceHolders.Length);
             while (lastJsonPrefabIndex.Contains(randomIndex))
             {
-                randomIndex = Random.Range(0, placeHolders.Length);
+                randomIndex = Random.Range(0, leftplaceHolders.Length);
             }
             lastJsonPrefabIndex.Add(randomIndex);
             // Instantiate(jsonPrefabs[i], placeHolders[randomIndex].position, jsonPrefabs[i].transform.rotation);
-            GameObject InstantiatedPrefab = Instantiate(jsonPrefabs[i], placeHolders[randomIndex].position, jsonPrefabs[i].transform.rotation);
-            InstantiatedPrefab.GetComponent<NetworkObject>().Spawn();
-            InstantiatedPrefab.transform.parent = placeHoldersObject.transform;
+            GameObject oddInstantiatedPrefab = Instantiate(jsonPrefabs[i], leftplaceHolders[randomIndex].position, jsonPrefabs[i].transform.rotation);
+            oddInstantiatedPrefab.GetComponent<NetworkObject>().SpawnWithOwnership(0, destroyWithScene: true);
+            oddInstantiatedPrefab.transform.parent = placeHoldersObject.transform;
             usedIndices.Add(randomIndex); // Mark the index as used
+        }
+
+        for (int i = 0; i < jsonPrefabs.Count; i+=2)
+        {
+            Random.seed = System.DateTime.Now.Millisecond;
+
+            int randomIndex = Random.Range(0, leftplaceHolders.Length);
+            while (lastJsonPrefabIndex.Contains(randomIndex))
+            {
+                randomIndex = Random.Range(0, leftplaceHolders.Length);
+            }
+            lastJsonPrefabIndex.Add(randomIndex);
+            GameObject evenInstantiatedPrefab = Instantiate(jsonPrefabs[i], rightplaceHolders[randomIndex].position, jsonPrefabs[i].transform.rotation);
+            evenInstantiatedPrefab.GetComponent<NetworkObject>().SpawnWithOwnership(1, destroyWithScene: true);
+            evenInstantiatedPrefab.transform.parent = placeHoldersObject.transform;
+            usedIndices.Add(randomIndex + leftplaceHolders.Length); // Mark the index as used
         }
 
         List<int> lastIndex = new List<int>();
@@ -91,7 +117,15 @@ public class FillStaticShelfMultiplayer : StaticLevelsListReader
                 lastIndex.Add(randomIndex);
                 // Instantiate(allProducts[randomIndex], placeHolders[j].position, allProducts[randomIndex].transform.rotation);
                 GameObject InstantiatedPrefab = Instantiate(allProducts[randomIndex], placeHolders[j].position, allProducts[randomIndex].transform.rotation);
-                InstantiatedPrefab.GetComponent<NetworkObject>().Spawn();
+                if(j < leftplaceHolders.Length)
+                {
+                    InstantiatedPrefab.GetComponent<NetworkObject>().SpawnWithOwnership(0, destroyWithScene: true);
+                }
+                else
+                {
+                    InstantiatedPrefab.GetComponent<NetworkObject>().SpawnWithOwnership(1, destroyWithScene: true);
+                }
+
                 InstantiatedPrefab.transform.parent = placeHoldersObject.transform;
             }
 

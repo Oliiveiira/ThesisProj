@@ -65,11 +65,21 @@ public class StaticListManagerMultiplayer : StaticLevelsListReader
 
     private void Start()
     {
-        //  GenerateCode();
-        //Random random = new Random();
-        //randomIndex = random.Next(minLevelValue, maxLevelValue + 1);
-        //level.Value = randomIndex;
+        if (!IsServer)
+            return;
+
+        GenerateCode();
+        Random random = new Random();
+        randomIndex = random.Next(minLevelValue, maxLevelValue + 1);
+        level.Value = randomIndex;
+        SetLevelClientRPC(randomIndex);
         ShowRecipe();
+    }
+
+    [ClientRpc]
+    public void SetLevelClientRPC(int randomIndex)
+    {
+        level.Value = randomIndex;
     }
 
     // Update is called once per frame
@@ -83,36 +93,38 @@ public class StaticListManagerMultiplayer : StaticLevelsListReader
 
     public void ShowRecipe()
     {
-        startButton.SetActive(false);
-        leftButton.SetActive(false);
-        rightButton.SetActive(false);
+        //startButton.SetActive(false);
+        //leftButton.SetActive(false);
+        //rightButton.SetActive(false);
         // alreadyShowed = true;
-        startTimer.Raise();
-        listPaper.SetActive(true);
-        if (mirrorLeft)
-            watchR.SetActive(true);
-        if (mirrorRight)
-            watchL.SetActive(true);
-        if (!mirrorRight && !mirrorLeft)
-        {
-            watchL.SetActive(true);
-        }
+        //startTimer.Raise();
+        //listPaper.SetActive(true);
+        //if (mirrorLeft)
+        //    watchR.SetActive(true);
+        //if (mirrorRight)
+        //    watchL.SetActive(true);
+        //if (!mirrorRight && !mirrorLeft)
+        //{
+        //    watchL.SetActive(true);
+        //}
         //its choosing the recepie randomly now, but then its going to be sequentially, based on the difficulty level
         //randomIndex = Random.Range(0, myRecipeList.recipe.Length);
 
-        budget = mystaticLevelsLists.recipe[0].budget;
+        //budget = mystaticLevelsLists.recipe[level.Value].budget;
 
-        image.sprite = allSprites[0];
+        //image.sprite = allSprites[level.Value];
 
-        Debug.Log(mystaticLevelsLists.recipe[0].spriteURL);
+        //recipeName.SetText(mystaticLevelsLists.recipe[level.Value].recipeName);
+
+        //Debug.Log(mystaticLevelsLists.recipe[level.Value].spriteURL);
 
         //if (level.Value >= 0 && level.Value <= 2 || level.Value >= 9 && level.Value <= 11)
         //{
-            budgettoWatchR.SetText("Dinheiro: " + mystaticLevelsLists.recipe[0].budget.ToString() + "€"); //to Watch
-            budgettoWatchL.SetText("Dinheiro: " + mystaticLevelsLists.recipe[0].budget.ToString() + "€"); //to Watch
+        //    budgettoWatchR.SetText("Dinheiro: " + mystaticLevelsLists.recipe[level.Value].budget.ToString() + "€"); //to Watch
+        //    budgettoWatchL.SetText("Dinheiro: " + mystaticLevelsLists.recipe[level.Value].budget.ToString() + "€"); //to Watch
 
-            budgetText.SetText("Dinheiro: " + mystaticLevelsLists.recipe[0].budget.ToString() + "€");
-       // }
+        //    budgetText.SetText("Dinheiro: " + mystaticLevelsLists.recipe[level.Value].budget.ToString() + "€");
+        //}
         //else if (level.Value >= 3 && level.Value <= 5)
         //{
         //    budgettoWatchR.SetText("Codigo: " + code); //to Watch
@@ -128,13 +140,29 @@ public class StaticListManagerMultiplayer : StaticLevelsListReader
         //    budgetText.SetText("MBWay");
         //}
 
-        recipeName.SetText(mystaticLevelsLists.recipe[0].recipeName);
-
-        for (int i = 0; i < mystaticLevelsLists.recipe[0].ingredientsName.Count; i++)
+        for (int i = 0; i < mystaticLevelsLists.recipe[level.Value].ingredientsName.Count; i++)
         {
-            productsToGet[i].text = mystaticLevelsLists.recipe[0].ingredientsName[i];
-            productsToGettoWatchR[i].text = mystaticLevelsLists.recipe[0].ingredientsName[i]; //to Watch
-            productsToGettoWatchL[i].text = mystaticLevelsLists.recipe[0].ingredientsName[i]; //to Watch
+            productsToGet[i].text = mystaticLevelsLists.recipe[level.Value].ingredientsName[i];
+            productsToGettoWatchR[i].text = mystaticLevelsLists.recipe[level.Value].ingredientsName[i]; //to Watch
+            productsToGettoWatchL[i].text = mystaticLevelsLists.recipe[level.Value].ingredientsName[i]; //to Watch
+        }
+        SetListClientRPC();
+    }
+
+    [ClientRpc]
+    public void SetListClientRPC()
+    {
+        budget = mystaticLevelsLists.recipe[level.Value].budget;
+
+        image.sprite = allSprites[level.Value];
+
+        recipeName.SetText(mystaticLevelsLists.recipe[level.Value].recipeName);
+
+        for (int i = 0; i < mystaticLevelsLists.recipe[level.Value].ingredientsName.Count; i++)
+        {
+            productsToGet[i].text = mystaticLevelsLists.recipe[level.Value].ingredientsName[i];
+            productsToGettoWatchR[i].text = mystaticLevelsLists.recipe[level.Value].ingredientsName[i]; //to Watch
+            productsToGettoWatchL[i].text = mystaticLevelsLists.recipe[level.Value].ingredientsName[i]; //to Watch
         }
     }
 
