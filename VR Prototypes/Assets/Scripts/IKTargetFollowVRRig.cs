@@ -164,7 +164,7 @@ public class IKTargetFollowVRRig : NetworkBehaviour
         Debug.Log("here");
         if (arrow == null) 
         {
-            arrow = Instantiate(arrowPrefab, placeToMove, Quaternion.identity);
+            arrow = Instantiate(arrowPrefab, placeToMove, Quaternion.Euler(0,0,90));
             arrow.GetComponent<NetworkObject>().Spawn();
             return;
         }
