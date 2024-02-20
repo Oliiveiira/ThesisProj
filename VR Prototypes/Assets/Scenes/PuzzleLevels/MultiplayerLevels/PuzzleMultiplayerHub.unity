@@ -61772,16 +61772,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1470748105}
-        m_TargetAssemblyTypeName: PuzzleGameManagerMultiplayer, Assembly-CSharp
+      - m_Target: {fileID: 1470748107}
+        m_TargetAssemblyTypeName: MultiplayerSceneManager, Assembly-CSharp
         m_MethodName: NextLevelServerRPC
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: PairsLevelMultiplayer
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1914128474

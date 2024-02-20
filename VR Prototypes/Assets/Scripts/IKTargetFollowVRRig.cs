@@ -3,6 +3,8 @@ using Unity.Netcode;
 using UnityEngine.SceneManagement;
 using Oculus.Interaction.Input;
 using System.Collections.Generic;
+using static PuzzleDeskPivotReader;
+using System.IO;
 
 //[System.Serializable]
 //public class VRMap: NetworkBehaviour
@@ -50,10 +52,18 @@ public class IKTargetFollowVRRig : NetworkBehaviour
     public GameObject headFollowing = null;
     public GameObject arrow = null;
     public GameObject arrowPrefab = null;
+    private float deskHeight = 0;
 
     public void Awake()
     {
         arrowPrefab = Resources.Load<GameObject>("Arrow");
+        string jsonFileName = "PuzzleDeskPivot.txt";
+        string jsonFilePath = Path.Combine(Application.persistentDataPath, jsonFileName);
+
+        // Check if the file exists in the persistent data path
+        string jsonText = File.ReadAllText(jsonFilePath);
+        DeskPivot myDeskPivot = JsonUtility.FromJson<DeskPivot>(jsonText);
+        deskHeight = myDeskPivot.deskPivotY;
     }
 
     // Start is called before the first frame update
@@ -138,12 +148,11 @@ public class IKTargetFollowVRRig : NetworkBehaviour
                 therapistCamera.transform.position = headFollowing.transform.position;
                 therapistCamera.transform.rotation = headFollowing.transform.rotation;
             }
-            if ((Input.touchCount > 0 || Input.GetMouseButtonDown(0)) && currentIndex == 1) 
+            if ((Input.touchCount > 0 || Input.GetMouseButtonDown(0)) && currentIndex == 1 && Input.mousePosition.y >= 175.1f) 
             {
-                Vector3 placeToMove = therapistCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, therapistCamera.nearClipPlane));
+                Vector3 placeToMove = therapistCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, therapistCamera.nearClipPlane + 0.2f * 2));
                 //Vector3 placeToMove = therapistCamera.ScreenToWorldPoint(Input.GetTouch(0));
-                placeToMove.y = 0.6f;
-                Debug.Log(placeToMove);
+                placeToMove.y = deskHeight + 0.2f;
                 Debug.Log(Input.mousePosition);
                 SpawnArrowServerRpc(placeToMove);
             }
@@ -161,18 +170,22 @@ public class IKTargetFollowVRRig : NetworkBehaviour
     [ServerRpc]
     void SpawnArrowServerRpc(Vector3 placeToMove)
     {
-        Debug.Log("here");
         if (arrow == null) 
         {
             arrow = Instantiate(arrowPrefab, placeToMove, Quaternion.Euler(0,0,90));
             arrow.GetComponent<NetworkObject>().Spawn();
             return;
         }
-        Debug.Log("movement only here");
-        Debug.Log(arrow);
-        Debug.Log(placeToMove);
-
         arrow.transform.position = placeToMove;
+    }
+
+    [ServerRpc]
+    public void ClearArrowServerRpc()
+    {
+        if (arrow == null)
+            return;
+
+        Destroy(arrow);
     }
 
     public void Map()

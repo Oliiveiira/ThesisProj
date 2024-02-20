@@ -8,4 +8,10 @@ public class TherapistPositionChanger : MonoBehaviour
         IKTargetFollowVRRig player = NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<IKTargetFollowVRRig>();
         player.ChangeCameraPosition(index);
     }
+
+    public void ClearArrow()
+    {
+        IKTargetFollowVRRig player = NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<IKTargetFollowVRRig>();
+        player.ClearArrowServerRpc();
+    }
 }
