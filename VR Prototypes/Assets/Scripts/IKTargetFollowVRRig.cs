@@ -84,6 +84,7 @@ public class IKTargetFollowVRRig : NetworkBehaviour
         if (PlatformPicker.localPlatform == Platform.Therapist) {
             therapistSpawnLocs = GameObject.Find("TherapistSpawnLocs");
             therapistCamera = GameObject.Find("TherapistCamera").GetComponent<Camera>();
+            SetRendererTherapistServerRpc();
             return;
         }
 
@@ -269,6 +270,18 @@ public class IKTargetFollowVRRig : NetworkBehaviour
             return;
         }
         GetPlayerHeadTargetServerRpc(index - 2, NetworkManager.Singleton.LocalClientId);
+    }
+
+    [ServerRpc]
+    public void SetRendererTherapistServerRpc() 
+    {
+        SetRendererTherapistClientRpc();
+    }
+
+    [ClientRpc]
+    public void SetRendererTherapistClientRpc() 
+    {
+        avatarRenderer.enabled = false;
     }
 
     [ServerRpc]
