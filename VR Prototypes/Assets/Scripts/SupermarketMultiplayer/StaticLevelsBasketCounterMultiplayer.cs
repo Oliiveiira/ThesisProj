@@ -144,11 +144,18 @@ public class StaticLevelsBasketCounterMultiplayer : NetworkBehaviour
                 if (!product.isInBasket)
                 {
                     product.SetProductInitialPosition();
+                    SetProductToInitialPositionClientRPC();
                 }
 
                 Win();
             }
         }
+    }
+
+    [ClientRpc]
+    public void SetProductToInitialPositionClientRPC()
+    {
+        product.SetProductInitialPosition();
     }
 
     private void OnTriggerExit(Collider other)

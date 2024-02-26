@@ -19,7 +19,7 @@ public class Product : MonoBehaviour
     public AudioSource sound;
 
     // Start is called before the first frame update
-    private void Awake()
+    private void Start()
     {
         initialPosition = transform.position;
         initialRotation = transform.rotation;
