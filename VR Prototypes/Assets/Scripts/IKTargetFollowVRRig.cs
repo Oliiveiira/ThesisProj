@@ -5,6 +5,8 @@ using Oculus.Interaction.Input;
 using System.Collections.Generic;
 using static PuzzleDeskPivotReader;
 using System.IO;
+using Unity.VisualScripting;
+using UnityEditor.VersionControl;
 
 //[System.Serializable]
 //public class VRMap: NetworkBehaviour
@@ -273,6 +275,35 @@ public class IKTargetFollowVRRig : NetworkBehaviour
     }
 
     [ServerRpc]
+    public void SendMessageToPlayerServerRpc(int targetId, string message)
+    {
+        ClientRpcParams clientRpcParams = new ClientRpcParams
+        {
+            Send = new ClientRpcSendParams
+            {
+                TargetClientIds = new ulong[] { (ulong)targetId }
+            }
+        };
+
+        NetworkBehaviourReference playerTarget = new NetworkBehaviourReference(NetworkManager.ConnectedClientsList[targetId].PlayerObject.GetComponent<NetworkBehaviour>());
+        SendMessageToPlayerClientRpc(playerTarget, message, clientRpcParams);
+    }
+
+    [ClientRpc]
+    public void SendMessageToPlayerClientRpc(NetworkBehaviourReference playerTarget, string message, ClientRpcParams clientRpcParams = default)
+    {
+        if (!IsOwner) return;
+        NetworkBehaviour playerNetwork;
+        if (playerTarget.TryGet<NetworkBehaviour>(out playerNetwork))
+        {
+            // Note: If player is changes place this breaks
+            headFollowing = playerNetwork.gameObject.transform.GetChild(1).GetChild(2).GetChild(0).gameObject;
+        }
+        // TODO: fazer alguma coisa com a mensagem
+        Debug.Log(message);
+    }
+
+    [ServerRpc]
     public void SetRendererTherapistServerRpc() 
     {
         SetRendererTherapistClientRpc();
@@ -306,6 +337,7 @@ public class IKTargetFollowVRRig : NetworkBehaviour
         NetworkBehaviour playerNetwork;
         if (playerTarget.TryGet<NetworkBehaviour>(out playerNetwork)) 
         {
+            // Note: If player is changes place this breaks
             headFollowing = playerNetwork.gameObject.transform.GetChild(1).GetChild(2).GetChild(0).gameObject;
         }
         Debug.Log("Failed to get Network Player");

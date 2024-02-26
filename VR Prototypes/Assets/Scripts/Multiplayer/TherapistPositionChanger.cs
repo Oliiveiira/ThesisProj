@@ -31,6 +31,7 @@ public class TherapistPositionChanger : MonoBehaviour
 
     public void SendText() 
     {
-        Debug.Log(textInput.text);
+        IKTargetFollowVRRig player = NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<IKTargetFollowVRRig>();
+        player.SendMessageToPlayerServerRpc(player.currentIndex - 2, textInput.text);
     }
 }
