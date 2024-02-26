@@ -143,8 +143,9 @@ public class StaticLevelsBasketCounterMultiplayer : NetworkBehaviour
                 }
                 if (!product.isInBasket)
                 {
+                    NetworkObjectReference productReference = new NetworkObjectReference(product.GetComponent<NetworkObject>());
                     product.SetProductInitialPosition();
-                    SetProductToInitialPositionClientRPC();
+                    SetProductToInitialPositionClientRPC(productReference);
                 }
 
                 Win();
@@ -153,9 +154,13 @@ public class StaticLevelsBasketCounterMultiplayer : NetworkBehaviour
     }
 
     [ClientRpc]
-    public void SetProductToInitialPositionClientRPC()
+    public void SetProductToInitialPositionClientRPC(NetworkObjectReference productReference)
     {
-        product.SetProductInitialPosition();
+        NetworkObject productObject;
+        if (productReference.TryGet(out productObject))
+        {
+            productObject.GetComponent<Product>().SetProductInitialPosition();
+        }
     }
 
     private void OnTriggerExit(Collider other)
