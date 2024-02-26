@@ -58,12 +58,15 @@ public class StaticLevelsBasketCounterMultiplayer : NetworkBehaviour
     {
         // PlayAudio();
         //Win();
-        if (IsServer && stopComparing)
+        if (stopComparing)
         {
-            currentTime.Value -= 1 * Time.deltaTime;
-            if (currentTime.Value <= 0)
+            if (IsServer)
             {
-                NextLevelServerRPC();
+                currentTime.Value -= 1 * Time.deltaTime;
+                if (currentTime.Value <= 0)
+                {
+                    NextLevelServerRPC();
+                }
             }
             timer.SetText("Proximo nivel em " + currentTime.Value.ToString("0"));
         }
