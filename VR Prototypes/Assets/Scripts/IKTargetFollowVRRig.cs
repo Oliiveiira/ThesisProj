@@ -7,6 +7,7 @@ using static PuzzleDeskPivotReader;
 using System.IO;
 using Unity.VisualScripting;
 using UnityEditor.VersionControl;
+using TMPro;
 
 //[System.Serializable]
 //public class VRMap: NetworkBehaviour
@@ -37,6 +38,7 @@ public class IKTargetFollowVRRig : NetworkBehaviour
     public Vector3 trackingPositionOffset;
     public Vector3 trackingRotationOffset;
     public SkinnedMeshRenderer avatarRenderer;
+    public TextMeshPro messagePlaceholder;
 
     [Range(0, 1)]
     public float turnSmoothness = 0.1f;
@@ -292,14 +294,9 @@ public class IKTargetFollowVRRig : NetworkBehaviour
     [ClientRpc]
     public void SendMessageToPlayerClientRpc(NetworkBehaviourReference playerTarget, string message, ClientRpcParams clientRpcParams = default)
     {
-        if (!IsOwner) return;
-        NetworkBehaviour playerNetwork;
-        if (playerTarget.TryGet<NetworkBehaviour>(out playerNetwork))
-        {
-            // Note: If player is changes place this breaks
-            headFollowing = playerNetwork.gameObject.transform.GetChild(1).GetChild(2).GetChild(0).gameObject;
-        }
         // TODO: fazer alguma coisa com a mensagem
+        messagePlaceholder.gameObject.SetActive(true);
+        messagePlaceholder.text = message;
         Debug.Log(message);
     }
 
