@@ -287,12 +287,12 @@ public class IKTargetFollowVRRig : NetworkBehaviour
             }
         };
 
-        NetworkBehaviourReference playerTarget = new NetworkBehaviourReference(NetworkManager.ConnectedClientsList[targetId].PlayerObject.GetComponent<NetworkBehaviour>());
-        SendMessageToPlayerClientRpc(playerTarget, message, clientRpcParams);
+        IKTargetFollowVRRig playerTarget = (NetworkManager.ConnectedClientsList[targetId].PlayerObject.GetComponent<IKTargetFollowVRRig>());
+        playerTarget.SendMessageToPlayerClientRpc(message, clientRpcParams);
     }
 
     [ClientRpc]
-    public void SendMessageToPlayerClientRpc(NetworkBehaviourReference playerTarget, string message, ClientRpcParams clientRpcParams = default)
+    public void SendMessageToPlayerClientRpc(string message, ClientRpcParams clientRpcParams = default)
     {
         // TODO: fazer alguma coisa com a mensagem
         messagePlaceholder.gameObject.SetActive(true);
