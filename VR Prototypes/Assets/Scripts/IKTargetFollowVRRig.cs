@@ -9,6 +9,7 @@ using Unity.VisualScripting;
 using UnityEditor.VersionControl;
 using TMPro;
 using UnityEditor.PackageManager;
+using System.Collections;
 
 //[System.Serializable]
 //public class VRMap: NetworkBehaviour
@@ -167,8 +168,7 @@ public class IKTargetFollowVRRig : NetworkBehaviour
             if (Input.GetMouseButtonUp(0) && grabbedNetworkObject != null && grabbedNetworkObject.IsOwner)
             {
                 grabbedNetworkObject.transform.position = initialMovePosition;
-                SetObjectOwnershipTherapistServerRpc(new NetworkObjectReference(grabbedNetworkObject), originalOwner, false);
-                grabbedNetworkObject = null;
+                StartCoroutine(DelayRemoveOwnership(1));
             }
 
             if ((Input.touchCount > 0 || Input.GetMouseButtonDown(0)) && currentIndex == 1 && Input.mousePosition.y >= 175.1f) 
@@ -388,5 +388,14 @@ public class IKTargetFollowVRRig : NetworkBehaviour
             headFollowing = playerNetwork.gameObject.transform.GetChild(1).GetChild(2).GetChild(0).gameObject;
         }
         Debug.Log("Failed to get Network Player");
+    }
+
+    IEnumerator DelayRemoveOwnership(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        // Send a request to the server to remove ownership
+        SetObjectOwnershipTherapistServerRpc(new NetworkObjectReference(grabbedNetworkObject), originalOwner, false);
+        grabbedNetworkObject = null;
     }
 }
