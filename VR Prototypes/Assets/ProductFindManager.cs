@@ -5,6 +5,8 @@ using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
 using RoboRyanTron.Unite2017.Events;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class ProductFindManager : NetworkBehaviour
 {
@@ -23,34 +25,58 @@ public class ProductFindManager : NetworkBehaviour
     public int randomIndex;
 
     public AudioSource popSound;
-    public bool isInLeftPlace;
-    public bool isInRightPlace;
+    public NetworkVariable<bool> isInLeftPlace;
+    public NetworkVariable <bool> isInRightPlace;
     public bool canCompare;
 
     public List<Material> productMaterials;
 
     [SerializeField]
     private GameEvent setWinPanel;
+    public string nextSceneName;
+    private bool winFlag;
+
+    //Timer
+    private float startingTime = 5;
+    [SerializeField]
+    private NetworkVariable<float> currentTime = new NetworkVariable<float>(0);
+    [SerializeField]
+    private TextMeshProUGUI timer;
+
     // Start is called before the first frame update
     void Start()
     {
         allProducts = new List<GameObject>(Resources.LoadAll<GameObject>("NetworkProducts/"));
-        GetRandomProducts();
-        SpawnTableTransforms();
-        SpawnProductToGet();
+        if(IsServer)
+        {
+            GetRandomProducts();
+            SpawnTableTransforms();
+            SpawnProductToGet();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(canCompare)
+        if(IsServer && canCompare)
             ComparePositions();
+
+        if (winFlag)
+        {
+            currentTime.Value -= 1 * Time.deltaTime;
+            if (currentTime.Value <= 0)
+            {
+                NextLevelServerRPC();
+            }
+            timer.SetText("Proximo nivel em " + currentTime.Value.ToString("0"));
+        }
     }
 
     public void GetRandomProducts()
     {
         for(int i = 0; i < numberOfProducts; i++)
         {
+            Random.seed = System.DateTime.Now.Millisecond;
             int randomIndex = Random.Range(0, allProducts.Count);
             randomProducts.Add(allProducts[randomIndex]);
             allProducts.RemoveAt(randomIndex);
@@ -63,10 +89,14 @@ public class ProductFindManager : NetworkBehaviour
        foreach(GameObject product in randomProducts)
        {
             GameObject leftProduct = Instantiate(product, tablePositions[i].position, product.transform.rotation);
+            NetworkObject leftProductNetwork = leftProduct.GetComponent<NetworkObject>();
+            leftProductNetwork.SpawnWithOwnership(0, destroyWithScene: true);
             leftProducts.Add(leftProduct);
 
             GameObject rightProduct = Instantiate(product, tablePositions[i + tablePositions.Count / 2].position, product.transform.rotation);
-            rightProducts.Add(rightProduct);
+            NetworkObject rightProductNetwork = rightProduct.GetComponent<NetworkObject>();
+            rightProductNetwork.SpawnWithOwnership(1, destroyWithScene: true); // TROCAR OWNERSHIP
+            rightProducts.Add(rightProduct); 
             i++;
        }
     }
@@ -75,7 +105,9 @@ public class ProductFindManager : NetworkBehaviour
     {
         if (randomProducts.Count <= 0)
         {
-            setWinPanel.Raise();
+            winFlag = true;
+            RaiseWinPanelClientRPC();
+           // setWinPanel.Raise();
             Debug.Log("Win");
             return;
         }
@@ -85,24 +117,38 @@ public class ProductFindManager : NetworkBehaviour
         for(int i = 0; i < shelfTransforms.Count; i++)
         {
             GameObject productToPick = Instantiate(randomProducts[randomIndex], shelfTransforms[i].transform.position, randomProducts[randomIndex].transform.rotation);
-            Renderer productMaterial = productToPick.GetComponent<Renderer>();
-            productMaterials = productToPick.GetComponent<Renderer>().materials.ToList();
+            NetworkObject networkProduct = productToPick.GetComponent<NetworkObject>();
+            networkProduct.Spawn(destroyWithScene: true);
+            //Renderer productMaterial = productToPick.GetComponent<Renderer>();
             if (i % 2 == 0)
             {
-                for (int j = 0; j < productMaterials.Count; j++)
-                {
-                    productMaterials[j].shader = transparentMaterial.shader;
-                    productMaterials[j].CopyPropertiesFromMaterial(transparentMaterial);
-                }
+                NetworkObjectReference productReference = new NetworkObjectReference(productToPick.GetComponent<NetworkObject>());
+                SetProductMaterialClientRpc(productReference);
             }
             spawnedShelfProducts.Add(productToPick);
         }
         canCompare = true;
     }
 
+    [ClientRpc]
+    public void SetProductMaterialClientRpc(NetworkObjectReference productReference)
+    {
+        NetworkObject productObject;
+        if (productReference.TryGet(out productObject))
+        {
+            productMaterials = productObject.GetComponent<Renderer>().materials.ToList();
+            for (int j = 0; j < productMaterials.Count; j++)
+            {
+                productMaterials[j].shader = transparentMaterial.shader;
+                productMaterials[j].CopyPropertiesFromMaterial(transparentMaterial);
+            }
+        }    
+    }
+
+
     public void ComparePositions()
     {
-        if (Vector3.Distance(leftProducts[randomIndex].transform.position, shelfTransforms[0].position) < 0.1f && !isInLeftPlace)
+        if (Vector3.Distance(leftProducts[randomIndex].transform.position, shelfTransforms[0].position) < 0.1f && !isInLeftPlace.Value)
         {
             leftProducts[randomIndex].transform.position = shelfTransforms[0].position;
             Debug.Log("isHere");
@@ -112,9 +158,13 @@ public class ProductFindManager : NetworkBehaviour
             {
                 handGrabInteractable.enabled = false;
             }
-            isInLeftPlace = true;
+            isInLeftPlace.Value = true;
+
+            NetworkBehaviourReference leftProductReference = new NetworkBehaviourReference(leftProducts[randomIndex].GetComponent<NetworkBehaviour>());
+            Debug.Log(leftProductReference);
+            DisableLeftInteractableClientRpc(leftProductReference);
         }
-        else if (Vector3.Distance(rightProducts[randomIndex].transform.position, shelfTransforms[2].position) < 0.1f && !isInRightPlace)
+        else if (Vector3.Distance(rightProducts[randomIndex].transform.position, shelfTransforms[2].position) < 0.1f && !isInRightPlace.Value)
         {
             rightProducts[randomIndex].transform.position = shelfTransforms[2].position;
 
@@ -124,24 +174,68 @@ public class ProductFindManager : NetworkBehaviour
             {
                 handGrabInteractable.enabled = false;
             }
-            isInRightPlace = true;
+            isInRightPlace.Value = true;
+
+            NetworkBehaviourReference rightProductReference = new NetworkBehaviourReference(rightProducts[randomIndex].GetComponent<NetworkBehaviour>());
+            Debug.Log(rightProductReference);
+            DisableRightInteractableClientRpc(rightProductReference);
         }
-        else if(isInLeftPlace && isInRightPlace)
+        else if(isInLeftPlace.Value && isInRightPlace.Value)
         {
-            isInLeftPlace = false;
-            isInRightPlace = false;
+            isInLeftPlace.Value = false;
+            isInRightPlace.Value = false;
             canCompare = false;
             StartCoroutine(DeactivatePair(randomIndex));
         }
     }
 
+    [ClientRpc]
+    private void DisableLeftInteractableClientRpc(NetworkBehaviourReference leftproductReference)
+    {
+        popSound.Play();
+        NetworkBehaviour leftProductBehaviour;
+        if (leftproductReference.TryGet<NetworkBehaviour>(out leftProductBehaviour))
+        {
+            HandGrabInteractable handGrabInteractable = leftProductBehaviour.GetComponent<HandGrabInteractable>();
+            if (handGrabInteractable != null)
+            {
+                handGrabInteractable.enabled = false;
+            }
+            if (leftProductBehaviour.IsOwner)
+            {
+                leftProductBehaviour.transform.position = shelfTransforms[0].position;
+            }
+        }
+    }
+
+    [ClientRpc]
+    private void DisableRightInteractableClientRpc(NetworkBehaviourReference rightproductReference)
+    {
+        popSound.Play();
+        NetworkBehaviour rightProductBehaviour;
+        if (rightproductReference.TryGet<NetworkBehaviour>(out rightProductBehaviour))
+        {
+            HandGrabInteractable handGrabInteractable = rightProductBehaviour.GetComponent<HandGrabInteractable>();
+            if (handGrabInteractable != null)
+            {
+                handGrabInteractable.enabled = false;
+            }
+            if (rightProductBehaviour.IsOwner)
+            {
+                rightProductBehaviour.transform.position = shelfTransforms[1].position;
+            }
+        }
+    }
 
     IEnumerator DeactivatePair(int lastRandomIndex)
     {
         yield return new WaitForSeconds(2);
-        leftProducts[lastRandomIndex].SetActive(false);
-        rightProducts[lastRandomIndex].SetActive(false);
-        randomProducts[lastRandomIndex].SetActive(false);
+        //leftProducts[lastRandomIndex].SetActive(false);
+        //rightProducts[lastRandomIndex].SetActive(false);
+        //randomProducts[lastRandomIndex].SetActive(false);
+        Destroy(leftProducts[lastRandomIndex]);
+        Destroy(rightProducts[lastRandomIndex]);
+        Destroy(randomProducts[lastRandomIndex]);
         foreach (GameObject product in spawnedShelfProducts)
             Destroy(product);
         leftProducts.RemoveAt(lastRandomIndex);
@@ -149,5 +243,17 @@ public class ProductFindManager : NetworkBehaviour
         randomProducts.RemoveAt(lastRandomIndex);
         spawnedShelfProducts.RemoveAll(spawnedShelfProducts => spawnedShelfProducts);
         SpawnProductToGet();
+    }
+
+    [ClientRpc]
+    public void RaiseWinPanelClientRPC()
+    {
+        setWinPanel.Raise();
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void NextLevelServerRPC()
+    {
+        NetworkManager.SceneManager.LoadScene(nextSceneName, LoadSceneMode.Single);
     }
 }

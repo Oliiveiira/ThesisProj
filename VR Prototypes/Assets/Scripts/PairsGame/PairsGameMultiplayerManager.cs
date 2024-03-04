@@ -266,7 +266,6 @@ public class PairsGameMultiplayerManager : PairsListReader
                 leftPieceBehaviour.transform.position = gridPositions[0].transform.position;
             }
         }
-
     }
 
     [ClientRpc]
