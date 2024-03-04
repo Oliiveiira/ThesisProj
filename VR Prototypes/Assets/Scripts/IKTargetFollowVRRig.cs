@@ -8,6 +8,7 @@ using System.IO;
 using Unity.VisualScripting;
 using UnityEditor.VersionControl;
 using TMPro;
+using UnityEditor.PackageManager;
 
 //[System.Serializable]
 //public class VRMap: NetworkBehaviour
@@ -166,7 +167,7 @@ public class IKTargetFollowVRRig : NetworkBehaviour
             if (Input.GetMouseButtonUp(0) && grabbedNetworkObject != null && grabbedNetworkObject.IsOwner)
             {
                 grabbedNetworkObject.transform.position = initialMovePosition;
-                SetObjectOwnershipToTherapistServerRpc(new NetworkObjectReference(grabbedNetworkObject), originalOwner);
+                SetObjectOwnershipTherapistServerRpc(new NetworkObjectReference(grabbedNetworkObject), originalOwner, false);
                 grabbedNetworkObject = null;
             }
 
@@ -185,7 +186,7 @@ public class IKTargetFollowVRRig : NetworkBehaviour
                     Debug.Log(hit.collider.name);
                     grabbedNetworkObject = hit.collider.gameObject.GetComponent<NetworkObject>();
                     originalOwner = grabbedNetworkObject.OwnerClientId;
-                    SetObjectOwnershipToTherapistServerRpc(new NetworkObjectReference(grabbedNetworkObject), NetworkManager.LocalClientId);
+                    SetObjectOwnershipTherapistServerRpc(new NetworkObjectReference(grabbedNetworkObject), NetworkManager.LocalClientId, true);
                     initialMovePosition = grabbedNetworkObject.transform.position;
                 }
             }
@@ -194,25 +195,25 @@ public class IKTargetFollowVRRig : NetworkBehaviour
     }
 
     [ServerRpc]
-    public void SetObjectOwnershipToTherapistServerRpc(NetworkObjectReference objectReference, ulong clientId)
+    public void SetObjectOwnershipTherapistServerRpc(NetworkObjectReference objectReference, ulong clientId, bool isTherapist)
     {
         NetworkObject networkObject;
         if (objectReference.TryGet(out networkObject))
         {
             networkObject.ChangeOwnership(clientId);
+            CheckBoxCollidersClientRpc(objectReference, isTherapist);
         }
     }
 
-    [ServerRpc]
-    public void RemoveObjectOwnershipToTherapistServerRpc(NetworkObjectReference objectReference, ulong originalOwner)
+    [ClientRpc]
+    public void CheckBoxCollidersClientRpc(NetworkObjectReference objectReference, bool isTherapist) 
     {
         NetworkObject networkObject;
         if (objectReference.TryGet(out networkObject))
         {
-            networkObject.ChangeOwnership(originalOwner);
+            networkObject.GetComponent<BoxCollider>().enabled = !isTherapist;
         }
     }
-
 
     [ServerRpc]
     void ShowAvatarServerRpc(ServerRpcParams rpcParams = default)
