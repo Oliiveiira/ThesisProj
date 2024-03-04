@@ -58,6 +58,10 @@ public class IKTargetFollowVRRig : NetworkBehaviour
     public GameObject arrowPrefab = null;
     private float deskHeight = 0;
 
+    private NetworkObject grabbedNetworkObject = null;
+    private ulong originalOwner = 0;
+    private Vector3 initialMovePosition = Vector3.zero;
+
     public void Awake()
     {
         arrowPrefab = Resources.Load<GameObject>("Arrow");
@@ -153,17 +157,62 @@ public class IKTargetFollowVRRig : NetworkBehaviour
                 therapistCamera.transform.position = headFollowing.transform.position;
                 therapistCamera.transform.rotation = headFollowing.transform.rotation;
             }
+
+            if (Input.GetMouseButton(0) && grabbedNetworkObject != null && grabbedNetworkObject.IsOwner)
+            {
+                grabbedNetworkObject.transform.position = therapistCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, therapistCamera.transform.position.y - grabbedNetworkObject.transform.position.y));
+            }
+
+            if (Input.GetMouseButtonUp(0) && grabbedNetworkObject != null && grabbedNetworkObject.IsOwner)
+            {
+                grabbedNetworkObject.transform.position = initialMovePosition;
+                SetObjectOwnershipToTherapistServerRpc(new NetworkObjectReference(grabbedNetworkObject), originalOwner);
+                grabbedNetworkObject = null;
+            }
+
             if ((Input.touchCount > 0 || Input.GetMouseButtonDown(0)) && currentIndex == 1 && Input.mousePosition.y >= 175.1f) 
             {
                 Vector3 placeToMove = therapistCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, therapistCamera.nearClipPlane + 0.2f * 2));
                 //Vector3 placeToMove = therapistCamera.ScreenToWorldPoint(Input.GetTouch(0));
                 placeToMove.y = deskHeight + 0.2f;
-                Debug.Log(Input.mousePosition);
                 SpawnArrowServerRpc(placeToMove);
+
+                RaycastHit hit;
+                Ray ray = therapistCamera.ScreenPointToRay(Input.mousePosition);
+
+                if (Physics.Raycast(ray, out hit, 100f)) 
+                {
+                    Debug.Log(hit.collider.name);
+                    grabbedNetworkObject = hit.collider.gameObject.GetComponent<NetworkObject>();
+                    originalOwner = grabbedNetworkObject.OwnerClientId;
+                    SetObjectOwnershipToTherapistServerRpc(new NetworkObjectReference(grabbedNetworkObject), NetworkManager.LocalClientId);
+                    initialMovePosition = grabbedNetworkObject.transform.position;
+                }
             }
             return;
         }
     }
+
+    [ServerRpc]
+    public void SetObjectOwnershipToTherapistServerRpc(NetworkObjectReference objectReference, ulong clientId)
+    {
+        NetworkObject networkObject;
+        if (objectReference.TryGet(out networkObject))
+        {
+            networkObject.ChangeOwnership(clientId);
+        }
+    }
+
+    [ServerRpc]
+    public void RemoveObjectOwnershipToTherapistServerRpc(NetworkObjectReference objectReference, ulong originalOwner)
+    {
+        NetworkObject networkObject;
+        if (objectReference.TryGet(out networkObject))
+        {
+            networkObject.ChangeOwnership(originalOwner);
+        }
+    }
+
 
     [ServerRpc]
     void ShowAvatarServerRpc(ServerRpcParams rpcParams = default)
