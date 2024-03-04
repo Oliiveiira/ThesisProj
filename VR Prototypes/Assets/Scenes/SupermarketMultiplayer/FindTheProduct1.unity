@@ -20787,7 +20787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allProducts: []
   randomProducts: []
-  numberOfProducts: 2
+  numberOfProducts: 3
   shelfTransforms:
   - {fileID: 270121208}
   - {fileID: 1048935519}
@@ -39585,7 +39585,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1792539558728417982, guid: 77f31964eb185fa4db60a2e11c5d09e6, type: 3}
+  - {fileID: 2100000, guid: 9e971f6d3e567ac44abcdecf1c670747, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -48544,7 +48544,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1792539558728417982, guid: 77f31964eb185fa4db60a2e11c5d09e6, type: 3}
+  - {fileID: 2100000, guid: 9e971f6d3e567ac44abcdecf1c670747, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

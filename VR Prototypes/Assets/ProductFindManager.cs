@@ -117,17 +117,34 @@ public class ProductFindManager : NetworkBehaviour
         for(int i = 0; i < shelfTransforms.Count; i++)
         {
             GameObject productToPick = Instantiate(randomProducts[randomIndex], shelfTransforms[i].transform.position, randomProducts[randomIndex].transform.rotation);
+            productToPick.transform.localScale *= 0.99f;
             NetworkObject networkProduct = productToPick.GetComponent<NetworkObject>();
             networkProduct.Spawn(destroyWithScene: true);
             //Renderer productMaterial = productToPick.GetComponent<Renderer>();
+            NetworkObjectReference productReference = new NetworkObjectReference(productToPick.GetComponent<NetworkObject>());
+            DisableHandGrabClientRpc(productReference);
+
             if (i % 2 == 0)
             {
-                NetworkObjectReference productReference = new NetworkObjectReference(productToPick.GetComponent<NetworkObject>());
                 SetProductMaterialClientRpc(productReference);
             }
             spawnedShelfProducts.Add(productToPick);
         }
         canCompare = true;
+    }
+
+    [ClientRpc]
+    public void DisableHandGrabClientRpc(NetworkObjectReference productReference)
+    {
+        NetworkObject productObject;
+        if (productReference.TryGet(out productObject))
+        {
+            HandGrabInteractable handGrabInteractable = productObject.GetComponent<HandGrabInteractable>();
+            if (handGrabInteractable != null)
+            {
+                handGrabInteractable.enabled = false;
+            }
+        }
     }
 
     [ClientRpc]
@@ -150,7 +167,10 @@ public class ProductFindManager : NetworkBehaviour
     {
         if (Vector3.Distance(leftProducts[randomIndex].transform.position, shelfTransforms[0].position) < 0.1f && !isInLeftPlace.Value)
         {
-            leftProducts[randomIndex].transform.position = shelfTransforms[0].position;
+            leftProducts[randomIndex].transform.SetPositionAndRotation(spawnedShelfProducts[0].transform.position, randomProducts[0].transform.rotation);
+            Rigidbody leftProductRb = leftProducts[randomIndex].GetComponent<Rigidbody>();
+           // leftProductRb.isKinematic = false;
+
             Debug.Log("isHere");
             popSound.Play();
             HandGrabInteractable handGrabInteractable = leftProducts[randomIndex].GetComponent<HandGrabInteractable>();
@@ -162,11 +182,13 @@ public class ProductFindManager : NetworkBehaviour
 
             NetworkBehaviourReference leftProductReference = new NetworkBehaviourReference(leftProducts[randomIndex].GetComponent<NetworkBehaviour>());
             Debug.Log(leftProductReference);
-            DisableLeftInteractableClientRpc(leftProductReference);
+            DisableLeftInteractableClientRpc(leftProductReference, randomIndex);
         }
         else if (Vector3.Distance(rightProducts[randomIndex].transform.position, shelfTransforms[2].position) < 0.1f && !isInRightPlace.Value)
         {
-            rightProducts[randomIndex].transform.position = shelfTransforms[2].position;
+            rightProducts[randomIndex].transform.SetPositionAndRotation(spawnedShelfProducts[2].transform.position, randomProducts[2].transform.rotation);
+            Rigidbody rightProductRb = rightProducts[randomIndex].GetComponent<Rigidbody>();
+           // rightProductRb.isKinematic = false;
 
             popSound.Play();
             HandGrabInteractable handGrabInteractable = rightProducts[randomIndex].GetComponent<HandGrabInteractable>();
@@ -178,7 +200,7 @@ public class ProductFindManager : NetworkBehaviour
 
             NetworkBehaviourReference rightProductReference = new NetworkBehaviourReference(rightProducts[randomIndex].GetComponent<NetworkBehaviour>());
             Debug.Log(rightProductReference);
-            DisableRightInteractableClientRpc(rightProductReference);
+            DisableRightInteractableClientRpc(rightProductReference, randomIndex);
         }
         else if(isInLeftPlace.Value && isInRightPlace.Value)
         {
@@ -190,7 +212,7 @@ public class ProductFindManager : NetworkBehaviour
     }
 
     [ClientRpc]
-    private void DisableLeftInteractableClientRpc(NetworkBehaviourReference leftproductReference)
+    private void DisableLeftInteractableClientRpc(NetworkBehaviourReference leftproductReference, int randomIndex)
     {
         popSound.Play();
         NetworkBehaviour leftProductBehaviour;
@@ -203,13 +225,13 @@ public class ProductFindManager : NetworkBehaviour
             }
             if (leftProductBehaviour.IsOwner)
             {
-                leftProductBehaviour.transform.position = shelfTransforms[0].position;
+                leftProductBehaviour.transform.SetPositionAndRotation(spawnedShelfProducts[0].transform.position, randomProducts[randomIndex].transform.rotation);
             }
         }
     }
 
     [ClientRpc]
-    private void DisableRightInteractableClientRpc(NetworkBehaviourReference rightproductReference)
+    private void DisableRightInteractableClientRpc(NetworkBehaviourReference rightproductReference, int randomIndex)
     {
         popSound.Play();
         NetworkBehaviour rightProductBehaviour;
@@ -222,7 +244,7 @@ public class ProductFindManager : NetworkBehaviour
             }
             if (rightProductBehaviour.IsOwner)
             {
-                rightProductBehaviour.transform.position = shelfTransforms[1].position;
+                rightProductBehaviour.transform.SetPositionAndRotation(spawnedShelfProducts[2].transform.position, randomProducts[randomIndex].transform.rotation);
             }
         }
     }
