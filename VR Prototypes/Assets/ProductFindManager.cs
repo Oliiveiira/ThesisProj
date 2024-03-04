@@ -46,6 +46,9 @@ public class ProductFindManager : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (IsServer)
+            currentTime.Value = startingTime;
+
         allProducts = new List<GameObject>(Resources.LoadAll<GameObject>("NetworkProducts/"));
         if(IsServer)
         {
@@ -182,7 +185,8 @@ public class ProductFindManager : NetworkBehaviour
 
             NetworkBehaviourReference leftProductReference = new NetworkBehaviourReference(leftProducts[randomIndex].GetComponent<NetworkBehaviour>());
             Debug.Log(leftProductReference);
-            DisableLeftInteractableClientRpc(leftProductReference);
+            NetworkObjectReference shelfProductReference = new NetworkObjectReference(spawnedShelfProducts[0].GetComponent<NetworkObject>());
+            DisableLeftInteractableClientRpc(leftProductReference, shelfProductReference);
         }
         else if (Vector3.Distance(rightProducts[randomIndex].transform.position, shelfTransforms[2].position) < 0.15f && !isInRightPlace.Value)
         {
@@ -200,7 +204,8 @@ public class ProductFindManager : NetworkBehaviour
 
             NetworkBehaviourReference rightProductReference = new NetworkBehaviourReference(rightProducts[randomIndex].GetComponent<NetworkBehaviour>());
             Debug.Log(rightProductReference);
-            DisableRightInteractableClientRpc(rightProductReference);
+            NetworkObjectReference shelfProductReference = new NetworkObjectReference(spawnedShelfProducts[0].GetComponent<NetworkObject>());
+            DisableRightInteractableClientRpc(rightProductReference, shelfProductReference);
         }
         else if(isInLeftPlace.Value && isInRightPlace.Value)
         {
@@ -212,7 +217,7 @@ public class ProductFindManager : NetworkBehaviour
     }
 
     [ClientRpc]
-    private void DisableLeftInteractableClientRpc(NetworkBehaviourReference leftproductReference)
+    private void DisableLeftInteractableClientRpc(NetworkBehaviourReference leftproductReference, NetworkObjectReference shelfProductReference)
     {
         popSound.Play();
         NetworkBehaviour leftProductBehaviour;
@@ -225,13 +230,17 @@ public class ProductFindManager : NetworkBehaviour
             }
             if (leftProductBehaviour.IsOwner)
             {
-                leftProductBehaviour.transform.SetPositionAndRotation(spawnedShelfProducts[0].transform.position, spawnedShelfProducts[0].transform.rotation);
+                NetworkObject shelfProductObject;
+                if (shelfProductReference.TryGet(out shelfProductObject))
+                {
+                    leftProductBehaviour.transform.SetPositionAndRotation(shelfProductObject.transform.position, shelfProductObject.transform.rotation);
+                }
             }
         }
     }
 
     [ClientRpc]
-    private void DisableRightInteractableClientRpc(NetworkBehaviourReference rightproductReference)
+    private void DisableRightInteractableClientRpc(NetworkBehaviourReference rightproductReference, NetworkObjectReference shelfProductReference)
     {
         popSound.Play();
         NetworkBehaviour rightProductBehaviour;
@@ -244,7 +253,11 @@ public class ProductFindManager : NetworkBehaviour
             }
             if (rightProductBehaviour.IsOwner)
             {
-                rightProductBehaviour.transform.SetPositionAndRotation(spawnedShelfProducts[2].transform.position, spawnedShelfProducts[0].transform.rotation);
+                NetworkObject shelfProductObject;
+                if (shelfProductReference.TryGet(out shelfProductObject))
+                {
+                    rightProductBehaviour.transform.SetPositionAndRotation(shelfProductObject.transform.position, shelfProductObject.transform.rotation);
+                }
             }
         }
     }
