@@ -165,9 +165,9 @@ public class ProductFindManager : NetworkBehaviour
 
     public void ComparePositions()
     {
-        if (Vector3.Distance(leftProducts[randomIndex].transform.position, shelfTransforms[0].position) < 0.1f && !isInLeftPlace.Value)
+        if (Vector3.Distance(leftProducts[randomIndex].transform.position, shelfTransforms[0].position) < 0.15f && !isInLeftPlace.Value)
         {
-            leftProducts[randomIndex].transform.SetPositionAndRotation(spawnedShelfProducts[0].transform.position, randomProducts[0].transform.rotation);
+            leftProducts[randomIndex].transform.SetPositionAndRotation(spawnedShelfProducts[0].transform.position, spawnedShelfProducts[0].transform.rotation);
             Rigidbody leftProductRb = leftProducts[randomIndex].GetComponent<Rigidbody>();
            // leftProductRb.isKinematic = false;
 
@@ -182,11 +182,11 @@ public class ProductFindManager : NetworkBehaviour
 
             NetworkBehaviourReference leftProductReference = new NetworkBehaviourReference(leftProducts[randomIndex].GetComponent<NetworkBehaviour>());
             Debug.Log(leftProductReference);
-            DisableLeftInteractableClientRpc(leftProductReference, randomIndex);
+            DisableLeftInteractableClientRpc(leftProductReference);
         }
-        else if (Vector3.Distance(rightProducts[randomIndex].transform.position, shelfTransforms[2].position) < 0.1f && !isInRightPlace.Value)
+        else if (Vector3.Distance(rightProducts[randomIndex].transform.position, shelfTransforms[2].position) < 0.15f && !isInRightPlace.Value)
         {
-            rightProducts[randomIndex].transform.SetPositionAndRotation(spawnedShelfProducts[2].transform.position, randomProducts[2].transform.rotation);
+            rightProducts[randomIndex].transform.SetPositionAndRotation(spawnedShelfProducts[2].transform.position, spawnedShelfProducts[0].transform.rotation);
             Rigidbody rightProductRb = rightProducts[randomIndex].GetComponent<Rigidbody>();
            // rightProductRb.isKinematic = false;
 
@@ -200,7 +200,7 @@ public class ProductFindManager : NetworkBehaviour
 
             NetworkBehaviourReference rightProductReference = new NetworkBehaviourReference(rightProducts[randomIndex].GetComponent<NetworkBehaviour>());
             Debug.Log(rightProductReference);
-            DisableRightInteractableClientRpc(rightProductReference, randomIndex);
+            DisableRightInteractableClientRpc(rightProductReference);
         }
         else if(isInLeftPlace.Value && isInRightPlace.Value)
         {
@@ -212,7 +212,7 @@ public class ProductFindManager : NetworkBehaviour
     }
 
     [ClientRpc]
-    private void DisableLeftInteractableClientRpc(NetworkBehaviourReference leftproductReference, int randomIndex)
+    private void DisableLeftInteractableClientRpc(NetworkBehaviourReference leftproductReference)
     {
         popSound.Play();
         NetworkBehaviour leftProductBehaviour;
@@ -225,13 +225,13 @@ public class ProductFindManager : NetworkBehaviour
             }
             if (leftProductBehaviour.IsOwner)
             {
-                leftProductBehaviour.transform.SetPositionAndRotation(spawnedShelfProducts[0].transform.position, randomProducts[randomIndex].transform.rotation);
+                leftProductBehaviour.transform.SetPositionAndRotation(spawnedShelfProducts[0].transform.position, spawnedShelfProducts[0].transform.rotation);
             }
         }
     }
 
     [ClientRpc]
-    private void DisableRightInteractableClientRpc(NetworkBehaviourReference rightproductReference, int randomIndex)
+    private void DisableRightInteractableClientRpc(NetworkBehaviourReference rightproductReference)
     {
         popSound.Play();
         NetworkBehaviour rightProductBehaviour;
@@ -244,7 +244,7 @@ public class ProductFindManager : NetworkBehaviour
             }
             if (rightProductBehaviour.IsOwner)
             {
-                rightProductBehaviour.transform.SetPositionAndRotation(spawnedShelfProducts[2].transform.position, randomProducts[randomIndex].transform.rotation);
+                rightProductBehaviour.transform.SetPositionAndRotation(spawnedShelfProducts[2].transform.position, spawnedShelfProducts[0].transform.rotation);
             }
         }
     }
