@@ -204,7 +204,7 @@ public class ProductFindManager : NetworkBehaviour
 
             NetworkBehaviourReference rightProductReference = new NetworkBehaviourReference(rightProducts[randomIndex].GetComponent<NetworkBehaviour>());
             Debug.Log(rightProductReference);
-            NetworkObjectReference shelfProductReference = new NetworkObjectReference(spawnedShelfProducts[0].GetComponent<NetworkObject>());
+            NetworkObjectReference shelfProductReference = new NetworkObjectReference(spawnedShelfProducts[2].GetComponent<NetworkObject>());
             DisableRightInteractableClientRpc(rightProductReference, shelfProductReference);
         }
         else if(isInLeftPlace.Value && isInRightPlace.Value)
