@@ -61,7 +61,10 @@ public class ProductFindManager : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(IsServer && canCompare)
+        if (!IsServer)
+            return;
+
+        if(canCompare)
             ComparePositions();
 
         if (winFlag)

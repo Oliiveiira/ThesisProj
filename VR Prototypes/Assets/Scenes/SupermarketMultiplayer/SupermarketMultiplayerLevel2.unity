@@ -27887,7 +27887,7 @@ MonoBehaviour:
   shelves: []
   registerBox: {fileID: 2012356539}
   level: {fileID: 11400000, guid: d54236a44af62864396c3f28767d6e9b, type: 2}
-  nextSceneName: PuzzleMultiplayerHub
+  nextSceneName: MultiplayerHub2
   timer: {fileID: 1067683831}
   currentTime:
     m_InternalValue: 0

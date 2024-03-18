@@ -296,7 +296,10 @@ public class PairsGameMultiplayerManager : PairsListReader
     // Update is called once per frame
     void Update()
     {
-        if(IsServer && !winFlag)
+        if (!IsServer)
+            return;
+
+        if(!winFlag)
             ComparePositions();
 
         if (winFlag)

@@ -20932,7 +20932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3428042363
+  GlobalObjectIdHash: 471505613
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -20954,7 +20954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allProducts: []
   randomProducts: []
-  numberOfProducts: 3
+  numberOfProducts: 4
   shelfTransforms:
   - {fileID: 270121208}
   - {fileID: 1048935519}
@@ -20981,7 +20981,7 @@ MonoBehaviour:
   canCompare: 0
   productMaterials: []
   setWinPanel: {fileID: 11400000, guid: ef33d6c9ab615ee43bd3d7ca065ce61a, type: 2}
-  nextSceneName: FindTheProduct2
+  nextSceneName: SupermarketMultiplayerLevel1
   currentTime:
     m_InternalValue: 0
   timer: {fileID: 1449297750}

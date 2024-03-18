@@ -81,19 +81,19 @@ EditorBuildSettings:
     path: Assets/Scenes/PuzzleLevels/PuzzleLevel3Passthrough.unity
     guid: d337c98a759db624bab6e76aedd1f365
   - enabled: 1
-    path: Assets/Scenes/PuzzleLevels/MultiplayerLevels/PuzzleMultiplayerHub.unity
+    path: Assets/Scenes/MultiplayerLevels/MultiplayerHub.unity
     guid: dd1b968f573678d4098447617833fd04
   - enabled: 1
-    path: Assets/Scenes/PuzzleLevels/MultiplayerLevels/PuzzleLevelMultiplayerTest.unity
+    path: Assets/Scenes/MultiplayerLevels/PuzzleLevelMultiplayer1.unity
     guid: ef1782b156189284f808c1d5ec58fdea
   - enabled: 1
-    path: Assets/Scenes/PuzzleLevels/MultiplayerLevels/3DPuzzles/Puzzle3DLevelMultiPlayer.unity
+    path: Assets/Scenes/PuzzleLevels/3DPuzzles/Puzzle3DLevelMultiPlayer.unity
     guid: 3f5ea1561bb684241a5daf29937929c0
   - enabled: 1
     path: Assets/Scenes/PairsLevels/PairsLevelMultiplayer.unity
     guid: 31f598b46341b7949ad8cafc7bd65bfc
   - enabled: 1
-    path: Assets/Scenes/PuzzleLevels/MultiplayerLevels/3DPuzzles/Puzzle3DLevelMultiPlayer2.unity
+    path: Assets/Scenes/PuzzleLevels/3DPuzzles/Puzzle3DLevelMultiPlayer2.unity
     guid: f5852f5626d678b468a9c145efad8e57
   - enabled: 1
     path: Assets/Scenes/SupermarketMultiplayer/SupermarketMultiplayerLevel1.unity
@@ -104,6 +104,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SupermarketMultiplayer/FindTheProduct1.unity
     guid: ee5f249e205e20a4098794dfd0bb7b48
+  - enabled: 1
+    path: Assets/Scenes/SupermarketMultiplayer/FindTheProduct2.unity
+    guid: 6fd049e61e734fd44bee409d85132d29
+  - enabled: 1
+    path: Assets/Scenes/PairsLevels/PairsLevelMultiplayer2.unity
+    guid: 088ea7dd0038a1c43bf31f3d50ffd0b7
+  - enabled: 1
+    path: Assets/Scenes/MultiplayerLevels/MultiplayerHub2.unity
+    guid: 3220e08ea7789944dbca5ad0e0e7a313
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 6eefee752c7ee674183932769f47456a, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}

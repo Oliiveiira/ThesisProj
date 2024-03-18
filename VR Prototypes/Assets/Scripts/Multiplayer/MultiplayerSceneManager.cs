@@ -11,4 +11,12 @@ public class MultiplayerSceneManager : NetworkBehaviour
     {
         NetworkManager.SceneManager.LoadScene(nextSceneName, LoadSceneMode.Single);
     }
+
+    [ClientRpc]
+    public void StopNetworkManagerClientRpc(string nextSceneName)
+    {
+        Destroy(NetworkManager.gameObject);
+        NetworkManager.Shutdown();
+        SceneManager.LoadScene(nextSceneName, LoadSceneMode.Single);
+    }
 }
