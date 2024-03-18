@@ -40,7 +40,7 @@ public class NetworkConnect : MonoBehaviour
         {
             currentLobby = await Lobbies.Instance.QuickJoinLobbyAsync();
             string relayJoinCode = currentLobby.Data["JOIN_CODE"].Value;
-
+            Debug.Log(relayJoinCode);
             JoinAllocation allocation = await RelayService.Instance.JoinAllocationAsync(relayJoinCode);
 
             transport.SetClientRelayData(allocation.RelayServer.IpV4, (ushort)allocation.RelayServer.Port,
