@@ -73,6 +73,8 @@ public class StaticListManagerMultiplayer : StaticLevelsListReader
         string jsonText = File.ReadAllText(jsonFilePath);
         mystaticLevelsLists = JsonUtility.FromJson<StaticLevelsList>(jsonText);
 
+        Debug.Log(mystaticLevelsLists.recipe.Count);
+
         if (!IsServer)
             return;
 
@@ -160,12 +162,12 @@ public class StaticListManagerMultiplayer : StaticLevelsListReader
     [ClientRpc]
     public void SetListClientRPC(int level)
     {
-        DebugServerRpc("Client");
-        //  budget = mystaticLevelsLists.recipe[level].budget;
+        string jsonFileName = "StaticLevelsList.txt";
+        string jsonFilePath = Path.Combine(Application.persistentDataPath, jsonFileName);
 
-        // image.sprite = allSprites[level.Value];
-
-        //recipeName.SetText(mystaticLevelsLists.recipe[level].recipeName);
+        // Check if the file exists in the persistent data path
+        string jsonText = File.ReadAllText(jsonFilePath);
+        mystaticLevelsLists = JsonUtility.FromJson<StaticLevelsList>(jsonText);
 
         for (int i = 0; i < mystaticLevelsLists.recipe[level].ingredientsName.Count; i++)
         {
@@ -173,8 +175,6 @@ public class StaticListManagerMultiplayer : StaticLevelsListReader
             productsToGettoWatchR[i].text = mystaticLevelsLists.recipe[level].ingredientsName[i]; //to Watch
             productsToGettoWatchL[i].text = mystaticLevelsLists.recipe[level].ingredientsName[i]; //to Watch
         }
-        DebugServerRpc("loop ended");
-        DebugServerRpc(mystaticLevelsLists.recipe[level].ingredientsName[0]);
     }
 
     [ServerRpc]

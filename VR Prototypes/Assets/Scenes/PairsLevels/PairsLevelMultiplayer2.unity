@@ -45407,7 +45407,7 @@ MonoBehaviour:
   rightPieceMaterial: {fileID: 1894296032}
   setWinPanel: {fileID: 11400000, guid: ef33d6c9ab615ee43bd3d7ca065ce61a, type: 2}
   usedPieceIndexes: 
-  nextSceneName: FindTheProduct1
+  nextSceneName: MultiplayerHub2
   ObjectsToHide: {fileID: 866028086}
   currentTime:
     m_InternalValue: 0

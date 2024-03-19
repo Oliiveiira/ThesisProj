@@ -9469,7 +9469,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &414825397
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9504,8 +9504,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4c46f8acd1d8a248945540f5c903d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restartPose: {fileID: 0}
-  backToMenuPose: {fileID: 0}
+  restartPose: {fileID: 1990720495}
+  backToMenuPose: {fileID: 1990720494}
   canRestart: 0
   canGoBackToMenu: 0
   restartCountdownText: {fileID: 1530354762}
@@ -9747,7 +9747,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &418080596
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9782,8 +9782,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4c46f8acd1d8a248945540f5c903d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restartPose: {fileID: 0}
-  backToMenuPose: {fileID: 0}
+  restartPose: {fileID: 1990720493}
+  backToMenuPose: {fileID: 1990720496}
   canRestart: 0
   canGoBackToMenu: 0
   restartCountdownText: {fileID: 1903695730}
@@ -27887,7 +27887,7 @@ MonoBehaviour:
   shelves: []
   registerBox: {fileID: 2012356539}
   level: {fileID: 11400000, guid: d54236a44af62864396c3f28767d6e9b, type: 2}
-  nextSceneName: MultiplayerHub2
+  nextSceneName: FindTheProduct1
   timer: {fileID: 1067683831}
   currentTime:
     m_InternalValue: 0
@@ -45868,31 +45868,31 @@ PrefabInstance:
     - target: {fileID: 99183573536608221, guid: c9c009f813b4f37449b5052bf27b710c, type: 3}
       propertyPath: _hand
       value: 
-      objectReference: {fileID: 7125479781180285817}
+      objectReference: {fileID: 583883988}
     - target: {fileID: 2220067239511689816, guid: c9c009f813b4f37449b5052bf27b710c, type: 3}
       propertyPath: _hand
       value: 
-      objectReference: {fileID: 7125479781180285817}
+      objectReference: {fileID: 583883988}
     - target: {fileID: 2388987830785475753, guid: c9c009f813b4f37449b5052bf27b710c, type: 3}
       propertyPath: _hand
       value: 
-      objectReference: {fileID: 7125479781180285817}
+      objectReference: {fileID: 583883988}
     - target: {fileID: 2909107840783975383, guid: c9c009f813b4f37449b5052bf27b710c, type: 3}
       propertyPath: _hand
       value: 
-      objectReference: {fileID: 7125479781879906461}
+      objectReference: {fileID: 1139511572}
     - target: {fileID: 3218569379036974831, guid: c9c009f813b4f37449b5052bf27b710c, type: 3}
       propertyPath: _hand
       value: 
-      objectReference: {fileID: 7125479781879906461}
+      objectReference: {fileID: 1139511572}
     - target: {fileID: 5237855647633750760, guid: c9c009f813b4f37449b5052bf27b710c, type: 3}
       propertyPath: _hand
       value: 
-      objectReference: {fileID: 7125479781879906461}
+      objectReference: {fileID: 1139511572}
     - target: {fileID: 6139618910183748558, guid: c9c009f813b4f37449b5052bf27b710c, type: 3}
       propertyPath: _hand
       value: 
-      objectReference: {fileID: 7125479781180285817}
+      objectReference: {fileID: 583883988}
     - target: {fileID: 6949143601169849845, guid: c9c009f813b4f37449b5052bf27b710c, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -45943,12 +45943,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6949143601169849850, guid: c9c009f813b4f37449b5052bf27b710c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8637617428037247904, guid: c9c009f813b4f37449b5052bf27b710c, type: 3}
       propertyPath: _hand
       value: 
-      objectReference: {fileID: 7125479781879906461}
+      objectReference: {fileID: 1139511572}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9c009f813b4f37449b5052bf27b710c, type: 3}
 --- !u!114 &1990720493 stripped

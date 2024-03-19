@@ -20981,7 +20981,7 @@ MonoBehaviour:
   canCompare: 0
   productMaterials: []
   setWinPanel: {fileID: 11400000, guid: ef33d6c9ab615ee43bd3d7ca065ce61a, type: 2}
-  nextSceneName: SupermarketMultiplayerLevel1
+  nextSceneName: PuzzleLevelMultiplayer1
   currentTime:
     m_InternalValue: 0
   timer: {fileID: 1449297750}
