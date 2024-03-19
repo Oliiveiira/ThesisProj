@@ -9469,7 +9469,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &414825397
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9747,7 +9747,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &418080596
 RectTransform:
   m_ObjectHideFlags: 0
@@ -30871,7 +30871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allSprites: []
-  recipeJSON: {fileID: 4900000, guid: 62e3231fae0a3d4498273ea901f5010d, type: 3}
+  recipeJSON: {fileID: 4900000, guid: 8e67f823e72dea1469e986e03c4968dd, type: 3}
   mystaticLevelsLists:
     recipe: []
   budgetText: {fileID: 1619053294}
@@ -30926,7 +30926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allSprites: []
-  recipeJSON: {fileID: 4900000, guid: 62e3231fae0a3d4498273ea901f5010d, type: 3}
+  recipeJSON: {fileID: 4900000, guid: 8e67f823e72dea1469e986e03c4968dd, type: 3}
   mystaticLevelsLists:
     recipe: []
   placeHolders:
@@ -45940,6 +45940,10 @@ PrefabInstance:
     - target: {fileID: 6949143601169849850, guid: c9c009f813b4f37449b5052bf27b710c, type: 3}
       propertyPath: m_Name
       value: PosesStatic
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949143601169849850, guid: c9c009f813b4f37449b5052bf27b710c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8637617428037247904, guid: c9c009f813b4f37449b5052bf27b710c, type: 3}
       propertyPath: _hand

@@ -1,6 +1,7 @@
 using RoboRyanTron.Unite2017.Events;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using TMPro;
 using Unity.Netcode;
 using UnityEngine;
@@ -57,14 +58,21 @@ public class StaticListManagerMultiplayer : StaticLevelsListReader
     private int maxLevelValue;
 
     // Start is called before the first frame update
-    void Awake()
-    {
-        allSprites = Resources.LoadAll<Sprite>("StaticLevelsImages/");
-        mystaticLevelsLists = JsonUtility.FromJson<StaticLevelsList>(recipeJSON.text);
-    }
+    //void Awake()
+    //{
+    //    allSprites = Resources.LoadAll<Sprite>("StaticLevelsImages/");
+    //    mystaticLevelsLists = JsonUtility.FromJson<StaticLevelsList>(recipeJSON.text);
+    //}
 
     private void Start()
     {
+        string jsonFileName = "StaticLevelsList.txt";
+        string jsonFilePath = Path.Combine(Application.persistentDataPath, jsonFileName);
+
+        // Check if the file exists in the persistent data path
+        string jsonText = File.ReadAllText(jsonFilePath);
+        mystaticLevelsLists = JsonUtility.FromJson<StaticLevelsList>(jsonText);
+
         if (!IsServer)
             return;
 
@@ -72,15 +80,15 @@ public class StaticListManagerMultiplayer : StaticLevelsListReader
         Random random = new Random();
         randomIndex = random.Next(minLevelValue, maxLevelValue + 1);
         level.Value = randomIndex;
-        SetLevelClientRPC(randomIndex);
+        //SetLevelClientRPC(randomIndex);
         ShowRecipe();
     }
 
-    [ClientRpc]
-    public void SetLevelClientRPC(int randomIndex)
-    {
-        level.Value = randomIndex;
-    }
+    //[ClientRpc]
+    //public void SetLevelClientRPC(int randomIndex)
+    //{
+    //    level.Value = randomIndex;
+    //}
 
     // Update is called once per frame
     void Update()
@@ -146,24 +154,33 @@ public class StaticListManagerMultiplayer : StaticLevelsListReader
             productsToGettoWatchR[i].text = mystaticLevelsLists.recipe[level.Value].ingredientsName[i]; //to Watch
             productsToGettoWatchL[i].text = mystaticLevelsLists.recipe[level.Value].ingredientsName[i]; //to Watch
         }
-        SetListClientRPC();
+        SetListClientRPC(level.Value);
     }
 
     [ClientRpc]
-    public void SetListClientRPC()
+    public void SetListClientRPC(int level)
     {
-        budget = mystaticLevelsLists.recipe[level.Value].budget;
+        DebugServerRpc("Client");
+        //  budget = mystaticLevelsLists.recipe[level].budget;
 
-        image.sprite = allSprites[level.Value];
+        // image.sprite = allSprites[level.Value];
 
-        recipeName.SetText(mystaticLevelsLists.recipe[level.Value].recipeName);
+        //recipeName.SetText(mystaticLevelsLists.recipe[level].recipeName);
 
-        for (int i = 0; i < mystaticLevelsLists.recipe[level.Value].ingredientsName.Count; i++)
+        for (int i = 0; i < mystaticLevelsLists.recipe[level].ingredientsName.Count; i++)
         {
-            productsToGet[i].text = mystaticLevelsLists.recipe[level.Value].ingredientsName[i];
-            productsToGettoWatchR[i].text = mystaticLevelsLists.recipe[level.Value].ingredientsName[i]; //to Watch
-            productsToGettoWatchL[i].text = mystaticLevelsLists.recipe[level.Value].ingredientsName[i]; //to Watch
+            productsToGet[i].text = mystaticLevelsLists.recipe[level].ingredientsName[i];
+            productsToGettoWatchR[i].text = mystaticLevelsLists.recipe[level].ingredientsName[i]; //to Watch
+            productsToGettoWatchL[i].text = mystaticLevelsLists.recipe[level].ingredientsName[i]; //to Watch
         }
+        DebugServerRpc("loop ended");
+        DebugServerRpc(mystaticLevelsLists.recipe[level].ingredientsName[0]);
+    }
+
+    [ServerRpc]
+    public void DebugServerRpc(string debug)
+    {
+        Debug.Log(debug);
     }
 
     public void ResetScene()
