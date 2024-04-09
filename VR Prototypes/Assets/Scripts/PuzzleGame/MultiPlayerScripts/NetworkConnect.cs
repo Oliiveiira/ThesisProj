@@ -78,7 +78,7 @@ public class NetworkConnect : MonoBehaviour
     }
 
 
-    private void ConnectionApprovalCallback(NetworkManager.ConnectionApprovalRequest request, NetworkManager.ConnectionApprovalResponse response)
+    public void ConnectionApprovalCallback(NetworkManager.ConnectionApprovalRequest request, NetworkManager.ConnectionApprovalResponse response)
     {
         print("entrou aqui");
 

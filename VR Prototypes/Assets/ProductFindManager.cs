@@ -96,12 +96,12 @@ public class ProductFindManager : NetworkBehaviour
        {
             GameObject leftProduct = Instantiate(product, tablePositions[i].position, product.transform.rotation);
             NetworkObject leftProductNetwork = leftProduct.GetComponent<NetworkObject>();
-            leftProductNetwork.SpawnWithOwnership(0, destroyWithScene: true);
+            leftProductNetwork.SpawnWithOwnership(1, destroyWithScene: true);
             leftProducts.Add(leftProduct);
 
             GameObject rightProduct = Instantiate(product, tablePositions[i + tablePositions.Count / 2].position, product.transform.rotation);
             NetworkObject rightProductNetwork = rightProduct.GetComponent<NetworkObject>();
-            rightProductNetwork.SpawnWithOwnership(1, destroyWithScene: true); // TROCAR OWNERSHIP
+            rightProductNetwork.SpawnWithOwnership(2, destroyWithScene: true); // TROCAR OWNERSHIP
             rightProducts.Add(rightProduct); 
             i++;
        }

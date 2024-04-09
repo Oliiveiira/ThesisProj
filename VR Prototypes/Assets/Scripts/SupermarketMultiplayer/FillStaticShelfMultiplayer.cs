@@ -89,7 +89,7 @@ public class FillStaticShelfMultiplayer : StaticLevelsListReader
             lastJsonPrefabIndex.Add(randomIndex);
             // Instantiate(jsonPrefabs[i], placeHolders[randomIndex].position, jsonPrefabs[i].transform.rotation);
             GameObject oddInstantiatedPrefab = Instantiate(jsonPrefabs[i], leftplaceHolders[randomIndex].position, jsonPrefabs[i].transform.rotation);
-            oddInstantiatedPrefab.GetComponent<NetworkObject>().SpawnWithOwnership(0, destroyWithScene: true);
+            oddInstantiatedPrefab.GetComponent<NetworkObject>().SpawnWithOwnership(1, destroyWithScene: true);
             //oddInstantiatedPrefab.transform.parent = placeHoldersObject.transform;
             usedIndices.Add(randomIndex); // Mark the index as used
         }
@@ -105,7 +105,7 @@ public class FillStaticShelfMultiplayer : StaticLevelsListReader
             }
             lastJsonPrefabIndex.Add(randomIndex);
             GameObject evenInstantiatedPrefab = Instantiate(jsonPrefabs[i], rightplaceHolders[randomIndex].position, jsonPrefabs[i].transform.rotation);
-            evenInstantiatedPrefab.GetComponent<NetworkObject>().SpawnWithOwnership(1, destroyWithScene: true);
+            evenInstantiatedPrefab.GetComponent<NetworkObject>().SpawnWithOwnership(2, destroyWithScene: true);
             //evenInstantiatedPrefab.transform.parent = placeHoldersObject.transform;
             usedIndices.Add(randomIndex + leftplaceHolders.Length); // Mark the index as used
         }
@@ -127,11 +127,11 @@ public class FillStaticShelfMultiplayer : StaticLevelsListReader
                 GameObject InstantiatedPrefab = Instantiate(allProducts[randomIndex], placeHolders[j].position, allProducts[randomIndex].transform.rotation);
                 if(j < leftplaceHolders.Length)
                 {
-                    InstantiatedPrefab.GetComponent<NetworkObject>().SpawnWithOwnership(0, destroyWithScene: true);
+                    InstantiatedPrefab.GetComponent<NetworkObject>().SpawnWithOwnership(1, destroyWithScene: true);
                 }
                 else
                 {
-                    InstantiatedPrefab.GetComponent<NetworkObject>().SpawnWithOwnership(1, destroyWithScene: true);
+                    InstantiatedPrefab.GetComponent<NetworkObject>().SpawnWithOwnership(2, destroyWithScene: true);
                 }
 
                 //InstantiatedPrefab.transform.parent = placeHoldersObject.transform;
