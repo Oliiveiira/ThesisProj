@@ -39,7 +39,7 @@ public class LocalNetworkManager : MonoBehaviour
     //}
     public void ConnectHost()
     {
-        SetIpAdress("192.168.1.69");
+        SetIpAdress("192.168.1.72");
         NetworkManager.Singleton.NetworkConfig.ConnectionData = System.BitConverter.GetBytes(networkConnect.prefabNumber);
         NetworkManager.Singleton.ConnectionApprovalCallback = networkConnect.ConnectionApprovalCallback;
         NetworkManager.Singleton.StartHost();
@@ -47,7 +47,7 @@ public class LocalNetworkManager : MonoBehaviour
 
     public void ConnectClient()
     {
-        SetIpAdress(textInput.text);
+        SetIpAdress("192.168.1.72");
         NetworkManager.Singleton.NetworkConfig.ConnectionData = System.BitConverter.GetBytes(networkConnect.prefabNumber);
         NetworkManager.Singleton.StartClient();
     }
