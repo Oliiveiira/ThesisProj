@@ -60,6 +60,8 @@ public class IKTargetFollowVRRig : NetworkBehaviour
     private NetworkObject grabbedNetworkObject = null;
     private ulong originalOwner = 0;
     private Vector3 initialMovePosition = Vector3.zero;
+    
+    private float currentTime = 0;
 
     public void Awake()
     {
@@ -322,6 +324,12 @@ public class IKTargetFollowVRRig : NetworkBehaviour
             return;
         }
         GetPlayerHeadTargetServerRpc(index - 2, NetworkManager.Singleton.LocalClientId);
+    }
+
+    public void StartTimer(TextMeshProUGUI timer)
+    {
+        currentTime += 1 * Time.deltaTime;
+        timer.SetText(currentTime.ToString("0"));
     }
 
     [ServerRpc]
