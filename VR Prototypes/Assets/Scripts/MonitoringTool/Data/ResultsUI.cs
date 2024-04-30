@@ -31,8 +31,8 @@ public class ResultsUI : GameData
                         resultManager.positionList = j;
                         resultManager.positionInnerList = i;
                         resultManager.blockId = id;
-                        Debug.Log(resultManager.positionList);
-                        Debug.Log(resultManager.positionInnerList);
+                        //Debug.Log(resultManager.positionList);
+                        //Debug.Log(resultManager.positionInnerList);
 
                         result.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Jogador 1: " + myGameData.gameData[j].player1;
                         result.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Jogador 2: " + myGameData.gameData[j].player2;
@@ -86,8 +86,8 @@ public class ResultsUI : GameData
             {
                 if (id < resultTemplates.Count)
                 {
-                    Debug.Log(myGameData.gameData[listPosition].time.Count);
-                    Debug.Log(id);
+                    //Debug.Log(myGameData.gameData[listPosition].time.Count);
+                    //Debug.Log(id);
                     ResultsManager resultsManager = resultTemplates[id].GetComponent<ResultsManager>();
                     if(resultsManager.positionList == listPosition)
                         resultsManager.positionInnerList--;
