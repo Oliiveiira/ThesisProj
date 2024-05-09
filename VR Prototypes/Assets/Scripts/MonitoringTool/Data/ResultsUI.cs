@@ -134,6 +134,7 @@ public class ResultsUI : GameData
 
         if (myGameData.gameData.Count >= 1 && listPosition == 0)
         {
+            Debug.Log("Here2");
             for (int i = 0; i < resultTemplates.Count; i++)
             {
                 ResultsManager resultsManager = resultTemplates[i].GetComponent<ResultsManager>();
@@ -144,11 +145,12 @@ public class ResultsUI : GameData
         } 
         else if (myGameData.gameData.Count >= 1 && listPosition != 0)
         {
+            Debug.Log("Here");
             for (int i = 0; i < resultTemplates.Count; i++)
             {
                 ResultsManager resultsManager = resultTemplates[i].GetComponent<ResultsManager>();
                 resultsManager.blockId = i;
-                if (i >= listPosition)
+                if (i >= id)
                 {
                     resultsManager.positionList--;
                 }

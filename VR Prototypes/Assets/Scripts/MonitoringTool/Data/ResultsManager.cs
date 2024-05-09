@@ -51,6 +51,7 @@ public class ResultsManager : GameData
             }
             else if(positionInnerList == 0 && myGameData.gameData[positionList].time.Count == 1)
             {
+                Debug.Log("Aqui");
                 string jsonFilePath = Path.Combine(Application.persistentDataPath, "GameData.txt");
                 string jsonText = File.ReadAllText(jsonFilePath);
                 myGameData = JsonUtility.FromJson<DataToStore>(jsonText);

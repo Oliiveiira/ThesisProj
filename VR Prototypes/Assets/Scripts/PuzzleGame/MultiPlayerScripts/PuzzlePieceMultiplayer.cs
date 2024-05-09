@@ -43,9 +43,9 @@ public class PuzzlePieceMultiplayer : NetworkBehaviour
     void Start()
     {
         placeSound = GetComponent<AudioSource>();
-        materials = GetComponent<Renderer>().materials.ToList();
+       // materials = GetComponent<Renderer>().materials.ToList();
         piecerenderer = GetComponent<Renderer>();
-        defaultMaterial = piecerenderer.materials[0];
+     //   defaultMaterial = piecerenderer.materials[0];
         // rightPosition = transform.position;
         //transform.position = new Vector3(transform.position.x, transform.position.y, Random.Range(0.3f, 0.7f));
         //transform.rotation = Quaternion.Euler(-90, 0, 0);

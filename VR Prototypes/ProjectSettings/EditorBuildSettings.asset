@@ -113,6 +113,42 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MultiplayerLevels/MultiplayerHub2.unity
     guid: 3220e08ea7789944dbca5ad0e0e7a313
+  - enabled: 1
+    path: Assets/Scenes/MultiplayerLevels/CustomMultiplayerHub.unity
+    guid: 2664bb6b5b3f6f94880ce8f9a68ad096
+  - enabled: 1
+    path: Assets/Scenes/MultiplayerLevels/CustomSupermarketMultiplayerLevel.unity
+    guid: 6c563146c2b3b364f8a5782a1beba9a7
+  - enabled: 1
+    path: Assets/Scenes/MultiplayerLevels/CustomPuzzleMultiplayer6Cubes.unity
+    guid: 7920b5d8e48d59049aa5c56380f8d03c
+  - enabled: 1
+    path: Assets/Scenes/MultiplayerLevels/CustomPuzzleMultiplayer9Cubes.unity
+    guid: 17e3480ead596814193fbd0490516bfb
+  - enabled: 1
+    path: Assets/Scenes/MultiplayerLevels/CustomPuzzleMultiplayer12Cubes.unity
+    guid: c7e8e26de7534334e90ae754cd858b5a
+  - enabled: 1
+    path: Assets/Scenes/MultiplayerLevels/CustomPuzzleMultiplayer16Cubes.unity
+    guid: d164ac16dc9e8bc498f73c67b0a01a45
+  - enabled: 1
+    path: Assets/Scenes/MultiplayerLevels/CustomFindTheProduct3.unity
+    guid: 0fa3973fa86fb3644928d7a439e91bf9
+  - enabled: 1
+    path: Assets/Scenes/MultiplayerLevels/CustomFindTheProduct4.unity
+    guid: 778379f9835b8464f92a0215e565d6ee
+  - enabled: 1
+    path: Assets/Scenes/MultiplayerLevels/CustomFindTheProduct5.unity
+    guid: c7c7a67e4968cbd468bda6f14a79936d
+  - enabled: 1
+    path: Assets/Scenes/MultiplayerLevels/CustomPairsLevel3Multiplayer.unity
+    guid: c55c44f82b4cbc64f991fff1775a400c
+  - enabled: 1
+    path: Assets/Scenes/MultiplayerLevels/CustomPairsLevel4Multiplayer.unity
+    guid: 544a2dfe11b766f43aa2e2445bc4fc09
+  - enabled: 1
+    path: Assets/Scenes/MultiplayerLevels/CustomPairsLevel6Multiplayer.unity
+    guid: df5645c02f797584cbea6dd00d581996
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 6eefee752c7ee674183932769f47456a, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}

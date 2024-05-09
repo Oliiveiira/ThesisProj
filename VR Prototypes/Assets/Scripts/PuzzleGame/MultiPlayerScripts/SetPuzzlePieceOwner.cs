@@ -14,11 +14,11 @@ public class SetPuzzlePieceOwner : HandGrabInteractor
     {
         interactable = Interactable.GetComponent<PuzzlePieceMultiplayer>();
         Debug.Log("Selected");
-        if (!isSelected)
-        {
-            interactable.SetOutlineMaterial();
-            isSelected = true;
-        }
+        //if (!isSelected)
+        //{
+        //    interactable.SetOutlineMaterial();
+        //    isSelected = true;
+        //}
 
         interactable.SetClientOwnershipServerRPC();
 
@@ -43,14 +43,14 @@ public class SetPuzzlePieceOwner : HandGrabInteractor
     {
         //Debug.Log(State);
         base.Update();
-        if(State != InteractorState.Hover && isSelected)
-        {
-            //var interactable = Interactable.GetComponent<PuzzlePieceMultiplayer>();
-            interactable.DisableOutlineMaterial();
-            Debug.Log(interactable.gameObject.name);
-            Debug.Log("Unselected");
-            isSelected = false;
-        }
+        //if(State != InteractorState.Hover && isSelected)
+        //{
+        //    //var interactable = Interactable.GetComponent<PuzzlePieceMultiplayer>();
+        //    interactable.DisableOutlineMaterial();
+        //    Debug.Log(interactable.gameObject.name);
+        //    Debug.Log("Unselected");
+        //    isSelected = false;
+        //}
     }
 
     //protected override void InteractableUnselected(HandGrabInteractable interactable)
