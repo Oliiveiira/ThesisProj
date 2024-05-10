@@ -159,24 +159,24 @@ public class IKTargetFollowVRRig : NetworkBehaviour
                 therapistCamera.transform.rotation = headFollowing.transform.rotation;
             }
 
-            if (Input.GetMouseButton(0) && grabbedNetworkObject != null && grabbedNetworkObject.IsOwner)
+            if (Input.GetMouseButton(0) && grabbedNetworkObject != null && grabbedNetworkObject.IsOwner&& SceneManager.GetActiveScene().name != "CustomSupermarketMultiplayerLevel")
             {
                 grabbedNetworkObject.transform.position = therapistCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, therapistCamera.transform.position.y - grabbedNetworkObject.transform.position.y));
             }
 
-            if (Input.GetMouseButtonUp(0) && grabbedNetworkObject != null && grabbedNetworkObject.IsOwner)
+            if (Input.GetMouseButtonUp(0) && grabbedNetworkObject != null && grabbedNetworkObject.IsOwner && SceneManager.GetActiveScene().name != "CustomSupermarketMultiplayerLevel")
             {
                 grabbedNetworkObject.transform.position = initialMovePosition;
                 StartCoroutine(DelayRemoveOwnership(1, grabbedNetworkObject));
                 grabbedNetworkObject = null;
             }
 
-            if ((Input.touchCount > 0 || Input.GetMouseButtonDown(0)) && currentIndex == 1 && Input.mousePosition.y >= 175.1f) 
+            if ((Input.touchCount > 0 || Input.GetMouseButtonDown(0)) && currentIndex == 1 && Input.mousePosition.y >= 175.1f && SceneManager.GetActiveScene().name != "CustomSupermarketMultiplayerLevel") 
             {
                 Vector3 placeToMove = therapistCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, therapistCamera.nearClipPlane + 0.2f * 2));
                 //Vector3 placeToMove = therapistCamera.ScreenToWorldPoint(Input.GetTouch(0));
                 placeToMove.y = deskHeight + 0.2f;
-                SpawnArrowServerRpc(placeToMove);
+                SpawnArrowServerRpc(placeToMove, Quaternion.Euler(0,0,90));
 
                 RaycastHit hit;
                 Ray ray = therapistCamera.ScreenPointToRay(Input.mousePosition);
@@ -189,6 +189,12 @@ public class IKTargetFollowVRRig : NetworkBehaviour
                     SetObjectOwnershipTherapistServerRpc(new NetworkObjectReference(grabbedNetworkObject), NetworkManager.LocalClientId, true);
                     initialMovePosition = grabbedNetworkObject.transform.position;
                 }
+            }
+            else if ((Input.touchCount > 0 || Input.GetMouseButtonDown(0)) && currentIndex == 1 && Input.mousePosition.y >= 175.1f && SceneManager.GetActiveScene().name == "CustomSupermarketMultiplayerLevel")
+            {
+                Vector3 placeToMove = therapistCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, therapistCamera.nearClipPlane + 1.9f));
+                placeToMove.x = 8.5f;
+                SpawnArrowServerRpc(placeToMove, Quaternion.Euler(0, 180, 0));
             }
             return;
         }
@@ -223,11 +229,11 @@ public class IKTargetFollowVRRig : NetworkBehaviour
     }
 
     [ServerRpc]
-    void SpawnArrowServerRpc(Vector3 placeToMove)
+    void SpawnArrowServerRpc(Vector3 placeToMove, Quaternion rotation)
     {
         if (arrow == null) 
         {
-            arrow = Instantiate(arrowPrefab, placeToMove, Quaternion.Euler(0,0,90));
+            arrow = Instantiate(arrowPrefab, placeToMove, rotation/*Quaternion.Euler(0,0,90)*/);
             arrow.GetComponent<NetworkObject>().Spawn();
             return;
         }
