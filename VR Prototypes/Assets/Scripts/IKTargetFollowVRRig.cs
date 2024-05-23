@@ -192,6 +192,7 @@ public class IKTargetFollowVRRig : NetworkBehaviour
             }
             else if ((Input.touchCount > 0 || Input.GetMouseButtonDown(0)) && currentIndex == 1 && Input.mousePosition.y >= 175.1f && SceneManager.GetActiveScene().name == "CustomSupermarketMultiplayerLevel")
             {
+                Debug.Log("spawn arrow");
                 Vector3 placeToMove = therapistCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, therapistCamera.nearClipPlane + 1.9f));
                 placeToMove.x = 8.5f;
                 SpawnArrowServerRpc(placeToMove, Quaternion.Euler(0, 180, 0));
@@ -285,6 +286,7 @@ public class IKTargetFollowVRRig : NetworkBehaviour
 
     public void OnChangeScene(ulong clientId, string sceneName = "", LoadSceneMode loadSceneMode = LoadSceneMode.Single)
     {
+        currentTime = 0;
         Debug.Log($"{clientId} - ChangeScene");
         if (!IsOwner) return;
         if (PlatformPicker.localPlatform == Platform.Therapist)

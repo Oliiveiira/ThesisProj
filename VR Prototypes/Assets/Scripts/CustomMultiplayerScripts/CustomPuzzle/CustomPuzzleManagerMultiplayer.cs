@@ -54,6 +54,9 @@ public class CustomPuzzleManagerMultiplayer : CustomLevelsData
     private GameObject objectsToHide;
 
     private CustomMultiplayerSceneManager multiplayerSceneManager;
+    private GetErrorCountData errorCountData;
+    public int numberOfErrors = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,12 +69,13 @@ public class CustomPuzzleManagerMultiplayer : CustomLevelsData
             MeshRenderer placeholderMeshRenderer = placeholder.GetComponent<MeshRenderer>();
             placeholderMeshRenderer.enabled = true;
         }
-
-       multiplayerSceneManager = GetComponent<CustomMultiplayerSceneManager>();
+        
+        multiplayerSceneManager = GetComponent<CustomMultiplayerSceneManager>();
+        errorCountData = GetComponent<GetErrorCountData>();
 
         if (IsServer)
             currentTime.Value = startingTime;
-
+        
         ShuffleArray(sidePlaceHolders);
     }
 
@@ -144,6 +148,12 @@ public class CustomPuzzleManagerMultiplayer : CustomLevelsData
             Debug.Log("Boa!");
             if (IsServer)
             {
+                if(numberOfErrors == 0)
+                {
+                    errorCountData.SaveData(numberOfErrors);
+                    numberOfErrors++;
+                }
+
                 RaiseWinPanelClientRPC();
                 currentTime.Value -= 1 * Time.deltaTime;
                 if (currentTime.Value <= 0)
@@ -163,7 +173,6 @@ public class CustomPuzzleManagerMultiplayer : CustomLevelsData
             if (!piece.isInRightPlace.Value)
                 return false;
         }
-        
         return true; // All positions are equal.
     }
 

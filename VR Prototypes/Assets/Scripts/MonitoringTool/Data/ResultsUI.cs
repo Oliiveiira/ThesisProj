@@ -39,6 +39,8 @@ public class ResultsUI : GameData
                         result.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "Tempo: " + myGameData.gameData[j].time[i];
                         result.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = myGameData.gameData[j].date;
                         result.transform.GetChild(4).GetComponent<TextMeshProUGUI>().text = "Nivel: " + myGameData.gameData[j].level[i];
+                            if(myGameData.gameData[j].level[i] == "CustomSupermarketMultiplayerLevel")
+                                result.transform.GetChild(5).GetComponent<TextMeshProUGUI>().text = "Erros: " + myGameData.gameData[j].errorCount[i];
 
                         id++;
                     }

@@ -12,6 +12,7 @@ public class CustomBasketCounterMultiplayer : CustomLevelsData
     [SerializeField]
     private CustomSupermarketMultiplayer products;
     private CustomMultiplayerSceneManager multiplayerSceneManager;
+    private GetErrorCountData errorCountData;
 
     private int successCounter;
     [SerializeField]
@@ -41,6 +42,7 @@ public class CustomBasketCounterMultiplayer : CustomLevelsData
     [SerializeField]
     private NetworkVariable<float> currentTime = new NetworkVariable<float>(0);
     private bool listPositionRemoved;
+    public int numberOfErrors;
 
     private void Start()
     {
@@ -48,6 +50,7 @@ public class CustomBasketCounterMultiplayer : CustomLevelsData
         string jsonText = File.ReadAllText(jsonFilePath);
         myLevelData = JsonUtility.FromJson<MultiplayerLevelsData>(jsonText);
         multiplayerSceneManager = GetComponent<CustomMultiplayerSceneManager>();
+        errorCountData = GetComponent<GetErrorCountData>();
 
         if (IsServer)
             currentTime.Value = startingTime;
@@ -75,6 +78,7 @@ public class CustomBasketCounterMultiplayer : CustomLevelsData
     {
         if (successCounter == myLevelData.levelData[0].ingredientsPath.Count)
         {
+            errorCountData.SaveData(numberOfErrors);
             DeactivateShelves();
             // registerBox.SetActive(true);
             // wallet.SetActive(true);
@@ -154,8 +158,10 @@ public class CustomBasketCounterMultiplayer : CustomLevelsData
                         break;
                     }
                 }
+
                 if (!product.isInBasket)
                 {
+                    numberOfErrors++;
                     NetworkObjectReference productReference = new NetworkObjectReference(product.GetComponent<NetworkObject>());
                     product.SetProductInitialPosition();
                     SetProductToInitialPositionClientRPC(productReference);

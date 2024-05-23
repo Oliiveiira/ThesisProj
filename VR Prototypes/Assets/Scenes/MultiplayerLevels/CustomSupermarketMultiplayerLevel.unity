@@ -46022,7 +46022,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6949143601169849850, guid: c9c009f813b4f37449b5052bf27b710c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8637617428037247904, guid: c9c009f813b4f37449b5052bf27b710c, type: 3}
       propertyPath: _hand
@@ -87651,6 +87651,7 @@ GameObject:
   - component: {fileID: 8993772429687718605}
   - component: {fileID: 1145740298}
   - component: {fileID: 8993772429687718606}
+  - component: {fileID: 8993772429687718607}
   m_Layer: 0
   m_Name: Basket
   m_TagString: Untagged
@@ -88654,6 +88655,7 @@ MonoBehaviour:
   timer: {fileID: 1067683831}
   currentTime:
     m_InternalValue: 0
+  numberOfErrors: 0
 --- !u!114 &8993772429687718606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88668,6 +88670,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myLevelData:
     levelData: []
+--- !u!114 &8993772429687718607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8618654880276240502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c2b15c3ddb42bc41adab17cd781c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myGameData:
+    gameData: []
 --- !u!23 &9001967699998327809
 MeshRenderer:
   m_ObjectHideFlags: 0

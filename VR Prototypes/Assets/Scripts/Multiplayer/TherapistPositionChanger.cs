@@ -64,6 +64,10 @@ public class TherapistPositionChanger : GameData
 
     public void SaveData()
     {
+        string jsonFilePath = Path.Combine(Application.persistentDataPath, "GameData.txt");
+        string jsonText = File.ReadAllText(jsonFilePath);
+        myGameData = JsonUtility.FromJson<DataToStore>(jsonText);
+
         myGameData.gameData[myGameData.gameData.Count - 1].time.Add(timer.text);
         myGameData.gameData[myGameData.gameData.Count - 1].level.Add(SceneManager.GetActiveScene().name);
         //myGameData.gameData[myGameData.gameData.Count - 1].player1 = myGameData.gameData[myGameData.gameData.Count - 1].player1;

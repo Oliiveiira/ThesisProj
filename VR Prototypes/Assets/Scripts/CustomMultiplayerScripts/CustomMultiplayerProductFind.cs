@@ -46,11 +46,14 @@ public class CustomMultiplayerProductFind : CustomLevelsData
     private bool listPositionRemoved;
 
     private CustomMultiplayerSceneManager multiplayerSceneManager;
+    private GetErrorCountData errorCountData;
+    private int numberOfErrors = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         multiplayerSceneManager = GetComponent<CustomMultiplayerSceneManager>();
+        errorCountData = GetComponent<GetErrorCountData>();
 
         if (IsServer)
             currentTime.Value = startingTime;
@@ -80,6 +83,12 @@ public class CustomMultiplayerProductFind : CustomLevelsData
 
         if (winFlag)
         {
+            if (numberOfErrors == 0)
+            {
+                errorCountData.SaveData(numberOfErrors);
+                numberOfErrors++;
+            }
+
             currentTime.Value -= 1 * Time.deltaTime;
             if (currentTime.Value <= 0)
             {
