@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Netcode;
 using UnityEngine;
 
-public class Pen : MonoBehaviour
+public class Pen : NetworkBehaviour
 {
     [SerializeField]
     private Transform tip;
@@ -64,12 +65,14 @@ public class Pen : MonoBehaviour
                 {
                     Debug.Log("touchedlastframe");
                     whiteBoard.texture.SetPixels(x, y, penSize, penSize, colors);
+                    whiteBoard.UpdateTextureServerRpc(x, y, colors, penSize, NetworkManager.Singleton.LocalClientId);
 
                     for (float f = 0.01f; f < 1.00f; f += 0.03f)
                     {
                         var lerpX = (int)Mathf.Lerp(lastTouchPos.x, x, f);
                         var lerpY = (int)Mathf.Lerp(lastTouchPos.y, y, f);
                         whiteBoard.texture.SetPixels(lerpX, lerpY, penSize, penSize, colors);
+                        whiteBoard.UpdateTextureServerRpc(lerpX, lerpY, colors, penSize, NetworkManager.Singleton.LocalClientId);
                     }
 
                    //transform.rotation = lastTouchRot;

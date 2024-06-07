@@ -62,6 +62,8 @@ public class IKTargetFollowVRRig : NetworkBehaviour
     private Vector3 initialMovePosition = Vector3.zero;
     
     private float currentTime = 0;
+    public int currentPaintPosition;
+    public int spawnLocationsNumber;
 
     public void Awake()
     {
@@ -118,8 +120,21 @@ public class IKTargetFollowVRRig : NetworkBehaviour
         Debug.Log(headVRTarget);
 
         GameObject spawnLocations = GameObject.Find("SpawnLocations");
-        myXRRig.transform.parent.position = spawnLocations.transform.GetChild(((int)NetworkManager.LocalClientId + 1) % spawnLocations.transform.childCount).position;
-        myXRRig.transform.parent.rotation = spawnLocations.transform.GetChild(((int)NetworkManager.LocalClientId + 1) % spawnLocations.transform.childCount).rotation;
+        //Turn on if painting levels dont work
+        //myXRRig.transform.parent.position = spawnLocations.transform.GetChild(((int)NetworkManager.LocalClientId + 1) % spawnLocations.transform.childCount).position;
+        //myXRRig.transform.parent.rotation = spawnLocations.transform.GetChild(((int)NetworkManager.LocalClientId + 1) % spawnLocations.transform.childCount).rotation;
+        spawnLocationsNumber = spawnLocations.transform.childCount;
+
+        if (SceneManager.GetActiveScene().name != "PaintMultiplayerHub")
+        {
+            myXRRig.transform.parent.position = spawnLocations.transform.GetChild(((int)NetworkManager.LocalClientId + 1) % spawnLocations.transform.childCount).position;
+            myXRRig.transform.parent.rotation = spawnLocations.transform.GetChild(((int)NetworkManager.LocalClientId + 1) % spawnLocations.transform.childCount).rotation;
+        }
+        else
+        {
+            myXRRig.transform.parent.position = spawnLocations.transform.GetChild(((int)NetworkManager.LocalClientId + 1) % spawnLocations.transform.childCount).position;
+            myXRRig.transform.parent.rotation = spawnLocations.transform.GetChild(((int)NetworkManager.LocalClientId + 1) % spawnLocations.transform.childCount).rotation;
+        }
         Debug.Log($"Spawned to location {spawnLocations.transform.GetChild((int)NetworkManager.LocalClientId % spawnLocations.transform.childCount).position} and rotation {spawnLocations.transform.GetChild((int)NetworkManager.LocalClientId % spawnLocations.transform.childCount).rotation}");
 
     }
@@ -316,8 +331,19 @@ public class IKTargetFollowVRRig : NetworkBehaviour
         Debug.Log(headVRTarget);
 
         GameObject spawnLocations = GameObject.Find("SpawnLocations");
-        myXRRig.transform.parent.position = spawnLocations.transform.GetChild(((int)NetworkManager.LocalClientId + 1) % spawnLocations.transform.childCount).position;
-        myXRRig.transform.parent.rotation = spawnLocations.transform.GetChild(((int)NetworkManager.LocalClientId + 1) % spawnLocations.transform.childCount).rotation;
+        //Turn on if painting levels dont work
+        //myXRRig.transform.parent.position = spawnLocations.transform.GetChild(((int)NetworkManager.LocalClientId + 1) % spawnLocations.transform.childCount).position;
+        //myXRRig.transform.parent.rotation = spawnLocations.transform.GetChild(((int)NetworkManager.LocalClientId + 1) % spawnLocations.transform.childCount).rotation;
+        if (SceneManager.GetActiveScene().name != "PaintingLevels2")
+        {
+            myXRRig.transform.parent.position = spawnLocations.transform.GetChild(((int)NetworkManager.LocalClientId + 1) % spawnLocations.transform.childCount).position;
+            myXRRig.transform.parent.rotation = spawnLocations.transform.GetChild(((int)NetworkManager.LocalClientId + 1) % spawnLocations.transform.childCount).rotation;
+        }
+        else
+        {
+            myXRRig.transform.parent.position = spawnLocations.transform.GetChild(((int)NetworkManager.LocalClientId + currentPaintPosition) % spawnLocations.transform.childCount).position;
+            myXRRig.transform.parent.rotation = spawnLocations.transform.GetChild(((int)NetworkManager.LocalClientId + currentPaintPosition) % spawnLocations.transform.childCount).rotation;
+        }
         Debug.Log($"Spawned to location {spawnLocations.transform.GetChild((int)NetworkManager.LocalClientId % spawnLocations.transform.childCount).position} and rotation {spawnLocations.transform.GetChild((int)NetworkManager.LocalClientId % spawnLocations.transform.childCount).rotation}");
     }
 
