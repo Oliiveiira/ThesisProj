@@ -6,10 +6,14 @@ using UnityEngine;
 public class Marker : NetworkBehaviour
 {
     private Renderer render;
+    public Vector3 initialTransform;
+
     // Start is called before the first frame update
     void Start()
     {
         render = GetComponent<Renderer>();
+        initialTransform = transform.localPosition;
+        Debug.Log(initialTransform);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -62,5 +66,11 @@ public class Marker : NetworkBehaviour
         {
             Debug.Log("not working");
         }
+    }
+
+    public void SetOwner()
+    {
+        SetClientHandMarkerOwnershipServerRPC();
+        transform.position = initialTransform;
     }
 }
