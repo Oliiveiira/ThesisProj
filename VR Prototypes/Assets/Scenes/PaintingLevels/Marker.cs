@@ -28,10 +28,10 @@ public class Marker : NetworkBehaviour
 
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    SetClientOwnershipServerRPC();
-        //}
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            transform.localPosition = new Vector3(0,0,0);
+        }
     }
 
     [ServerRpc(RequireOwnership = false)]
@@ -71,6 +71,11 @@ public class Marker : NetworkBehaviour
     public void SetOwner()
     {
         SetClientHandMarkerOwnershipServerRPC();
-        transform.position = initialTransform;
+        transform.localPosition = initialTransform;
+    }
+
+    public void SetHandMarkerPosition()
+    {
+        transform.localPosition = initialTransform;
     }
 }

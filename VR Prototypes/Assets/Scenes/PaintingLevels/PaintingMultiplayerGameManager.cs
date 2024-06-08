@@ -84,9 +84,6 @@ public class PaintingMultiplayerGameManager : NetworkBehaviour
     {
         guessCanvas.SetActive(false);
         winningWord = drawBtn[buttonId].name;
-
-        ChangeOwnerShipServerRpc();
-
         SendWinningWordServerRpc(winningWord);
         PopulateGuessCanvasServerRpc();
         //charactersSet = true;
