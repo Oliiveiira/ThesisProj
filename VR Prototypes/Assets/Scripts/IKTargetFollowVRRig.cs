@@ -65,9 +65,13 @@ public class IKTargetFollowVRRig : NetworkBehaviour
     public int currentPaintPosition;
     public int spawnLocationsNumber;
 
+    public GameObject therapistMarkerPrefab = null;
+    public GameObject therapistMarker = null;
+
     public void Awake()
     {
         arrowPrefab = Resources.Load<GameObject>("Arrow");
+        therapistMarkerPrefab = Resources.Load<GameObject>("TherapistMarker");
         string jsonFileName = "PuzzleDeskPivot.txt";
         string jsonFilePath = Path.Combine(Application.persistentDataPath, jsonFileName);
 
@@ -174,6 +178,37 @@ public class IKTargetFollowVRRig : NetworkBehaviour
                 therapistCamera.transform.rotation = headFollowing.transform.rotation;
             }
 
+            //For PaintingLevels
+            if ((Input.touchCount > 0 || Input.GetMouseButtonDown(0)) && currentIndex == 1 && Input.mousePosition.y >= 175.1f && SceneManager.GetActiveScene().name == "PaintingLevels2")
+            {
+                Vector3 placeToMove = therapistCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.75f));
+                //Vector3 placeToMove = therapistCamera.ScreenToWorldPoint(Input.GetTouch(0));
+                placeToMove.y = deskHeight;
+                SpawnTherapistMarkerServerRpc(placeToMove, Quaternion.Euler(90,0,0));
+                
+                RaycastHit hit;
+                Ray ray = therapistCamera.ScreenPointToRay(Input.mousePosition);
+
+                if (Physics.Raycast(ray, out hit, 100f))
+                {
+                    Debug.Log(hit.collider.name);
+                    grabbedNetworkObject = hit.collider.gameObject.GetComponent<NetworkObject>();
+                    originalOwner = grabbedNetworkObject.OwnerClientId;
+                    SetObjectOwnershipTherapistServerRpc(new NetworkObjectReference(grabbedNetworkObject), NetworkManager.LocalClientId, true);
+                    initialMovePosition = grabbedNetworkObject.transform.position;
+                }
+            }
+
+            if ((Input.touchCount > 0 || Input.GetMouseButton(0)) && currentIndex == 1 && Input.mousePosition.y >= 175.1f && SceneManager.GetActiveScene().name == "PaintingLevels2")
+            {
+                therapistMarker.transform.position = therapistCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.75f));
+            }
+
+            if (Input.GetMouseButtonUp(0) && therapistMarker != null && currentIndex == 1 && Input.mousePosition.x >= 615 && SceneManager.GetActiveScene().name == "PaintingLevels2")
+            {
+                ClearTherapistMarkerServerRpc();
+            }
+
             if (Input.GetMouseButton(0) && grabbedNetworkObject != null && grabbedNetworkObject.IsOwner&& SceneManager.GetActiveScene().name != "CustomSupermarketMultiplayerLevel")
             {
                 grabbedNetworkObject.transform.position = therapistCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, therapistCamera.transform.position.y - grabbedNetworkObject.transform.position.y));
@@ -186,7 +221,7 @@ public class IKTargetFollowVRRig : NetworkBehaviour
                 grabbedNetworkObject = null;
             }
 
-            if ((Input.touchCount > 0 || Input.GetMouseButtonDown(0)) && currentIndex == 1 && Input.mousePosition.y >= 175.1f && SceneManager.GetActiveScene().name != "CustomSupermarketMultiplayerLevel") 
+            if ((Input.touchCount > 0 || Input.GetMouseButtonDown(0)) && currentIndex == 1 && Input.mousePosition.y >= 175.1f && SceneManager.GetActiveScene().name != "CustomSupermarketMultiplayerLevel" && SceneManager.GetActiveScene().name != "PaintingLevels2") 
             {
                 Vector3 placeToMove = therapistCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, therapistCamera.nearClipPlane + 0.2f * 2));
                 //Vector3 placeToMove = therapistCamera.ScreenToWorldPoint(Input.GetTouch(0));
@@ -242,6 +277,28 @@ public class IKTargetFollowVRRig : NetworkBehaviour
     {
         // Show the avatar on the server
         avatarRenderer.enabled = true;
+    }
+
+    [ServerRpc]
+    void SpawnTherapistMarkerServerRpc(Vector3 placeToMove, Quaternion rotation)
+    {
+        if (therapistMarker == null)
+        {
+            therapistMarker = Instantiate(therapistMarkerPrefab, placeToMove, rotation/*Quaternion.Euler(0,0,90)*/);
+            therapistMarker.GetComponent<NetworkObject>().Spawn();
+            return;
+        }
+        Destroy(therapistMarker);
+       // therapistMarker.transform.position = placeToMove;
+    }
+
+    [ServerRpc]
+    public void ClearTherapistMarkerServerRpc()
+    {
+        if (therapistMarker == null)
+            return;
+
+        therapistMarker.transform.position = new Vector3(0, 0, 0);
     }
 
     [ServerRpc]

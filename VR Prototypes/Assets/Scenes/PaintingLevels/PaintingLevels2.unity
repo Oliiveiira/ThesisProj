@@ -12080,6 +12080,24 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4924228847380276860, guid: 034c4e454ca209749b8ffb91c6d97ee3, type: 3}
   m_PrefabInstance: {fileID: 291538439}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &291538441 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4924228847380276835, guid: 034c4e454ca209749b8ffb91c6d97ee3, type: 3}
+  m_PrefabInstance: {fileID: 291538439}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &291538442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291538441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b99c171b710254dbe7ce3712e0bc10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPrefab: {fileID: 672525895944427906, guid: edee0b684cfb14b4c9e9ddae29903987, type: 3}
 --- !u!1 &292581868
 GameObject:
   m_ObjectHideFlags: 0
@@ -51720,9 +51738,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   draws: []
   drawBtn:
-  - {fileID: 557477698}
-  - {fileID: 1887992433}
-  - {fileID: 300312686}
+  - {fileID: 83533168}
+  - {fileID: 780659076}
+  - {fileID: 1906904599}
   usedIndexes: 
   winningWord: 
   guessText: {fileID: 1897177665}
@@ -51737,9 +51755,9 @@ MonoBehaviour:
   timer: {fileID: 966758904}
   guessCanvas: {fileID: 775220029}
   buttonText:
-  - {fileID: 437140078}
-  - {fileID: 1220748641}
-  - {fileID: 37142487}
+  - {fileID: 1382688460}
+  - {fileID: 349641224}
+  - {fileID: 1000732640}
   tryAgainText: {fileID: 1311700329}
   marker: {fileID: 1172468562}
   handMarker:
@@ -73615,7 +73633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 525b4573b2de87a4eb7ed38956b2c3dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  choosenPlatform: 0
+  choosenPlatform: 1
 --- !u!1 &2074516979
 GameObject:
   m_ObjectHideFlags: 0
