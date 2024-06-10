@@ -288,7 +288,6 @@ public class IKTargetFollowVRRig : NetworkBehaviour
             therapistMarker.GetComponent<NetworkObject>().Spawn();
             return;
         }
-        Destroy(therapistMarker);
        // therapistMarker.transform.position = placeToMove;
     }
 
@@ -298,7 +297,7 @@ public class IKTargetFollowVRRig : NetworkBehaviour
         if (therapistMarker == null)
             return;
 
-        therapistMarker.transform.position = new Vector3(0, 0, 0);
+        Destroy(therapistMarker);
     }
 
     [ServerRpc]

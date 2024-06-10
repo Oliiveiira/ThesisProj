@@ -9434,6 +9434,7 @@ GameObject:
   - component: {fileID: 233239295}
   - component: {fileID: 233239299}
   - component: {fileID: 233239300}
+  - component: {fileID: 233239301}
   m_Layer: 0
   m_Name: DrawCAnvas
   m_TagString: Untagged
@@ -9565,6 +9566,21 @@ MonoBehaviour:
   _positionPinning:
     Enabled: 0
     MaxPinDistance: 0
+--- !u!114 &233239301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233239294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f38d89588582565499603467ff3dcf09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderTexture: {fileID: 8400000, guid: a1f543f1632a7be4a9321862f2ec9691, type: 2}
+  targetRenderer: {fileID: 233239296}
+  canUpdateTexture: 0
 --- !u!1 &234082219
 GameObject:
   m_ObjectHideFlags: 0
@@ -35555,6 +35571,7 @@ GameObject:
   - component: {fileID: 977009939}
   - component: {fileID: 977009938}
   - component: {fileID: 977009945}
+  - component: {fileID: 977009946}
   m_Layer: 12
   m_Name: r_fingerMarker
   m_TagString: Pallete
@@ -35598,7 +35615,7 @@ MonoBehaviour:
   SyncScaleX: 0
   SyncScaleY: 0
   SyncScaleZ: 0
-  PositionThreshold: 0.001
+  PositionThreshold: 0.0001
   RotAngleThreshold: 0.01
   ScaleThreshold: 0.01
   UseQuaternionSynchronization: 0
@@ -35606,7 +35623,7 @@ MonoBehaviour:
   UseHalfFloatPrecision: 0
   InLocalSpace: 0
   Interpolate: 1
-  SlerpPosition: 0
+  SlerpPosition: 1
 --- !u!114 &977009939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35729,6 +35746,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4014869d5425e254cab7e0f1fbc95187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &977009946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977009936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &979943764
@@ -71928,6 +71957,7 @@ GameObject:
   - component: {fileID: 2027071276}
   - component: {fileID: 2027071277}
   - component: {fileID: 2027071278}
+  - component: {fileID: 2027071279}
   m_Layer: 12
   m_Name: l_fingerMarker
   m_TagString: Pallete
@@ -72083,7 +72113,7 @@ MonoBehaviour:
   SyncScaleX: 0
   SyncScaleY: 0
   SyncScaleZ: 0
-  PositionThreshold: 0.001
+  PositionThreshold: 0.0001
   RotAngleThreshold: 0.01
   ScaleThreshold: 0.01
   UseQuaternionSynchronization: 0
@@ -72091,7 +72121,7 @@ MonoBehaviour:
   UseHalfFloatPrecision: 0
   InLocalSpace: 0
   Interpolate: 1
-  SlerpPosition: 0
+  SlerpPosition: 1
 --- !u!114 &2027071278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72102,6 +72132,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4014869d5425e254cab7e0f1fbc95187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2027071279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027071268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &2029605252
