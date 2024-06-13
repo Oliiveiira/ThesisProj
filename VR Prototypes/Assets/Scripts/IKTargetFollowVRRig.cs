@@ -181,7 +181,7 @@ public class IKTargetFollowVRRig : NetworkBehaviour
             //For PaintingLevels
             if ((Input.touchCount > 0 || Input.GetMouseButtonDown(0)) && currentIndex == 1 && Input.mousePosition.y >= 175.1f && SceneManager.GetActiveScene().name == "PaintingLevels2")
             {
-                Vector3 placeToMove = therapistCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.75f));
+                Vector3 placeToMove = therapistCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.725f));
                 //Vector3 placeToMove = therapistCamera.ScreenToWorldPoint(Input.GetTouch(0));
                 placeToMove.y = deskHeight;
                 SpawnTherapistMarkerServerRpc(placeToMove, Quaternion.Euler(90,0,0));
@@ -201,7 +201,7 @@ public class IKTargetFollowVRRig : NetworkBehaviour
 
             if ((Input.touchCount > 0 || Input.GetMouseButton(0)) && currentIndex == 1 && Input.mousePosition.y >= 175.1f && SceneManager.GetActiveScene().name == "PaintingLevels2")
             {
-                therapistMarker.transform.position = therapistCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.75f));
+                therapistMarker.transform.position = therapistCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.725f));
             }
 
             if (Input.GetMouseButtonUp(0) && therapistMarker != null && currentIndex == 1 && Input.mousePosition.x >= 615 && SceneManager.GetActiveScene().name == "PaintingLevels2")
@@ -399,6 +399,10 @@ public class IKTargetFollowVRRig : NetworkBehaviour
         {
             myXRRig.transform.parent.position = spawnLocations.transform.GetChild(((int)NetworkManager.LocalClientId + currentPaintPosition) % spawnLocations.transform.childCount).position;
             myXRRig.transform.parent.rotation = spawnLocations.transform.GetChild(((int)NetworkManager.LocalClientId + currentPaintPosition) % spawnLocations.transform.childCount).rotation;
+            if(myXRRig.transform.parent.position == spawnLocations.transform.GetChild(0).position)
+            {
+                GetComponent<TextureSender>().enabled = true;
+            }
         }
         Debug.Log($"Spawned to location {spawnLocations.transform.GetChild((int)NetworkManager.LocalClientId % spawnLocations.transform.childCount).position} and rotation {spawnLocations.transform.GetChild((int)NetworkManager.LocalClientId % spawnLocations.transform.childCount).rotation}");
     }

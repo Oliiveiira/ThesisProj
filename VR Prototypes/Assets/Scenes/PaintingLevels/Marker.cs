@@ -7,12 +7,14 @@ public class Marker : NetworkBehaviour
 {
     private Renderer render;
     public Vector3 initialTransform;
+    private TextureSender textureSender;
 
     // Start is called before the first frame update
     void Start()
     {
         render = GetComponent<Renderer>();
         initialTransform = transform.localPosition;
+        textureSender = FindObjectOfType<TextureSender>();
         Debug.Log(initialTransform);
     }
 
@@ -77,5 +79,32 @@ public class Marker : NetworkBehaviour
     public void SetHandMarkerPosition()
     {
         transform.localPosition = initialTransform;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+       // if(IsOwner)
+       // {
+            if (other.gameObject.CompareTag("Canvas"))
+            {
+                textureSender.StartSending();
+                //transform.position = new Vector3(transform.position.x, other.transform.position.y, transform.position.z);
+
+                Debug.Log("Collided");
+            }
+       // }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+       // if (IsOwner)
+       // {
+            if (other.gameObject.CompareTag("Canvas"))
+            {
+                textureSender.StopSending();
+                //transform.localPosition = initialTransform;
+                Debug.Log("ExitCollision");
+            }
+       // }
     }
 }

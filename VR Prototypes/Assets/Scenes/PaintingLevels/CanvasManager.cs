@@ -7,7 +7,7 @@ public class CanvasManager : MonoBehaviour
 {
     public Texture texture;
     public Camera renderCamera;
-    public RawImage tvTexture;
+    //public RawImage tvTexture;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,7 @@ public class CanvasManager : MonoBehaviour
         renderCamera.clearFlags = CameraClearFlags.SolidColor;
         renderCamera.backgroundColor = Color.white;
 
-        tvTexture.texture = texture;
+       // tvTexture.texture = texture;
         StartCoroutine(DelayCanvasChange(2));
     }
 
