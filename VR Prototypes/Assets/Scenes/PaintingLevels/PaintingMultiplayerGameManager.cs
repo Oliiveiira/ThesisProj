@@ -42,6 +42,7 @@ public class PaintingMultiplayerGameManager : NetworkBehaviour
     public GameObject marker;
     public GameObject[] handMarker;
     public GameObject eraser;
+    public RawImage drawMiniCanvasImage;
 
     public int currentIndex = 0;
 
@@ -84,6 +85,7 @@ public class PaintingMultiplayerGameManager : NetworkBehaviour
     {
         guessCanvas.SetActive(false);
         winningWord = drawBtn[buttonId].name;
+        drawMiniCanvasImage.texture = drawBtn[buttonId].image.sprite.texture;
         SendWinningWordServerRpc(winningWord);
         PopulateGuessCanvasServerRpc();
         //charactersSet = true;
@@ -282,21 +284,20 @@ public class PaintingMultiplayerGameManager : NetworkBehaviour
     [ServerRpc(RequireOwnership =false)]
     public void GuessDrawServerRpc(ServerRpcParams serverRpcParams = default)
     {
-        var clientId = serverRpcParams.Receive.SenderClientId;
-        Debug.Log(clientId);
-        winFlag = true;
+        //var clientId = serverRpcParams.Receive.SenderClientId;
+        //Debug.Log(clientId);
 
-        foreach (GameObject handMarkers in handMarker)
-        {
-            Marker handMarkerOwner = handMarkers.GetComponent<Marker>();
-            handMarkerOwner.SetClientHandMarkerOwnershipServerRPC();
-        }
+        //foreach (GameObject handMarkers in handMarker)
+        //{
+        //    Marker handMarkerOwner = handMarkers.GetComponent<Marker>();
+        //    handMarkerOwner.SetClientHandMarkerOwnershipServerRPC();
+        //}
 
-        SetNetworkObjectOwner markerOwner = marker.GetComponent<SetNetworkObjectOwner>();//change the owner of the marker to let the client write with it
-        markerOwner.SetClientOwnershipServerRPC();
+        //SetNetworkObjectOwner markerOwner = marker.GetComponent<SetNetworkObjectOwner>();//change the owner of the marker to let the client write with it
+        //markerOwner.SetClientOwnershipServerRPC();
 
-        SetNetworkObjectOwner eraserOwner = eraser.GetComponent<SetNetworkObjectOwner>();//change the owner of the marker to let the client write with it
-        eraserOwner.SetClientOwnershipServerRPC();
+        //SetNetworkObjectOwner eraserOwner = eraser.GetComponent<SetNetworkObjectOwner>();//change the owner of the marker to let the client write with it
+        //eraserOwner.SetClientOwnershipServerRPC();
         //if (NetworkManager.ConnectedClients.ContainsKey(clientId))
         //{
         //    var client = NetworkManager.ConnectedClients[clientId];
@@ -309,6 +310,8 @@ public class PaintingMultiplayerGameManager : NetworkBehaviour
         //{
         //    Debug.Log("not working");
         //}
+
+        winFlag = true;
         RaiseWinPanelClientRPC();
     }
 

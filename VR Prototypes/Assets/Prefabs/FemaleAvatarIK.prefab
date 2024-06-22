@@ -1850,6 +1850,7 @@ GameObject:
   - component: {fileID: 5059793848629319000}
   - component: {fileID: 5059793848629319001}
   - component: {fileID: 5059793848629319002}
+  - component: {fileID: 7653636698448490741}
   m_Layer: 0
   m_Name: FemaleAvatarIK
   m_TagString: Untagged
@@ -2197,6 +2198,24 @@ MonoBehaviour:
   headFollowing: {fileID: 0}
   arrow: {fileID: 0}
   arrowPrefab: {fileID: 0}
+  currentPaintPosition: 0
+  spawnLocationsNumber: 0
+  therapistMarkerPrefab: {fileID: 0}
+  therapistMarker: {fileID: 0}
+--- !u!114 &7653636698448490741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6878567036296335308}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfa42de454d1b0a469cf831851360705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textureToSend: {fileID: 8400000, guid: a1f543f1632a7be4a9321862f2ec9691, type: 2}
+  sendInterval: 0.2
 --- !u!1 &6936846838903398770
 GameObject:
   m_ObjectHideFlags: 0

@@ -1995,7 +1995,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: PuzzleLevelMultiplayerTest
           m_BoolArgument: 0
@@ -11161,17 +11161,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1470748107}
-        m_TargetAssemblyTypeName: MultiplayerSceneManager, Assembly-CSharp
-        m_MethodName: StopNetworkManagerClientRpc
-        m_Mode: 5
+      - m_Target: {fileID: 916897952}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: MultiplayerHub
-          m_BoolArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &255427020
 MonoBehaviour:
@@ -16996,7 +16996,7 @@ GameObject:
   - component: {fileID: 396176859}
   - component: {fileID: 396176858}
   m_Layer: 5
-  m_Name: StartPuzzle
+  m_Name: StartPainitngLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22857,14 +22857,14 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 283413389}
         m_TargetAssemblyTypeName: LocalNetworkManager, Assembly-CSharp
-        m_MethodName: ConnectHost
+        m_MethodName: ConnectClient
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22874,7 +22874,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 964169139}
+      - m_Target: {fileID: 782786669}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -25591,7 +25591,7 @@ PrefabInstance:
     - target: {fileID: 7589553757763553671, guid: 912d93bde8f1c3c48a6b291b82ce26b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1470748105}
+      objectReference: {fileID: 0}
     - target: {fileID: 7589553757763553671, guid: 912d93bde8f1c3c48a6b291b82ce26b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -30201,7 +30201,7 @@ PrefabInstance:
     - target: {fileID: 3435887460470905103, guid: f50d246825383354599ed5b8a5527f0b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1470748100}
+      objectReference: {fileID: 0}
     - target: {fileID: 3435887460470905103, guid: f50d246825383354599ed5b8a5527f0b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: MirrorLeft
@@ -33968,7 +33968,7 @@ PrefabInstance:
     - target: {fileID: 9222472113499884978, guid: 470f0ce616845604eb0e62307e33e2e2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 1470748100}
+      objectReference: {fileID: 0}
     - target: {fileID: 9222472113499884978, guid: 470f0ce616845604eb0e62307e33e2e2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
@@ -39038,7 +39038,7 @@ PrefabInstance:
     - target: {fileID: 3648413674030496354, guid: 2f2b78c68eee9e74bb57783d7774ee94, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1470748100}
+      objectReference: {fileID: 0}
     - target: {fileID: 3648413674030496354, guid: 2f2b78c68eee9e74bb57783d7774ee94, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: MirrorRight
@@ -39666,7 +39666,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1012513670
 RectTransform:
   m_ObjectHideFlags: 0
@@ -43051,7 +43051,7 @@ PrefabInstance:
     - target: {fileID: 3435887460470905103, guid: f50d246825383354599ed5b8a5527f0b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1470748105}
+      objectReference: {fileID: 0}
     - target: {fileID: 3435887460470905103, guid: f50d246825383354599ed5b8a5527f0b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -43063,7 +43063,7 @@ PrefabInstance:
     - target: {fileID: 3435887460470905103, guid: f50d246825383354599ed5b8a5527f0b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 1470748105}
+      objectReference: {fileID: 0}
     - target: {fileID: 3435887460470905103, guid: f50d246825383354599ed5b8a5527f0b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
@@ -43211,7 +43211,7 @@ PrefabInstance:
     - target: {fileID: 3648413674030496354, guid: 2f2b78c68eee9e74bb57783d7774ee94, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1470748105}
+      objectReference: {fileID: 0}
     - target: {fileID: 3648413674030496354, guid: 2f2b78c68eee9e74bb57783d7774ee94, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -43223,7 +43223,7 @@ PrefabInstance:
     - target: {fileID: 3648413674030496354, guid: 2f2b78c68eee9e74bb57783d7774ee94, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 1470748105}
+      objectReference: {fileID: 0}
     - target: {fileID: 3648413674030496354, guid: 2f2b78c68eee9e74bb57783d7774ee94, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
@@ -46852,7 +46852,7 @@ PrefabInstance:
     - target: {fileID: 7589553757763553671, guid: 912d93bde8f1c3c48a6b291b82ce26b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1470748100}
+      objectReference: {fileID: 0}
     - target: {fileID: 7589553757763553671, guid: 912d93bde8f1c3c48a6b291b82ce26b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -55402,7 +55402,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1414581960
 RectTransform:
   m_ObjectHideFlags: 0
@@ -56921,9 +56921,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1470748103}
   - component: {fileID: 1470748101}
-  - component: {fileID: 1470748100}
   - component: {fileID: 1470748104}
-  - component: {fileID: 1470748105}
   - component: {fileID: 1470748106}
   - component: {fileID: 1470748107}
   m_Layer: 0
@@ -56933,55 +56931,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1470748100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1470748099}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e222447fd0171148a9a542a357eead4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mirror: {fileID: 11400000, guid: 6c2c6ae6301467740b45912aff14b3fb, type: 2}
-  mirrorLeft: {fileID: 11400000, guid: 0cdcb70594a166c48b8af31696bf43b7, type: 2}
-  mirrorRight: {fileID: 11400000, guid: 157330372e4e1ce4abdaaf95dcc37c7e, type: 2}
-  setWinPanel: {fileID: 11400000, guid: ef33d6c9ab615ee43bd3d7ca065ce61a, type: 2}
-  mirrorNone: {fileID: 11400000, guid: 3b5e95912ba0dbc4b8b15283a62945c7, type: 2}
-  placeholders:
-  - {fileID: 2009011366}
-  - {fileID: 1373916007}
-  - {fileID: 1650693351}
-  - {fileID: 658530478}
-  - {fileID: 2132248831}
-  - {fileID: 1152787686}
-  puzzlePieces:
-  - {fileID: 246280743098423303}
-  - {fileID: 29707495806330937}
-  - {fileID: 6495314841678327703}
-  - {fileID: 5980786907990879778}
-  - {fileID: 8684533395631446865}
-  - {fileID: 1178826866197114252}
-  mirrorRightHand: 0
-  mirrorLeftHand: 0
-  mirrorNoneHand: 0
-  isPlaced: 0
-  setNormalMode: 0
-  grid: {fileID: 2092340656}
-  puzzle: {fileID: 2092340656}
-  sidePlaceHolders:
-  - {fileID: 451941335}
-  - {fileID: 372340215}
-  - {fileID: 1985336322}
-  - {fileID: 725126697}
-  - {fileID: 219178502}
-  - {fileID: 1839435005}
-  winSound: {fileID: 1470748104}
-  nextSceneName: PuzzleLevel3Passthrough
-  gameHasStarted: 0
-  timer: {fileID: 965779201}
 --- !u!114 &1470748101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57145,60 +57094,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1470748105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1470748099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36a356962200d0d4392e37e3c5dfec70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mirror: {fileID: 11400000, guid: 6c2c6ae6301467740b45912aff14b3fb, type: 2}
-  mirrorLeft: {fileID: 11400000, guid: 0cdcb70594a166c48b8af31696bf43b7, type: 2}
-  mirrorRight: {fileID: 11400000, guid: 157330372e4e1ce4abdaaf95dcc37c7e, type: 2}
-  setWinPanel: {fileID: 11400000, guid: ef33d6c9ab615ee43bd3d7ca065ce61a, type: 2}
-  mirrorNone: {fileID: 11400000, guid: 3b5e95912ba0dbc4b8b15283a62945c7, type: 2}
-  placeholders:
-  - {fileID: 2009011366}
-  - {fileID: 1373916007}
-  - {fileID: 1650693351}
-  - {fileID: 658530478}
-  - {fileID: 2132248831}
-  - {fileID: 1152787686}
-  puzzlePieces:
-  - {fileID: 246280743098423303}
-  - {fileID: 29707495806330937}
-  - {fileID: 6495314841678327703}
-  - {fileID: 5980786907990879778}
-  - {fileID: 8684533395631446865}
-  - {fileID: 1178826866197114252}
-  mirrorRightHand: 0
-  mirrorLeftHand: 0
-  mirrorNoneHand: 0
-  isPlaced:
-    m_InternalValue: 0
-  setNormalMode: 0
-  grid: {fileID: 2092340656}
-  puzzle: {fileID: 2092340656}
-  sidePlaceHolders:
-  - {fileID: 451941335}
-  - {fileID: 372340215}
-  - {fileID: 1985336322}
-  - {fileID: 725126697}
-  - {fileID: 219178502}
-  - {fileID: 1839435005}
-  winSound: {fileID: 1470748104}
-  nextSceneName: SupermarketMultiplayerLevel1
-  gameHasStarted:
-    m_InternalValue: 0
-  currentTime:
-    m_InternalValue: 0
-  timer: {fileID: 965779201}
-  objectsToHide: {fileID: 866028085}
 --- !u!114 &1470748106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65134,7 +65029,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1470748105}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PuzzleGameManagerMultiplayer, Assembly-CSharp
         m_MethodName: NextLevelServerRPC
         m_Mode: 1
@@ -67514,7 +67409,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Comecar Puzzle
+  m_text: Comecar Desenho
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 54b434cb6e4c8a144a9468961393dc17, type: 2}
   m_sharedMaterial: {fileID: 5850987709184212783, guid: 54b434cb6e4c8a144a9468961393dc17, type: 2}
@@ -71864,7 +71759,7 @@ PrefabInstance:
     - target: {fileID: 6994405848786458228, guid: c29d8de7b3eeaf14384bc13b319d00af, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1470748100}
+      objectReference: {fileID: 0}
     - target: {fileID: 6994405848786458228, guid: c29d8de7b3eeaf14384bc13b319d00af, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: MirrorNone
@@ -80851,7 +80746,7 @@ PrefabInstance:
     - target: {fileID: 9222472113499884978, guid: 470f0ce616845604eb0e62307e33e2e2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 1470748105}
+      objectReference: {fileID: 0}
     - target: {fileID: 9222472113499884978, guid: 470f0ce616845604eb0e62307e33e2e2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
@@ -86544,7 +86439,7 @@ PrefabInstance:
     - target: {fileID: 6994405848786458228, guid: c29d8de7b3eeaf14384bc13b319d00af, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1470748100}
+      objectReference: {fileID: 0}
     - target: {fileID: 6994405848786458228, guid: c29d8de7b3eeaf14384bc13b319d00af, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: MirrorNone
