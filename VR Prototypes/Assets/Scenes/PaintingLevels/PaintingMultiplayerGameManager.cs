@@ -350,10 +350,25 @@ public class PaintingMultiplayerGameManager : NetworkBehaviour
 
     }
 
+    public void SetClientID()
+    {
+        SetClientIDServerRpc();
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void SetClientIDServerRpc(ServerRpcParams serverRpcParams = default)
+    {
+        var clientId = serverRpcParams.Receive.SenderClientId;
+        if (NetworkManager.ConnectedClients.ContainsKey(clientId))
+        {
+            player.playerID = clientId;
+        }
+    }
+
     [ServerRpc(RequireOwnership = false)]
     public void NextLevelServerRPC()
     {
-        NetworkManager.SceneManager.LoadScene("PaintingLevels2", LoadSceneMode.Single);
+        NetworkManager.SceneManager.LoadScene("PaintingLevels3", LoadSceneMode.Single);
     }
 
     public void SelectLeftHandMarker()

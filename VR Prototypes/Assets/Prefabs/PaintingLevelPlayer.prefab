@@ -1539,13 +1539,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3978907146834640633}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfa42de454d1b0a469cf831851360705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textureToSend: {fileID: 8400000, guid: a1f543f1632a7be4a9321862f2ec9691, type: 2}
   sendInterval: 0.2
+  OwnerclientID: 0
 --- !u!1 &4224464850023859929
 GameObject:
   m_ObjectHideFlags: 0

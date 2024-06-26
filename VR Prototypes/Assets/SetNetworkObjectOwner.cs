@@ -5,6 +5,29 @@ using UnityEngine;
 
 public class SetNetworkObjectOwner : NetworkBehaviour
 {
+    public float syncInterval = 0.05f; // Sync every 0.05 seconds (20 times per second)
+    private float lastSyncTime;
+
+    public NetworkVariable<Vector3> networkedPosition = new NetworkVariable<Vector3>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    public bool isSending = false;
+
+    private void Update()
+    {
+        if (IsOwner)
+        {
+            //if (Time.time - lastSyncTime >= syncInterval)
+            //{
+                Debug.Log("Sending Vector3");
+                networkedPosition.Value = transform.position;
+                //lastSyncTime = Time.time;
+            //}
+        }
+        else if(!IsOwner)
+        {
+            transform.position = networkedPosition.Value;
+        }
+    }
+
     [ServerRpc(RequireOwnership = false)]
     public void SetClientOwnershipServerRPC(ServerRpcParams serverRpcParams = default)
     {
@@ -22,12 +45,36 @@ public class SetNetworkObjectOwner : NetworkBehaviour
         }
     }
 
-    private void Update()
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Space))
+    //    {
+    //        SetOwner();
+    //        Debug.Log("TRY TO CHANGE OWNERsHIP");
+    //    }
+    //}
+
+    private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (IsOwner)
         {
-            SetOwner();
-            Debug.Log("TRY TO CHANGE OWNERsHIP");
+            if (other.gameObject.CompareTag("Canvas"))
+            {
+                isSending = true;
+                Debug.Log("Collided");
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (IsOwner)
+        {
+            if (other.gameObject.CompareTag("Canvas"))
+            {
+                isSending = false;
+                Debug.Log("Collided");
+            }
         }
     }
 

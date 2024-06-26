@@ -12,6 +12,8 @@ public class TextureSender : NetworkBehaviour
     private float timeSinceLastSend = 0f;
     private byte[] previousData;
     private bool isSending = false;
+    public ulong OwnerclientID;
+    private IKTargetFollowVRRig player;
 
     // Max size of each chunk in bytes
     private const int MaxChunkSize = 1024;
@@ -19,13 +21,14 @@ public class TextureSender : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        OwnerclientID = 0;
+        player = NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<IKTargetFollowVRRig>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isSending)
+        if (IsServer && isSending)
         {
             timeSinceLastSend += Time.deltaTime;
             if (timeSinceLastSend >= sendInterval)
@@ -48,12 +51,12 @@ public class TextureSender : NetworkBehaviour
 
     public void SendTexture()
     {
-        Texture2D tex = new Texture2D(textureToSend.width, textureToSend.height, TextureFormat.RGB24, false);
+        Texture2D tex = new Texture2D(textureToSend.width, textureToSend.height, TextureFormat.RGBA32, false);
         RenderTexture.active = textureToSend;
         tex.ReadPixels(new Rect(0, 0, textureToSend.width, textureToSend.height), 0, 0);
         tex.Apply();
 
-        byte[] currentData = tex.EncodeToJPG(10);
+        byte[] currentData = tex.EncodeToJPG(25);
         Destroy(tex);
 
         if (previousData == null || !AreArraysEqual(currentData, previousData))
@@ -69,8 +72,30 @@ public class TextureSender : NetworkBehaviour
         int numChunks = Mathf.CeilToInt(dataLength / (float)MaxChunkSize);
 
         // Send header with total data size
-        SendTextureDataHeaderServerRpc(dataLength);
-        ReceiveServerTextureDataHeaderServerRpc(dataLength);
+       // ReceiveTextureDataHeaderClientRpc(dataLength);
+       if(player.currentPaintPosition == 0)
+       {
+            ReceiveTextureDataHeaderClientRpc(dataLength, new ClientRpcParams
+            {
+                Send = new ClientRpcSendParams
+                {
+                    TargetClientIds = GetAllClientIdsExcept((ulong)player.playerID)
+                }
+            });
+           // ReceiveServerTextureDataHeaderServerRpc(dataLength);
+       }
+        else
+        {
+            ReceiveTextureDataHeaderClientRpc(dataLength, new ClientRpcParams
+            {
+                Send = new ClientRpcSendParams
+                {
+                    TargetClientIds = GetAllClientIdsExcept((ulong)player.playerID)
+                }
+            });
+           // ReceiveServerTextureDataHeaderServerRpc(dataLength);
+        }
+       
 
         for (int i = 0; i < numChunks; i++)
         {
@@ -78,8 +103,28 @@ public class TextureSender : NetworkBehaviour
             int chunkSize = Mathf.Min(MaxChunkSize, dataLength - offset);
             byte[] chunk = new byte[chunkSize];
             System.Array.Copy(data, offset, chunk, 0, chunkSize);
-            SendTextureDataChunkServerRpc(chunk);
-            ReceiveServerTextureDataChunkServerRpc(chunk);
+            //SendTextureDataChunkServerRpc(chunk);
+            //ReceiveTextureDataChunkClientRpc(chunk);
+            if (player.currentPaintPosition == 0)
+            {
+                ReceiveTextureDataChunkClientRpc(chunk, new ClientRpcParams
+                {
+                    Send = new ClientRpcSendParams
+                    {
+                        TargetClientIds = GetAllClientIdsExcept((ulong)player.playerID)
+                    }
+                });
+            }
+            else
+            {
+                ReceiveTextureDataChunkClientRpc(chunk, new ClientRpcParams
+                {
+                    Send = new ClientRpcSendParams
+                    {
+                        TargetClientIds = GetAllClientIdsExcept((ulong)player.playerID)
+                    }
+                });
+            }
         }
     }
 
@@ -96,14 +141,14 @@ public class TextureSender : NetworkBehaviour
     }
 
     [ClientRpc]
-    private void ReceiveTextureDataHeaderClientRpc(int totalSize)
+    private void ReceiveTextureDataHeaderClientRpc(int totalSize, ClientRpcParams clientRpcParams = default)
     {
         var textureReceiver = FindObjectOfType<TextureReceiver>();
         textureReceiver.ReceiveTextureDataHeader(totalSize);
     }
 
     [ClientRpc]
-    private void ReceiveTextureDataChunkClientRpc(byte[] chunk)
+    private void ReceiveTextureDataChunkClientRpc(byte[] chunk, ClientRpcParams clientRpcParams = default)
     {
         var textureReceiver = FindObjectOfType<TextureReceiver>();
         textureReceiver.ReceiveTextureDataChunk(chunk);
@@ -134,5 +179,19 @@ public class TextureSender : NetworkBehaviour
                 return false;
         }
         return true;
+    }
+
+    private ulong[] GetAllClientIdsExcept(ulong clientId)
+    {
+        List<ulong> clientIds = new List<ulong>();
+        foreach (var client in NetworkManager.Singleton.ConnectedClientsList)
+        {
+            if (client.ClientId != clientId)
+            {
+                clientIds.Add(client.ClientId);
+            }
+        }
+        Debug.Log(clientIds.ToArray());
+        return clientIds.ToArray();
     }
 }
