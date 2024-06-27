@@ -31,7 +31,7 @@ public class PaintingMultiplayerGameManager : NetworkBehaviour
     private GameEvent setWinPanel;
     private float startingTime = 5;
     [SerializeField]
-    private NetworkVariable<float> currentTime = new NetworkVariable<float>(0);
+    private NetworkVariable<float> currentTime = new NetworkVariable<float>(0, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
     [SerializeField]
     private TextMeshProUGUI timer;
     private bool winFlag;
@@ -46,6 +46,12 @@ public class PaintingMultiplayerGameManager : NetworkBehaviour
 
     public int currentIndex = 0;
 
+    public TMP_InputField textInput;
+    public RectTransform guessDrawCanvas;
+    public Button letterButtonPrefab;
+    private string guessWord = null;
+    public int additionalLetters = 3; // Number of additional letters to add
+    public List<GameObject> buttonlist;
 
     // Start is called before the first frame update
     void Start()
@@ -134,6 +140,7 @@ public class PaintingMultiplayerGameManager : NetworkBehaviour
     {
         charactersSet = true;
         PopulateGuessCanvasClientRpc();
+        PopulateGuessCanvasithLettersClientRpc();
     }
 
     [ClientRpc]
@@ -256,6 +263,122 @@ public class PaintingMultiplayerGameManager : NetworkBehaviour
             list[randomIndex] = temp;
         }
         return list;
+    }
+
+    [ClientRpc]
+    public void PopulateGuessCanvasithLettersClientRpc()
+    {
+        string correctWord = winningWord.Trim();
+        int correctWordLength = correctWord.Length;
+
+        // Determine the total number of buttons to instantiate
+        int totalLetters = correctWordLength + additionalLetters;
+
+        // Generate the list of letters to use
+        List<char> letters = GenerateLetters(correctWord, totalLetters);
+
+        // Instantiate buttons on the canvas
+        InstantiateLetterButtons(letters);
+    }
+
+    private List<char> GenerateLetters(string correctWord, int totalLetters)
+    {
+        List<char> letters = new List<char>(correctWord.ToCharArray());
+
+        while (letters.Count < totalLetters)
+        {
+            char randomLetter = (char)('A' + random.Next(0, 26));
+            if (!letters.Contains(randomLetter))
+            {
+                letters.Add(randomLetter);
+            }
+        }
+
+        // Shuffle the letters
+        for (int i = 0; i < letters.Count; i++)
+        {
+            int rnd = random.Next(0, letters.Count);
+            char temp = letters[i];
+            letters[i] = letters[rnd];
+            letters[rnd] = temp;
+        }
+
+        return letters;
+    }
+
+    private void InstantiateLetterButtons(List<char> letters)
+    {
+        float startX = -250f; // Starting X position for the first button
+        float startY = 110f;    // Y position for all buttons
+        float spacing = 120f;  // Spacing between buttons
+        float maxX = 350f;    // Maximum X position before wrapping to a new row
+        float currentX = startX;
+        float currentY = startY;
+
+        for (int i = 0; i < letters.Count; i++)
+        {
+            Debug.Log(currentX);
+            if (currentX + spacing > maxX)
+            {
+                // Wrap to a new row
+                currentX = startX;
+                currentY -= 120f; // Move down to the next row
+            }
+
+            Debug.Log(letters[i]);
+            Button letterButton = Instantiate(letterButtonPrefab, guessDrawCanvas.transform);
+            letterButton.GetComponentInChildren<TextMeshProUGUI>().text = letters[i].ToString();
+            letterButton.GetComponent<RectTransform>().anchoredPosition = new Vector2(currentX, currentY);
+            char currentLetter = letters[i];
+            letterButton.onClick.AddListener(() => OnLetterButtonClick(currentLetter));
+            letterButton.onClick.AddListener(() => letterButton.gameObject.SetActive(false));
+
+            buttonlist.Add(letterButton.gameObject);
+            currentX += spacing;
+        }
+    }
+
+    private void OnLetterButtonClick(char letter)
+    {
+        // Handle letter button click
+        guessWord = guessWord + letter;
+        textInput.text = guessWord;
+        Debug.Log("Clicked letter: " + letter);
+    }
+
+    public void EraseLastChar()
+    {
+        foreach (GameObject btn in buttonlist)
+            btn.SetActive(true);
+
+        guessWord = null;
+        textInput.text = guessWord;
+    }
+
+    public void GuessDrawByLetters()
+    {
+        string userGuess = textInput.text;
+        userGuess.Trim();
+        string correctWord = winningWord.Trim();
+
+        // Log the lengths and characters of the strings for debugging
+        Debug.Log($"User Guess: '{userGuess}' (Length: {userGuess.Length})");
+        Debug.Log($"Correct Word: '{correctWord}' (Length: {correctWord.Length})");
+
+        if (string.Equals(userGuess, correctWord, StringComparison.OrdinalIgnoreCase))
+        {
+            Debug.Log("GAnhou!");
+            GuessDrawServerRpc();
+            //RaiseWinPanelClientRPC();
+        }
+        else
+        {
+            foreach (GameObject btn in buttonlist)
+                btn.SetActive(true);
+            Debug.Log("tryAgain!");
+            guessWord = null;
+            textInput.text = guessWord;
+        }
     }
 
     public void GuessDraw(int id)
